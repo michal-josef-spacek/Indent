@@ -1,4 +1,4 @@
-$Id: TODO,v 1.5 2005-02-14 04:26:52 skim Exp $
+$Id: TODO,v 1.6 2005-02-14 13:25:16 skim Exp $
 
 TODO
 ====
@@ -12,7 +12,8 @@ TODO
 5. U Tagu nelze indentovat parametr.
 6. Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich mist
    uprostred.
-7.
+7. Form pro pekne vykresleni formularovych prvku.
+8.
 
 Applied
 =======
