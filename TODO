@@ -1,4 +1,4 @@
-$Id: TODO,v 1.3 2005-02-14 04:05:40 skim Exp $
+$Id: TODO,v 1.4 2005-02-14 04:17:42 skim Exp $
 
 TODO
 ====
@@ -9,7 +9,8 @@ TODO
 2. Doladit, aby slo pouzivat. Hlavne jestli to funguje na windows.
 3. Dokumentace.
 4. Indent na data mimo slova.
-5.
+5. U Tagu nelze indentovat parametr.
+6.
 
 Applied
 =======
