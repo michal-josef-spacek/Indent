@@ -1,0 +1,19 @@
+$Id: INFO,v 1.1 2005-02-14 12:47:36 skim Exp $
+
+Info
+====
+Comment types:
+
+{ 
+  comment
+}
+
+# comment
+# comment
+
+/*
+ * comment
+ */
+
+-- comment
+-- comment
