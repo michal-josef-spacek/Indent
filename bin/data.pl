@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: data.pl,v 1.2 2005-04-01 12:02:07 skim Exp $
+# $Id: data.pl,v 1.1 2005-04-02 15:56:59 skim Exp $
 
 # Pragmas.
 use strict;

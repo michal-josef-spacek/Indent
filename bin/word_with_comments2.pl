@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: word_with_comments1.pl,v 1.1 2005-02-14 13:26:26 skim Exp $
+# $Id: word_with_comments2.pl,v 1.1 2005-04-02 15:56:59 skim Exp $
 
 # Pragmas.
 use strict;
@@ -16,7 +16,9 @@ my $word = new Indent::Word(
 	'indenter' => '',
 );
 my $comments = new Indent::Comment(
-	'middle' => '# ',
+	'begin' => '/*',
+	'middle' => ' * ',
+	'end' => ' */',
 );
 
 # Indent data.
