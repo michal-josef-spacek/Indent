@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.2 2005-02-14 04:26:41 skim Exp $
+# $Id: Comment.pm,v 1.3 2005-02-14 13:24:52 skim Exp $
 
 # Modules.
 use Carp;
@@ -21,7 +21,8 @@ sub new {
 	my $self = {};
 	
 	# Comment type.
-	$self->{'start'} = '';
+	$self->{'begin'} = '';
+	$self->{'middle'} = '';
 	$self->{'end'} = '';
 
 	# Process params.
@@ -36,13 +37,13 @@ sub new {
 	}
 
 	# Control.
-	if (! $self->{'start'} && ! $self->{'end'}) {
-		croak "$class: Doesn't define begin and end comment tags.";
+	if (! $self->{'begin'} && ! $self->{'end'} && ! $self->{'middle'}) {
+		croak "$class: Cannot define comments.";
 	}
 
 	# Comment tag is one.
 	$self->{'one'} = 0;
-	if ($self->{'start'} && ! $self->{'end'}) {
+	if (! $self->{'begin'} && ! $self->{'end'} && $self->{'middle'}) {
 		$self->{'one'} = 1;
 	}
 
@@ -60,63 +61,25 @@ sub indent {
 # Parses tag to indented data.
 # @param $self Class object.
 # @param $data Data string.
-# @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
 
-	my ($self, $data, $indent, $non_indent) = @_;
+	my ($self, $data) = @_;
 
-	# Undef indent.
-	if (! $indent) {
-		$indent = '';
+	# Control for data.
+	if (@{$data} == -1) {
+		croak "$self->{'class'}: Cannot define data.";
 	}
 
-	# If non_indent data, than return.
-	return $data if $non_indent;
-
-	# Substitute \n -> ''.
-	$data =~ s/\n//gs;
-
-	my ($first, $second) = (undef, $indent.$data);
-	my $last_second_length = 0;
+	# Adding comments.
 	my @data;
-	my $one = 1;
-	while (length $second >= $self->{'indent_len'}
-		&& $second =~ /^\s*\S+\s+/
-		&& $last_second_length != length $second) {
-
-		# Last length of non-parsed part of data.
-		$last_second_length = length $second;
-
-		# Parse to indent length.
-		($first, my $tmp) = $second 
-			=~ /^(.{0,$self->{'indent_len'}})(.*)$/;
-
-		# If string is non-breakable in indent length, than parse to
-		# blank char.
-		if (! $first || length $first < length $indent
-			|| $first =~ /^$indent\s*$/) {
-			($first, $tmp) = $second 
-				=~ /^($indent\s*[^\s]+?)\s(.*)$/;
-		}
-
-		# If parsing is right.
-		if ($tmp) {
-
-			# Non-parsed part of data.
-			$second = $tmp;
-
-			# Add indenter to string. 
-			$indent .= $self->{'indenter'} if $one == 1;
-			$one = 0;
-			$second = $indent.$second;
-
-			# Parsed part of data to @data array.
-			push @data, $first;
-		}
+	if (! $self->{'one'}) {
+		push @data, $self->{'begin'};
 	}
-
-	# Add other data to @data array.
-	push @data, $second if $second || $second !~ /^\s*$/;
+	foreach (@{$data}) {
+		push @data, $self->{'middle'}.$_;
+	}
+	if (! $self->{'one'}) {
+		push @data, $self->{'end'};
+	}
 
 	# Return as array or one line with \n between its.
 	return wantarray ? @data : join("\n", @data);
