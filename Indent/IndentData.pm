@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
-package Indenter::Data;
+package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: IndentData.pm,v 1.2 2005-02-14 04:03:37 skim Exp $
+# $Id: IndentData.pm,v 1.3 2005-02-14 04:04:51 skim Exp $
 
 # Modules.
 use Carp;
@@ -10,7 +10,7 @@ use Carp;
 use vars qw($VERSION);
 
 # Version.
-$Indenter::Data::VERSION = '0.1';
+$Indent::Data::VERSION = '0.1';
 
 #------------------------------------------------------------------------------
 sub new {
