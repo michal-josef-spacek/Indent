@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.1 2005-02-14 04:16:43 skim Exp $
+# $Id: Comment.pm,v 1.2 2005-02-14 04:26:41 skim Exp $
 
 # Modules.
 use Carp;
@@ -33,6 +33,17 @@ sub new {
 		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
 		}
+	}
+
+	# Control.
+	if (! $self->{'start'} && ! $self->{'end'}) {
+		croak "$class: Doesn't define begin and end comment tags.";
+	}
+
+	# Comment tag is one.
+	$self->{'one'} = 0;
+	if ($self->{'start'} && ! $self->{'end'}) {
+		$self->{'one'} = 1;
 	}
 
 	# Class.
