@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
-package Indent::Data;
+package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.2 2005-02-14 04:16:43 skim Exp $
+# $Id: Comment.pm,v 1.1 2005-02-14 04:16:43 skim Exp $
 
 # Modules.
 use Carp;
@@ -10,7 +10,7 @@ use Carp;
 use vars qw($VERSION);
 
 # Version.
-$Indent::Data::VERSION = '0.1';
+$Indent::Comment::VERSION = '0.1';
 
 #------------------------------------------------------------------------------
 sub new {
@@ -20,9 +20,9 @@ sub new {
 	my $class = shift;
 	my $self = {};
 	
-	# Default values.
-	$self->{'indent_len'} = 79;
-	$self->{'indenter'} = "\t";
+	# Comment type.
+	$self->{'start'} = '';
+	$self->{'end'} = '';
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".

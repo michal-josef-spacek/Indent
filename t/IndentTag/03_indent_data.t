@@ -1,4 +1,4 @@
-# $Id: 03_indent_data.t,v 1.3 2005-02-14 04:16:44 skim Exp $
+# $Id: 03_indent_data.t,v 1.1 2005-02-14 04:16:45 skim Exp $
 
 print "Testing: No-indenting data.\n" if $debug;
 $obj = new $class(
@@ -13,7 +13,7 @@ ok(length($ret) > 20, 1);
 
 print "Testing: Indenting data.\n" if $debug;
 $set_no_indent = 0;
-my @ret = $obj->indent($data, $act_indent, $set_no_indent);
+my @ret = $obj->indent_data($data, $act_indent, $set_no_indent);
 my $log = 0;
 foreach (@ret) {
 	if (length($_) > 20) {
