@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
-package Indenter::IndentData;
+package Indenter::Data;
 #------------------------------------------------------------------------------
-# $Id: IndentData.pm,v 1.1 2005-02-14 03:50:42 skim Exp $
+# $Id: IndentData.pm,v 1.2 2005-02-14 04:03:37 skim Exp $
 
 # Modules.
 use Carp;
@@ -10,7 +10,7 @@ use Carp;
 use vars qw($VERSION);
 
 # Version.
-$Indenter::IndentData::VERSION = '0.1';
+$Indenter::Data::VERSION = '0.1';
 
 #------------------------------------------------------------------------------
 sub new {
@@ -44,7 +44,7 @@ sub new {
 # END of new().
 
 #------------------------------------------------------------------------------
-sub indent_data {
+sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $self Class object.
@@ -110,6 +110,6 @@ sub indent_data {
 	# Return as array or one line with \n between its.
 	return wantarray ? @data : join("\n", @data);
 }
-# END of indent_data().
+# END of indent().
 
 1;

@@ -1,12 +1,12 @@
 #!/usr/bin/perl
-# $Id: 01_indent.t,v 1.1 2005-02-14 03:50:51 skim Exp $
+# $Id: 01_indent.t,v 1.2 2005-02-14 04:07:33 skim Exp $
 
 # Pragmas.
 use strict;
 use warnings;
 
 # Modules.
-use Indenter::Indent;
+use Indent;
 use Test;
 
 # Global variables.
@@ -22,7 +22,7 @@ BEGIN {
 }
 
 # Name of class.
-$class = 'Indenter::Indent';
+$class = 'Indent';
 
 # Prints debug information about class.
 print "\nClass '$class'\n" if $debug;
