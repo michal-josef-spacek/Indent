@@ -1,11 +1,7 @@
-$Id: TODO,v 1.6 2005-02-14 13:25:16 skim Exp $
+$Id: TODO,v 1.7 2005-02-14 13:27:11 skim Exp $
 
 TODO
 ====
-1. Udelat indent na komentare. Neco jako:
-   /* 
-    * Komentar.
-    */
 2. Doladit, aby slo pouzivat. Hlavne jestli to funguje na windows.
 3. Dokumentace.
 4. Indent na data mimo slova.
@@ -17,3 +13,8 @@ TODO
 
 Applied
 =======
+1. Udelat indent na komentare. Neco jako:
+   /* 
+    * Komentar.
+    */
+OK [20050214] skim
