@@ -1,21 +1,17 @@
 #!/usr/bin/perl
-# $Id: t.pl,v 1.1 2005-02-14 04:05:36 skim Exp $
+# $Id: t.pl,v 1.2 2005-02-14 04:13:04 skim Exp $
 
 # Pragmas.
 use strict;
 use warnings;
 
 # Modules.
-use Indenter::IndentData;
+use Indent::Data;
 
-my $obj = new Indenter::IndentData(
+my $obj = new Indent::Data(
 	'indent_len' => 10,
 	'indenter' => '  ',
 );
-my $data = $obj->indent_data('dddd fffffffffffffffffff  ff f f f f f f wefefwefewf');
-#my $data = $obj->indent_data('dddddddddddddddddddddddddwefefwefewf');
+my $data = $obj->indent_data('dddddddddddddddddddddddddwefefwefewf');
 print "$data\n";
-#use Dumpvalue;
-#my $dump = new Dumpvalue;
-#$dump->dumpValues($data);
 
