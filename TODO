@@ -1,0 +1,13 @@
+$Id: TODO,v 1.1 2005-02-14 03:29:50 skim Exp $
+
+TODO
+====
+1. Udelat indent na komentare. Neco jako:
+   /* 
+    * Komentar.
+    */
+2. Doladit, aby slo pouzivat. Hlavne jestli to funguje na windows.
+3.
+
+Applied
+=======
