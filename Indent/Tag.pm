@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.9 2005-04-10 20:39:35 skim Exp $
+# $Id: Tag.pm,v 1.10 2005-04-10 21:06:08 skim Exp $
 
 # Modules.
 use Carp;
@@ -53,12 +53,15 @@ sub indent {
 
 	my ($self, $tag, $indent, $non_indent) = @_;
 
+	# Stay.
+	$self->{'stay'} = 0;
+
 	# Undef indent.
 	if (! $indent) {
 		$indent = '';
 	}
 
-        # If non_indent data, than return.
+	# If non_indent data, than return.
 	return $indent.$tag if $non_indent;
 
 	my ($first, $second) = (undef, $indent.$tag);
@@ -95,9 +98,24 @@ sub indent {
 			$one = 0;
 			$second = $indent.$second;
 
+			# Stay count increasing as non-breakable line.
+			# TODO Utils?
+			my $f = $first;
+			$f =~ s/\t/\ \ \ \ \ \ \ \ /g;
+			if (length $f > $self->{'line_size'}) {
+				$self->{'stay'}++;
+			}
+
 			# Parsed part of tag to @data array.
 			push @data, $first;
 		}
+	}
+
+	# TODO Utils?
+	my $f = $second;
+	$f =~ s/\t/\ \ \ \ \ \ \ \ /g;
+	if (length $f > $self->{'line_size'}) {
+		$self->{'stay'}++;
 	}
 
 	# Add other data to @data array.
@@ -107,5 +125,15 @@ sub indent {
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().
+
+#------------------------------------------------------------------------------
+sub stay {
+#------------------------------------------------------------------------------
+# Gets stay of indenting.
+
+	my $self = shift;
+	return $self->{'stay'};
+}
+# END of stay().
 
 1;

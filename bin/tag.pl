@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: tag.pl,v 1.1 2005-04-10 20:45:05 skim Exp $
+# $Id: tag.pl,v 1.2 2005-04-10 21:06:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -9,7 +9,7 @@ use warnings;
 use Indent::Tag;
 
 # Object.
-my $line = 10;
+my $line = 20;
 my $obj = Indent::Tag->new(
 	'line_size' => $line,
 	'next_indent' => "\t",
@@ -18,7 +18,8 @@ my $obj = Indent::Tag->new(
 
 # Indent.
 my $data = $obj->indent(<<"END");
-<tag neco="cosi">
+<tag neco="cosi" hehe="oooo" />
 END
 print "$data\n";
 print '-' x $line, "\n";
+print "stay: ", $obj->stay(), "\n";
