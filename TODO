@@ -1,4 +1,4 @@
-$Id: TODO,v 1.15 2005-04-10 21:10:00 skim Exp $
+$Id: TODO,v 1.16 2005-04-10 21:12:48 skim Exp $
 
 TODO
 ====
@@ -20,7 +20,9 @@ TODO
 16. Dokumentace k Indent::Word.
 17. Dokumentace k Indent::Utils.
 18. Dokumentace k Indent::Form.
-19.
+19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
+    to same.
+20.
 
 Applied
 =======
