@@ -1,10 +1,9 @@
-$Id: TODO,v 1.7 2005-02-14 13:27:11 skim Exp $
+$Id: TODO,v 1.8 2005-04-10 13:08:03 skim Exp $
 
 TODO
 ====
 2. Doladit, aby slo pouzivat. Hlavne jestli to funguje na windows.
 3. Dokumentace.
-4. Indent na data mimo slova.
 5. U Tagu nelze indentovat parametr.
 6. Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich mist
    uprostred.
@@ -18,3 +17,6 @@ Applied
     * Komentar.
     */
 OK [20050214] skim
+
+4. Indent na data mimo slova.
+OK [20050410] skim
