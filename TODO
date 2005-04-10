@@ -1,4 +1,4 @@
-$Id: TODO,v 1.8 2005-04-10 13:08:03 skim Exp $
+$Id: TODO,v 1.9 2005-04-10 14:58:32 skim Exp $
 
 TODO
 ====
@@ -8,7 +8,9 @@ TODO
 6. Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich mist
    uprostred.
 7. Form pro pekne vykresleni formularovych prvku.
-8.
+8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
+   dat nejak najevo chybu/warovani. Dalsi funkce, ktera by specifikovala stav.
+9.
 
 Applied
 =======
