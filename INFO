@@ -1,9 +1,9 @@
-$Id: INFO,v 1.1 2005-02-14 12:47:36 skim Exp $
+$Id: INFO,v 1.2 2005-04-10 15:10:46 skim Exp $
 
 Info
 ====
-Comment types:
-
+Comment types
+-------------
 { 
   comment
 }
@@ -17,3 +17,8 @@ Comment types:
 
 -- comment
 -- comment
+
+Idea
+----
+Kdyz davam indent($data, $indent), tak $indent je indent plus celkova delka,
+kterou definuji v parametru line_size.

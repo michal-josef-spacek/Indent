@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.8 2005-04-10 14:32:15 skim Exp $
+# $Id: Data.pm,v 1.9 2005-04-10 15:07:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -13,12 +13,12 @@ our $VERSION = '0.1';
 sub new {
 #------------------------------------------------------------------------------
 # Constructor.
-	
+
 	my $class = shift;
 	my $self = {};
-	
-	# Default values.
-	$self->{'indent_len'} = 79;
+
+	# Options.
+	$self->{'line_size'} = 79;
 	$self->{'indenter'} = "\t";
 
 	# Output.
@@ -65,16 +65,17 @@ sub indent {
 	my $first = undef;
 	my $second = $data;
 	my @data;
-	while (length $second >= $self->{'indent_len'}) {
-		$first = $indent.substr($second, 0, $self->{'indent_len'});
-		$second = substr($second, $self->{'indent_len'});
-		
+	while (length $second >= $self->{'line_size'}) {
+		$first = $indent.substr($second, 0, $self->{'line_size'});
+		$second = $self->{'indenter'}.substr($second, 
+			$self->{'line_size'});
+
 		# Parsed part of data to @data array.
 		push @data, $first;
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second;
+	push @data, $indent.$second if $second;
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);

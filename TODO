@@ -1,4 +1,4 @@
-$Id: TODO,v 1.9 2005-04-10 14:58:32 skim Exp $
+$Id: TODO,v 1.10 2005-04-10 15:10:46 skim Exp $
 
 TODO
 ====
@@ -10,7 +10,11 @@ TODO
 7. Form pro pekne vykresleni formularovych prvku.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
    dat nejak najevo chybu/warovani. Dalsi funkce, ktera by specifikovala stav.
-9.
+9. I Indent/Form.pm implementovat $self->{'indenter'}.
+10. $self->{'indenter'} nejak prejmenovat.
+11. Kdyz mam $self->{'indenter'} = "\t", tak by se k celkove sirce melo
+    pripocitat  znaku?
+12. 
 
 Applied
 =======
