@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.11 2005-04-10 19:49:33 skim Exp $
+# $Id: Word.pm,v 1.12 2005-04-10 19:51:20 skim Exp $
 
 # Modules.
 use Carp;
@@ -20,7 +20,6 @@ sub new {
 	# Options.
 	$self->{'line_size'} = 79;
 	$self->{'next_indent'} = "\t";
-	$self->{'nl_substitute'} = 1;
 
 	# Output.
 	$self->{'output_separator'} = "\n";
@@ -61,11 +60,6 @@ sub indent {
 
 	# If non_indent data, than return.
 	return $data if $non_indent;
-
-	# Substitute \n -> ''.
-	if ($self->{'nl_substitute'}) {
-		$data =~ s/\n//gs;
-	}
 
 	my ($first, $second) = (undef, $indent.$data);
 	my $last_second_length = 0;
