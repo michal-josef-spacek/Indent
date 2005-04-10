@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.5 2005-04-10 12:49:10 skim Exp $
+# $Id: Comment.pm,v 1.6 2005-04-10 13:07:37 skim Exp $
 
 # Modules.
 use Carp;
@@ -21,6 +21,9 @@ sub new {
 	$self->{'begin'} = '';
 	$self->{'middle'} = '';
 	$self->{'end'} = '';
+
+	# Output.
+	$self->{'output_separator'} = "\n";
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
@@ -79,7 +82,7 @@ sub indent {
 	}
 
 	# Return as array or one line with \n between its.
-	return wantarray ? @data : join("\n", @data);
+	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().
 

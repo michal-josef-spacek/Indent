@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: data.pl,v 1.2 2005-04-10 12:49:16 skim Exp $
+# $Id: data.pl,v 1.3 2005-04-10 13:06:01 skim Exp $
 
 # Pragmas.
 use strict;
@@ -12,9 +12,10 @@ use Indent::Data;
 my $obj = Indent::Data->new(
 	'indent_len' => 10,
 	'indenter' => '  ',
+	'output_separator' => "\n",
 );
 
 # Indent.
-my $data = $obj->indent('dddddddddddddddddddddddddwefefwefewf');
+my $data = $obj->indent("dddddddddddddddddddddddddwefefwefewfabcx          a");
 print "$data\n";
 
