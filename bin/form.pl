@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: form.pl,v 1.6 2005-04-10 19:54:45 skim Exp $
+# $Id: form.pl,v 1.7 2005-04-10 21:16:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -9,8 +9,9 @@ use warnings;
 use Indent::Form;
 
 # Object.
+my $line_size = 37;
 my $obj = Indent::Form->new(
-	'line_size' => 37,
+	'line_size' => $line_size,
 	'output_separator' => "\n",
 	'right_align' => 1,
 	'form_separator' => ' => ',
@@ -28,5 +29,5 @@ my $input = [
 # Indent and print to output.
 my $data = $obj->indent($input);
 print $data."\n";
-print ' ' x 37, "|\n";
+print ' ' x $line_size, "|\n";
 
