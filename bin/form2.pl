@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: form2.pl,v 1.2 2005-04-10 19:54:45 skim Exp $
+# $Id: form2.pl,v 1.1 2005-04-10 19:53:29 skim Exp $
 
 # Pragmas.
 use strict;
@@ -7,6 +7,7 @@ use warnings;
 
 # Modules.
 use Indent::Form;
+use Dumpvalue;
 
 # Object.
 my $obj = Indent::Form->new(
@@ -16,6 +17,9 @@ my $obj = Indent::Form->new(
 	'form_separator' => ' => ',
 	'next_indent' => "\t\t\t",
 );
+
+# Dump object.
+my $dump = Dumpvalue->new();
 
 # Data.
 my $input = [
@@ -27,6 +31,7 @@ my $input = [
 
 # Indent and print to output.
 my $data = $obj->indent($input);
+#$dump->dumpValues(@data);
 print $data."\n";
 print ' ' x 37, "|\n";
 
