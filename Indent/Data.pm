@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.9 2005-04-10 15:07:57 skim Exp $
+# $Id: Data.pm,v 1.10 2005-04-10 18:52:19 skim Exp $
 
 # Modules.
 use Carp;
@@ -19,7 +19,7 @@ sub new {
 
 	# Options.
 	$self->{'line_size'} = 79;
-	$self->{'indenter'} = "\t";
+	$self->{'next_indent'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
@@ -67,7 +67,7 @@ sub indent {
 	my @data;
 	while (length $second >= $self->{'line_size'}) {
 		$first = $indent.substr($second, 0, $self->{'line_size'});
-		$second = $self->{'indenter'}.substr($second, 
+		$second = $self->{'next_indent'}.substr($second, 
 			$self->{'line_size'});
 
 		# Parsed part of data to @data array.

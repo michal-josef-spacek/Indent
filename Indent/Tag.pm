@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.7 2005-04-10 14:55:38 skim Exp $
+# $Id: Tag.pm,v 1.8 2005-04-10 18:52:10 skim Exp $
 
 # Modules.
 use Carp;
@@ -19,7 +19,7 @@ sub new {
 	
 	# Options.
 	$self->{'line_size'} = 79;
-	$self->{'indenter'} = "\t";
+	$self->{'next_indent'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
@@ -90,8 +90,8 @@ sub indent {
 			# Non-parsed part of tag.
 			$second = $tmp;
 
-			# Add indenter to string. 
-			$indent .= $self->{'indenter'} if $one == 1;
+			# Add next_indent to string. 
+			$indent .= $self->{'next_indent'} if $one == 1;
 			$one = 0;
 			$second = $indent.$second;
 
