@@ -1,4 +1,4 @@
-$Id: TODO,v 1.12 2005-04-10 19:52:53 skim Exp $
+$Id: TODO,v 1.13 2005-04-10 19:55:51 skim Exp $
 
 TODO
 ====
@@ -10,9 +10,7 @@ TODO
 7. Form pro pekne vykresleni formularovych prvku.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
    dat nejak najevo chybu/warovani. Dalsi funkce, ktera by specifikovala stav.
-9. I Indent/Form.pm implementovat $self->{'indenter'}.
-10. $self->{'indenter'} nejak prejmenovat.
-11. Kdyz mam $self->{'indenter'} = "\t", tak by se k celkove sirce melo
+11. Kdyz mam $self->{'next_indent'} = "\t", tak by se k celkove sirce melo
     pripocitat 8 znaku? To by mohl byt parametr.
 12. Proc form.pl a form2.pl nejsou stejne?
 13.
@@ -26,4 +24,10 @@ Applied
 OK [20050214] skim
 
 4. Indent na data mimo slova.
+OK [20050410] skim
+
+9. I Indent/Form.pm implementovat $self->{'next_indent'}.
+OK [20050410] skim
+
+10. $self->{'indenter'} nejak prejmenovat.
 OK [20050410] skim
