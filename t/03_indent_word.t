@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: 03_indent_word.t,v 1.3 2005-04-10 19:06:56 skim Exp $
+# $Id: 03_indent_word.t,v 1.4 2005-04-10 19:08:27 skim Exp $
 
 # Pragmas.
 use strict;
@@ -32,5 +32,6 @@ my @list = `ls t/IndentWord/*.t`;
 foreach (@list) {
 	chomp;
 	do $_;
+	print "Error: $@" if $@;
 }
 
