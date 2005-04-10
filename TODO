@@ -1,4 +1,4 @@
-$Id: TODO,v 1.17 2005-04-10 21:16:05 skim Exp $
+$Id: TODO,v 1.18 2005-04-10 21:18:23 skim Exp $
 
 TODO
 ====
@@ -9,7 +9,7 @@ TODO
    uprostred.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
    dat nejak najevo chybu/varovani. Dalsi funkce, ktera by specifikovala stav.
-   stay metoda.
+   stay() metoda.
 11. Kdyz mam $self->{'next_indent'} = "\t", tak by se k celkove sirce melo
     pripocitat 8 znaku? To by mohl byt parametr. Nahrada a spocitani znaku v
     takovem retezci by mohla byt v Utils.
