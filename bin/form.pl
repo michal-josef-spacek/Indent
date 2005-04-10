@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: form.pl,v 1.1 2005-04-10 13:43:42 skim Exp $
+# $Id: form.pl,v 1.2 2005-04-10 14:35:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,22 +11,24 @@ use Dumpvalue;
 
 # Object.
 my $obj = Indent::Form->new(
-	'indent_len' => 30,
+	'indent_len' => 63,
 	'output_separator' => "\n",
+	'right_align' => 1,
+	'form_separator' => ' => ',
 );
 
 # Dump object.
 my $dump = Dumpvalue->new();
 
 # Data.
-my $data = [
+my $input = [
 	['Prihlasovaci jmeno', 'Michal Spacek'],
 	['Heslo', 'abcdefghijklmnopqrstuvw'],
-	['Popis problemu', 'Toto je ukrutny problem, protoze neni radno'.
-		'prepocitavat matice'],
+	['Popis problemu', 'Toto je ukrutny problem, protoze neni radno '.
+		'prepocitavat matice.'],
 ];
 
 # Indent and print to output.
-my @data = $obj->indent($data);
+my @data = $obj->indent($input);
 $dump->dumpValues(@data);
 

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.7 2005-04-10 13:45:57 skim Exp $
+# $Id: Comment.pm,v 1.8 2005-04-10 14:32:15 skim Exp $
 
 # Modules.
 use Carp;
@@ -59,7 +59,6 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $self Class object.
 # @param $data Data string.
 
 	my ($self, $data) = @_;

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.4 2005-04-10 13:45:57 skim Exp $
+# $Id: Tag.pm,v 1.5 2005-04-10 14:32:15 skim Exp $
 
 # Modules.
 use Carp;
@@ -47,7 +47,6 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $self Class object.
 # @param $tag Tag string.
 # @param $indent String to actual indent.
 # @param $non_indent Flag, than says no-indent.

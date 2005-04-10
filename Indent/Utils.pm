@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.3 2005-04-10 13:45:57 skim Exp $
+# $Id: Utils.pm,v 1.4 2005-04-10 14:32:15 skim Exp $
 
 # Modules.
 use Carp;
@@ -52,7 +52,6 @@ sub new {
 sub remove {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $self Class object.
 # @param $data Data string.
 # @param $indent String to actual indent.
 # @param $non_indent Flag, than says no-indent.
