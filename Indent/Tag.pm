@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.2 2005-04-01 11:59:56 skim Exp $
+# $Id: Tag.pm,v 1.3 2005-04-10 13:14:56 skim Exp $
 
 # Modules.
 use Carp;
@@ -20,6 +20,9 @@ sub new {
 	# Default values.
 	$self->{'indent_len'} = 79;
 	$self->{'indenter'} = "\t";
+
+	# Output.
+	$self->{'output_separator'} = "\n";
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
@@ -102,7 +105,7 @@ sub indent {
 	push @data, $second;
 
 	# Return as array or one line with \n between its.
-	return wantarray ? @data : join("\n", @data);
+	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().
 
