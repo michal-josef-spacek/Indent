@@ -1,4 +1,4 @@
-$Id: TODO,v 1.10 2005-04-10 15:10:46 skim Exp $
+$Id: TODO,v 1.11 2005-04-10 15:11:17 skim Exp $
 
 TODO
 ====
@@ -13,7 +13,7 @@ TODO
 9. I Indent/Form.pm implementovat $self->{'indenter'}.
 10. $self->{'indenter'} nejak prejmenovat.
 11. Kdyz mam $self->{'indenter'} = "\t", tak by se k celkove sirce melo
-    pripocitat  znaku?
+    pripocitat 8 znaku? To by mohl byt parametr.
 12. 
 
 Applied
