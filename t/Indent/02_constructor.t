@@ -1,4 +1,4 @@
-# $Id: 02_constructor.t,v 1.1 2005-02-14 03:50:52 skim Exp $
+# $Id: 02_constructor.t,v 1.2 2005-04-10 20:29:21 skim Exp $
 
 print "Testing: new() plain constructor.\n" if $debug;
 $obj = new $class();
@@ -6,7 +6,7 @@ ok(defined $obj, 1);
 ok($obj->isa($class), 1);
 ok($obj, qr/$class/);
 
-print "Testing: new() bad constructor.\n" if $debug;
+print "Testing: new('') bad constructor.\n" if $debug;
 eval {
 	$obj = new $class('');
 };

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.10 2005-04-10 19:53:40 skim Exp $
+# $Id: Form.pm,v 1.11 2005-04-10 20:31:07 skim Exp $
 
 # Modules.
 use Carp;
@@ -90,7 +90,6 @@ sub indent {
 		'next_indent' => $next_indent,
 	);
 
-	my @data;
 	foreach my $dat (@{$data}) {
 		my $output = $indent;
 		if ($self->{'right_align'}) {
