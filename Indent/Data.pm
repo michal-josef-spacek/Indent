@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.5 2005-04-10 13:06:46 skim Exp $
+# $Id: Data.pm,v 1.7 2005-04-10 13:45:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -20,6 +20,8 @@ sub new {
 	# Default values.
 	$self->{'indent_len'} = 79;
 	$self->{'indenter'} = "\t";
+
+	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
@@ -75,7 +77,7 @@ sub indent {
 	# Add other data to @data array.
 	push @data, $second if $second;
 
-	# Return as array or one line with \n between its.
+	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().

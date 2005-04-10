@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.6 2005-04-10 13:07:37 skim Exp $
+# $Id: Comment.pm,v 1.7 2005-04-10 13:45:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -81,7 +81,7 @@ sub indent {
 		push @data, $self->{'end'};
 	}
 
-	# Return as array or one line with \n between its.
+	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().

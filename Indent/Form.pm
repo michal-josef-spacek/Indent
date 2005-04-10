@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.3 2005-04-10 13:14:20 skim Exp $
+# $Id: Form.pm,v 1.4 2005-04-10 13:45:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -16,6 +16,12 @@ sub new {
 	
 	my $class = shift;
 	my $self = {};
+
+	# Default values.
+	$self->{'indent_len'} = 79;
+
+	# Output.
+	$self->{'output_separator'} = "\n";
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
@@ -40,8 +46,12 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Indent form data.
+# @param $data Data array [['key' => 'value'], [..]];
 
-	my $self = shift;
+	my ($self, $data) = @_;
+
+	# Return as array or one line with output separator between its.
+	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().
 

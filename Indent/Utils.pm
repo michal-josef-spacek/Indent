@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.2 2005-04-01 11:59:56 skim Exp $
+# $Id: Utils.pm,v 1.3 2005-04-10 13:45:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -25,6 +25,9 @@ sub new {
 
 	# Remove duplicit white space in string.
 	$self->{'remove_duplicit'} = 1;
+
+	# Output.
+	$self->{'output_separator'} = "\n";
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
@@ -109,8 +112,8 @@ sub remove {
 	# Add other data to @data array.
 	push @data, $second if $second || $second !~ /^\s*$/;
 
-	# Return as array or one line with \n between its.
-	return wantarray ? @data : join("\n", @data);
+	# Return as array or one line with output separator between its.
+	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of remove().
 

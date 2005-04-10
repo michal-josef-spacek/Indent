@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.3 2005-04-10 13:14:56 skim Exp $
+# $Id: Tag.pm,v 1.4 2005-04-10 13:45:57 skim Exp $
 
 # Modules.
 use Carp;
@@ -104,7 +104,7 @@ sub indent {
 	# Add other data to @data array.
 	push @data, $second;
 
-	# Return as array or one line with \n between its.
+	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 # END of indent().
