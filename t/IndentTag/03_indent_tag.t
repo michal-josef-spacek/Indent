@@ -1,4 +1,4 @@
-# $Id: 03_indent_tag.t,v 1.2 2005-04-10 20:38:45 skim Exp $
+# $Id: 03_indent_tag.t,v 1.3 2005-04-10 20:42:38 skim Exp $
 
 print "Testing: No-indenting tag.\n" if $debug;
 $obj = new $class(
@@ -9,7 +9,7 @@ my $set_no_indent = 1;
 my $act_indent = '---';
 my $tag = '<tag param="value" param2="value2" param3="val3">';
 my $ret = $obj->indent($tag, $act_indent, $set_no_indent);
-ok(length($ret), length($tag));
+ok(length $ret, length($tag) + 3);
 
 print "Testing: Indenting tag.\n" if $debug;
 $set_no_indent = 0;

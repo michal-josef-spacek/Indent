@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.8 2005-04-10 18:52:10 skim Exp $
+# $Id: Tag.pm,v 1.9 2005-04-10 20:39:35 skim Exp $
 
 # Modules.
 use Carp;
@@ -59,7 +59,7 @@ sub indent {
 	}
 
         # If non_indent data, than return.
-	return $tag if $non_indent;
+	return $indent.$tag if $non_indent;
 
 	my ($first, $second) = (undef, $indent.$tag);
 	my $last_second_length = 0;

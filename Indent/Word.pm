@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.12 2005-04-10 19:51:20 skim Exp $
+# $Id: Word.pm,v 1.13 2005-04-10 20:39:35 skim Exp $
 
 # Modules.
 use Carp;
@@ -59,7 +59,7 @@ sub indent {
 	}
 
 	# If non_indent data, than return.
-	return $data if $non_indent;
+	return $indent.$data if $non_indent;
 
 	my ($first, $second) = (undef, $indent.$data);
 	my $last_second_length = 0;
