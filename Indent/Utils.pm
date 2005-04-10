@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.5 2005-04-10 14:47:19 skim Exp $
+# $Id: Utils.pm,v 1.6 2005-04-10 14:50:33 skim Exp $
 
 # Modules.
 use Carp;
@@ -20,7 +20,7 @@ sub new {
 	# Remove white space on begin of string.
 	$self->{'remove_begin'} = 1;
 
-	# Remove white space on end of string.	
+	# Remove white space on end of string.
 	$self->{'remove_end'} = 1;
 
 	# Remove duplicit white space in string.

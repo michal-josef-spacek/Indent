@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.6 2005-04-10 14:32:15 skim Exp $
+# $Id: Word.pm,v 1.9 2005-04-10 14:55:29 skim Exp $
 
 # Modules.
 use Carp;
@@ -13,12 +13,12 @@ our $VERSION = '0.1';
 sub new {
 #------------------------------------------------------------------------------
 # Constructor.
-	
+
 	my $class = shift;
 	my $self = {};
-	
-	# Default values.
-	$self->{'indent_len'} = 79;
+
+	# Options.
+	$self->{'line_size'} = 79;
 	$self->{'indenter'} = "\t";
 
 	# Output.
@@ -68,7 +68,7 @@ sub indent {
 	my $last_second_length = 0;
 	my @data;
 	my $one = 1;
-	while (length $second >= $self->{'indent_len'}
+	while (length $second >= $self->{'line_size'}
 		&& $second =~ /^\s*\S+\s+/
 		&& $last_second_length != length $second) {
 
@@ -77,7 +77,7 @@ sub indent {
 
 		# Parse to indent length.
 		($first, my $tmp) = $second 
-			=~ /^(.{0,$self->{'indent_len'}})\s+(.*)$/;
+			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/;
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.

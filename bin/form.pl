@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: form.pl,v 1.2 2005-04-10 14:35:51 skim Exp $
+# $Id: form.pl,v 1.3 2005-04-10 14:55:20 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,7 +11,7 @@ use Dumpvalue;
 
 # Object.
 my $obj = Indent::Form->new(
-	'indent_len' => 63,
+	'line_size' => 10,
 	'output_separator' => "\n",
 	'right_align' => 1,
 	'form_separator' => ' => ',

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.2 2005-04-01 11:57:58 skim Exp $
+# $Id: Indent.pm,v 1.3 2005-04-10 14:49:24 skim Exp $
 
 # Modules.
 use Carp;
@@ -24,13 +24,13 @@ sub new {
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
 		"of the form option => value." if (@_ % 2);
-        for (my $x = 0; $x <= $#_; $x += 2) {
-                if (exists $self->{$_[$x]}) {
-                        $self->{$_[$x]} = $_[$x+1];
-                } else {
+	for (my $x = 0; $x <= $#_; $x += 2) {
+		if (exists $self->{$_[$x]}) {
+			$self->{$_[$x]} = $_[$x+1];
+		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
-                }
-        }
+		}
+	}
 
 	# Class.
 	$self->{'class'} = $class;
@@ -82,7 +82,7 @@ sub reset {
 
 	my $self = shift;
 	my $reset_value = shift || '';
-	$self->{'indent'} = $reset_value;	
+	$self->{'indent'} = $reset_value;
 }
 # END of reset().
 

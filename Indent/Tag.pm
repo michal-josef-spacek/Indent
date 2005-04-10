@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.5 2005-04-10 14:32:15 skim Exp $
+# $Id: Tag.pm,v 1.6 2005-04-10 14:47:46 skim Exp $
 
 # Modules.
 use Carp;
@@ -17,7 +17,7 @@ sub new {
 	my $class = shift;
 	my $self = {};
 	
-	# Default values.
+	# Options.
 	$self->{'indent_len'} = 79;
 	$self->{'indenter'} = "\t";
 

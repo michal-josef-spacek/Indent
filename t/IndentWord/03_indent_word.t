@@ -1,9 +1,9 @@
-# $Id: 03_indent_word.t,v 1.2 2005-02-14 04:16:47 skim Exp $
+# $Id: 03_indent_word.t,v 1.3 2005-04-10 14:55:03 skim Exp $
 
 print "Testing: No-indenting data.\n" if $debug;
 $obj = new $class(
 	'indenter' => '  ',
-	'indent_len' => '20',
+	'line_size' => '20',
 );
 my $set_no_indent = 1;
 my $act_indent = '---';
