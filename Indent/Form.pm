@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.5 2005-04-10 14:48:16 skim Exp $
+# $Id: Form.pm,v 1.6 2005-04-10 14:55:45 skim Exp $
 
 # Modules.
 use Carp;
@@ -19,7 +19,7 @@ sub new {
 	my $self = {};
 
 	# Options.
-	$self->{'indent_len'} = 79;
+	$self->{'line_size'} = 79;
 	$self->{'right_align'} = 1;
 	$self->{'form_separator'} = ': ';
 
@@ -82,7 +82,7 @@ sub indent {
 
 	# Indent word.
 	my $word = Indent::Word->new(
-		'indent_len' => $self->{'indent_len'} - $max 
+		'line_size' => $self->{'line_size'} - $max 
 			- length $self->{'form_separator'}
 			- length $indent,
 		'indenter' => ' ' x ($max + length $self->{'form_separator'}),
