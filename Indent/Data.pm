@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.4 2005-04-10 13:06:10 skim Exp $
+# $Id: Data.pm,v 1.5 2005-04-10 13:06:46 skim Exp $
 
 # Modules.
 use Carp;
@@ -59,9 +59,6 @@ sub indent {
 
 	# If non_indent data, than return.
 	return $data if $non_indent;
-
-	# Substitute \n -> ''. TODO?
-#	$data =~ s/\n//gs;
 
 	# Splits data.
 	my $first = undef;
