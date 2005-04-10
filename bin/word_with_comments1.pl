@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: word_with_comments1.pl,v 1.1 2005-04-02 15:56:59 skim Exp $
+# $Id: word_with_comments1.pl,v 1.2 2005-04-10 12:49:16 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,11 +11,11 @@ use Indent::Comment;
 use Dumpvalue;
 
 # Objects.
-my $word = new Indent::Word(
+my $word = Indent::Word->new(
 	'indent_len' => 10,
 	'indenter' => '',
 );
-my $comments = new Indent::Comment(
+my $comments = Indent::Comment->new(
 	'middle' => '# ',
 );
 
@@ -27,8 +27,6 @@ my @data = $word->indent('aaaaa bbbbb ddddd eeeee fffff ggggg hhhhh fffff'.
 my @data2 = $comments->indent(\@data);
 
 # Dump data.
-my $dump = new Dumpvalue;
+my $dump = Dumpvalue->new();
 $dump->dumpValues(@data2);
-
-
 

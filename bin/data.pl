@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: data.pl,v 1.1 2005-04-02 15:56:59 skim Exp $
+# $Id: data.pl,v 1.2 2005-04-10 12:49:16 skim Exp $
 
 # Pragmas.
 use strict;
@@ -9,7 +9,7 @@ use warnings;
 use Indent::Data;
 
 # Object.
-my $obj = new Indent::Data(
+my $obj = Indent::Data->new(
 	'indent_len' => 10,
 	'indenter' => '  ',
 );
