@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.6 2005-04-10 13:07:37 skim Exp $
+# $Id: Data.pm,v 1.4 2005-04-10 13:06:10 skim Exp $
 
 # Modules.
 use Carp;
@@ -20,8 +20,6 @@ sub new {
 	# Default values.
 	$self->{'indent_len'} = 79;
 	$self->{'indenter'} = "\t";
-
-	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
@@ -61,6 +59,9 @@ sub indent {
 
 	# If non_indent data, than return.
 	return $data if $non_indent;
+
+	# Substitute \n -> ''. TODO?
+#	$data =~ s/\n//gs;
 
 	# Splits data.
 	my $first = undef;
