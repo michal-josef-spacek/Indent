@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.6 2005-04-10 14:55:45 skim Exp $
+# $Id: Form.pm,v 1.7 2005-04-10 15:07:45 skim Exp $
 
 # Modules.
 use Carp;
@@ -22,6 +22,7 @@ sub new {
 	$self->{'line_size'} = 79;
 	$self->{'right_align'} = 1;
 	$self->{'form_separator'} = ': ';
+	$self->{'indenter'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
