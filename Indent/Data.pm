@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.10 2005-04-10 18:52:19 skim Exp $
+# $Id: Data.pm,v 1.11 2005-04-10 20:23:54 skim Exp $
 
 # Modules.
 use Carp;
@@ -63,11 +63,11 @@ sub indent {
 
 	# Splits data.
 	my $first = undef;
-	my $second = $data;
+	my $second = $indent.$data;
 	my @data;
 	while (length $second >= $self->{'line_size'}) {
-		$first = $indent.substr($second, 0, $self->{'line_size'});
-		$second = $self->{'next_indent'}.substr($second, 
+		$first = substr($second, 0, $self->{'line_size'});
+		$second = $indent.$self->{'next_indent'}.substr($second, 
 			$self->{'line_size'});
 
 		# Parsed part of data to @data array.
@@ -75,7 +75,7 @@ sub indent {
 	}
 
 	# Add other data to @data array.
-	push @data, $indent.$second if $second;
+	push @data, $second if $second;
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
