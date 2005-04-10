@@ -1,4 +1,4 @@
-# $Id: 03_indent_data.t,v 1.6 2005-04-10 20:22:08 skim Exp $
+# $Id: 03_indent_data.t,v 1.7 2005-04-10 20:38:44 skim Exp $
 
 print "Testing: No-indenting data.\n" if $debug;
 $obj = new $class(
@@ -20,7 +20,9 @@ foreach (@ret) {
 		$log = 1;
 	}
 }
+ok($#ret, 6);
 ok($log, 0);
+
 @ret = $obj->indent($data);
 $log = 0;
 foreach (@ret) {
@@ -29,5 +31,7 @@ foreach (@ret) {
 	}
 }
 ok($log, 0);
+ok($#ret, 5);
+
 $ret = $obj->indent($data);
 ok(length $ret, 117);
