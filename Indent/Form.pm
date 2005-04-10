@@ -1,10 +1,11 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.4 2005-04-10 13:45:57 skim Exp $
+# $Id: Form.pm,v 1.5 2005-04-10 14:48:16 skim Exp $
 
 # Modules.
 use Carp;
+use Indent::Word;
 
 # Version.
 our $VERSION = '0.1';
@@ -17,8 +18,10 @@ sub new {
 	my $class = shift;
 	my $self = {};
 
-	# Default values.
+	# Options.
 	$self->{'indent_len'} = 79;
+	$self->{'right_align'} = 1;
+	$self->{'form_separator'} = ': ';
 
 	# Output.
 	$self->{'output_separator'} = "\n";
@@ -47,8 +50,62 @@ sub indent {
 #------------------------------------------------------------------------------
 # Indent form data.
 # @param $data Data array [['key' => 'value'], [..]];
+# @param $indent String to actual indent.
+# @param $non_indent Flag, than says no-indent.
 
-	my ($self, $data) = @_;
+	my ($self, $data, $indent, $non_indent) = @_;
+
+	# Undef indent.
+	if (! $indent) {
+		$indent = '';
+	}
+
+	# Max size of key.
+	my $max = 0;
+	my @data;
+	foreach my $dat (@{$data}) {
+		if (length $dat->[0] > $max) {
+			$max = length $dat->[0];
+		}
+
+		# Non-indent.
+		if ($non_indent) {
+			push @data, $dat->[0].$self->{'form_separator'}.
+				$dat->[1];
+		}
+	}
+
+	# If non-indent.
+	# Return as array or one line with output separator between its.
+	return wantarray ? @data : join($self->{'output_separator'}, @data) 
+		if $non_indent;
+
+	# Indent word.
+	my $word = Indent::Word->new(
+		'indent_len' => $self->{'indent_len'} - $max 
+			- length $self->{'form_separator'}
+			- length $indent,
+		'indenter' => ' ' x ($max + length $self->{'form_separator'}),
+	);
+
+	my @data;
+	foreach my $dat (@{$data}) {
+		my $output = $indent;
+		if ($self->{'right_align'}) {
+			$output .= ' ' x ($max - length $dat->[0]);
+			$output .= $dat->[0];
+		} else {
+			$output .= $dat->[0];
+			$output .= ' ' x ($max - length $dat->[0]);
+		}
+		$output .= $self->{'form_separator'};
+		my @tmp = $word->indent($dat->[1]);
+		$output .= shift @tmp;
+		push @data, $output;
+		while (@tmp) {
+			push @data, $indent.shift @tmp;
+		}
+	}
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
