@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.3 2005-04-10 14:49:24 skim Exp $
+# $Id: Indent.pm,v 1.4 2005-05-13 23:17:55 skim Exp $
 
 # Modules.
 use Carp;
 
 # Version.
-our $VERSION = '0.1';
+our $VERSION = 0.1;
 
 #------------------------------------------------------------------------------
 sub new {
@@ -19,7 +19,7 @@ sub new {
 
 	# Default values.
 	$self->{'indent'} = '';
-	$self->{'indenter'} = "\t";
+	$self->{'next_indent'} = "\t";
 
 	# Process params.
 	croak "$class: Created with odd number of parameters - should be ".
@@ -46,7 +46,7 @@ sub add {
 # Add an indent to global indent.
 
 	my $self = shift;
-	my $indent = shift || $self->{'indenter'};
+	my $indent = shift || $self->{'next_indent'};
 	$self->{'indent'} .= $indent if $indent;
 }
 # END of plus_indent().
@@ -57,7 +57,7 @@ sub remove {
 # Remove an indent from global indent.
 
 	my $self = shift;
-	my $indent = shift || $self->{'indenter'};
+	my $indent = shift || $self->{'next_indent'};
 	if ($self->{'indent'} !~ /^.*$indent$/) {
 		croak "$self->{'class'}: Cannot remove indent '$indent'.";
 	}
