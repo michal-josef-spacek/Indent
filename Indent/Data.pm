@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.13 2005-05-13 23:16:24 skim Exp $
+# $Id: Data.pm,v 1.14 2005-05-14 01:53:25 skim Exp $
 
 # Modules.
 use Carp;
@@ -33,6 +33,11 @@ sub new {
 		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
 		}
+	}
+
+	# Line_size check.
+	if ($self->{'line_size'} <= 0) {
+		croak "$class: Bad line_size = '$self->{'line_size'}'.";
 	}
 
 	# Class.
