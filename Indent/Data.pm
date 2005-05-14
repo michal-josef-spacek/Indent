@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.14 2005-05-14 01:53:25 skim Exp $
+# $Id: Data.pm,v 1.15 2005-05-14 02:02:54 skim Exp $
 
 # Modules.
 use Carp;
@@ -36,7 +36,7 @@ sub new {
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} <= 0) {
+	if ($self->{'line_size'} !~ /^\d*$/ || $self->{'line_size'} <= 0) {
 		croak "$class: Bad line_size = '$self->{'line_size'}'.";
 	}
 

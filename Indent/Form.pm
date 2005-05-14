@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.12 2005-05-13 23:16:24 skim Exp $
+# $Id: Form.pm,v 1.13 2005-05-14 02:02:54 skim Exp $
 
 # Modules.
 use Carp;
@@ -36,6 +36,11 @@ sub new {
 		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
 		}
+	}
+
+	# Line_size check.
+	if ($self->{'line_size'} !~ /^\d*$/) {
+		croak "$class: Bad line_size = '$self->{'line_size'}'.";
 	}
 
 	# Class.

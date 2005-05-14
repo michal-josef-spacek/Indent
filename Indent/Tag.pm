@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.10 2005-04-10 21:06:08 skim Exp $
+# $Id: Tag.pm,v 1.11 2005-05-14 02:02:54 skim Exp $
 
 # Modules.
 use Carp;
 
 # Version.
-our $VERSION = '0.1';
+our $VERSION = 0.1;
 
 #------------------------------------------------------------------------------
 sub new {
@@ -33,6 +33,11 @@ sub new {
 		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
 		}
+	}
+
+	# Line_size check.
+	if ($self->{'line_size'} !~ /^\d*$/) {
+		croak "$class: Bad line_size = '$self->{'line_size'}'.";
 	}
 
 	# Class.
