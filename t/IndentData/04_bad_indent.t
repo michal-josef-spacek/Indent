@@ -1,22 +1,22 @@
-# $Id: 04_bad_indent.t,v 1.1 2005-05-14 02:05:15 skim Exp $
+# $Id: 04_bad_indent.t,v 1.2 2005-05-14 02:50:50 skim Exp $
 
 print "Testing: Bad ident.\n" if $debug;
 print "-- Zero line_size.\n" if $debug;
 eval {
-	$obj = new $class(
+	$obj = $class->new(
 		'next_indent' => '  ',
 		'line_size' => 0
 	);
 };
 $@ =~ s/(.*)\ at.*\n/$1/;
-ok($@, "Indent::Data: Bad line_size = '0'.");
+ok($@, "$class: Bad line_size = '0'.");
 
 print "-- Bad value in line_size.\n" if $debug;
 eval {
-	$obj = new $class(
+	$obj = $class->new(
 		'next_indent' => '  ',
 		'line_size' => 'ko'
 	);
 };
 $@ =~ s/(.*)\ at.*\n/$1/;
-ok($@, "Indent::Data: Bad line_size = 'ko'.");
+ok($@, "$class: Bad line_size = 'ko'.");

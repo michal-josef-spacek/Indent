@@ -1,8 +1,8 @@
-# $Id: 05_zero_indent.t,v 1.1 2005-05-14 02:15:12 skim Exp $
+# $Id: 05_zero_indent.t,v 1.2 2005-05-14 02:54:23 skim Exp $
 
 print "-- Zero line_size.\n" if $debug;
 my $next_indent = '  ';
-$obj = new $class(
+$obj = $class->new(
 	'next_indent' => $next_indent,
 	'line_size' => 0
 );

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.9 2005-05-13 23:16:24 skim Exp $
+# $Id: Comment.pm,v 1.10 2005-05-14 02:48:03 skim Exp $
 
 # Modules.
 use Carp;
@@ -30,7 +30,7 @@ sub new {
 		"of the form option => value." if (@_ % 2);
 	for (my $x = 0; $x <= $#_; $x += 2) {
 		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x+1];
+			$self->{$_[$x]} = $_[$x + 1];
 		} else {
 			croak "$class: Bad parameter '$_[$x]'.";
 		}
@@ -64,7 +64,7 @@ sub indent {
 	my ($self, $data) = @_;
 
 	# Control for data.
-	if (@{$data} == -1) {
+	if (ref $data ne 'ARRAY' || $#{$data} == -1) {
 		croak "$self->{'class'}: Cannot define data.";
 	}
 

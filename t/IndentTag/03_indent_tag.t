@@ -1,7 +1,7 @@
-# $Id: 03_indent_tag.t,v 1.3 2005-04-10 20:42:38 skim Exp $
+# $Id: 03_indent_tag.t,v 1.4 2005-05-14 02:54:23 skim Exp $
 
 print "Testing: No-indenting tag.\n" if $debug;
-$obj = new $class(
+$obj = $class->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
 );
