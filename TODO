@@ -1,4 +1,4 @@
-$Id: TODO,v 1.20 2005-05-14 01:20:42 skim Exp $
+$Id: TODO,v 1.21 2005-05-14 02:53:23 skim Exp $
 
 TODO
 ====
@@ -25,8 +25,8 @@ TODO
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
 20. Pridat test pro Indent na nastavovani 'next_indent'. 
-21. Chyba v /perl/MODULES/Indent::Data?
-22.
+22. Test pro Indent::Form.
+23.
 
 Applied
 =======
@@ -46,4 +46,8 @@ OK [20050410] skim
 OK [20050410] skim
 
 7. Form pro pekne vykresleni formularovych prvku.
+OK [20050410] skim
+
+21. Chyba v /perl/MODULES/Indent::Data?
+Kdyz je delka radku 0, tak to cyklilo.
 OK [20050410] skim
