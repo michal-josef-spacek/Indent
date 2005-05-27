@@ -1,10 +1,10 @@
-$Id: TODO,v 1.22 2005-05-27 20:30:17 skim Exp $
+$Id: TODO,v 1.23 2005-05-27 20:33:55 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 3. Dokumentace k Indent.
-5. U Tagu nelze indentovat parametr. Co?
+5. U Tagu nesmi jit indentovat hodnota parametru.
 6. Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich mist
    uprostred.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
@@ -13,9 +13,6 @@ TODO
 11. Kdyz mam $self->{'next_indent'} = "\t", tak by se k celkove sirce melo
     pripocitat 8 znaku? To by mohl byt parametr. Nahrada a spocitani znaku v
     takovem retezci by mohla byt v Utils.
-12. Proc form.pl a form2.pl nejsou stejne? Ve form2 je chyba v tom, ze word s
-    predsudkem ve forme pisma nejde rozdelit. To by se melo resit tak, ze se
-    mu rekne kterou delku ma pripocitat, ale ve skutecnosti ji neresi.
 13. Dokumentace k Indent::Tag.
 14. Dokumentace k Indent::Comment.
 15. Dokumentace k Indent::Data.
@@ -54,3 +51,10 @@ OK [20050410] skim
 20. Pridat test pro Indent na nastavovani 'next_indent'. 
 Nechapu.
 OK [20050527] skim
+
+12. Proc form.pl a form2.pl nejsou stejne? Ve form2 je chyba v tom, ze word s
+    predsudkem ve forme pisma nejde rozdelit. To by se melo resit tak, ze se
+    mu rekne kterou delku ma pripocitat, ale ve skutecnosti ji neresi.
+Je to asi v poradku.
+OK [20050527] skim
+
