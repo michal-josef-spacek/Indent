@@ -2,6 +2,7 @@ bin/data.pl
 bin/form.pl
 bin/form2.pl
 bin/tag.pl
+bin/tag2.pl
 bin/word_with_comments1.pl
 bin/word_with_comments2.pl
 Indent/Comment.pm

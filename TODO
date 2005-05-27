@@ -1,10 +1,10 @@
-$Id: TODO,v 1.23 2005-05-27 20:33:55 skim Exp $
+$Id: TODO,v 1.24 2005-05-27 20:34:17 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 3. Dokumentace k Indent.
-5. U Tagu nesmi jit indentovat hodnota parametru.
+5. U Tagu nesmi jit indentovat hodnota parametru. Viz tag2.pl.
 6. Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich mist
    uprostred.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
