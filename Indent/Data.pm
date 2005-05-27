@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.15 2005-05-14 02:02:54 skim Exp $
+# $Id: Data.pm,v 1.16 2005-05-27 20:21:10 skim Exp $
 
 # Modules.
 use Carp;
@@ -38,6 +38,12 @@ sub new {
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/ || $self->{'line_size'} <= 0) {
 		croak "$class: Bad line_size = '$self->{'line_size'}'.";
+	}
+
+	# Error with 'next_indent' length greater than 'line_size'.
+	if ($self->{'line_size'} <= length $self->{'next_indent'}) {
+		croak "$class: Bad line_size = '$self->{'line_size'}' ".
+			"or length of string '$self->{'next_indent'}'.";
 	}
 
 	# Class.
