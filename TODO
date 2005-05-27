@@ -1,4 +1,4 @@
-$Id: TODO,v 1.24 2005-05-27 20:34:17 skim Exp $
+$Id: TODO,v 1.25 2005-05-27 20:34:46 skim Exp $
 
 TODO
 ====
@@ -22,7 +22,8 @@ TODO
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
 22. Test pro Indent::Form.
-23.
+23. Pridat test pro indentovani tagu - viz 5).
+24.
 
 Applied
 =======
