@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: 01_indent.t,v 1.4 2005-04-10 19:08:26 skim Exp $
+# $Id: 01_indent.t,v 1.5 2005-06-26 10:06:38 skim Exp $
 
 # Pragmas.
 use strict;
@@ -10,10 +10,14 @@ use Indent;
 use Test;
 
 # Global variables.
-use vars qw/$debug $obj $class/;
+use vars qw/$debug $obj $class $dir/;
 
 BEGIN {
-	my $tests = `grep -r \"^ok(\" t/Indent/*.t | wc -l`;
+	# Name of class.
+	$dir = $class = 'Indent';
+	$dir =~ s/:://g;
+
+	my $tests = `grep -r \"^ok(\" t/$dir/*.t | wc -l`;
 	chomp $tests;
 	plan('tests' => $tests);
 
@@ -21,14 +25,11 @@ BEGIN {
 	$debug = 1;
 }
 
-# Name of class.
-$class = 'Indent';
-
 # Prints debug information about class.
 print "\nClass '$class'\n" if $debug;
 
 # For every test for this class.
-my @list = `ls t/Indent/*.t`;
+my @list = `ls t/$dir/*.t`;
 foreach (@list) {
 	chomp;
 	do $_;
