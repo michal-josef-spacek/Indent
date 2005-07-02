@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.14 2005-07-02 14:28:43 skim Exp $
+# $Id: Form.pm,v 1.15 2005-07-02 15:37:23 skim Exp $
 
 # Pragmas.
 use strict;
@@ -122,3 +122,93 @@ sub indent {
 # END of indent().
 
 1;
+
+=head1 NAME
+
+Indent::Form - A perl module for form indenting.
+
+=head1 SYNOPSIS
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Form;
+
+ # Indent object.
+ my $indent = Indent::Form->new(
+
+        # Begin indent.
+        'indent' => '->',
+
+        # Next indent.
+        'next_indent' => "->"
+ );
+
+ # Print example.
+ print $indent->get();
+ print "Example\n";
+
+ # Add indent and print ok.
+ $indent->add();
+ print $indent->get();
+ print "Ok\n";
+
+ # Remove indent and print nex example.
+ $indent->remove();
+ print $indent->get();
+ print "Example2\n";
+
+ # Reset.
+ $indent->reset();
+
+ Gets: 
+ ->Example
+ ->->Ok
+ ->Example2
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+This is a class method, the constructor for Indent. Options are passed
+as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * form_separator
+
+TODO
+
+=item * line_size
+
+TODO
+
+=item * next_indent
+
+TODO
+
+=item * output_separator
+
+TODO
+
+=item * right_align
+
+=back
+
+=item indent
+
+TODO
+
+=head1 AUTHORS
+
+Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+
+=cut
