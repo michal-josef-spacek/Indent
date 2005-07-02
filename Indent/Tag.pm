@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.12 2005-07-02 14:28:43 skim Exp $
+# $Id: Tag.pm,v 1.13 2005-07-02 15:41:52 skim Exp $
 
 # Pragmas.
 use strict;
@@ -49,7 +49,6 @@ sub new {
 	# Object.
 	return bless $self, $class;
 }
-# END of new().
 
 #------------------------------------------------------------------------------
 sub indent {
@@ -132,7 +131,6 @@ sub indent {
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
-# END of indent().
 
 #------------------------------------------------------------------------------
 sub stay {
@@ -142,6 +140,75 @@ sub stay {
 	my $self = shift;
 	return $self->{'stay'};
 }
-# END of stay().
 
 1;
+
+=head1 NAME
+
+Indent::Tag - A perl module for tag indenting.
+
+=head1 SYNOPSIS
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Tag;
+
+ # Indent::Tag object.
+ my $indent_tag = Indent::Tag->new(
+
+        # Line size.
+        'line_size' => 20,
+
+        # Next indent.
+        'next_indent' => "->",
+
+	# Output separator.
+	'output_separator' => "\n"
+ );
+
+ my $tag = '<tag param="value"></tag>
+
+ # Indent!
+ $indent_tag->indent();
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+This is a class method, the constructor for Indent::Tag. Options are passed
+as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * line_size
+
+TODO
+
+=item * next_indent
+
+TODO
+
+=item * output_separator
+
+TODO
+
+=back
+
+=item indent
+
+TODO
+
+=head1 AUTHORS
+
+Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+
+=cut

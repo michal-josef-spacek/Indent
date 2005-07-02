@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.11 2005-07-02 14:28:43 skim Exp $
+# $Id: Comment.pm,v 1.12 2005-07-02 15:41:52 skim Exp $
 
 # Pragmas.
 use strict;
@@ -56,7 +56,6 @@ sub new {
 	# Object.
 	return bless $self, $class;
 }
-# END of new().
 
 #------------------------------------------------------------------------------
 sub indent {
@@ -86,6 +85,5 @@ sub indent {
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
-# END of indent().
 
 1;

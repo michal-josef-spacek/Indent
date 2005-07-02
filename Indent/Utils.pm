@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.8 2005-07-02 14:28:43 skim Exp $
+# $Id: Utils.pm,v 1.9 2005-07-02 15:41:52 skim Exp $
 
 # Pragmas.
 use strict;
@@ -49,7 +49,6 @@ sub new {
 	# Object.
 	return bless $self, $class;
 }
-# END of new().
 
 #------------------------------------------------------------------------------
 sub remove {
@@ -60,7 +59,8 @@ sub remove {
 # @param $non_indent Flag, than says no-indent.
 
 	my ($self, $data, $indent, $non_indent) = @_;
+
+	# TODO
 }
-# END of remove().
 
 1;
