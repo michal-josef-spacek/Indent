@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.5 2005-07-02 14:28:42 skim Exp $
+# $Id: Indent.pm,v 1.6 2005-07-02 15:28:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,6 +19,7 @@ sub new {
 
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 
 	# Default values.
 	$self->{'indent'} = '';
@@ -39,7 +40,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 # END of new().
 
@@ -90,3 +91,96 @@ sub reset {
 # END of reset().
 
 1;
+
+=head1 NAME
+
+Indent - A perl module for indent handling.
+
+=head1 SYNOPSIS
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent;
+
+ # Indent object.
+ my $indent = Indent->new(
+
+        # Begin indent.
+        'indent' => '->',
+
+        # Next indent.
+        'next_indent' => "->"
+ );
+
+ # Print example.
+ print $indent->get();
+ print "Example\n";
+
+ # Add indent and print ok.
+ $indent->add();
+ print $indent->get();
+ print "Ok\n";
+
+ # Remove indent and print nex example.
+ $indent->remove();
+ print $indent->get();
+ print "Example2\n";
+
+ # Reset.
+ $indent->reset();
+
+ Gets: 
+ ->Example
+ ->->Ok
+ ->Example2
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+This is a class method, the constructor for Indent. Options are passed
+as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * indent
+
+TODO
+
+=item * next_indent
+
+TODO
+
+=back
+
+=item add
+
+TODO
+
+=item remove
+
+TODO
+
+=item get
+
+TODO
+
+=item reset
+
+TODO
+
+=head1 AUTHORS
+
+Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+
+=cut
+
