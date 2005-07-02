@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.6 2005-07-02 15:28:47 skim Exp $
+# $Id: Indent.pm,v 1.7 2005-07-02 16:06:54 skim Exp $
 
 # Pragmas.
 use strict;
@@ -42,7 +42,6 @@ sub new {
 	# Object.
 	return $self;
 }
-# END of new().
 
 #------------------------------------------------------------------------------
 sub add {
@@ -53,7 +52,6 @@ sub add {
 	my $indent = shift || $self->{'next_indent'};
 	$self->{'indent'} .= $indent if $indent;
 }
-# END of plus_indent().
 
 #------------------------------------------------------------------------------
 sub remove {
@@ -67,7 +65,6 @@ sub remove {
 	}
 	($self->{'indent'}) = $self->{'indent'} =~ /^(.*)$indent$/;
 }
-# END of minus_indent().
 
 #------------------------------------------------------------------------------
 sub get {
@@ -77,7 +74,6 @@ sub get {
 	my $self = shift;
 	return $self->{'indent'};
 }
-# END of get_indent().
 
 #------------------------------------------------------------------------------
 sub reset {
@@ -88,7 +84,6 @@ sub reset {
 	my $reset_value = shift || '';
 	$self->{'indent'} = $reset_value;
 }
-# END of reset().
 
 1;
 
