@@ -1,3 +1,7 @@
+\bCVS\b
+^Makefile$
+\.bak$
+\.old$
 TODO
 INFO
 t/IndentForm/01_version.t
