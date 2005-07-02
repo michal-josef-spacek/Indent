@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: data.pl,v 1.4 2005-04-10 14:55:20 skim Exp $
+# $Id: data.pl,v 1.5 2005-07-02 13:51:07 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,7 +11,7 @@ use Indent::Data;
 # Object.
 my $obj = Indent::Data->new(
 	'line_size' => 10,
-	'indenter' => "\t",
+	'next_indent' => "\t",
 	'output_separator' => "\n",
 );
 
