@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.17 2005-07-02 14:28:43 skim Exp $
+# $Id: Data.pm,v 1.18 2005-07-02 15:31:49 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,6 +19,7 @@ sub new {
 
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 
 	# Options.
 	$self->{'line_size'} = 79;
@@ -53,7 +54,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 # END of new().
 
@@ -97,3 +98,88 @@ sub indent {
 # END of indent().
 
 1;
+
+=head1 NAME
+
+Indent::Data - A perl module for data indenting.
+
+=head1 SYNOPSIS
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Data;
+
+ # Indent::Data object.
+ my $indent_data = Indent::Data->new(
+
+        # Begin indent.
+        'indent' => '->',
+
+        # Next indent.
+        'next_indent' => "->"
+ );
+
+ # Print example.
+ print $indent->get();
+ print "Example\n";
+
+ # Add indent and print ok.
+ $indent->add();
+ print $indent->get();
+ print "Ok\n";
+
+ # Remove indent and print nex example.
+ $indent->remove();
+ print $indent->get();
+ print "Example2\n";
+
+ # Reset.
+ $indent->reset();
+
+ Gets: 
+ ->Example
+ ->->Ok
+ ->Example2
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+This is a class method, the constructor for Indent. Options are passed
+as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * line_size
+
+TODO
+
+=item * next_indent
+
+TODO
+
+=item * output_separator
+
+TODO
+
+=back
+
+=item indent
+
+TODO
+
+=head1 AUTHORS
+
+Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+
+=cut
+
