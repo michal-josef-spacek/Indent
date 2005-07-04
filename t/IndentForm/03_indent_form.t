@@ -1,3 +1,4 @@
-# $Id: 03_indent_form.t,v 1.1 2005-05-14 02:52:18 skim Exp $
+# $Id: 03_indent_form.t,v 1.2 2005-07-04 14:06:44 skim Exp $
 
+print "Testing: indent() method.\n" if $debug;
 # TODO

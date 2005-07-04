@@ -1,7 +1,9 @@
 \bCVS\b
+\bblib\b
 ^Makefile$
 \.bak$
 \.old$
+pm_to_blib
 TODO
 INFO
 t/IndentForm/01_version.t
