@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.10 2005-07-04 12:55:15 skim Exp $
+# $Id: Utils.pm,v 1.11 2005-07-04 13:49:01 skim Exp $
 
 # Pragmas.
 use strict;
@@ -12,56 +12,53 @@ use Carp;
 # Version.
 our $VERSION = 0.1;
 
+# Length of tab.
+our $tab_length = 8;
+
 #------------------------------------------------------------------------------
-sub new {
+sub remove_first {
 #------------------------------------------------------------------------------
-# Constructor.
-	
-	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+# Remove blank characters on begin of string.
+# @param $string Data string.
 
-	# Remove white space on begin of string.
-	$self->{'remove_begin'} = 1;
+	my $string = shift;
+	${$string} =~ s/^\s*//;	
+}
 
-	# Remove white space on end of string.
-	$self->{'remove_end'} = 1;
+#------------------------------------------------------------------------------
+sub remove_last {
+#------------------------------------------------------------------------------
+# Remove blank characters on end of string.
+# @param $string Data string.
 
-	# Remove duplicit white space in string.
-	$self->{'remove_duplicit'} = 1;
-
-	# Output.
-	$self->{'output_separator'} = "\n";
-
-	# Process params.
-	croak "$class: Created with odd number of parameters - should be ".
-		"of the form option => value." if (@_ % 2);
-	for (my $x = 0; $x <= $#_; $x += 2) {
-		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x+1];
-		} else {
-			croak "$class: Bad parameter '$_[$x]'.";
-		}
-	}
-
-	# Class.
-	$self->{'class'} = $class;
-
-	# Object.
-	return $self;
+	my $string = shift;
+	${$string} =~ s/\s*$//;	
 }
 
 #------------------------------------------------------------------------------
 sub remove {
 #------------------------------------------------------------------------------
-# Parses tag to indented data.
-# @param $data Data string.
-# @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
+# Remove blank characters on begin and end of string.
+# @param $string Data string. 
 
-	my ($self, $data, $indent, $non_indent) = @_;
-
-	# TODO
+	my $string = shift;
+	remove_last($string);
+	remove_first($string);
 }
+
+#------------------------------------------------------------------------------
+sub string_len {
+#------------------------------------------------------------------------------
+# Gets length of string. 
+# @param $string Data string.
+# @return $length_of_string Length of data string, when '\t' translate to
+# $tab_length x space.
+
+	my $string = shift;
+	my $tmp = ' ' x $tab_length;
+	$string =~ s/\t/$tmp/g;	
+	my $length_of_string = length $string;
+	return $length_of_string;	
+} 
 
 1;
