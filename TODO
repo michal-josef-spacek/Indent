@@ -1,4 +1,4 @@
-$Id: TODO,v 1.29 2005-07-04 14:07:34 skim Exp $
+$Id: TODO,v 1.30 2005-07-04 14:22:12 skim Exp $
 
 TODO
 ====
@@ -19,7 +19,10 @@ TODO
 23. Pridat test pro indentovani tagu - viz 5).
 24. Do Indent::Utils umoznit predavat i primo retezec s tim, ze se vrati?
 25. Pridat testy k Indent::Comment. Nejlepe priklady konkretnich komentaru.
-26.
+26. Pokud je string pro Indent::Tag takovyto: "<tag></tag><tag>". Tak co s tim?
+    Melo by se to indentovat jako tri stringy? Bylo by to idealni, otazka je,
+    jestli to je jednoduche.
+27.
 
 Applied
 =======
