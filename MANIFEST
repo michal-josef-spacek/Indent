@@ -3,6 +3,7 @@ bin/tag.pl
 bin/tag2.pl
 bin/word_with_comments1.pl
 bin/word_with_comments2.pl
+examples/Indent_synopsis.pl
 Indent.pm
 Indent/Comment.pm
 Indent/Data.pm
@@ -18,6 +19,7 @@ t/02_indent_data.t
 t/03_indent_word.t
 t/04_indent_tag.t
 t/05_indent_comment.t
+t/07_indent_utils.t
 t/Indent/01_version.t
 t/Indent/02_constructor.t
 t/Indent/03_indent.t
@@ -36,6 +38,12 @@ t/IndentTag/02_constructor.t
 t/IndentTag/03_indent_tag.t
 t/IndentTag/04_bad_indent.t
 t/IndentTag/05_zero_indent.t
+t/IndentUtils/01_version.t
+t/IndentUtils/02_remove_first_ws.t
+t/IndentUtils/03_remove_last_ws.t
+t/IndentUtils/04_remove_ws.t
+t/IndentUtils/05_string_len.t
+t/IndentUtils/06_reduce_duplicit_ws.t
 t/IndentWord/01_version.t
 t/IndentWord/02_constructor.t
 t/IndentWord/03_indent_word.t
