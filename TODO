@@ -1,17 +1,12 @@
-$Id: TODO,v 1.27 2005-07-04 13:49:09 skim Exp $
+$Id: TODO,v 1.28 2005-07-04 14:01:56 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 5. U Tagu nesmi jit indentovat hodnota parametru. Viz tag2.pl.
-6. Indent::Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich 
-   mist uprostred.
 8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
    dat nejak najevo chybu/varovani. Dalsi funkce, ktera by specifikovala stav.
    stay() metoda.
-11. Kdyz mam $self->{'next_indent'} = "\t", tak by se k celkove sirce melo
-    pripocitat 8 znaku? To by mohl byt parametr. Nahrada a spocitani znaku v
-    takovem retezci by mohla byt v Indent::Utils.
 13. Dokumentace k Indent::Tag.
 14. Dokumentace k Indent::Comment.
 15. Dokumentace k Indent::Data.
@@ -62,3 +57,12 @@ OK [20050527] skim
 3. Dokumentace k Indent.
 Existuji samostatne body na jednotlive dokumentace.
 NONE [20050702] skim
+
+6. Indent::Utils pro smazani prazdnych znaku na zacatku, konci a duplicitnich 
+   mist uprostred.
+OK [20050604] skim
+
+11. Kdyz mam $self->{'next_indent'} = "\t", tak by se k celkove sirce melo
+    pripocitat 8 znaku? To by mohl byt parametr. Nahrada a spocitani znaku v
+    takovem retezci by mohla byt v Indent::Utils.
+OK [20050604] skim
