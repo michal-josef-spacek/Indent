@@ -1,4 +1,4 @@
-$Id: TODO,v 1.26 2005-07-02 14:28:36 skim Exp $
+$Id: TODO,v 1.27 2005-07-04 13:49:09 skim Exp $
 
 TODO
 ====
@@ -22,7 +22,8 @@ TODO
     to same.
 22. Test pro Indent::Form.
 23. Pridat test pro indentovani tagu - viz 5).
-24. 
+24. Do Indent::Utils umoznit predavat i primo retezec s tim, ze se vrati?
+25.
 
 Applied
 =======
