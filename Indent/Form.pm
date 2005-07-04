@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.16 2005-07-02 15:41:52 skim Exp $
+# $Id: Form.pm,v 1.17 2005-07-04 12:55:14 skim Exp $
 
 # Pragmas.
 use strict;
@@ -20,6 +20,7 @@ sub new {
 	
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 
 	# Options.
 	$self->{'line_size'} = 79;
@@ -50,7 +51,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 
 #------------------------------------------------------------------------------
@@ -143,28 +144,10 @@ Indent::Form - A perl module for form indenting.
         # Next indent.
         'next_indent' => "->"
  );
-
- # Print example.
- print $indent->get();
- print "Example\n";
-
- # Add indent and print ok.
- $indent->add();
- print $indent->get();
- print "Ok\n";
-
- # Remove indent and print nex example.
- $indent->remove();
- print $indent->get();
- print "Example2\n";
-
- # Reset.
- $indent->reset();
+ TODO
 
  Gets: 
- ->Example
- ->->Ok
- ->Example2
+ TODO
 
 =head1 DESCRIPTION
 
@@ -183,21 +166,28 @@ as keyword value pairs. Recognized options are:
 
 =item * form_separator
 
+Default value of 'form_separator' is ': '.
 TODO
 
 =item * line_size
 
+Default value of 'line_size' is 79 chars.
 TODO
 
 =item * next_indent
 
+Default value of 'next_indent' isn't define.
 TODO
 
 =item * output_separator
 
+Default value of 'output_separator' is new line (\n).
 TODO
 
 =item * right_align
+
+Default value of 'right_align' is 1.
+TODO
 
 =back
 

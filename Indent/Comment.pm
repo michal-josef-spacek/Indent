@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.12 2005-07-02 15:41:52 skim Exp $
+# $Id: Comment.pm,v 1.13 2005-07-04 12:55:14 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,6 +19,7 @@ sub new {
 	
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 	
 	# Comment type.
 	$self->{'begin'} = '';
@@ -54,7 +55,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 
 #------------------------------------------------------------------------------
@@ -87,3 +88,77 @@ sub indent {
 }
 
 1;
+
+=head1 NAME
+
+Indent::Comment - A perl module for comment indenting.
+
+=head1 SYNOPSIS
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Comment;
+
+ # Indent::Comment object.
+ my $indent_comment = Indent::Comment->new(
+
+        # Begin indent.
+        'indent' => '->',
+
+        # Next indent.
+        'next_indent' => "->"
+ );
+
+ Gets:
+ TODO
+
+=head1 DESCRIPTION
+
+TODO
+
+=head1 METHODS
+
+=over 4
+
+=item new
+
+This is a class method, the constructor for Indent. Options are passed
+as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * begin
+
+Default value of 'begin' is ''.
+TODO
+
+=item * middle
+
+Default value of 'middle' is ''.
+TODO
+
+=item * end
+
+Default value of 'end' is ''.
+TODO
+
+=item * output_separator
+
+Default value of 'output_separator' is new line (\n).
+TODO
+
+=back
+
+=item indent
+
+TODO
+
+=head1 AUTHORS
+
+Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+
+=cut
+

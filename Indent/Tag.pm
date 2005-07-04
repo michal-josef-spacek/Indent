@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.13 2005-07-02 15:41:52 skim Exp $
+# $Id: Tag.pm,v 1.14 2005-07-04 12:55:15 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,6 +19,7 @@ sub new {
 	
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 	
 	# Options.
 	$self->{'line_size'} = 79;
@@ -47,7 +48,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 
 #------------------------------------------------------------------------------
@@ -191,19 +192,26 @@ as keyword value pairs. Recognized options are:
 
 =item * line_size
 
+Default value of 'line_size' is 79 chars. 
 TODO
 
 =item * next_indent
 
+Default value of 'next_indent' is tabelator (\t). 
 TODO
 
 =item * output_separator
 
+Default value of 'output_separator' is new line (\n).
 TODO
 
 =back
 
 =item indent
+
+TODO
+
+=item stay
 
 TODO
 

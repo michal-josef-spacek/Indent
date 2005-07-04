@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.18 2005-07-02 15:31:49 skim Exp $
+# $Id: Data.pm,v 1.19 2005-07-04 12:55:14 skim Exp $
 
 # Pragmas.
 use strict;
@@ -56,7 +56,6 @@ sub new {
 	# Object.
 	return $self;
 }
-# END of new().
 
 #------------------------------------------------------------------------------
 sub indent {
@@ -95,7 +94,6 @@ sub indent {
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
-# END of indent().
 
 1;
 

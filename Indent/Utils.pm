@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.9 2005-07-02 15:41:52 skim Exp $
+# $Id: Utils.pm,v 1.10 2005-07-04 12:55:15 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,6 +19,7 @@ sub new {
 	
 	my $class = shift;
 	my $self = {};
+	bless $self, $class;
 
 	# Remove white space on begin of string.
 	$self->{'remove_begin'} = 1;
@@ -47,7 +48,7 @@ sub new {
 	$self->{'class'} = $class;
 
 	# Object.
-	return bless $self, $class;
+	return $self;
 }
 
 #------------------------------------------------------------------------------
