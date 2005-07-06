@@ -1,4 +1,4 @@
-$Id: TODO,v 1.31 2005-07-04 14:23:14 skim Exp $
+$Id: TODO,v 1.32 2005-07-06 08:11:55 skim Exp $
 
 TODO
 ====
@@ -23,7 +23,7 @@ TODO
     Melo by se to indentovat jako tri stringy? Bylo by to idealni, otazka je,
     jestli to je jednoduche. Spise by se melo detekovat dalsi '<' a vyhodit
     chybu.
-27. Udelat Indent::Tags? Jako binding na Tags::Parser a k tomu neco?
+27. Udelat Indent::Tags2 Jako binding na Tags::Parser a k tomu neco?
 28. 
 
 Applied
