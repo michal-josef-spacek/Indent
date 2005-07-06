@@ -1,14 +1,14 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.15 2005-07-04 13:48:56 skim Exp $
+# $Id: Tag.pm,v 1.16 2005-07-06 07:04:04 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
 use Carp;
-use Indent::Utils;
+use Indent::Utils qw(string_len);
 
 # Version.
 our $VERSION = 0.1;
@@ -108,7 +108,7 @@ sub indent {
 			$second = $indent.$second;
 
 			# Stay count increasing as non-breakable line.
-			if (Indent::Utils::string_len($first) 
+			if (string_len($first) 
 				> $self->{'line_size'}) {
 
 				$self->{'stay'}++;
@@ -119,7 +119,7 @@ sub indent {
 		}
 	}
 
-	if (Indent::Utils::string_len($second) > $self->{'line_size'}) {
+	if (string_len($second) > $self->{'line_size'}) {
 		$self->{'stay'}++;
 	}
 
