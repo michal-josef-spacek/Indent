@@ -1,19 +1,30 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.12 2005-07-04 14:00:47 skim Exp $
+# $Id: Utils.pm,v 1.13 2005-07-06 07:01:42 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
 use Carp;
+use Exporter;
 
 # Version.
 our $VERSION = 0.1;
 
 # Length of tab.
 our $tab_length = 8;
+
+# Global variables.
+# use vars qw(@ISA @EXPORT_OK);
+
+# Inheritance.
+@ISA = qw(Exporter);
+
+# Export.
+@EXPORT_OK = qw(remove_first_ws remove_last_ws remove_ws reduce_duplicit_ws
+	string_len);
 
 #------------------------------------------------------------------------------
 sub remove_first_ws {
