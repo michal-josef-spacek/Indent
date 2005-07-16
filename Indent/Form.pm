@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.17 2005-07-04 12:55:14 skim Exp $
+# $Id: Form.pm,v 1.18 2005-07-16 17:33:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,8 +19,7 @@ sub new {
 # Constructor.
 	
 	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+	my $self = bless {}, $class;
 
 	# Options.
 	$self->{'line_size'} = 79;

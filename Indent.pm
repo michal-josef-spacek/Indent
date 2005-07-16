@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.7 2005-07-02 16:06:54 skim Exp $
+# $Id: Indent.pm,v 1.8 2005-07-16 17:32:10 skim Exp $
 
 # Pragmas.
 use strict;
@@ -18,8 +18,7 @@ sub new {
 # Constructor.
 
 	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+	my $self = bless {}, $class;
 
 	# Default values.
 	$self->{'indent'} = '';

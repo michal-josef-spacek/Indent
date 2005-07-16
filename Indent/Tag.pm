@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.16 2005-07-06 07:04:04 skim Exp $
+# $Id: Tag.pm,v 1.17 2005-07-16 17:33:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,8 +19,7 @@ sub new {
 # Constructor.
 	
 	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+	my $self = bless {}, $class;
 	
 	# Options.
 	$self->{'line_size'} = 79;

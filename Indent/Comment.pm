@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.13 2005-07-04 12:55:14 skim Exp $
+# $Id: Comment.pm,v 1.14 2005-07-16 17:33:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -18,8 +18,7 @@ sub new {
 # Constructor.
 	
 	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+	my $self = bless {}, $class;
 	
 	# Comment type.
 	$self->{'begin'} = '';

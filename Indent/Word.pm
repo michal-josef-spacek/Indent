@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.18 2005-07-04 12:55:15 skim Exp $
+# $Id: Word.pm,v 1.19 2005-07-16 17:33:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -18,8 +18,7 @@ sub new {
 # Constructor.
 
 	my $class = shift;
-	my $self = {};
-	bless $self, $class;
+	my $self = bless {}, $class;
 
 	# Options.
 	$self->{'line_size'} = 79;
