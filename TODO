@@ -1,4 +1,4 @@
-$Id: TODO,v 1.32 2005-07-06 08:11:55 skim Exp $
+$Id: TODO,v 1.33 2005-07-17 16:49:10 skim Exp $
 
 TODO
 ====
@@ -18,7 +18,6 @@ TODO
 22. Test pro Indent::Form.
 23. Pridat test pro indentovani tagu - viz 5).
 24. Do Indent::Utils umoznit predavat i primo retezec s tim, ze se vrati?
-25. Pridat testy k Indent::Comment. Nejlepe priklady konkretnich komentaru.
 26. Pokud je string pro Indent::Tag takovyto: "<tag></tag><tag>". Tak co s tim?
     Melo by se to indentovat jako tri stringy? Bylo by to idealni, otazka je,
     jestli to je jednoduche. Spise by se melo detekovat dalsi '<' a vyhodit
@@ -72,3 +71,6 @@ OK [20050604] skim
     pripocitat 8 znaku? To by mohl byt parametr. Nahrada a spocitani znaku v
     takovem retezci by mohla byt v Indent::Utils.
 OK [20050604] skim
+
+25. Pridat testy k Indent::Comment. Nejlepe priklady konkretnich komentaru.
+OK [20050717] skim
