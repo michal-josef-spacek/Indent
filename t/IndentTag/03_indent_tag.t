@@ -1,7 +1,7 @@
-# $Id: 03_indent_tag.t,v 1.5 2005-07-04 14:05:33 skim Exp $
+# $Id: 03_indent_tag.t,v 1.6 2005-07-19 10:30:04 skim Exp $
 
 print "Testing: No-indenting tag.\n" if $debug;
-$obj = $class->new(
+my $obj = $class->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
 );
@@ -27,7 +27,7 @@ ok($#ret, 3);
 ok($ret[3], '---  param3="value3">');
 
 print "Testing: Indenting tag with long attribute.\n" if $debug;
-my $obj = $class->new(
+$obj = $class->new(
 	'next_indent' => '',
 	'line_size' => 5,
 );

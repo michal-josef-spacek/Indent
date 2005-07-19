@@ -1,7 +1,8 @@
-# $Id: 04_bad_indent.t,v 1.2 2005-05-14 02:55:10 skim Exp $
+# $Id: 04_bad_indent.t,v 1.3 2005-07-19 10:30:05 skim Exp $
 
 print "Testing: Bad ident.\n" if $debug;
 print "-- Bad value in line_size.\n" if $debug;
+my $obj;
 eval {
 	$obj = $class->new(
 		'next_indent' => '  ',

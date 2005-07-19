@@ -1,6 +1,7 @@
-# $Id: 02_constructor.t,v 1.3 2005-05-14 02:48:13 skim Exp $
+# $Id: 02_constructor.t,v 1.4 2005-07-19 10:30:01 skim Exp $
 
 print "Testing: new('') bad constructor.\n" if $debug;
+my $obj;
 eval {
 	$obj = $class->new('');
 };

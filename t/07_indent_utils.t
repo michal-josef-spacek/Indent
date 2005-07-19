@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: 07_indent_utils.t,v 1.1 2005-07-04 13:48:17 skim Exp $
+# $Id: 07_indent_utils.t,v 1.2 2005-07-19 10:29:59 skim Exp $
 
 # Pragmas.
 use strict;
@@ -10,7 +10,7 @@ use Indent::Utils;
 use Test;
 
 # Global variables.
-use vars qw/$debug $obj $class $dir/;
+use vars qw/$debug $class $dir/;
 
 BEGIN {
 	# Name of class.

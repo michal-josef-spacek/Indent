@@ -1,7 +1,7 @@
-# $Id: 03_indent.t,v 1.2 2005-05-14 02:48:54 skim Exp $
+# $Id: 03_indent.t,v 1.3 2005-07-19 10:30:00 skim Exp $
 
 print "Testing: Indenting.\n" if $debug;
-$obj = $class->new();
+my $obj = $class->new();
 ok($obj->get(), '');
 $obj->add('---');
 ok($obj->get(), '---');
