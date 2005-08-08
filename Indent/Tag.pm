@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.19 2005-08-08 19:31:58 skim Exp $
+# $Id: Tag.pm,v 1.20 2005-08-08 19:36:32 skim Exp $
 
 # Pragmas.
 use strict;
@@ -73,12 +73,12 @@ sub indent {
 	my $last_second_length = 0;
 	my @data;
 	my $one = 1;
-	while (length $second >= $self->{'line_size'}
+	while (string_len($second) >= $self->{'line_size'}
 		&& $second =~ /^\s*\S+\s+/
-		&& $last_second_length != length $second) {
+		&& $last_second_length != string_len($second)) {
 
 		# Last length of non-parsed part of tag.
-		$last_second_length = length $second;
+		$last_second_length = string_len($second);
 
 		# Parse to indent length.
 		($first, my $tmp) = $second 
@@ -86,7 +86,7 @@ sub indent {
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
-		if (! $first || length $first < length $indent
+		if (! $first || string_len($first) < string_len($indent)
 			|| $first =~ /^$indent\s*$/) {
 			($first, $tmp) = $second 
 				=~ /^($indent\s*[^\s]+?)\s(.*\/?>)$/;
