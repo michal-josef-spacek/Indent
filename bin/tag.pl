@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# $Id: tag.pl,v 1.2 2005-04-10 21:06:18 skim Exp $
+# $Id: tag.pl,v 1.3 2005-08-08 19:37:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -22,4 +22,3 @@ my $data = $obj->indent(<<"END");
 END
 print "$data\n";
 print '-' x $line, "\n";
-print "stay: ", $obj->stay(), "\n";
