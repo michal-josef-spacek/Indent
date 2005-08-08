@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag2;
 #------------------------------------------------------------------------------
-# $Id: Tag2.pm,v 1.3 2005-08-08 16:34:51 skim Exp $
+# $Id: Tag2.pm,v 1.4 2005-08-08 17:19:03 skim Exp $
 
 # Pragmas.
 use strict;
@@ -78,9 +78,17 @@ sub indent {
 
 	my @data;
 	my ($tmp, $tmp2) = ('', '');
-	my @params = %{$tag_info->{'attribute'}};
+
+	# Sorted pairs of attributes.
+	my @params;
+	foreach (sort keys %{$tag_info->{'attribute'}}) {
+		push @params, $_, $tag_info->{'attribute'}->{$_};
+	}
+	$tag_info->{'end2'} = 1;
+	my $one = 0;
 	while (exists $tag_info->{'name'}
-		|| $#params > -1 || exists $tag_info->{'end'}) {
+		|| $#params > -1 || exists $tag_info->{'end'} 
+		|| exists $tag_info->{'end2'}) {
 
 		# Tag name.
 		if (exists $tag_info->{'name'}) {
@@ -114,13 +122,10 @@ sub indent {
 			delete $tag_info->{'end'};
 
 		# End of tag.
-		} else {
-			$tmp2 .= '>';
-		}
+		} elsif (exists $tag_info->{'end2'}) {
 
-		# Next indent.
-		if ($#data == 0) {
-			$indent .= $self->{'next_indent'};
+			$tmp2 .= '>';
+			delete $tag_info->{'end2'};
 		}
 
 		# Add to string.
@@ -130,7 +135,13 @@ sub indent {
 		# Add to data.
 		} else {
 
-			push @data, $indent.$tmp if $tmp;
+			if ($tmp) {
+				push @data, $indent.$tmp;
+				if ($one == 0) {
+					$one = 1;
+					$indent .= $self->{'next_indent'};
+				}
+			}
 			$tmp2 =~ s/^\s*//;
 			$tmp = $tmp2;
 		}
