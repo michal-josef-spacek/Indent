@@ -8,6 +8,7 @@ Indent.pm
 Indent/Comment.pm
 Indent/Data.pm
 Indent/Tag.pm
+Indent/Tag2.pm
 Indent/Utils.pm
 Indent/Word.pm
 Makefile.PL
