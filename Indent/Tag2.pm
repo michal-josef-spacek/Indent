@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag2;
 #------------------------------------------------------------------------------
-# $Id: Tag2.pm,v 1.4 2005-08-08 17:19:03 skim Exp $
+# $Id: Tag2.pm,v 1.5 2005-08-08 19:06:42 skim Exp $
 
 # Pragmas.
 use strict;
@@ -104,7 +104,7 @@ sub indent {
 				$tmp2 .= shift @params;
 
 			# '='.
-			} elsif (substr($tmp, length($tmp) - 1) ne '=') {
+			} elsif (substr($tmp, string_len($tmp) - 1) ne '=') {
 				$tmp2 .= '=';
 
 			# Param value.
@@ -129,7 +129,7 @@ sub indent {
 		}
 
 		# Add to string.
-		if (length($indent.$tmp.$tmp2) <= $self->{'line_size'}) {
+		if (string_len($indent.$tmp.$tmp2) <= $self->{'line_size'}) {
 			$tmp .= $tmp2;
 
 		# Add to data.
