@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.18 2005-08-08 19:23:01 skim Exp $
+# $Id: Tag.pm,v 1.19 2005-08-08 19:31:58 skim Exp $
 
 # Pragmas.
 use strict;
@@ -61,9 +61,6 @@ sub indent {
 
 	my ($self, $tag, $indent, $non_indent) = @_;
 
-	# Stay.
-	$self->{'stay'} = 0;
-
 	# Undef indent.
 	if (! $indent) {
 		$indent = '';
@@ -106,21 +103,9 @@ sub indent {
 			$one = 0;
 			$second = $indent.$second;
 
-			# Stay count increasing as non-breakable line.
-			if (string_len($first) 
-				> $self->{'line_size'}) {
-
-				$self->{'stay'}++;
-			}
-
 			# Parsed part of tag to @data array.
 			push @data, $first;
 		}
-	}
-
-	# length > line_size.
-	if (string_len($second) > $self->{'line_size'}) {
-		$self->{'stay'}++;
 	}
 
 	# Add other data to @data array.
@@ -128,15 +113,6 @@ sub indent {
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
-}
-
-#------------------------------------------------------------------------------
-sub stay {
-#------------------------------------------------------------------------------
-# Gets stay of indenting.
-
-	my $self = shift;
-	return $self->{'stay'};
 }
 
 1;
@@ -205,10 +181,6 @@ TODO
 =back
 
 =item indent
-
-TODO
-
-=item stay
 
 TODO
 

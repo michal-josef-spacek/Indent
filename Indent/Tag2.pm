@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag2;
 #------------------------------------------------------------------------------
-# $Id: Tag2.pm,v 1.6 2005-08-08 19:23:01 skim Exp $
+# $Id: Tag2.pm,v 1.7 2005-08-08 19:31:58 skim Exp $
 
 # Pragmas.
 use strict;
@@ -61,9 +61,6 @@ sub indent {
 # @param $non_indent Flag, than says no-indent.
 
 	my ($self, $tag, $indent, $non_indent) = @_;
-
-	# Stay.
-	$self->{'stay'} = 0;
 
 	# Undef indent.
 	if (! $indent) {
@@ -137,13 +134,6 @@ sub indent {
 			if ($tmp) {
 				push @data, $indent.$tmp;
 
-				# length > line_size.
-				if (string_len($indent.$tmp) 
-					> $self->{'line_size'}) {
-
-					$self->{'stay'}++;
-				}
-
 				# Indent on second and more.
 				if ($one == 0) {
 					$one = 1;
@@ -156,23 +146,10 @@ sub indent {
 		$tmp2 = '';
 	}
 
-	# length > line_size.
-	if (string_len($indent.$tmp) > $self->{'line_size'}) {
-		$self->{'stay'}++;
-	}
 	push @data, $indent.$tmp;
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
-}
-
-#------------------------------------------------------------------------------
-sub stay {
-#------------------------------------------------------------------------------
-# Gets stay of indenting.
-
-	my $self = shift;
-	return $self->{'stay'};
 }
 
 1;
