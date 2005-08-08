@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag2;
 #------------------------------------------------------------------------------
-# $Id: Tag2.pm,v 1.5 2005-08-08 19:06:42 skim Exp $
+# $Id: Tag2.pm,v 1.6 2005-08-08 19:23:01 skim Exp $
 
 # Pragmas.
 use strict;
@@ -134,9 +134,17 @@ sub indent {
 
 		# Add to data.
 		} else {
-
 			if ($tmp) {
 				push @data, $indent.$tmp;
+
+				# length > line_size.
+				if (string_len($indent.$tmp) 
+					> $self->{'line_size'}) {
+
+					$self->{'stay'}++;
+				}
+
+				# Indent on second and more.
 				if ($one == 0) {
 					$one = 1;
 					$indent .= $self->{'next_indent'};
@@ -146,6 +154,11 @@ sub indent {
 			$tmp = $tmp2;
 		}
 		$tmp2 = '';
+	}
+
+	# length > line_size.
+	if (string_len($indent.$tmp) > $self->{'line_size'}) {
+		$self->{'stay'}++;
 	}
 	push @data, $indent.$tmp;
 
