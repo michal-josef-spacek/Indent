@@ -1,4 +1,33 @@
-# $Id: 03_indent_form.t,v 1.2 2005-07-04 14:06:44 skim Exp $
+# $Id: 03_indent_form.t,v 1.3 2005-08-08 20:13:33 skim Exp $
 
 print "Testing: indent() method.\n" if $debug;
-# TODO
+my $obj = $class->new(
+	'line_size' => 80,
+	'output_separator' => "\n",
+);
+
+# Data.
+my $input = [
+        ['Login', 'Michal Spacek'],
+        ['Password', 'abcdefghijklmnopqrstuvw'],
+        ['Info', 'This is big info.'],
+];
+
+# Indent and print to output.
+my @data = $obj->indent($input);
+ok($data[0], '   Login: Michal Spacek');
+ok($data[1], 'Password: abcdefghijklmnopqrstuvw');
+ok($data[2], '    Info: This is big info.');
+
+$obj = $class->new(
+	'line_size' => 10,
+	'output_separator' => "\n",
+);
+my @data = $obj->indent($input);
+ok($data[0], '   Login: Michal');
+ok($data[1], '          Spacek');
+ok($data[2], 'Password: abcdefghijklmnopqrstuvw');
+ok($data[3], '    Info: This');
+ok($data[4], '          is');
+ok($data[5], '          big');
+ok($data[6], '          info.');
