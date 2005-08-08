@@ -1,12 +1,9 @@
-$Id: TODO,v 1.35 2005-08-08 19:04:22 skim Exp $
+$Id: TODO,v 1.36 2005-08-08 19:37:07 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 5. U Tagu nesmi jit indentovat hodnota parametru. Viz tag2.pl.
-8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
-   dat nejak najevo chybu/varovani. Dalsi funkce, ktera by specifikovala stav.
-   stay() metoda.
 13. Dokumentace k Indent::Tag.
 14. Dokumentace k Indent::Comment.
 15. Dokumentace k Indent::Data.
@@ -16,14 +13,7 @@ TODO
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
 22. Test pro Indent::Form.
-23. Pridat test pro indentovani tagu - viz 5).
 24. Do Indent::Utils umoznit predavat i primo retezec s tim, ze se vrati?
-26. Pokud je string pro Indent::Tag takovyto: "<tag></tag><tag>". Tak co s tim?
-    Melo by se to indentovat jako tri stringy? Bylo by to idealni, otazka je,
-    jestli to je jednoduche. Spise by se melo detekovat dalsi '<' a vyhodit
-    chybu.
-28. Udelat priklad pro Indent::Tag/Tag2, kde next_indent bude "\t". Jestli se 
-    to prevede na 8 znaku.
 29.
 
 Applied
@@ -77,4 +67,26 @@ OK [20050604] skim
 OK [20050717] skim
 
 27. Udelat Indent::Tags2 Jako binding na Tag::Parser a k tomu neco?
+OK [20050808] skim
+
+26. Pokud je string pro Indent::Tag takovyto: "<tag></tag><tag>". Tak co s tim?
+    Melo by se to indentovat jako tri stringy? Bylo by to idealni, otazka je,
+    jestli to je jednoduche. Spise by se melo detekovat dalsi '<' a vyhodit
+    chybu.
+Zatim ne. Tohle jenom identuje, neresi x tagu.
+NONE [20050808] skim
+
+8. Pokud nemuzu rozdelit data na takovou delku, kterou pozaduji, tak bych mel
+   dat nejak najevo chybu/varovani. Dalsi funkce, ktera by specifikovala stav.
+   stay() metoda.
+Zatim ne. Neni dulezite, ze to nemuze indentovat vec, ktera nejde.
+NONE [20050808] skim
+
+23. Pridat test pro indentovani tagu - viz 5).
+Test tam je.
+OK [20050808] skim
+
+28. Udelat priklad pro Indent::Tag/Tag2, kde next_indent bude "\t". Jestli se 
+    to prevede na 8 znaku.
+Je tam vsude string_len.
 OK [20050808] skim
