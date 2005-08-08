@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag2;
 #------------------------------------------------------------------------------
-# $Id: Tag2.pm,v 1.2 2005-07-16 17:33:18 skim Exp $
+# $Id: Tag2.pm,v 1.3 2005-08-08 16:34:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -77,60 +77,66 @@ sub indent {
 	my $tag_info = parse_normal($tag);
 
 	my @data;
-	# TODO
+	my ($tmp, $tmp2) = ('', '');
+	my @params = %{$tag_info->{'attribute'}};
+	while (exists $tag_info->{'name'}
+		|| $#params > -1 || exists $tag_info->{'end'}) {
 
-#	my ($first, $second) = (undef, $indent.$tag);
-#	my $last_second_length = 0;
-#	my @data;
-#	my $one = 1;
-#	while (length $second >= $self->{'line_size'}
-#		&& $second =~ /^\s*\S+\s+/
-#		&& $last_second_length != length $second) {
+		# Tag name.
+		if (exists $tag_info->{'name'}) {
+			$tmp2 .= "<".$tag_info->{'name'};
+			delete $tag_info->{'name'};
 
-		# Last length of non-parsed part of tag.
-#		$last_second_length = length $second;
+		# Params.
+		} elsif ($#params > -1) {
 
-		# Parse to indent length.
-#		($first, my $tmp) = $second 
-#			=~ /^(.{0,$self->{'line_size'}})\s+(.*\/?>)$/;
+			# Param name.
+			if (($#params + 1) % 2 == 0) {
+				$tmp2 .= ' ';
+				$tmp2 .= shift @params;
 
-		# If string is non-breakable in indent length, than parse to
-		# blank char.
-#		if (! $first || length $first < length $indent
-#			|| $first =~ /^$indent\s*$/) {
-#			($first, $tmp) = $second 
-#				=~ /^($indent\s*[^\s]+?)\s(.*\/?>)$/;
-#		}
+			# '='.
+			} elsif (substr($tmp, length($tmp) - 1) ne '=') {
+				$tmp2 .= '=';
 
-		# If parsing is right.
-#		if ($tmp) {
+			# Param value.
+			} else {
+				$tmp2 .= '"';
+				$tmp2 .= shift @params;
+				$tmp2 .= '"';
+			}
 
-			# Non-parsed part of tag.
-#			$second = $tmp;
+		# End of tag.
+		} elsif (exists $tag_info->{'end'}) {
+			if ($tag_info->{'end'} == 1) {
+				$tmp2 .= ' /';
+			}
+			delete $tag_info->{'end'};
 
-			# Add next_indent to string. 
-#			$indent .= $self->{'next_indent'} if $one == 1;
-#			$one = 0;
-#			$second = $indent.$second;
+		# End of tag.
+		} else {
+			$tmp2 .= '>';
+		}
 
-			# Stay count increasing as non-breakable line.
-#			if (string_len($first) 
-#				> $self->{'line_size'}) {
+		# Next indent.
+		if ($#data == 0) {
+			$indent .= $self->{'next_indent'};
+		}
 
-#				$self->{'stay'}++;
-#			}
+		# Add to string.
+		if (length($indent.$tmp.$tmp2) <= $self->{'line_size'}) {
+			$tmp .= $tmp2;
 
-			# Parsed part of tag to @data array.
-#			push @data, $first;
-#		}
-#	}
+		# Add to data.
+		} else {
 
-#	if (string_len($second) > $self->{'line_size'}) {
-#		$self->{'stay'}++;
-#	}
-
-	# Add other data to @data array.
-#	push @data, $second;
+			push @data, $indent.$tmp if $tmp;
+			$tmp2 =~ s/^\s*//;
+			$tmp = $tmp2;
+		}
+		$tmp2 = '';
+	}
+	push @data, $indent.$tmp;
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
