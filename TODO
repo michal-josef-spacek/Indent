@@ -1,4 +1,4 @@
-$Id: TODO,v 1.37 2005-08-08 19:39:36 skim Exp $
+$Id: TODO,v 1.38 2005-08-08 20:13:52 skim Exp $
 
 TODO
 ====
@@ -12,7 +12,6 @@ TODO
 18. Dokumentace k Indent::Form.
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
-22. Test pro Indent::Form.
 29.
 
 Applied
@@ -93,3 +92,7 @@ OK [20050808] skim
 24. Do Indent::Utils umoznit predavat i primo retezec s tim, ze se vrati?
 Zatim ne.
 NONE [20050808] skim
+
+22. Test pro Indent::Form.
+Dva testy.
+OK [20050808] skim
