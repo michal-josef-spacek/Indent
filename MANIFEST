@@ -21,6 +21,7 @@ t/03_indent_word.t
 t/04_indent_tag.t
 t/05_indent_comment.t
 t/07_indent_utils.t
+t/08_indent_tag2.t
 t/Indent/01_version.t
 t/Indent/02_constructor.t
 t/Indent/03_indent.t
@@ -39,6 +40,11 @@ t/IndentTag/02_constructor.t
 t/IndentTag/03_indent_tag.t
 t/IndentTag/04_bad_indent.t
 t/IndentTag/05_zero_indent.t
+t/IndentTag2/01_version.t
+t/IndentTag2/02_constructor.t
+t/IndentTag2/03_indent_tag.t
+t/IndentTag2/04_bad_indent.t
+t/IndentTag2/05_zero_indent.t
 t/IndentUtils/01_version.t
 t/IndentUtils/02_remove_first_ws.t
 t/IndentUtils/03_remove_last_ws.t
