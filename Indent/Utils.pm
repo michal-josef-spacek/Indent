@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.14 2005-07-13 13:11:23 skim Exp $
+# $Id: Utils.pm,v 1.15 2005-08-09 06:51:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,7 +11,7 @@ use Carp;
 use Exporter;
 
 # Version.
-our $VERSION = 0.1;
+our $VERSION = 0.01;
 
 # Length of tab.
 our $tab_length = 8;
