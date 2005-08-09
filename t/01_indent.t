@@ -1,5 +1,5 @@
-#!/usr/bin/perl
-# $Id: 01_indent.t,v 1.6 2005-07-19 10:29:59 skim Exp $
+#!/usr/bin/env perl
+# $Id: 01_indent.t,v 1.7 2005-08-09 08:56:00 skim Exp $
 
 # Pragmas.
 use strict;

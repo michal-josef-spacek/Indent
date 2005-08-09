@@ -1,5 +1,5 @@
-#!/usr/bin/perl
-# $Id: form.pl,v 1.7 2005-04-10 21:16:06 skim Exp $
+#!/usr/bin/env perl
+# $Id: form.pl,v 1.8 2005-08-09 08:55:22 skim Exp $
 
 # Pragmas.
 use strict;
