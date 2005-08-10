@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# $Id: 03_indent_word.t,v 1.7 2005-08-09 08:56:00 skim Exp $
+# $Id: 03_indent_word.t,v 1.8 2005-08-10 15:44:37 skim Exp $
 
 # Pragmas.
 use strict;
@@ -17,7 +17,7 @@ BEGIN {
 	$dir = $class = 'Indent::Word';
 	$dir =~ s/:://g;
 
-	my $tests = `grep -r \"^ok(\" t/$dir/*.t | wc -l`;
+	my $tests = `egrep -r \"^[[:space:]]*ok\\(\" t/$dir/*.t | wc -l`;
 	chomp $tests;
 	plan('tests' => $tests);
 

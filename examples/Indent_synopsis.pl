@@ -1,5 +1,5 @@
-#!/usr/bin/perl
-# $Id: Indent_synopsis.pl,v 1.1 2005-07-02 15:23:15 skim Exp $
+#!/usr/bin/env perl
+# $Id: Indent_synopsis.pl,v 1.2 2005-08-10 15:44:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,19 +19,19 @@ my $indent = Indent->new(
 );
 
 # Print example.
-print $indent->get();
+print $indent->get;
 print "Example\n";
 
 # Add indent and print ok.
-$indent->add();
-print $indent->get();
+$indent->add;
+print $indent->get;
 print "Ok\n";
 
 # Remove indent and print nex example.
-$indent->remove();
-print $indent->get();
+$indent->remove;
+print $indent->get;
 print "Example2\n";
 
 # Reset.
-$indent->reset();
+$indent->reset;
 

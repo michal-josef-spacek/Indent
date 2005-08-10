@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.9 2005-08-09 06:50:27 skim Exp $
+# $Id: Indent.pm,v 1.10 2005-08-10 15:44:50 skim Exp $
 
 # Pragmas.
 use strict;
@@ -110,21 +110,21 @@ Indent - A perl module for indent handling.
  );
 
  # Print example.
- print $indent->get();
+ print $indent->get;
  print "Example\n";
 
  # Add indent and print ok.
- $indent->add();
- print $indent->get();
+ $indent->add;
+ print $indent->get;
  print "Ok\n";
 
  # Remove indent and print nex example.
- $indent->remove();
- print $indent->get();
+ $indent->remove;
+ print $indent->get;
  print "Example2\n";
 
  # Reset.
- $indent->reset();
+ $indent->reset;
 
  Gets: 
  ->Example
