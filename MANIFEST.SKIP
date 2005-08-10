@@ -15,3 +15,4 @@ t/06_indent_form.t
 bin/form.pl
 bin/form2.pl
 concept
+MANIFEST.SKIP

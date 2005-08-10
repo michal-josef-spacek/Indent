@@ -13,7 +13,6 @@ Indent/Utils.pm
 Indent/Word.pm
 Makefile.PL
 MANIFEST
-MANIFEST.SKIP
 META.yml
 t/01_indent.t
 t/02_indent_data.t
