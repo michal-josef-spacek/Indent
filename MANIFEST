@@ -7,6 +7,7 @@ examples/Indent_synopsis.pl
 Indent.pm
 Indent/Comment.pm
 Indent/Data.pm
+Indent/Form.pm
 Indent/Tag.pm
 Indent/Tag2.pm
 Indent/Utils.pm
@@ -19,6 +20,7 @@ t/02_indent_data.t
 t/03_indent_word.t
 t/04_indent_tag.t
 t/05_indent_comment.t
+t/06_indent_form.t
 t/07_indent_utils.t
 t/08_indent_tag2.t
 t/Indent/01_version.t
@@ -34,6 +36,10 @@ t/IndentData/02_constructor.t
 t/IndentData/03_indent_data.t
 t/IndentData/04_bad_indent.t
 t/IndentData/05_output_separator.t
+t/IndentForm/01_version.t
+t/IndentForm/02_constructor.t
+t/IndentForm/03_indent_form.t
+t/IndentForm/04_bad_indent.t
 t/IndentTag/01_version.t
 t/IndentTag/02_constructor.t
 t/IndentTag/03_indent_tag.t
