@@ -1,4 +1,4 @@
-# $Id: 03_indent_form.t,v 1.3 2005-08-08 20:13:33 skim Exp $
+# $Id: 03_indent_form.t,v 1.4 2005-08-13 20:41:56 skim Exp $
 
 print "Testing: indent() method.\n" if $debug;
 my $obj = $class->new(
@@ -23,7 +23,7 @@ $obj = $class->new(
 	'line_size' => 10,
 	'output_separator' => "\n",
 );
-my @data = $obj->indent($input);
+@data = $obj->indent($input);
 ok($data[0], '   Login: Michal');
 ok($data[1], '          Spacek');
 ok($data[2], 'Password: abcdefghijklmnopqrstuvw');
