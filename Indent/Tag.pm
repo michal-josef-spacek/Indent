@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.22 2005-08-14 17:58:24 skim Exp $
+# $Id: Tag.pm,v 1.23 2005-08-14 18:01:22 skim Exp $
 
 # Pragmas.
 use strict;
@@ -140,7 +140,7 @@ Indent::Tag - A perl module for tag indenting.
  my $tag = '<tag param="value"></tag>
 
  # Indent!
- $indent_tag->indent();
+ $indent_tag->indent;
 
 =head1 DESCRIPTION
 

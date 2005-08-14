@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.23 2005-08-14 17:52:44 skim Exp $
+# $Id: Data.pm,v 1.24 2005-08-14 18:01:22 skim Exp $
 
 # Pragmas.
 use strict;
@@ -114,21 +114,21 @@ Indent::Data - A perl module for data indenting.
  );
 
  # Print example.
- print $indent->get();
+ print $indent->get;
  print "Example\n";
 
  # Add indent and print ok.
- $indent->add();
- print $indent->get();
+ $indent->add;
+ print $indent->get;
  print "Ok\n";
 
  # Remove indent and print nex example.
- $indent->remove();
- print $indent->get();
+ $indent->remove;
+ print $indent->get;
  print "Example2\n";
 
  # Reset.
- $indent->reset();
+ $indent->reset;
 
  Gets: 
  ->Example

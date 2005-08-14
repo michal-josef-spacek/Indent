@@ -1,7 +1,7 @@
-# $Id: 02_constructor.t,v 1.5 2005-08-14 17:52:45 skim Exp $
+# $Id: 02_constructor.t,v 1.6 2005-08-14 18:01:24 skim Exp $
 
 print "Testing: new() plain constructor.\n" if $debug;
-my $obj = $class->new();
+my $obj = $class->new;
 ok(defined $obj, 1);
 ok($obj->isa($class), 1);
 ok($obj, qr/$class/);
