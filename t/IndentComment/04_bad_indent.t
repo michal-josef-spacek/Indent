@@ -1,4 +1,4 @@
-# $Id: 04_bad_indent.t,v 1.2 2005-07-19 10:30:01 skim Exp $
+# $Id: 04_bad_indent.t,v 1.3 2005-08-14 17:27:30 skim Exp $
 
 print "Testing: Bad indent. Not a ref to array.\n" if $debug;
 my $obj = $class->new(
@@ -9,8 +9,7 @@ my @data = ();
 eval {
 	$obj->indent(@data);
 };
-$@ =~ s/(.*)\ at.*\n/$1/;
-ok($@, $class.': Cannot define data.');
+ok($@, "$class: Cannot define data.\n");
 
 print "Testing: Bad indent. Array is empty.\n" if $debug;
 $obj = $class->new(
@@ -20,5 +19,4 @@ $obj = $class->new(
 eval {
 	$obj->indent(\@data);
 };
-$@ =~ s/(.*)\ at.*\n/$1/;
-ok($@, $class.': Cannot define data.');
+ok($@, "$class: Cannot define data.\n");
