@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.10 2005-08-10 15:44:50 skim Exp $
+# $Id: Indent.pm,v 1.11 2005-08-14 16:25:53 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Carp;
+use Error::Simple qw(err);
 
 # Version.
 our $VERSION = 0.01;
@@ -25,14 +25,10 @@ sub new {
 	$self->{'next_indent'} = "\t";
 
 	# Process params.
-	croak "$class: Created with odd number of parameters - should be ".
-		"of the form option => value." if (@_ % 2);
-	for (my $x = 0; $x <= $#_; $x += 2) {
-		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x+1];
-		} else {
-			croak "$class: Bad parameter '$_[$x]'.";
-		}
+	while (@_) {
+		my $key = shift;
+		my $val = shift;
+		err "Unknown parameter '$key'." if ! exists $self->{$key};
 	}
 
 	# Class.
@@ -60,7 +56,7 @@ sub remove {
 	my $self = shift;
 	my $indent = shift || $self->{'next_indent'};
 	if ($self->{'indent'} !~ /^.*$indent$/) {
-		croak "$self->{'class'}: Cannot remove indent '$indent'.";
+		err "Cannot remove indent '$indent'.";
 	}
 	($self->{'indent'}) = $self->{'indent'} =~ /^(.*)$indent$/;
 }
