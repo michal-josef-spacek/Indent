@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.15 2005-08-09 06:50:29 skim Exp $
+# $Id: Comment.pm,v 1.16 2005-08-14 17:41:26 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Carp;
+use Error::Simple qw(err);
 
 # Version.
 our $VERSION = 0.01;
@@ -29,19 +29,16 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	croak "$class: Created with odd number of parameters - should be ".
-		"of the form option => value." if (@_ % 2);
-	for (my $x = 0; $x <= $#_; $x += 2) {
-		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x + 1];
-		} else {
-			croak "$class: Bad parameter '$_[$x]'.";
-		}
+	while (@_) {
+		my $key = shift;
+		my $val = shift;
+		err "Unknown parameter '$key'." unless exists $self->{$key};
+		$self->{$key} = $val;
 	}
 
 	# Control.
-	if (! $self->{'begin'} && ! $self->{'end'} && ! $self->{'middle'}) {
-		croak "$class: Cannot define comments.";
+	unless ($self->{'begin'} || $self->{'end'} || $self->{'middle'}) {
+		err "Cannot define comments.";
 	}
 
 	# Comment tag is one.
@@ -49,9 +46,6 @@ sub new {
 	if (! $self->{'begin'} && ! $self->{'end'} && $self->{'middle'}) {
 		$self->{'one'} = 1;
 	}
-
-	# Class.
-	$self->{'class'} = $class;
 
 	# Object.
 	return $self;
@@ -67,7 +61,7 @@ sub indent {
 
 	# Control for data.
 	if (ref $data ne 'ARRAY' || $#{$data} == -1) {
-		croak "$self->{'class'}: Cannot define data.";
+		err "Cannot define data.";
 	}
 
 	# Adding comments.
