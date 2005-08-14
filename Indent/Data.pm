@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.21 2005-08-09 06:51:05 skim Exp $
+# $Id: Data.pm,v 1.22 2005-08-14 17:50:02 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Carp;
+use Error::Simple qw(err);
 
 # Version.
 our $VERSION = 0.01;
@@ -28,24 +28,21 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	croak "$class: Created with odd number of parameters - should be ".
-		"of the form option => value." if (@_ % 2);
-	for (my $x = 0; $x <= $#_; $x += 2) {
-		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x+1];
-		} else {
-			croak "$class: Bad parameter '$_[$x]'.";
-		}
+	while (@_) {
+		my $key = shift;
+		my $val = shift;
+		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		$self->{$key} = $val;
 	}
 
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/ || $self->{'line_size'} <= 0) {
-		croak "$class: Bad line_size = '$self->{'line_size'}'.";
+		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
 	# Error with 'next_indent' length greater than 'line_size'.
 	if ($self->{'line_size'} <= length $self->{'next_indent'}) {
-		croak "$class: Bad line_size = '$self->{'line_size'}' ".
+		err "Bad line_size = '$self->{'line_size'}' ".
 			"or length of string '$self->{'next_indent'}'.";
 	}
 
