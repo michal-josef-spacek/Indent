@@ -1,17 +1,17 @@
-# $Id: 03_indent.t,v 1.3 2005-07-19 10:30:00 skim Exp $
+# $Id: 03_indent.t,v 1.4 2005-08-14 16:27:53 skim Exp $
 
 print "Testing: Indenting.\n" if $debug;
-my $obj = $class->new();
-ok($obj->get(), '');
+my $obj = $class->new;
+ok($obj->get, '');
 $obj->add('---');
-ok($obj->get(), '---');
+ok($obj->get, '---');
 $obj->add('hoho');
-ok($obj->get(), '---hoho');
-$obj->add();
-ok($obj->get(), "---hoho\t");
-$obj->remove();
-ok($obj->get(), '---hoho');
+ok($obj->get, '---hoho');
+$obj->add;
+ok($obj->get, "---hoho\t");
+$obj->remove;
+ok($obj->get, '---hoho');
 $obj->remove('hoho');
-ok($obj->get(), '---');
+ok($obj->get, '---');
 $obj->remove('---');
-ok($obj->get(), '');
+ok($obj->get, '');
