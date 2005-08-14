@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.19 2005-08-09 06:51:05 skim Exp $
+# $Id: Form.pm,v 1.20 2005-08-14 17:52:44 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Carp;
+use Error::Simple;
 use Indent::Word;
 
 # Version.
@@ -31,23 +31,17 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	croak "$class: Created with odd number of parameters - should be ".
-		"of the form option => value." if (@_ % 2);
-	for (my $x = 0; $x <= $#_; $x += 2) {
-		if (exists $self->{$_[$x]}) {
-			$self->{$_[$x]} = $_[$x+1];
-		} else {
-			croak "$class: Bad parameter '$_[$x]'.";
-		}
+	while (@_) {
+		my $key = shift;
+		my $val = shift;
+		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		$self->{$key} = $val;
 	}
 
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/) {
-		croak "$class: Bad line_size = '$self->{'line_size'}'.";
+		err "Bad line_size = '$self->{'line_size'}'.";
 	}
-
-	# Class.
-	$self->{'class'} = $class;
 
 	# Object.
 	return $self;

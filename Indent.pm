@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.12 2005-08-14 17:41:18 skim Exp $
+# $Id: Indent.pm,v 1.13 2005-08-14 17:52:43 skim Exp $
 
 # Pragmas.
 use strict;
@@ -31,9 +31,6 @@ sub new {
 		err "Unknown parameter '$key'." if ! exists $self->{$key};
 		$self->{$key} = $val;
 	}
-
-	# Class.
-	$self->{'class'} = $class;
 
 	# Object.
 	return $self;

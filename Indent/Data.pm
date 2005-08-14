@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.22 2005-08-14 17:50:02 skim Exp $
+# $Id: Data.pm,v 1.23 2005-08-14 17:52:44 skim Exp $
 
 # Pragmas.
 use strict;
@@ -45,9 +45,6 @@ sub new {
 		err "Bad line_size = '$self->{'line_size'}' ".
 			"or length of string '$self->{'next_indent'}'.";
 	}
-
-	# Class.
-	$self->{'class'} = $class;
 
 	# Object.
 	return $self;

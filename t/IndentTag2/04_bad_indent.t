@@ -1,4 +1,4 @@
-# $Id: 04_bad_indent.t,v 1.1 2005-08-08 17:18:47 skim Exp $
+# $Id: 04_bad_indent.t,v 1.2 2005-08-14 18:00:13 skim Exp $
 
 print "Testing: Bad ident.\n" if $debug;
 print "-- Bad value in line_size.\n" if $debug;
@@ -9,5 +9,4 @@ eval {
 		'line_size' => 'ko'
 	);
 };
-$@ =~ s/(.*)\ at.*\n/$1/;
-ok($@, "$class: Bad line_size = 'ko'.");
+ok($@, "$class: Bad line_size = 'ko'.\n");
