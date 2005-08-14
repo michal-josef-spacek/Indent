@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.11 2005-08-14 16:25:53 skim Exp $
+# $Id: Indent.pm,v 1.12 2005-08-14 17:41:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -29,6 +29,7 @@ sub new {
 		my $key = shift;
 		my $val = shift;
 		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		$self->{$key} = $val;
 	}
 
 	# Class.
