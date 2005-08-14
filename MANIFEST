@@ -27,6 +27,7 @@ t/Indent/01_version.t
 t/Indent/02_constructor.t
 t/Indent/03_indent.t
 t/Indent/04_reset.t
+t/Indent/05_bad_indent.t
 t/IndentComment/01_version.t
 t/IndentComment/02_constructor.t
 t/IndentComment/03_indent_comment.t
