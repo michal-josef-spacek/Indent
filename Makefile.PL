@@ -1,4 +1,4 @@
-# $Id: Makefile.PL,v 1.6 2005-08-13 20:43:21 skim Exp $
+# $Id: Makefile.PL,v 1.7 2005-08-27 11:03:45 skim Exp $
 
 # Modules.
 use ExtUtils::MakeMaker;
@@ -6,8 +6,8 @@ use ExtUtils::MakeMaker;
 # Definition.
 WriteMakefile(
 	'NAME' => 'Indent',
-	'VERSION_FROM' => 'Indent.pm',
 	'PREREQ_PM' => {
 		'Tag::Parse' => 0.01,
 	},
+	'VERSION' => 0.01,
 );
