@@ -1,4 +1,4 @@
-# $Id: 03_indent_tag.t,v 1.1 2005-08-08 17:18:47 skim Exp $
+# $Id: 03_indent_tag.t,v 1.8 2005-09-26 18:01:59 skim Exp $
 
 print "Testing: No-indenting tag.\n" if $debug;
 my $obj = $class->new(

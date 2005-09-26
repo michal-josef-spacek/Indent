@@ -1,4 +1,4 @@
-# $Id: 04_bad_indent.t,v 1.2 2005-08-14 18:00:13 skim Exp $
+# $Id: 04_bad_indent.t,v 1.6 2005-09-26 18:01:59 skim Exp $
 
 print "Testing: Bad ident.\n" if $debug;
 print "-- Bad value in line_size.\n" if $debug;

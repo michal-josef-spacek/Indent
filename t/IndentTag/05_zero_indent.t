@@ -1,4 +1,4 @@
-# $Id: 05_zero_indent.t,v 1.1 2005-08-08 17:18:47 skim Exp $
+# $Id: 05_zero_indent.t,v 1.5 2005-09-26 18:01:59 skim Exp $
 
 print "-- Zero line_size.\n" if $debug;
 my $next_indent = '  ';

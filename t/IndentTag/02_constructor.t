@@ -1,4 +1,4 @@
-# $Id: 02_constructor.t,v 1.3 2005-08-14 18:01:26 skim Exp $
+# $Id: 02_constructor.t,v 1.7 2005-09-26 18:01:59 skim Exp $
 
 print "Testing: new() plain constructor.\n" if $debug;
 my $obj = $class->new;
