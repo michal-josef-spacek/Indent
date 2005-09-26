@@ -1,10 +1,8 @@
-$Id: TODO,v 1.39 2005-08-08 20:23:02 skim Exp $
+$Id: TODO,v 1.40 2005-09-26 17:49:28 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
-5. U Indent::Tag nesmi jit indentovat hodnota parametru. Viz tag2.pl.
-   Indent::Tag2 to jiz umoznuje.
 13. Dokumentace k Indent::Tag.
 14. Dokumentace k Indent::Comment.
 15. Dokumentace k Indent::Data.
@@ -97,3 +95,8 @@ NONE [20050808] skim
 22. Test pro Indent::Form.
 Dva testy.
 OK [20050808] skim
+
+5. U Indent::Tag nesmi jit indentovat hodnota parametru. Viz tag2.pl.
+   Indent::Tag2 to jiz umoznuje.
+Prepsano.
+OK [20050926] skim
