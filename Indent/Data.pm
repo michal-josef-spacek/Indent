@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.24 2005-08-14 18:01:22 skim Exp $
+# $Id: Data.pm,v 1.25 2005-11-03 12:49:09 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Error::Simple qw(err);
+use Error::Simple::Multiple qw(err);
 
 # Version.
 our $VERSION = 0.01;
@@ -31,7 +31,7 @@ sub new {
 	while (@_) {
 		my $key = shift;
 		my $val = shift;
-		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 

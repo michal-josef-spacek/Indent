@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.25 2005-09-26 18:02:33 skim Exp $
+# $Id: Tag.pm,v 1.26 2005-11-03 12:49:09 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Error::Simple qw(err);
+use Error::Simple::Multiple qw(err);
 use Indent::Utils qw(string_len);
 use Tag::Parse qw(parse_normal);
 

@@ -1,13 +1,13 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.16 2005-08-14 17:41:26 skim Exp $
+# $Id: Comment.pm,v 1.17 2005-11-03 12:49:09 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
-use Error::Simple qw(err);
+use Error::Simple::Multiple qw(err);
 
 # Version.
 our $VERSION = 0.01;
