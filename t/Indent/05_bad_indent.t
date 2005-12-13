@@ -1,4 +1,4 @@
-# $Id: 05_bad_indent.t,v 1.1 2005-08-14 16:44:42 skim Exp $
+# $Id: 05_bad_indent.t,v 1.2 2005-12-13 23:04:36 skim Exp $
 
 print "Testing: Bad indent.\n" if $debug;
 my $obj = $class->new;
@@ -8,4 +8,4 @@ ok($obj->get, '---');
 eval {
 	$obj->remove('aa');
 };
-ok($@, "Indent: Cannot remove indent 'aa'.\n");
+ok($@, "Cannot remove indent 'aa'.\n");

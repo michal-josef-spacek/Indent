@@ -1,4 +1,4 @@
-# $Id: 02_constructor.t,v 1.7 2005-08-14 18:01:23 skim Exp $
+# $Id: 02_constructor.t,v 1.8 2005-12-13 23:04:38 skim Exp $
 
 print "Testing: new() plain constructor.\n" if $debug;
 my $obj = $class->new;
@@ -10,10 +10,10 @@ print "Testing: new('') bad constructor.\n" if $debug;
 eval {
 	$obj = $class->new('');
 };
-ok($@, "$class: Unknown parameter ''.\n");
+ok($@, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n" if $debug;
 eval {
 	$obj = $class->new('something' => 'value');
 };
-ok($@, "$class: Unknown parameter 'something'.\n");
+ok($@, "Unknown parameter 'something'.\n");
