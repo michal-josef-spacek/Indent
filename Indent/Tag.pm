@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.27 2005-12-23 23:35:12 skim Exp $
+# $Id: Tag.pm,v 1.28 2005-12-23 23:42:41 skim Exp $
 
 # Pragmas.
 use strict;
@@ -108,9 +108,12 @@ sub indent {
 		# End of tag.
 		} elsif (exists $tag_info->{'end'}) {
 			if ($tag_info->{'end'} == 1) {
-				$tmp2 .= ' /';
+				$tmp2 .= ' />';
 			}
 			delete $tag_info->{'end'};
+			if (exists $tag_info->{'end2'}) {
+				delete $tag_info->{'end2'};
+			}
 
 		# End of tag.
 		} elsif (exists $tag_info->{'end2'}) {
