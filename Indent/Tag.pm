@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.26 2005-11-03 12:49:09 skim Exp $
+# $Id: Tag.pm,v 1.27 2005-12-23 23:35:12 skim Exp $
 
 # Pragmas.
 use strict;
@@ -33,7 +33,7 @@ sub new {
 	while (@_) {
 		my $key = shift;
 		my $val = shift;
-		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
