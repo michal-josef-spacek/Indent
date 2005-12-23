@@ -1,4 +1,4 @@
-$Id: TODO,v 1.41 2005-12-23 23:35:07 skim Exp $
+$Id: TODO,v 1.42 2005-12-23 23:42:23 skim Exp $
 
 TODO
 ====
@@ -11,8 +11,8 @@ TODO
 18. Dokumentace k Indent::Form.
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
-29. Chyba v "/\n>". Tohle nesmi byt. Musi byt "/>".
-30.
+30. Udelat test k 29.
+31.
 
 Applied
 =======
@@ -101,3 +101,6 @@ OK [20050808] skim
    Indent::Tag2 to jiz umoznuje.
 Prepsano.
 OK [20050926] skim
+
+29. Chyba v "/\n>". Tohle nesmi byt. Musi byt "/>".
+OK [20051223] skim
