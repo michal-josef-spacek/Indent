@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.14 2005-11-03 12:49:34 skim Exp $
+# $Id: Indent.pm,v 1.15 2006-02-17 12:49:32 skim Exp $
 
 # Pragmas.
 use strict;
@@ -20,8 +20,10 @@ sub new {
 	my $class = shift;
 	my $self = bless {}, $class;
 
-	# Default values.
+	# Default indent.
 	$self->{'indent'} = '';
+
+	# Every next indent string.
 	$self->{'next_indent'} = "\t";
 
 	# Process params.
