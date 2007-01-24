@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.17 2005-11-03 12:49:09 skim Exp $
+# $Id: Comment.pm,v 1.18 2007-01-24 23:48:43 skim Exp $
 
 # Pragmas.
 use strict;
@@ -10,10 +10,10 @@ use strict;
 use Error::Simple::Multiple qw(err);
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($@) {
 #------------------------------------------------------------------------------
 # Constructor.
 	
@@ -52,7 +52,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub indent {
+sub indent($) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Data string.
@@ -82,9 +82,11 @@ sub indent {
 
 1;
 
+=pod
+
 =head1 NAME
 
-Indent::Comment - A perl module for comment indenting.
+ Indent::Comment
 
 =head1 SYNOPSIS
 
@@ -97,61 +99,78 @@ Indent::Comment - A perl module for comment indenting.
 
  # Indent::Comment object.
  my $indent_comment = Indent::Comment->new(
-
-        # Begin indent.
-        'indent' => '->',
-
-        # Next indent.
-        'next_indent' => "->"
+        'begin' => '/*',
+        'middle' => ' * ',
+        'end' => ' */',
  );
 
+ # Print comment.
+ my $output = $indent_comment->indent([
+   'text',
+   'text',
+   'text'
+ ]);
+ print "$output\n";
+
  Gets:
- TODO
+ /* 
+  * text
+  * text
+  * text
+  */
 
 =head1 DESCRIPTION
 
-TODO
+ A perl module for comment indenting.
 
 =head1 METHODS
 
 =over 4
 
-=item new
+=item B<new($option =E<gt> $value)>
 
-This is a class method, the constructor for Indent. Options are passed
-as keyword value pairs. Recognized options are:
+ This is a class method, the constructor for Indent. Options are passed
+ as keyword value pairs. Recognized options are:
 
 =over 4
 
 =item * begin
 
-Default value of 'begin' is ''.
-TODO
+ TODO
+ Default value of 'begin' is ''.
 
 =item * middle
 
-Default value of 'middle' is ''.
-TODO
+ TODO
+ Default value of 'middle' is ''.
 
 =item * end
 
-Default value of 'end' is ''.
-TODO
+ TODO
+ Default value of 'end' is ''.
 
 =item * output_separator
 
-Default value of 'output_separator' is new line (\n).
-TODO
+ TODO
+ Default value of 'output_separator' is new line (\n).
 
 =back
 
-=item indent
+=item B<indent($data)>
 
-TODO
+ Method, which indent data. Return array (in array context) 
+ or string with 'output_separator' between datas.
+ $data is reference to array with comment data.
+
+=back
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+Michal Spacek <F<skim@skim.cz>>.
+
+=head1 VERSION
+
+0.01
 
 =cut
 
