@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.15 2006-02-17 12:49:32 skim Exp $
+# $Id: Indent.pm,v 1.16 2007-01-24 22:37:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -10,7 +10,7 @@ use strict;
 use Error::Simple::Multiple qw(err);
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 #------------------------------------------------------------------------------
 sub new {
@@ -55,10 +55,11 @@ sub remove {
 
 	my $self = shift;
 	my $indent = shift || $self->{'next_indent'};
-	if ($self->{'indent'} !~ /^.*$indent$/) {
+	my $indent_length = length $indent;
+	if (substr($self->{'indent'}, -$indent_length) ne $indent) {
 		err "Cannot remove indent '$indent'.";
 	}
-	($self->{'indent'}) = $self->{'indent'} =~ /^(.*)$indent$/;
+	$self->{'indent'} = substr($self->{'indent'}, 0, -$indent_length);
 }
 
 #------------------------------------------------------------------------------
@@ -129,7 +130,7 @@ Indent - A perl module for indent handling.
 
 =head1 DESCRIPTION
 
-TODO
+Basic indent string handling class.
 
 =head1 METHODS
 
@@ -144,33 +145,37 @@ as keyword value pairs. Recognized options are:
 
 =item * indent
 
-TODO
+Default indent.
 
 =item * next_indent
 
-TODO
+Next indent. Adding to internal indent variable after every add method calling.
 
 =back
 
 =item add
 
-TODO
+Method for adding 
 
 =item remove
 
-TODO
+Remove indent string from internal indent.
 
 =item get
 
-TODO
+Get actual indent string.
 
 =item reset
 
-TODO
+Resets internal indent string.
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+Michal Spacek <F<skim@skim.cz>>
+
+=head1 VERSION
+
+0.1
 
 =cut
 
