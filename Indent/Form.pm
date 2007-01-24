@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.21 2005-11-03 12:49:09 skim Exp $
+# $Id: Form.pm,v 1.22 2007-01-24 23:59:55 skim Exp $
 
 # Pragmas.
 use strict;
@@ -115,9 +115,11 @@ sub indent {
 
 1;
 
+=pod
+
 =head1 NAME
 
-Indent::Form - A perl module for form indenting.
+ Indent::Form
 
 =head1 SYNOPSIS
 
@@ -144,52 +146,56 @@ Indent::Form - A perl module for form indenting.
 
 =head1 DESCRIPTION
 
-TODO
+ A perl module for form indenting.
 
 =head1 METHODS
 
 =over 4
 
-=item new
+=item B<new(TODO)>
 
-This is a class method, the constructor for Indent. Options are passed
-as keyword value pairs. Recognized options are:
+ This is a class method, the constructor for Indent. Options are passed
+ as keyword value pairs. Recognized options are:
 
 =over 4
 
 =item * form_separator
 
-Default value of 'form_separator' is ': '.
-TODO
+ TODO
+ Default value of 'form_separator' is ': '.
 
 =item * line_size
 
-Default value of 'line_size' is 79 chars.
-TODO
+ TODO
+ Default value of 'line_size' is 79 chars.
 
 =item * next_indent
 
-Default value of 'next_indent' isn't define.
-TODO
+ TODO
+ Default value of 'next_indent' isn't define.
 
 =item * output_separator
 
-Default value of 'output_separator' is new line (\n).
-TODO
+ TODO
+ Default value of 'output_separator' is new line (\n).
 
 =item * right_align
 
-Default value of 'right_align' is 1.
-TODO
+ TODO
+ Default value of 'right_align' is 1.
 
 =back
 
-=item indent
+=item B<indent(TODO)>
 
-TODO
+ TODO
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+ Michal Spacek <F<skim@skim.cz>>.
+
+=head1 VERSION
+
+ 0.01
 
 =cut

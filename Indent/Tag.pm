@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.28 2005-12-23 23:42:41 skim Exp $
+# $Id: Tag.pm,v 1.29 2007-01-24 23:57:50 skim Exp $
 
 # Pragmas.
 use strict;
@@ -153,7 +153,7 @@ sub indent {
 
 =head1 NAME
 
-Indent::Tag - A perl module for tag indenting.
+ Indent::Tag
 
 =head1 SYNOPSIS
 
@@ -184,42 +184,46 @@ Indent::Tag - A perl module for tag indenting.
 
 =head1 DESCRIPTION
 
-TODO
+ A perl module for tag indenting.
 
 =head1 METHODS
 
 =over 4
 
-=item new
+=item B<new()>
 
-This is a class method, the constructor for Indent::Tag. Options are passed
-as keyword value pairs. Recognized options are:
+ This is a class method, the constructor for Indent::Tag. Options are passed
+ as keyword value pairs. Recognized options are:
 
 =over 4
 
 =item * line_size
 
-Default value of 'line_size' is 79 chars. 
-TODO
+ TODO
+ Default value of 'line_size' is 79 chars. 
 
 =item * next_indent
 
-Default value of 'next_indent' is tabelator (\t). 
-TODO
+ TODO
+ Default value of 'next_indent' is tabelator (\t). 
 
 =item * output_separator
 
-Default value of 'output_separator' is new line (\n).
-TODO
+ TODO
+ Default value of 'output_separator' is new line (\n).
 
 =back
 
-=item indent
+=item B<indent(TODO)>
 
-TODO
+ TODO
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+ Michal Spacek <F<skim@skim.cz>>.
+
+=head1 VERSION
+
+ 0.01
 
 =cut
