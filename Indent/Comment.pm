@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.18 2007-01-24 23:48:43 skim Exp $
+# $Id: Comment.pm,v 1.19 2007-01-24 23:50:16 skim Exp $
 
 # Pragmas.
 use strict;
@@ -106,9 +106,9 @@ sub indent($) {
 
  # Print comment.
  my $output = $indent_comment->indent([
-   'text',
-   'text',
-   'text'
+        'text',
+        'text',
+        'text'
  ]);
  print "$output\n";
 
