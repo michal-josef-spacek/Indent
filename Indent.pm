@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.16 2007-01-24 22:37:06 skim Exp $
+# $Id: Indent.pm,v 1.17 2007-01-24 23:04:15 skim Exp $
 
 # Pragmas.
 use strict;
@@ -83,9 +83,11 @@ sub reset {
 
 1;
 
+=pod
+
 =head1 NAME
 
-Indent - A perl module for indent handling.
+Indent
 
 =head1 SYNOPSIS
 
@@ -130,13 +132,13 @@ Indent - A perl module for indent handling.
 
 =head1 DESCRIPTION
 
-Basic indent string handling class.
+A perl module for indent handling.
 
 =head1 METHODS
 
 =over 4
 
-=item new
+=item B<new($option =E<gt> $value)>
 
 This is a class method, the constructor for Indent. Options are passed
 as keyword value pairs. Recognized options are:
@@ -145,29 +147,35 @@ as keyword value pairs. Recognized options are:
 
 =item * indent
 
-Default indent.
+ Default indent.
+ Default value is ''.
 
 =item * next_indent
 
-Next indent. Adding to internal indent variable after every add method calling.
+ Next indent. Adding to internal indent variable after every add method 
+ calling.
+ Default value is "\t" (tabelator).
 
 =back
 
-=item add
+=item B<add($cur_indent)>
 
-Method for adding 
+ Method for adding $cur_indent, if defined, or 'next_indent'.
 
-=item remove
+=item B<remove($cur_indent)>
 
-Remove indent string from internal indent.
+ Method for removing $cur_indent, if defined, or 'next_indent'. Only if 
+ is removable.
 
-=item get
+=item B<get()>
 
-Get actual indent string.
+ Get actual indent string.
 
-=item reset
+=item B<reset($reset_value)>
 
-Resets internal indent string.
+ Resets internal indent string to $reset_value or ''.
+
+=back
 
 =head1 AUTHORS
 
@@ -175,7 +183,7 @@ Michal Spacek <F<skim@skim.cz>>
 
 =head1 VERSION
 
-0.1
+0.02
 
 =cut
 
