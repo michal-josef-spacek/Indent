@@ -1,4 +1,4 @@
-$Id: TODO,v 1.43 2007-01-25 12:51:24 skim Exp $
+$Id: TODO,v 1.44 2007-01-25 14:22:07 skim Exp $
 
 TODO
 ====
@@ -13,7 +13,9 @@ TODO
     to same.
 30. Udelat test k 29.
 31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
-32.
+32. Dokumentace k Indent::Block.
+33. Doresit Indent::Block, aby spravne vykresloval priklady v Indent::Block - ex7.pl. 
+34.
 
 Applied
 =======
