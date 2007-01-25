@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.25 2005-11-03 12:49:09 skim Exp $
+# $Id: Data.pm,v 1.26 2007-01-25 00:02:00 skim Exp $
 
 # Pragmas.
 use strict;
@@ -90,9 +90,11 @@ sub indent {
 
 1;
 
+=pod
+
 =head1 NAME
 
-Indent::Data - A perl module for data indenting.
+ Indent::Data
 
 =head1 SYNOPSIS
 
@@ -105,72 +107,54 @@ Indent::Data - A perl module for data indenting.
 
  # Indent::Data object.
  my $indent_data = Indent::Data->new(
-
-        # Begin indent.
-        'indent' => '->',
-
-        # Next indent.
-        'next_indent' => "->"
+	TODO
  );
 
- # Print example.
- print $indent->get;
- print "Example\n";
-
- # Add indent and print ok.
- $indent->add;
- print $indent->get;
- print "Ok\n";
-
- # Remove indent and print nex example.
- $indent->remove;
- print $indent->get;
- print "Example2\n";
-
- # Reset.
- $indent->reset;
+ TODO
 
  Gets: 
- ->Example
- ->->Ok
- ->Example2
+ TODO
 
 =head1 DESCRIPTION
 
-TODO
+ A perl module for data indenting.
 
 =head1 METHODS
 
 =over 4
 
-=item new
+=item B<new(TODO)>
 
-This is a class method, the constructor for Indent. Options are passed
-as keyword value pairs. Recognized options are:
+ This is a class method, the constructor for Indent. Options are passed
+ as keyword value pairs. Recognized options are:
 
 =over 4
 
 =item * line_size
 
-TODO
+ TODO
 
 =item * next_indent
 
-TODO
+ TODO
 
 =item * output_separator
 
-TODO
+ TODO
 
 =back
 
-=item indent
+=item B<indent(TODO)>
 
-TODO
+ TODO
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>> wrote version 0.1.
+ Michal Spacek <F<skim@skim.cz>>
+
+=head1 VERSION
+
+ 0.01
 
 =cut
 
