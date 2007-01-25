@@ -1,4 +1,4 @@
-$Id: TODO,v 1.42 2005-12-23 23:42:23 skim Exp $
+$Id: TODO,v 1.43 2007-01-25 12:51:24 skim Exp $
 
 TODO
 ====
@@ -12,7 +12,8 @@ TODO
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
 30. Udelat test k 29.
-31.
+31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
+32.
 
 Applied
 =======
