@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.20 2007-01-24 23:55:09 skim Exp $
+# $Id: Comment.pm,v 1.21 2007-02-11 18:39:56 skim Exp $
 
 # Pragmas.
 use strict;
@@ -86,9 +86,66 @@ sub indent($) {
 
 =head1 NAME
 
- Indent::Comment
+ Indent::Comment - A perl module for comment indenting.
 
 =head1 SYNOPSIS
+
+ use Indent::Comment;
+ my $indent_comment = Indent::Comment->new(
+        'begin' => '/*',
+        'middle' => ' * ',
+        'end' => ' */',
+ );
+ my $output = $indent_comment->indent([
+        'text',
+        'text',
+        'text'
+ ]);
+ print "$output\n";
+
+=head1 METHODS
+
+=over 4
+
+=item B<new($option =E<gt> $value)>
+
+ This is a class method, the constructor for Indent. Options are passed
+ as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * begin
+
+ There is a first line comment.
+ Default value of 'begin' is ''.
+
+=item * middle
+
+ There is a middle line comment.
+ Default value of 'middle' is ''.
+
+=item * end
+
+ There is a last line comment.
+ Default value of 'end' is ''.
+
+=item * output_separator
+
+ 'indent' method returns string in string content. There are items with
+ 'output_separator' separator merged to string.
+ Default value of 'output_separator' is new line (\n).
+
+=back
+
+=item B<indent($data)>
+
+ Method, which indent data. Return array (in array context) 
+ or string with 'output_separator' between datas.
+ $data is reference to array with comment data.
+
+=back
+
+=head1 EXAMPLE
 
  # Pragmas.
  use strict;
@@ -119,58 +176,17 @@ sub indent($) {
   * text
   */
 
-=head1 DESCRIPTION
+=head1 REQUIREMENTS
 
- A perl module for comment indenting.
-
-=head1 METHODS
-
-=over 4
-
-=item B<new($option =E<gt> $value)>
-
- This is a class method, the constructor for Indent. Options are passed
- as keyword value pairs. Recognized options are:
-
-=over 4
-
-=item * begin
-
- TODO
- Default value of 'begin' is ''.
-
-=item * middle
-
- TODO
- Default value of 'middle' is ''.
-
-=item * end
-
- TODO
- Default value of 'end' is ''.
-
-=item * output_separator
-
- TODO
- Default value of 'output_separator' is new line (\n).
-
-=back
-
-=item B<indent($data)>
-
- Method, which indent data. Return array (in array context) 
- or string with 'output_separator' between datas.
- $data is reference to array with comment data.
-
-=back
+ Error::Simple::Multiple
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>>.
+ Michal Spacek <F<tupinek@gmail.com>>.
 
 =head1 VERSION
 
-0.02
+ 0.02
 
 =cut
 
