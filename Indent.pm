@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.18 2007-02-11 16:50:06 skim Exp $
+# $Id: Indent.pm,v 1.19 2007-02-11 16:51:16 skim Exp $
 
 # Pragmas.
 use strict;
@@ -189,7 +189,7 @@ as keyword value pairs. Recognized options are:
 
 =head1 AUTHORS
 
-Michal Spacek <F<skim@skim.cz>>
+Michal Spacek <F<tupinek@gmail.com>>
 
 =head1 VERSION
 
