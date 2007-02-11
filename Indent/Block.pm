@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.1 2007-01-25 14:21:29 skim Exp $
+# $Id: Block.pm,v 1.2 2007-02-11 19:11:23 skim Exp $
 
 # Pragmas.
 use strict;
@@ -90,3 +90,33 @@ sub indent {
 }
 
 1;
+
+=pod
+
+=head1 NAME
+
+ Indent::Block - TODO
+
+=head1 SYNOPSIS
+
+ TODO
+
+=head1 METHODS
+
+ TODO
+
+=head1 EXAMPLE
+
+=head1 REQUIREMENTS
+
+ L<Error::Simple::Multiple(3)>
+
+=head1 AUTHOR
+
+ Michal Spacek F<tupinek@gmail.com>
+
+=head1 VERSION
+
+ 0.01
+
+=cut

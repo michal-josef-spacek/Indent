@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.26 2007-01-25 00:02:00 skim Exp $
+# $Id: Data.pm,v 1.27 2007-02-11 19:08:44 skim Exp $
 
 # Pragmas.
 use strict;
@@ -94,7 +94,7 @@ sub indent {
 
 =head1 NAME
 
- Indent::Data
+ Indent::Data - A perl module for data indenting.
 
 =head1 SYNOPSIS
 
@@ -114,10 +114,6 @@ sub indent {
 
  Gets: 
  TODO
-
-=head1 DESCRIPTION
-
- A perl module for data indenting.
 
 =head1 METHODS
 
@@ -148,9 +144,19 @@ sub indent {
 
  TODO
 
+=back
+
+=head1 EXAMPLE
+
+ TODO
+
+=head1 REQUIREMENTS
+
+ L<Error::Simple::Multiple(3)>
+
 =head1 AUTHORS
 
- Michal Spacek <F<skim@skim.cz>>
+ Michal Spacek <F<tupinek@gmail.com>>
 
 =head1 VERSION
 

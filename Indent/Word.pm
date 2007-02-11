@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.22 2005-11-03 12:49:09 skim Exp $
+# $Id: Word.pm,v 1.23 2007-02-11 19:08:44 skim Exp $
 
 # Pragmas.
 use strict;
@@ -109,3 +109,35 @@ sub indent {
 }
 
 1;
+
+=pod
+
+=head1 NAME
+
+ Indent::Word - TODO
+
+=head1 SYNOPSIS
+
+ TODO
+
+=head1 METHODS
+
+ TODO
+
+=head1 EXAMPLE
+
+ TODO
+
+=head1 REQUIREMENTS
+
+ L<Error::Simple::Multiple(3)>
+
+=head1 AUTHOR
+
+ Michal Spacek F<tupinek@gmail.com>
+
+=head1 VERSION
+
+ 0.01
+
+=cut

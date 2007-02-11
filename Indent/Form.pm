@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.22 2007-01-24 23:59:55 skim Exp $
+# $Id: Form.pm,v 1.23 2007-02-11 19:11:24 skim Exp $
 
 # Pragmas.
 use strict;
@@ -119,7 +119,7 @@ sub indent {
 
 =head1 NAME
 
- Indent::Form
+ Indent::Form - A perl module for form indenting.
 
 =head1 SYNOPSIS
 
@@ -143,10 +143,6 @@ sub indent {
 
  Gets: 
  TODO
-
-=head1 DESCRIPTION
-
- A perl module for form indenting.
 
 =head1 METHODS
 
@@ -190,9 +186,20 @@ sub indent {
 
  TODO
 
+=back
+
+=head1 EXAMPLE
+
+ TODO
+
+=head1 REQUIREMENTS
+
+ L<Indent::Word(3)>
+ L<Error::Simple::Multiple(3)>
+
 =head1 AUTHORS
 
- Michal Spacek <F<skim@skim.cz>>.
+ Michal Spacek <F<tupinek@gmail.com>>.
 
 =head1 VERSION
 
