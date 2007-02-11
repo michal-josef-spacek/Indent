@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.17 2007-01-24 23:04:15 skim Exp $
+# $Id: Indent.pm,v 1.18 2007-02-11 16:50:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -87,52 +87,21 @@ sub reset {
 
 =head1 NAME
 
-Indent
+Indent - A perl module for indent handling.
 
 =head1 SYNOPSIS
 
- # Pragmas.
- use strict;
- use warnings;
-
- # Modules.
  use Indent;
-
- # Indent object.
  my $indent = Indent->new(
-
-        # Begin indent.
-        'indent' => '->',
-
-        # Next indent.
-        'next_indent' => "->"
+        'indent' => '--',
+        'next_indent' => "\t"
  );
-
- # Print example.
  print $indent->get;
- print "Example\n";
-
- # Add indent and print ok.
  $indent->add;
  print $indent->get;
- print "Ok\n";
-
- # Remove indent and print nex example.
  $indent->remove;
  print $indent->get;
- print "Example2\n";
-
- # Reset.
  $indent->reset;
-
- Gets: 
- ->Example
- ->->Ok
- ->Example2
-
-=head1 DESCRIPTION
-
-A perl module for indent handling.
 
 =head1 METHODS
 
@@ -176,6 +145,47 @@ as keyword value pairs. Recognized options are:
  Resets internal indent string to $reset_value or ''.
 
 =back
+
+=head1 EXAMPLE
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent;
+
+ # Indent object.
+ my $indent = Indent->new(
+
+        # Begin indent.
+        'indent' => '->',
+
+        # Next indent.
+        'next_indent' => "->"
+ );
+
+ # Print example.
+ print $indent->get;
+ print "Example\n";
+
+ # Add indent and print ok.
+ $indent->add;
+ print $indent->get;
+ print "Ok\n";
+
+ # Remove indent and print nex example.
+ $indent->remove;
+ print $indent->get;
+ print "Example2\n";
+
+ # Reset.
+ $indent->reset;
+
+ Gets: 
+ ->Example
+ ->->Ok
+ ->Example2
 
 =head1 AUTHORS
 
