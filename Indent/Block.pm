@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.5 2007-02-18 21:39:13 skim Exp $
+# $Id: Block.pm,v 1.6 2007-02-18 22:45:29 skim Exp $
 
 # Pragmas.
 use strict;
@@ -27,7 +27,7 @@ sub new {
 	# Output.
 	$self->{'output_separator'} = "\n";
 
-	# Strict mode.
+	# Strict mode - without white space optimalization.
 	$self->{'strict'} = 1;
 
 	# Process params.
@@ -42,6 +42,9 @@ sub new {
 	if ($self->{'line_size'} !~ /^\d*$/) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
+
+	# Save current piece.
+	$self->{'_current'} = '';
 
 	# Object.
 	return $self;
@@ -72,20 +75,10 @@ sub indent {
 	$first = $indent.$first;
 	while (@{$data}) {
 		$second = shift @{$data};
-		if (length $first >= $self->{'line_size'}
-			|| length $first.$second > $self->{'line_size'}) {
-
-			$first =~ s/^\s*//;
-			$first =~ s/\s*$//;
-			if ($first eq '') {
-				$first .= $second;				
+		if ($self->_compare($first, $second)) {
+			push @data, $self->{'_current'};
 			$first = $second;
 			$second = '';
-			} else {
-				push @data, $first;
-				$first = $second;
-				$second = '';
-			}
 		} else {
 			$first .= $second;
 		}
@@ -93,8 +86,12 @@ sub indent {
 
 	# Add other data to @data array.
 	if ($first) {
-		$first =~ s/^\s*//;
-		$first =~ s/\s*$//;
+
+		# White space optimalization.
+		if (! $self->{'strict'}) {
+			$first =~ s/^\s*//;
+			$first =~ s/\s*$//;
+		}
 		if ($first ne '') {
 			push @data, $first;
 		}
@@ -102,6 +99,48 @@ sub indent {
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
+}
+
+#------------------------------------------------------------------------------
+# Private methods.
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+sub _compare {
+#------------------------------------------------------------------------------
+# Compare strings with 'line_size' and save right current string.
+
+	my ($self, $first, $second) = @_;
+
+	# Whitout optimalization.
+	if ($self->{'strict'}) {
+		if (length $first >= $self->{'line_size'}
+			|| length $first.$second > $self->{'line_size'}) {
+
+			$self->{'_current'} = $first;	
+			return 1;
+		} else {
+			return 0;
+		}
+	} else {
+		my $tmp1 = $first;
+		$tmp1 =~ s/^\s*//;
+		$tmp1 =~ s/\s*$//;
+		if (length $tmp1 >= $self->{'line_size'}) {
+			$self->{'_current'} = $tmp1;
+			return 1;
+		} else {
+			my $tmp2 = $first.$second;
+			$tmp2 =~ s/^\s*//;
+			$tmp2 =~ s/\s*$//;
+			if (length $tmp2 > $self->{'line_size'}) {
+				$self->{'_current'} = $tmp1;
+				return 1;
+			} else {
+				return 0;
+			}
+		}
+	}
 }
 
 1;
