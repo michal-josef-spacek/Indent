@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.7 2007-02-18 22:47:13 skim Exp $
+# $Id: Block.pm,v 1.8 2007-02-18 22:54:45 skim Exp $
 
 # Pragmas.
 use strict;
@@ -56,7 +56,7 @@ sub indent {
 # Parses tag to indented data.
 # @param $data Reference to data array.
 # @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
+# @param $non_indent Flag, that says no-indent.
 
 	my ($self, $data, $indent, $non_indent) = @_;
 
@@ -153,7 +153,9 @@ sub _compare {
 
 =head1 SYNOPSIS
 
- TODO
+ use Indent::Block;
+ my $i = Indent::Block->new;
+ print $i->indent($text);
 
 =head1 METHODS
 
@@ -161,33 +163,41 @@ sub _compare {
 
 =item B<new(%parameters)>
 
- TODO
+ Constructor.
 
-=head1 PARAMETERS
+=head2 PARAMETERS
 
 =over 8
 
 =item B<line_size>
 
-TODO
+ Sets indent line size value.
+ Default value is 'line_size' => 79.
 
 =item B<next_indent>
 
-TODO
+ Sets next indent string.
+ Default value is 'next_indent' => "\t" (tabelator).
 
 =item B<output_separator>
 
-TODO
+ Sets output separator between indented datas for string context.
+ Default value is 'output_separator' => "\n" (new line).
 
 =item B<strict>
 
-TODO
+ Sets or unsets strict mode. 
+ Unset strict mode means whitespace optimalization.
+ Default value is 'strict' => 1.
 
 =back
 
-=item B<indent()>
+=item B<indent($data, $indent, $non_indent)>
 
- TODO
+ Indent method.
+ - $data - Reference to array with strings to indent.
+ - $indent - String to actual indent.
+ - $non_indent - Flag, that says 'no-indent' for current time.
 
 =back
 
