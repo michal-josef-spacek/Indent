@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.3 2007-02-18 13:35:33 skim Exp $
+# $Id: Block.pm,v 1.4 2007-02-18 21:29:59 skim Exp $
 
 # Pragmas.
 use strict;
@@ -26,6 +26,9 @@ sub new {
 
 	# Output.
 	$self->{'output_separator'} = "\n";
+
+	# Strict mode.
+	$self->{'strict'} = 1;
 
 	# Process params.
 	while (@_) {
