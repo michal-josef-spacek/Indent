@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.4 2007-02-18 21:29:59 skim Exp $
+# $Id: Block.pm,v 1.5 2007-02-18 21:39:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -75,18 +75,30 @@ sub indent {
 		if (length $first >= $self->{'line_size'}
 			|| length $first.$second > $self->{'line_size'}) {
 
-			if ($first !~ /^\s+$/) {
-				push @data, $first;
-			}
+			$first =~ s/^\s*//;
+			$first =~ s/\s*$//;
+			if ($first eq '') {
+				$first .= $second;				
 			$first = $second;
 			$second = '';
+			} else {
+				push @data, $first;
+				$first = $second;
+				$second = '';
+			}
 		} else {
 			$first .= $second;
 		}
 	}
 
 	# Add other data to @data array.
-	push @data, $first if $first || $first !~ /^\s*$/;
+	if ($first) {
+		$first =~ s/^\s*//;
+		$first =~ s/\s*$//;
+		if ($first ne '') {
+			push @data, $first;
+		}
+	}
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
