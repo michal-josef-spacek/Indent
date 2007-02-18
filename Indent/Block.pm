@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.2 2007-02-11 19:11:23 skim Exp $
+# $Id: Block.pm,v 1.3 2007-02-18 13:35:33 skim Exp $
 
 # Pragmas.
 use strict;
@@ -95,7 +95,7 @@ sub indent {
 
 =head1 NAME
 
- Indent::Block - TODO
+ Indent::Block - Class for block indent.
 
 =head1 SYNOPSIS
 
@@ -103,9 +103,21 @@ sub indent {
 
 =head1 METHODS
 
+=over 8
+
+=item B<new()>
+
  TODO
 
+=item B<indent()>
+
+ TODO
+
+=back
+
 =head1 EXAMPLE
+
+ TODO
 
 =head1 REQUIREMENTS
 
