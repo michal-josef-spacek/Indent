@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.6 2007-02-18 22:45:29 skim Exp $
+# $Id: Block.pm,v 1.7 2007-02-18 22:47:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -159,9 +159,31 @@ sub _compare {
 
 =over 8
 
-=item B<new()>
+=item B<new(%parameters)>
 
  TODO
+
+=head1 PARAMETERS
+
+=over 8
+
+=item B<line_size>
+
+TODO
+
+=item B<next_indent>
+
+TODO
+
+=item B<output_separator>
+
+TODO
+
+=item B<strict>
+
+TODO
+
+=back
 
 =item B<indent()>
 
