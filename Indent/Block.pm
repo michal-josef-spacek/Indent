@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.8 2007-02-18 22:54:45 skim Exp $
+# $Id: Block.pm,v 1.9 2007-02-18 22:56:52 skim Exp $
 
 # Pragmas.
 use strict;
@@ -211,7 +211,7 @@ sub _compare {
 
 =head1 AUTHOR
 
- Michal Spacek F<tupinek@gmail.com>
+ Michal Špaček F<tupinek@gmail.com>
 
 =head1 VERSION
 
