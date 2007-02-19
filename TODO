@@ -1,4 +1,4 @@
-$Id: TODO,v 1.44 2007-01-25 14:22:07 skim Exp $
+$Id: TODO,v 1.45 2007-02-19 10:23:31 skim Exp $
 
 TODO
 ====
@@ -14,8 +14,8 @@ TODO
 30. Udelat test k 29.
 31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
 32. Dokumentace k Indent::Block.
-33. Doresit Indent::Block, aby spravne vykresloval priklady v Indent::Block - ex7.pl. 
-34.
+34. Testy k Indent::Block, jinak tapu.
+35.
 
 Applied
 =======
@@ -107,3 +107,6 @@ OK [20050926] skim
 
 29. Chyba v "/\n>". Tohle nesmi byt. Musi byt "/>".
 OK [20051223] skim
+
+33. Doresit Indent::Block, aby spravne vykresloval priklady v Indent::Block - ex7.pl. 
+OK [20070219] skim
