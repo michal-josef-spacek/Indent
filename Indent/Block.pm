@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.10 2007-02-19 09:43:58 skim Exp $
+# $Id: Block.pm,v 1.11 2007-02-19 10:22:46 skim Exp $
 
 # Pragmas.
 use strict;
@@ -73,13 +73,15 @@ sub indent($$$$) {
 	my @data = ();
 	my ($first, $second);
 	$first = shift @{$data};
-	$first = $indent.$first;
+	$first = $first;
+	my $act_indent = $indent;
 	while (@{$data}) {
 		$second = shift @{$data};
-		if ($self->_compare($first, $second)) {
+		if ($self->_compare($first, $second, $act_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
 			$second = '';
+			$act_indent = $indent.$self->{'next_indent'};
 		} else {
 			$first .= $second;
 		}
@@ -94,7 +96,7 @@ sub indent($$$$) {
 			$first =~ s/\s*$//;
 		}
 		if ($first ne '') {
-			push @data, $first;
+			push @data, $act_indent.$first;
 		}
 	}
 
@@ -107,18 +109,20 @@ sub indent($$$$) {
 #------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
-sub _compare($$$) {
+sub _compare($$$$) {
 #------------------------------------------------------------------------------
 # Compare strings with 'line_size' and save right current string.
 
-	my ($self, $first, $second) = @_;
+	my ($self, $first, $second, $act_indent) = @_;
 
 	# Whitout optimalization.
 	if ($self->{'strict'}) {
-		if (string_len($first) >= $self->{'line_size'}
-			|| string_len($first.$second) > $self->{'line_size'}) {
+		if (length $first > 0 &&
+			(string_len($act_indent.$first) >= $self->{'line_size'}
+			|| string_len($act_indent.$first.$second)) 
+			> $self->{'line_size'}) {
 
-			$self->{'_current'} = $first;	
+			$self->{'_current'} = $act_indent.$first;
 			return 1;
 		} else {
 			return 0;
@@ -127,15 +131,21 @@ sub _compare($$$) {
 		my $tmp1 = $first;
 		$tmp1 =~ s/^\s*//;
 		$tmp1 =~ s/\s*$//;
-		if (string_len($tmp1) >= $self->{'line_size'}) {
-			$self->{'_current'} = $tmp1;
+		if (length $tmp1 > 0 
+			&& string_len($act_indent.$tmp1) 
+			>= $self->{'line_size'}) {
+
+			$self->{'_current'} = $act_indent.$tmp1;
 			return 1;
 		} else {
 			my $tmp2 = $first.$second;
 			$tmp2 =~ s/^\s*//;
 			$tmp2 =~ s/\s*$//;
-			if (string_len($tmp2) > $self->{'line_size'}) {
-				$self->{'_current'} = $tmp1;
+			if (length $tmp1 > 0 
+				&& string_len($act_indent.$tmp2) 
+				> $self->{'line_size'}) {
+
+				$self->{'_current'} = $act_indent.$tmp1;
 				return 1;
 			} else {
 				return 0;
