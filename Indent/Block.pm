@@ -1,19 +1,20 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.9 2007-02-18 22:56:52 skim Exp $
+# $Id: Block.pm,v 1.10 2007-02-19 09:43:58 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Indent::Utils qw(string_len);
 
 # Version.
 our $VERSION = 0.01;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($@) {
 #------------------------------------------------------------------------------
 # Constructor.
 
@@ -51,7 +52,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub indent {
+sub indent($$$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Reference to data array.
@@ -106,7 +107,7 @@ sub indent {
 #------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
-sub _compare {
+sub _compare($$$) {
 #------------------------------------------------------------------------------
 # Compare strings with 'line_size' and save right current string.
 
@@ -114,8 +115,8 @@ sub _compare {
 
 	# Whitout optimalization.
 	if ($self->{'strict'}) {
-		if (length $first >= $self->{'line_size'}
-			|| length $first.$second > $self->{'line_size'}) {
+		if (string_len($first) >= $self->{'line_size'}
+			|| string_len($first.$second) > $self->{'line_size'}) {
 
 			$self->{'_current'} = $first;	
 			return 1;
@@ -126,14 +127,14 @@ sub _compare {
 		my $tmp1 = $first;
 		$tmp1 =~ s/^\s*//;
 		$tmp1 =~ s/\s*$//;
-		if (length $tmp1 >= $self->{'line_size'}) {
+		if (string_len($tmp1) >= $self->{'line_size'}) {
 			$self->{'_current'} = $tmp1;
 			return 1;
 		} else {
 			my $tmp2 = $first.$second;
 			$tmp2 =~ s/^\s*//;
 			$tmp2 =~ s/\s*$//;
-			if (length $tmp2 > $self->{'line_size'}) {
+			if (string_len($tmp2) > $self->{'line_size'}) {
 				$self->{'_current'} = $tmp1;
 				return 1;
 			} else {
@@ -208,6 +209,7 @@ sub _compare {
 =head1 REQUIREMENTS
 
  L<Error::Simple::Multiple(3)>
+ L<Indent::Utils(3)>
 
 =head1 AUTHOR
 
