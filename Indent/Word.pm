@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.23 2007-02-11 19:08:44 skim Exp $
+# $Id: Word.pm,v 1.24 2007-02-20 00:40:28 skim Exp $
 
 # Pragmas.
 use strict;
@@ -114,7 +114,7 @@ sub indent {
 
 =head1 NAME
 
- Indent::Word - TODO
+ Indent::Word - Indent class for normal texts.
 
 =head1 SYNOPSIS
 
@@ -122,7 +122,35 @@ sub indent {
 
 =head1 METHODS
 
+=over 8
+
+=item B<new(%parameters)>
+
+ Constructor.
+
+=head2 PARAMETERS
+
+=over 8
+
+=item B<line_size>
+
  TODO
+
+=item B<next_indent>
+
+ TODO
+
+=item B<output_separator>
+
+ TODO
+
+=back
+
+=item B<indent()>
+
+ TODO
+
+=back
 
 =head1 EXAMPLE
 
@@ -134,7 +162,7 @@ sub indent {
 
 =head1 AUTHOR
 
- Michal Spacek F<tupinek@gmail.com>
+ Michal Spacek L<tupinek@gmail.com>
 
 =head1 VERSION
 
