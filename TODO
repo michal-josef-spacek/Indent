@@ -1,4 +1,4 @@
-$Id: TODO,v 1.45 2007-02-19 10:23:31 skim Exp $
+$Id: TODO,v 1.46 2007-09-11 12:06:37 skim Exp $
 
 TODO
 ====
@@ -15,6 +15,8 @@ TODO
 31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
 32. Dokumentace k Indent::Block.
 34. Testy k Indent::Block, jinak tapu.
+Jsou asi spatne, protoze pole ('text', 'text', 'text') s delkou radku 2
+nerozdeli. Viz priklady v perl/MODULES/Indent::Block
 35.
 
 Applied
