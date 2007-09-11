@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.20 2007-02-11 19:08:43 skim Exp $
+# $Id: Indent.pm,v 1.21 2007-09-11 07:53:45 skim Exp $
 
 # Pragmas.
 use strict;
@@ -189,7 +189,7 @@ as keyword value pairs. Recognized options are:
 
 =head1 REQUIREMENTS
 
- L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3)>
 
 =head1 AUTHORS
 

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.23 2007-02-11 19:11:24 skim Exp $
+# $Id: Form.pm,v 1.24 2007-09-11 07:53:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -194,8 +194,8 @@ sub indent {
 
 =head1 REQUIREMENTS
 
- L<Indent::Word(3)>
- L<Error::Simple::Multiple(3)>
+L<Indent::Word(3)>,
+L<Error::Simple::Multiple(3)>
 
 =head1 AUTHORS
 

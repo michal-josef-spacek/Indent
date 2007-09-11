@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.24 2007-02-20 00:40:28 skim Exp $
+# $Id: Word.pm,v 1.25 2007-09-11 07:53:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -158,7 +158,7 @@ sub indent {
 
 =head1 REQUIREMENTS
 
- L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3)>
 
 =head1 AUTHOR
 

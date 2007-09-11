@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.23 2007-02-11 19:08:44 skim Exp $
+# $Id: Comment.pm,v 1.24 2007-09-11 07:53:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -178,7 +178,7 @@ sub indent($) {
 
 =head1 REQUIREMENTS
 
- L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3)>
 
 =head1 AUTHORS
 

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.30 2007-01-24 23:58:34 skim Exp $
+# $Id: Tag.pm,v 1.31 2007-09-11 07:53:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -219,6 +219,10 @@ sub indent {
 =item B<indent(TODO)>
 
  TODO
+
+=head1 REQUIREMENTS
+
+L<Error::Simple::Multiple(3)>
 
 =head1 AUTHORS
 
