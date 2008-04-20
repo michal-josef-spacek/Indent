@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.21 2007-09-11 07:53:45 skim Exp $
+# $Id: Indent.pm,v 1.22 2008-04-20 23:55:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -13,7 +13,7 @@ use Error::Simple::Multiple qw(err);
 our $VERSION = 0.02;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($%) {
 #------------------------------------------------------------------------------
 # Constructor.
 
@@ -39,7 +39,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub add {
+sub add($;$) {
 #------------------------------------------------------------------------------
 # Add an indent to global indent.
 
@@ -49,7 +49,7 @@ sub add {
 }
 
 #------------------------------------------------------------------------------
-sub remove {
+sub remove($;$) {
 #------------------------------------------------------------------------------
 # Remove an indent from global indent.
 
@@ -63,7 +63,7 @@ sub remove {
 }
 
 #------------------------------------------------------------------------------
-sub get {
+sub get($) {
 #------------------------------------------------------------------------------
 # Get a indent value.
 
@@ -72,7 +72,7 @@ sub get {
 }
 
 #------------------------------------------------------------------------------
-sub reset {
+sub reset($;$) {
 #------------------------------------------------------------------------------
 # Reseting indent.
 
@@ -92,16 +92,11 @@ Indent - A perl module for indent handling.
 =head1 SYNOPSIS
 
  use Indent;
- my $indent = Indent->new(
-        'indent' => '--',
-        'next_indent' => "\t"
- );
- print $indent->get;
- $indent->add;
- print $indent->get;
- $indent->remove;
- print $indent->get;
- $indent->reset;
+ my $indent = Indent->new(%parameters);
+ $indent->add([$cur_indent]);
+ $indent->get;
+ $indent->remove([$cur_indent]);
+ $indent->reset([$reset_value]);
 
 =head1 METHODS
 
@@ -127,11 +122,11 @@ as keyword value pairs. Recognized options are:
 
 =back
 
-=item B<add($cur_indent)>
+=item B<add([$cur_indent])>
 
  Method for adding $cur_indent, if defined, or 'next_indent'.
 
-=item B<remove($cur_indent)>
+=item B<remove([$cur_indent])>
 
  Method for removing $cur_indent, if defined, or 'next_indent'. Only if 
  is removable.
@@ -140,7 +135,7 @@ as keyword value pairs. Recognized options are:
 
  Get actual indent string.
 
-=item B<reset($reset_value)>
+=item B<reset([$reset_value])>
 
  Resets internal indent string to $reset_value or ''.
 
@@ -190,6 +185,16 @@ as keyword value pairs. Recognized options are:
 =head1 REQUIREMENTS
 
 L<Error::Simple::Multiple(3)>
+
+=head1 SEE ALSO
+
+L<Indent::Block>,
+L<Indent::Comment>,
+L<Indent::Data>,
+L<Indent::Form>,
+L<Indent::Tag>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHORS
 

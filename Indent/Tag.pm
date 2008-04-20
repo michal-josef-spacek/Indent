@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.31 2007-09-11 07:53:47 skim Exp $
+# $Id: Tag.pm,v 1.32 2008-04-20 23:55:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -15,7 +15,7 @@ use Tag::Parse qw(parse_normal);
 our $VERSION = 0.01;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($%) {
 #------------------------------------------------------------------------------
 # Constructor.
 	
@@ -47,7 +47,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub indent {
+sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $tag Tag string.
@@ -155,34 +155,11 @@ sub indent {
 
 =head1 NAME
 
- Indent::Tag
+ Indent::Tag - TODO
 
 =head1 SYNOPSIS
 
- # Pragmas.
- use strict;
- use warnings;
-
- # Modules.
- use Indent::Tag;
-
- # Indent::Tag object.
- my $indent_tag = Indent::Tag->new(
-
-        # Line size.
-        'line_size' => 20,
-
-        # Next indent.
-        'next_indent' => "->",
-
-	# Output separator.
-	'output_separator' => "\n"
- );
-
- my $tag = '<tag param="value"></tag>
-
- # Indent!
- $indent_tag->indent;
+ TODO
 
 =head1 DESCRIPTION
 
@@ -192,7 +169,7 @@ sub indent {
 
 =over 4
 
-=item B<new()>
+=item B<new(%parameters)>
 
  This is a class method, the constructor for Indent::Tag. Options are passed
  as keyword value pairs. Recognized options are:
@@ -216,13 +193,52 @@ sub indent {
 
 =back
 
-=item B<indent(TODO)>
+=item B<indent($tag, $indent, $non_indent)>
 
  TODO
 
+=head1 EXAMPLE
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Tag;
+
+ # Indent::Tag object.
+ my $indent_tag = Indent::Tag->new(
+
+        # Line size.
+        'line_size' => 20,
+
+        # Next indent.
+        'next_indent' => "->",
+
+        # Output separator.
+        'output_separator' => "\n"
+ );
+
+ my $tag = '<tag param="value"></tag>
+
+ # Indent!
+ $indent_tag->indent;
+
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3)>,
+L<Indent::Utils(3)>,
+L<Tag::Parse(3)>.
+
+=head1 SEE ALSO
+
+L<Indent>,
+L<Indent::Block>,
+L<Indent::Comment>,
+L<Indent::Data>,
+L<Indent::Form>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHORS
 
