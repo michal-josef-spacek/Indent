@@ -1,4 +1,4 @@
-$Id: TODO,v 1.46 2007-09-11 12:06:37 skim Exp $
+$Id: TODO,v 1.47 2008-04-21 00:11:34 skim Exp $
 
 TODO
 ====
@@ -12,7 +12,6 @@ TODO
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
     to same.
 30. Udelat test k 29.
-31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
 32. Dokumentace k Indent::Block.
 34. Testy k Indent::Block, jinak tapu.
 Jsou asi spatne, protoze pole ('text', 'text', 'text') s delkou radku 2
@@ -112,3 +111,6 @@ OK [20051223] skim
 
 33. Doresit Indent::Block, aby spravne vykresloval priklady v Indent::Block - ex7.pl. 
 OK [20070219] skim
+
+31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
+OK [20080421] skim
