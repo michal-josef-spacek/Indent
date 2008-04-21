@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.12 2007-09-11 07:52:05 skim Exp $
+# $Id: Block.pm,v 1.13 2008-04-21 00:13:50 skim Exp $
 
 # Pragmas.
 use strict;
@@ -52,7 +52,7 @@ sub new($@) {
 }
 
 #------------------------------------------------------------------------------
-sub indent($$$$) {
+sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Reference to data array.
@@ -165,8 +165,8 @@ sub _compare($$$$) {
 =head1 SYNOPSIS
 
  use Indent::Block;
- my $i = Indent::Block->new;
- print $i->indent($text);
+ my $i = Indent::Block->new(%parameters);
+ print $i->indent($data, [$indent, $non_indent]);
 
 =head1 METHODS
 
@@ -203,7 +203,7 @@ sub _compare($$$$) {
 
 =back
 
-=item B<indent($data, $indent, $non_indent)>
+=item B<indent($data, [$indent, $non_indent])>
 
  Indent method.
  - $data - Reference to array with strings to indent.
@@ -220,6 +220,16 @@ sub _compare($$$$) {
 
 L<Error::Simple::Multiple(3)>,
 L<Indent::Utils(3)>
+
+=head1 SEE ALSO
+
+L<Indent>,
+L<Indent::Comment>,
+L<Indent::Data>,
+L<Indent::Form>,
+L<Indent::Tag>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHOR
 
