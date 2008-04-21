@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.28 2007-09-11 07:53:47 skim Exp $
+# $Id: Data.pm,v 1.29 2008-04-21 00:01:26 skim Exp $
 
 # Pragmas.
 use strict;
@@ -13,7 +13,7 @@ use Error::Simple::Multiple qw(err);
 our $VERSION = 0.01;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($%) {
 #------------------------------------------------------------------------------
 # Constructor.
 
@@ -51,7 +51,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub indent {
+sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Data string.
@@ -98,6 +98,46 @@ sub indent {
 
 =head1 SYNOPSIS
 
+ use Indent::Data;
+ my $indent_data = Indent::Data->new(%parameters);
+ my @data = $indent_data->indent($data, [$indent, $non_indent]);
+
+=head1 METHODS
+
+=over 4
+
+=item B<new(%parameters)>
+
+ This is a class method, the constructor for Indent. Options are passed
+ as keyword value pairs. Recognized options are:
+
+=over 4
+
+=item * line_size
+
+ TODO
+ Default value is 79.
+
+=item * next_indent
+
+ TODO
+ Default value is tabelator.
+
+=item * output_separator
+
+ TODO
+ Default value is newline.
+
+=back
+
+=item B<indent($data, [$indent, $non_indent])>
+
+ TODO
+
+=back
+
+=head1 EXAMPLE
+
  # Pragmas.
  use strict;
  use warnings;
@@ -115,44 +155,19 @@ sub indent {
  Gets: 
  TODO
 
-=head1 METHODS
-
-=over 4
-
-=item B<new(TODO)>
-
- This is a class method, the constructor for Indent. Options are passed
- as keyword value pairs. Recognized options are:
-
-=over 4
-
-=item * line_size
-
- TODO
-
-=item * next_indent
-
- TODO
-
-=item * output_separator
-
- TODO
-
-=back
-
-=item B<indent(TODO)>
-
- TODO
-
-=back
-
-=head1 EXAMPLE
-
- TODO
-
 =head1 REQUIREMENTS
 
 L<Error::Simple::Multiple(3)>
+
+=head1 SEE ALSO
+
+L<Indent>,
+L<Indent::Block>,
+L<Indent::Comment>,
+L<Indent::Form>,
+L<Indent::Tag>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHORS
 
