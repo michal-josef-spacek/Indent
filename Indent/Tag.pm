@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.32 2008-04-20 23:55:51 skim Exp $
+# $Id: Tag.pm,v 1.33 2008-04-21 00:01:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -193,7 +193,7 @@ sub indent($$;$$) {
 
 =back
 
-=item B<indent($tag, $indent, $non_indent)>
+=item B<indent($tag, [$indent, $non_indent])>
 
  TODO
 
@@ -222,7 +222,8 @@ sub indent($$;$$) {
  my $tag = '<tag param="value"></tag>
 
  # Indent!
- $indent_tag->indent;
+ # TODO?
+ $indent_tag->indent($tag);
 
 =head1 REQUIREMENTS
 
