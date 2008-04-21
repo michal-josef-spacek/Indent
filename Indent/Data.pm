@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.29 2008-04-21 00:01:26 skim Exp $
+# $Id: Data.pm,v 1.30 2008-04-21 00:10:47 skim Exp $
 
 # Pragmas.
 use strict;
@@ -10,7 +10,7 @@ use strict;
 use Error::Simple::Multiple qw(err);
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 #------------------------------------------------------------------------------
 sub new($%) {
@@ -82,7 +82,7 @@ sub indent($$;$$) {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second;
+	push @data, $second if $second && $second ne $self->{'next_indent'};
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
@@ -175,7 +175,7 @@ L<Indent::Word>.
 
 =head1 VERSION
 
- 0.01
+ 0.02
 
 =cut
 
