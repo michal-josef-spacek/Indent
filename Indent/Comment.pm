@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.24 2007-09-11 07:53:47 skim Exp $
+# $Id: Comment.pm,v 1.25 2008-05-09 13:49:00 skim Exp $
 
 # Pragmas.
 use strict;
@@ -179,6 +179,17 @@ sub indent($) {
 =head1 REQUIREMENTS
 
 L<Error::Simple::Multiple(3)>
+
+=head1 SEE ALSO
+
+L<Indent>,
+L<Indent::Block>,
+L<Indent::Data>,
+L<Indent::Form>,
+L<Indent::PerlStruct>,
+L<Indent::Tag>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHORS
 

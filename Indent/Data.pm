@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.30 2008-04-21 00:10:47 skim Exp $
+# $Id: Data.pm,v 1.31 2008-05-09 13:49:00 skim Exp $
 
 # Pragmas.
 use strict;
@@ -165,6 +165,7 @@ L<Indent>,
 L<Indent::Block>,
 L<Indent::Comment>,
 L<Indent::Form>,
+L<Indent::PerlStruct>,
 L<Indent::Tag>,
 L<Indent::Utils>,
 L<Indent::Word>.
