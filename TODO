@@ -1,4 +1,4 @@
-$Id: TODO,v 1.47 2008-04-21 00:11:34 skim Exp $
+$Id: TODO,v 1.48 2008-05-09 14:22:08 skim Exp $
 
 TODO
 ====
@@ -16,7 +16,8 @@ TODO
 34. Testy k Indent::Block, jinak tapu.
 Jsou asi spatne, protoze pole ('text', 'text', 'text') s delkou radku 2
 nerozdeli. Viz priklady v perl/MODULES/Indent::Block
-35.
+35. Odstranit TODO v dokumentaci k Indent::PerlStruct.
+36.
 
 Applied
 =======
