@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.2 2008-05-09 13:52:24 skim Exp $
+# $Id: PerlStruct.pm,v 1.3 2008-05-09 13:55:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -48,9 +48,9 @@ sub new($@) {
 }
 
 #------------------------------------------------------------------------------
-sub dump($$;$$) {
+sub indent($$;$$) {
 #------------------------------------------------------------------------------
-# Dump.
+# Get indented structure.
 
 	my ($self, $data, $comma_flag, $indent_flag) = @_;
 	$comma_flag = 0 unless $comma_flag;
@@ -61,7 +61,7 @@ sub dump($$;$$) {
 		$ret .= $indent.'['.$self->{'output_sep'};
 		$self->{'indent'}->add;
 		foreach (@{$data}) {
-			$ret .= $self->dump($_, 1);
+			$ret .= $self->indent($_, 1);
 		}
 		$self->{'indent'}->remove;
 		$ret .=$self->{'indent'}->get.'],'.$self->{'output_sep'};
@@ -70,7 +70,7 @@ sub dump($$;$$) {
 		$self->{'indent'}->add;
 		foreach my $key (sort keys %{$data}) {
 			$ret .= $self->{'indent'}->get.get($key).' => '.
-				$self->dump($data->{$key}, 1, 0);
+				$self->indent($data->{$key}, 1, 0);
 		}
 		$self->{'indent'}->remove;
 		$ret .= $self->{'indent'}->get.'},'.$self->{'output_sep'};
@@ -111,7 +111,7 @@ sub get($) {
 
  use Indent::PerlStruct;
  my $i = Indent::PerlStruct->new(%parameters);
- print $i->dump($data, [$indent, $non_indent]);
+ print $i->indent($data, [$indent, $non_indent]);
 
 =head1 METHODS
 
@@ -141,7 +141,7 @@ sub get($) {
 
 =back
 
-=item B<dump($data, [$comma_flag, $indent_flag])>
+=item B<indent($data, [$comma_flag, $indent_flag])>
 
  TODO
 
