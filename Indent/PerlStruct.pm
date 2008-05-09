@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.7 2008-05-09 14:11:14 skim Exp $
+# $Id: PerlStruct.pm,v 1.8 2008-05-09 14:19:24 skim Exp $
 
 # Pragmas.
 use strict;
@@ -20,9 +20,6 @@ sub new($@) {
 
 	my $class = shift;
 	my $self = bless {}, $class;
-
-	# Default indent.
-	$self->{'indent'} = '';
 
 	# Every next indent string.
 	$self->{'next_indent'} = "\t";
@@ -64,7 +61,7 @@ sub indent($$;$$) {
 			$ret .= $self->indent($_, 1);
 		}
 		$self->{'indent'}->remove;
-		$ret .=$self->{'indent'}->get.'],'.$self->{'output_separator'};
+		$ret .= $self->{'indent'}->get.'],'.$self->{'output_separator'};
 	} elsif (ref $data eq 'HASH') {
 		$ret .= $indent.'{'.$self->{'output_separator'};
 		$self->{'indent'}->add;
@@ -112,7 +109,7 @@ sub _get($) {
 
  use Indent::PerlStruct;
  my $i = Indent::PerlStruct->new(%parameters);
- print $i->indent($data, [$indent, $non_indent]);
+ print $i->indent($data, [$comma_flag, $indent_flag]);
 
 =head1 METHODS
 
@@ -125,10 +122,6 @@ sub _get($) {
 =head2 PARAMETERS
 
 =over 8
-
-=item B<indent>
-
- Default value is ''.
 
 =item B<next_indent>
 
@@ -144,7 +137,10 @@ sub _get($) {
 
 =item B<indent($data, [$comma_flag, $indent_flag])>
 
- TODO
+ Gets indented structure.
+ $data - Perl data structure.
+ $comma_flag - TODO (Default 0.)
+ $indent_flag - TODO (Default 1.)
 
 =back
 
