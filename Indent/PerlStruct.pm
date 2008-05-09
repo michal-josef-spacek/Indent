@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.1 2008-05-09 13:39:07 skim Exp $
+# $Id: PerlStruct.pm,v 1.2 2008-05-09 13:52:24 skim Exp $
 
 # Pragmas.
 use strict;
@@ -100,3 +100,79 @@ sub get($) {
 }
 
 1;
+
+=pod
+
+=head1 NAME
+
+ Indent::PerlStruct - Class for perl structure indent.
+
+=head1 SYNOPSIS
+
+ use Indent::PerlStruct;
+ my $i = Indent::PerlStruct->new(%parameters);
+ print $i->dump($data, [$indent, $non_indent]);
+
+=head1 METHODS
+
+=over 8
+
+=item B<new(%parameters)>
+
+ Constructor.
+
+=head2 PARAMETERS
+
+=over 8
+
+=item B<indent>
+
+ Default value is ''.
+
+=item B<next_indent>
+
+ Sets next indent string.
+ Default value is 'next_indent' => "\t" (tabelator).
+
+=item B<output_sep>
+
+ Sets output separator between indented datas for string context.
+ Default value is 'output_sep' => "\n" (new line).
+
+=back
+
+=item B<dump($data, [$comma_flag, $indent_flag])>
+
+ TODO
+
+=back
+
+=head1 EXAMPLE
+
+ TODO
+
+=head1 REQUIREMENTS
+
+L<Error::Simple::Multiple(3)>,
+L<Indent(3)>.
+
+=head1 SEE ALSO
+
+L<Indent>,
+L<Indent::Comment>,
+L<Indent::Data>,
+L<Indent::Form>,
+L<Indent::PerlStruct>,
+L<Indent::Tag>,
+L<Indent::Utils>,
+L<Indent::Word>.
+
+=head1 AUTHOR
+
+ Michal Špaček F<tupinek@gmail.com>
+
+=head1 VERSION
+
+ 0.01
+
+=cut
