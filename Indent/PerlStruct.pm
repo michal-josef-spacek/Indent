@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.4 2008-05-09 13:58:38 skim Exp $
+# $Id: PerlStruct.pm,v 1.5 2008-05-09 13:59:50 skim Exp $
 
 # Pragmas.
 use strict;
@@ -28,7 +28,7 @@ sub new($@) {
 	$self->{'next_indent'} = "\t";
 
 	# Output separator.
-	$self->{'output_sep'} = "\n";
+	$self->{'output_separator'} = "\n";
 
 	# Process params.
 	while (@_) {
@@ -58,29 +58,30 @@ sub indent($$;$$) {
 	my $ret;
 	my $indent = $indent_flag ? $self->{'indent'}->get : '';
 	if (ref $data eq 'ARRAY') {
-		$ret .= $indent.'['.$self->{'output_sep'};
+		$ret .= $indent.'['.$self->{'output_separator'};
 		$self->{'indent'}->add;
 		foreach (@{$data}) {
 			$ret .= $self->indent($_, 1);
 		}
 		$self->{'indent'}->remove;
-		$ret .=$self->{'indent'}->get.'],'.$self->{'output_sep'};
+		$ret .=$self->{'indent'}->get.'],'.$self->{'output_separator'};
 	} elsif (ref $data eq 'HASH') {
-		$ret .= $indent.'{'.$self->{'output_sep'};
+		$ret .= $indent.'{'.$self->{'output_separator'};
 		$self->{'indent'}->add;
 		foreach my $key (sort keys %{$data}) {
 			$ret .= $self->{'indent'}->get._get($key).' => '.
 				$self->indent($data->{$key}, 1, 0);
 		}
 		$self->{'indent'}->remove;
-		$ret .= $self->{'indent'}->get.'},'.$self->{'output_sep'};
+		$ret .= $self->{'indent'}->get.'},'.
+			$self->{'output_separator'};
 	} elsif (ref $data eq '') {
 		my $comma = $comma_flag ? ',' : '';
-		$ret .= $indent._get($data).$comma.$self->{'output_sep'};
+		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
 	} elsif (ref $data eq 'SCALAR') {
 		my $comma = $comma_flag ? ',' : '';
 		$ret .= $indent.'\\'._get(${$data}).$comma.
-			$self->{'output_sep'};
+			$self->{'output_separator'};
 	}
 	return $ret;
 }
@@ -134,10 +135,10 @@ sub _get($) {
  Sets next indent string.
  Default value is 'next_indent' => "\t" (tabelator).
 
-=item B<output_sep>
+=item B<output_separator>
 
  Sets output separator between indented datas for string context.
- Default value is 'output_sep' => "\n" (new line).
+ Default value is 'output_separator' => "\n" (new line).
 
 =back
 
