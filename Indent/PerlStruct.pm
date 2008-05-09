@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.3 2008-05-09 13:55:51 skim Exp $
+# $Id: PerlStruct.pm,v 1.4 2008-05-09 13:58:38 skim Exp $
 
 # Pragmas.
 use strict;
@@ -69,17 +69,17 @@ sub indent($$;$$) {
 		$ret .= $indent.'{'.$self->{'output_sep'};
 		$self->{'indent'}->add;
 		foreach my $key (sort keys %{$data}) {
-			$ret .= $self->{'indent'}->get.get($key).' => '.
+			$ret .= $self->{'indent'}->get._get($key).' => '.
 				$self->indent($data->{$key}, 1, 0);
 		}
 		$self->{'indent'}->remove;
 		$ret .= $self->{'indent'}->get.'},'.$self->{'output_sep'};
 	} elsif (ref $data eq '') {
 		my $comma = $comma_flag ? ',' : '';
-		$ret .= $indent.get($data).$comma.$self->{'output_sep'};
+		$ret .= $indent._get($data).$comma.$self->{'output_sep'};
 	} elsif (ref $data eq 'SCALAR') {
 		my $comma = $comma_flag ? ',' : '';
-		$ret .= $indent.'\\'.get(${$data}).$comma.
+		$ret .= $indent.'\\'._get(${$data}).$comma.
 			$self->{'output_sep'};
 	}
 	return $ret;
@@ -90,7 +90,7 @@ sub indent($$;$$) {
 #------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
-sub get($) {
+sub _get($) {
 #------------------------------------------------------------------------------
 # Get variable as serialize.
 
