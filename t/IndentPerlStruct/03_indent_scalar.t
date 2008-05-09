@@ -1,4 +1,4 @@
-# $Id: 03_dump_scalar.t,v 1.3 2008-05-09 14:18:38 skim Exp $
+# $Id: 03_indent_scalar.t,v 1.1 2008-05-09 14:21:22 skim Exp $
 
 print "Testing: Scalar dump.\n" if $debug;
 my $obj = $class->new;
