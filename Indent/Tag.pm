@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.34 2008-05-09 13:49:00 skim Exp $
+# $Id: Tag.pm,v 1.35 2008-05-09 14:11:14 skim Exp $
 
 # Pragmas.
 use strict;
@@ -227,20 +227,20 @@ sub indent($$;$$) {
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3)>,
-L<Indent::Utils(3)>,
-L<Tag::Parse(3)>.
+L<Error::Simple::Multiple(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Tag::Parse(3pm)>.
 
 =head1 SEE ALSO
 
-L<Indent>,
-L<Indent::Block>,
-L<Indent::Comment>,
-L<Indent::Data>,
-L<Indent::Form>,
-L<Indent::PerlStruct>,
-L<Indent::Utils>,
-L<Indent::Word>.
+L<Indent(3pm)>,
+L<Indent::Block(3pm)>,
+L<Indent::Comment(3pm)>,
+L<Indent::Data(3pm)>,
+L<Indent::Form(3pm)>,
+L<Indent::PerlStruct(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 

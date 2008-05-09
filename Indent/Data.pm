@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.31 2008-05-09 13:49:00 skim Exp $
+# $Id: Data.pm,v 1.32 2008-05-09 14:11:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -157,18 +157,18 @@ sub indent($$;$$) {
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3pm)>
 
 =head1 SEE ALSO
 
-L<Indent>,
-L<Indent::Block>,
-L<Indent::Comment>,
-L<Indent::Form>,
-L<Indent::PerlStruct>,
-L<Indent::Tag>,
-L<Indent::Utils>,
-L<Indent::Word>.
+L<Indent(3pm)>,
+L<Indent::Block(3pm)>,
+L<Indent::Comment(3pm)>,
+L<Indent::Form(3pm)>,
+L<Indent::PerlStruct(3pm)>,
+L<Indent::Tag(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.23 2008-05-09 13:48:59 skim Exp $
+# $Id: Indent.pm,v 1.24 2008-05-09 14:11:12 skim Exp $
 
 # Pragmas.
 use strict;
@@ -184,18 +184,18 @@ as keyword value pairs. Recognized options are:
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3)>
+L<Error::Simple::Multiple(3pm)>
 
 =head1 SEE ALSO
 
-L<Indent::Block>,
-L<Indent::Comment>,
-L<Indent::Data>,
-L<Indent::Form>,
-L<Indent::PerlStruct>,
-L<Indent::Tag>,
-L<Indent::Utils>,
-L<Indent::Word>.
+L<Indent::Block(3pm)>,
+L<Indent::Comment(3pm)>,
+L<Indent::Data(3pm)>,
+L<Indent::Form(3pm)>,
+L<Indent::PerlStruct(3pm)>,
+L<Indent::Tag(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 

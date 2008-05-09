@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.25 2008-05-09 13:49:00 skim Exp $
+# $Id: Form.pm,v 1.26 2008-05-09 14:11:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -194,19 +194,19 @@ sub indent {
 
 =head1 REQUIREMENTS
 
-L<Indent::Word(3)>,
-L<Error::Simple::Multiple(3)>
+L<Indent::Word(3pm)>,
+L<Error::Simple::Multiple(3pm)>
 
 =head1 SEE ALSO
 
-L<Indent>,
-L<Indent::Block>,
-L<Indent::Comment>,
-L<Indent::Data>,
-L<Indent::PerlStruct>,
-L<Indent::Tag>,
-L<Indent::Utils>,
-L<Indent::Word>.
+L<Indent(3pm)>,
+L<Indent::Block(3pm)>,
+L<Indent::Comment(3pm)>,
+L<Indent::Data(3pm)>,
+L<Indent::PerlStruct(3pm)>,
+L<Indent::Tag(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
