@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.14 2008-05-09 13:49:00 skim Exp $
+# $Id: Block.pm,v 1.15 2008-05-09 13:52:15 skim Exp $
 
 # Pragmas.
 use strict;
@@ -219,7 +219,7 @@ sub _compare($$$$) {
 =head1 REQUIREMENTS
 
 L<Error::Simple::Multiple(3)>,
-L<Indent::Utils(3)>
+L<Indent::Utils(3)>.
 
 =head1 SEE ALSO
 
