@@ -53,6 +53,7 @@ t/IndentPerlStruct/04_dump_array.t
 t/IndentPerlStruct/05_dump_hash.t
 t/IndentPerlStruct/06_dump_all.t
 t/IndentPerlStruct/07_indent.t
+t/IndentPerlStruct/08_output_separator.t
 t/IndentTag/01_version.t
 t/IndentTag/02_constructor.t
 t/IndentTag/03_indent_tag.t
