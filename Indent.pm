@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.24 2008-05-09 14:11:12 skim Exp $
+# $Id: Indent.pm,v 1.25 2008-05-11 13:39:12 skim Exp $
 
 # Pragmas.
 use strict;
@@ -100,14 +100,14 @@ Indent - A perl module for indent handling.
 
 =head1 METHODS
 
-=over 4
+=over 8
 
 =item B<new($option =E<gt> $value)>
 
 This is a class method, the constructor for Indent. Options are passed
 as keyword value pairs. Recognized options are:
 
-=over 4
+=over 8
 
 =item * indent
 
@@ -184,7 +184,7 @@ as keyword value pairs. Recognized options are:
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3pm)>
+L<Error::Simple::Multiple(3pm)>.
 
 =head1 SEE ALSO
 

@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.27 2008-05-09 14:11:14 skim Exp $
+# $Id: Word.pm,v 1.28 2008-05-11 13:39:14 skim Exp $
 
 # Pragmas.
 use strict;
@@ -128,19 +128,17 @@ sub indent {
 
  Constructor.
 
-=head2 PARAMETERS
-
 =over 8
 
-=item B<line_size>
+=item * line_size
 
  TODO
 
-=item B<next_indent>
+=item * next_indent
 
  TODO
 
-=item B<output_separator>
+=item * output_separator
 
  TODO
 

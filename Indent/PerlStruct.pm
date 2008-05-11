@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.8 2008-05-09 14:19:24 skim Exp $
+# $Id: PerlStruct.pm,v 1.9 2008-05-11 13:39:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -119,16 +119,14 @@ sub _get($) {
 
  Constructor.
 
-=head2 PARAMETERS
-
 =over 8
 
-=item B<next_indent>
+=item * next_indent
 
  Sets next indent string.
  Default value is 'next_indent' => "\t" (tabelator).
 
-=item B<output_separator>
+=item * output_separator
 
  Sets output separator between indented datas for string context.
  Default value is 'output_separator' => "\n" (new line).

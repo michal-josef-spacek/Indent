@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.26 2008-05-09 14:11:13 skim Exp $
+# $Id: Form.pm,v 1.27 2008-05-11 13:39:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -146,14 +146,14 @@ sub indent {
 
 =head1 METHODS
 
-=over 4
+=over 8
 
 =item B<new(TODO)>
 
  This is a class method, the constructor for Indent. Options are passed
  as keyword value pairs. Recognized options are:
 
-=over 4
+=over 8
 
 =item * form_separator
 

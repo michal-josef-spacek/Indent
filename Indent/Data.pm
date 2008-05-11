@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.32 2008-05-09 14:11:13 skim Exp $
+# $Id: Data.pm,v 1.33 2008-05-11 13:39:13 skim Exp $
 
 # Pragmas.
 use strict;
@@ -104,14 +104,14 @@ sub indent($$;$$) {
 
 =head1 METHODS
 
-=over 4
+=over 8
 
 =item B<new(%parameters)>
 
  This is a class method, the constructor for Indent. Options are passed
  as keyword value pairs. Recognized options are:
 
-=over 4
+=over 8
 
 =item * line_size
 
