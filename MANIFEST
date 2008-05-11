@@ -27,6 +27,7 @@ t/07_indent_utils.t
 t/08_indent_block.t
 t/09_indent_perl_struct.t
 t/10_pod_coverage.t
+t/11_pod.t
 t/Indent/01_version.t
 t/Indent/02_constructor.t
 t/Indent/03_indent.t
