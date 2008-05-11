@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.19 2008-05-11 13:23:55 skim Exp $
+# $Id: Utils.pm,v 1.20 2008-05-11 13:24:33 skim Exp $
 
 # Pragmas.
 use strict;
@@ -19,8 +19,18 @@ our $tab_length = 8;
 our @ISA = qw(Exporter);
 
 # Export.
-our @EXPORT_OK = qw(remove_first_ws remove_last_ws remove_ws 
-	reduce_duplicit_ws string_len);
+our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
+	string_len);
+
+#------------------------------------------------------------------------------
+sub reduce_duplicit_ws($) {
+#------------------------------------------------------------------------------
+# Reduce duplicit blank space in string to one space.
+# @param $string Reference to data string.
+
+	my $string = shift;
+	${$string} =~ s/\s+/\ /g;
+}
 
 #------------------------------------------------------------------------------
 sub remove_first_ws($) {
@@ -51,16 +61,6 @@ sub remove_ws($) {
 	my $string = shift;
 	remove_last_ws($string);
 	remove_first_ws($string);
-}
-
-#------------------------------------------------------------------------------
-sub reduce_duplicit_ws($) {
-#------------------------------------------------------------------------------
-# Reduce duplicit blank space in string to one space.
-# @param $string Reference to data string.
-
-	my $string = shift;
-	${$string} =~ s/\s+/\ /g;
 }
 
 #------------------------------------------------------------------------------
