@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.21 2008-05-11 13:25:26 skim Exp $
+# $Id: Utils.pm,v 1.22 2008-05-11 14:27:40 skim Exp $
 
 # Pragmas.
 use strict;
@@ -88,7 +88,7 @@ sub string_len($) {
 
 =head1 SYNOPSIS
 
- use Indent::Utils;
+ use Indent::Utils qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws string_len);
  reduce_duplicit_ws(\$string);
  remove_first_ws(\$string);
  remove_last_ws(\$string);
