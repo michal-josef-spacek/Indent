@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.16 2005-08-14 17:56:08 skim Exp $
+# $Id: Utils.pm,v 1.17 2008-05-11 13:18:24 skim Exp $
 
 # Pragmas.
 use strict;
@@ -79,3 +79,70 @@ sub string_len {
 } 
 
 1;
+
+=pod
+
+=head1 NAME
+
+ Indent::Utils - Utilities for Indent classes.
+
+=head1 SYNOPSIS
+
+ use Indent::Utils;
+ TODO
+
+=head1 SUBROUTINES
+
+=over 8
+
+=item B<reduce_duplicit_ws>
+
+ TODO 
+
+=item B<remove_first_ws>
+
+ TODO
+
+=item B<remove_last_ws>
+
+ TODO
+
+=item B<remove_ws>
+
+ TODO
+
+=item B<string_len>
+
+ TODO
+
+=back
+
+=head1 EXAMPLE
+
+ TODO
+
+=head1 REQUIREMENTS
+
+L<Error::Simple::Multiple(3pm)>,
+L<Exporter(3pm)>,
+
+=head1 SEE ALSO
+
+L<Indent(3pm)>,
+L<Indent::Comment(3pm)>,
+L<Indent::Block(3pm)>,
+L<Indent::Data(3pm)>,
+L<Indent::Form(3pm)>,
+L<Indent::PerlStruct(3pm)>,
+L<Indent::Tag(3pm)>,
+L<Indent::Word(3pm)>.
+
+=head1 AUTHOR
+
+ Michal Špaček F<tupinek@gmail.com>
+
+=head1 VERSION
+
+ 0.01
+
+=cut
