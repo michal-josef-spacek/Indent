@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.18 2008-05-11 13:19:20 skim Exp $
+# $Id: Utils.pm,v 1.19 2008-05-11 13:23:55 skim Exp $
 
 # Pragmas.
 use strict;
@@ -89,31 +89,35 @@ sub string_len($) {
 =head1 SYNOPSIS
 
  use Indent::Utils;
- TODO
+ reduce_duplicit_ws(\$string);
+ remove_first_ws(\$string);
+ remove_last_ws(\$string);
+ remove_ws(\$string);
+ my $length_of_string = string_len($string);
 
 =head1 SUBROUTINES
 
 =over 8
 
-=item B<reduce_duplicit_ws>
+=item B<reduce_duplicit_ws($ref_to_string)>
 
- TODO 
+ Reduce duplicit blank space in string to one space.
 
-=item B<remove_first_ws>
+=item B<remove_first_ws($ref_to_string)>
 
- TODO
+ Remove blank characters in begin of string.
 
-=item B<remove_last_ws>
+=item B<remove_last_ws($ref_to_string)>
 
- TODO
+ Remove blank characters in end of string.
 
-=item B<remove_ws>
+=item B<remove_ws($ref_to_string)>
 
- TODO
+ Remove white characters in begin and end of string.
 
-=item B<string_len>
+=item B<string_len($string)>
 
- TODO
+ Gets length of string. 
 
 =back
 
