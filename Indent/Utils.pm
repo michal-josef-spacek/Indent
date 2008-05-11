@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.20 2008-05-11 13:24:33 skim Exp $
+# $Id: Utils.pm,v 1.21 2008-05-11 13:25:26 skim Exp $
 
 # Pragmas.
 use strict;
@@ -28,8 +28,8 @@ sub reduce_duplicit_ws($) {
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
 
-	my $string = shift;
-	${$string} =~ s/\s+/\ /g;
+	my $ref_to_string = shift;
+	${$ref_to_string} =~ s/\s+/\ /g;
 }
 
 #------------------------------------------------------------------------------
@@ -38,8 +38,8 @@ sub remove_first_ws($) {
 # Remove blank characters in begin of string.
 # @param $string Reference to data string.
 
-	my $string = shift;
-	${$string} =~ s/^\s*//;	
+	my $ref_to_string = shift;
+	${$ref_to_string} =~ s/^\s*//;	
 }
 
 #------------------------------------------------------------------------------
@@ -48,8 +48,8 @@ sub remove_last_ws($) {
 # Remove blank characters in end of string.
 # @param $string Reference to data string.
 
-	my $string = shift;
-	${$string} =~ s/\s*$//;	
+	my $ref_to_string = shift;
+	${$ref_to_string} =~ s/\s*$//;	
 }
 
 #------------------------------------------------------------------------------
@@ -58,9 +58,9 @@ sub remove_ws($) {
 # Remove white characters in begin and end of string.
 # @param $string reference to data string. 
 
-	my $string = shift;
-	remove_last_ws($string);
-	remove_first_ws($string);
+	my $ref_to_string = shift;
+	remove_last_ws($ref_to_string);
+	remove_first_ws($ref_to_string);
 }
 
 #------------------------------------------------------------------------------
