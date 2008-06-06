@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.9 2008-05-11 13:39:13 skim Exp $
+# $Id: PerlStruct.pm,v 1.10 2008-06-06 07:48:21 skim Exp $
 
 # Pragmas.
 use strict;
@@ -55,13 +55,17 @@ sub indent($$;$$) {
 	my $ret;
 	my $indent = $indent_flag ? $self->{'indent'}->get : '';
 	if (ref $data eq 'ARRAY') {
-		$ret .= $indent.'['.$self->{'output_separator'};
-		$self->{'indent'}->add;
-		foreach (@{$data}) {
-			$ret .= $self->indent($_, 1);
+		$ret .= $indent.'[';
+		if ($#{$data} > -1) {
+			$ret .= $self->{'output_separator'};
+			$self->{'indent'}->add;
+			foreach (@{$data}) {
+				$ret .= $self->indent($_, 1);
+			}
+			$self->{'indent'}->remove;
+			$ret .= $self->{'indent'}->get;
 		}
-		$self->{'indent'}->remove;
-		$ret .= $self->{'indent'}->get.'],'.$self->{'output_separator'};
+		$ret .= '],'.$self->{'output_separator'};
 	} elsif (ref $data eq 'HASH') {
 		$ret .= $indent.'{'.$self->{'output_separator'};
 		$self->{'indent'}->add;
