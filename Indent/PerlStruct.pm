@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.10 2008-06-06 07:48:21 skim Exp $
+# $Id: PerlStruct.pm,v 1.11 2008-06-06 07:51:45 skim Exp $
 
 # Pragmas.
 use strict;
@@ -67,15 +67,19 @@ sub indent($$;$$) {
 		}
 		$ret .= '],'.$self->{'output_separator'};
 	} elsif (ref $data eq 'HASH') {
-		$ret .= $indent.'{'.$self->{'output_separator'};
-		$self->{'indent'}->add;
-		foreach my $key (sort keys %{$data}) {
-			$ret .= $self->{'indent'}->get._get($key).' => '.
-				$self->indent($data->{$key}, 1, 0);
+		$ret .= $indent.'{';
+		if (scalar keys %{$data} > 0) {
+			$ret .= $self->{'output_separator'};
+			$self->{'indent'}->add;
+			foreach my $key (sort keys %{$data}) {
+				$ret .= $self->{'indent'}->get._get($key).
+					' => '.
+					$self->indent($data->{$key}, 1, 0);
+			}
+			$self->{'indent'}->remove;
+			$ret .= $self->{'indent'}->get;
 		}
-		$self->{'indent'}->remove;
-		$ret .= $self->{'indent'}->get.'},'.
-			$self->{'output_separator'};
+		$ret .= '},'.$self->{'output_separator'};
 	} elsif (ref $data eq '') {
 		my $comma = $comma_flag ? ',' : '';
 		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
