@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.28 2008-05-11 13:39:14 skim Exp $
+# $Id: Word.pm,v 1.29 2008-07-07 19:32:40 skim Exp $
 
 # Pragmas.
 use strict;
@@ -118,7 +118,9 @@ sub indent {
 
 =head1 SYNOPSIS
 
- TODO
+ use Indent::Word;
+ my $indent = Indent::Word->new(%parameters);
+ $indent->indent('text text text');
 
 =head1 METHODS
 
@@ -133,14 +135,17 @@ sub indent {
 =item * line_size
 
  TODO
+ Default value is 79.
 
 =item * next_indent
 
  TODO
+ Default value is "\t" (tabelator).
 
 =item * output_separator
 
  TODO
+ Default value is "\n" (new line).
 
 =back
 
@@ -152,7 +157,24 @@ sub indent {
 
 =head1 EXAMPLE
 
- TODO
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Word;
+
+ # Object.
+ my $i = Indent::Word->new(
+   'line_size' => 20,
+ );
+
+ # Indent.
+ print $i->indent(join(' ', ('text') x 7))."\n";
+
+ # Output:
+ # text text text text
+ # <--tab->text text text
 
 =head1 REQUIREMENTS
 
@@ -171,7 +193,7 @@ L<Indent::Utils(3pm)>.
 
 =head1 AUTHOR
 
- Michal Spacek L<tupinek@gmail.com>
+ Michal Špaček L<tupinek@gmail.com>
 
 =head1 VERSION
 
