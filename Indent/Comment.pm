@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.27 2008-05-11 13:39:13 skim Exp $
+# $Id: Comment.pm,v 1.28 2008-07-08 17:54:24 skim Exp $
 
 # Pragmas.
 use strict;
@@ -193,7 +193,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
- Michal Spacek <F<tupinek@gmail.com>>.
+ Michal Špaček <F<tupinek@gmail.com>>.
 
 =head1 VERSION
 
