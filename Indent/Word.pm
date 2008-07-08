@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.31 2008-07-08 19:30:33 skim Exp $
+# $Id: Word.pm,v 1.32 2008-07-08 21:50:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -139,7 +139,7 @@ sub indent {
 
 =item * B<next_indent>
 
- TODO
+ Indent string, when added to begin of next indented line.
  Default value is "\t" (tabelator).
 
 =item * B<output_separator>
