@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.28 2008-07-08 17:54:24 skim Exp $
+# $Id: Comment.pm,v 1.29 2008-07-08 18:20:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -145,7 +145,7 @@ sub indent($) {
 
 =back
 
-=head1 EXAMPLE
+=head1 EXAMPLE1
 
  # Pragmas.
  use strict;
@@ -169,12 +169,48 @@ sub indent($) {
  ]);
  print "$output\n";
 
- Gets:
- /* 
-  * text
-  * text
-  * text
-  */
+ # Output:
+ # /* 
+ #  * text
+ #  * text
+ #  * text
+ #  */
+
+=head1 EXAMPLE2
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Comment;
+ use Indent::Word;
+
+ # Indent::Comment object.
+ my $indent_comment = Indent::Comment->new(
+        'begin' => '/*',
+        'middle' => ' * ',
+        'end' => ' */',
+ );
+
+ # Indent::Word object.
+ my $indent_word = Indent::Word->new(
+        'line_size' => 20,
+	'next_indent' => '',
+ );
+
+ # Get indented text.
+ my @text = $indent_word->indent(join(' ', ('text') x 7));
+
+ # Print comment.
+ my $output = $indent_comment->indent(\@text);
+ print "$output\n";
+
+ # Output:
+ # /*
+ #  * text text text text
+ #  * text text text
+ #  */
 
 =head1 REQUIREMENTS
 
