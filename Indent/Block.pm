@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.17 2008-05-11 13:39:13 skim Exp $
+# $Id: Block.pm,v 1.18 2008-07-08 17:56:17 skim Exp $
 
 # Pragmas.
 use strict;
@@ -178,22 +178,22 @@ sub _compare($$$$) {
 
 =over 8
 
-=item * line_size
+=item * B<line_size>
 
  Sets indent line size value.
  Default value is 'line_size' => 79.
 
-=item * next_indent
+=item * B<next_indent>
 
  Sets next indent string.
  Default value is 'next_indent' => "\t" (tabelator).
 
-=item * output_separator
+=item * B<output_separator>
 
  Sets output separator between indented datas for string context.
  Default value is 'output_separator' => "\n" (new line).
 
-=item * strict
+=item * B<strict>
 
  Sets or unsets strict mode. 
  Unset strict mode means whitespace optimalization.
