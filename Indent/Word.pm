@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.30 2008-07-08 19:29:05 skim Exp $
+# $Id: Word.pm,v 1.31 2008-07-08 19:30:33 skim Exp $
 
 # Pragmas.
 use strict;
@@ -132,24 +132,24 @@ sub indent {
 
 =over 8
 
-=item * line_size
+=item * B<line_size>
 
  TODO
  Default value is 79.
 
-=item * next_indent
+=item * B<next_indent>
 
  TODO
  Default value is "\t" (tabelator).
 
-=item * output_separator
+=item * B<output_separator>
 
  TODO
  Default value is "\n" (new line).
 
 =back
 
-=item B<indent()>
+=item B<indent($data, $indent, $non_indent)>
 
  TODO
 
