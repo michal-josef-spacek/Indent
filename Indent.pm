@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.26 2008-07-08 21:49:45 skim Exp $
+# $Id: Indent.pm,v 1.27 2008-07-08 21:51:39 skim Exp $
 
 # Pragmas.
 use strict;
@@ -199,7 +199,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
-Michal Spacek <F<tupinek@gmail.com>>
+Michal Špaček <F<tupinek@gmail.com>>
 
 =head1 VERSION
 
