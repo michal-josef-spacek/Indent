@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent;
 #------------------------------------------------------------------------------
-# $Id: Indent.pm,v 1.25 2008-05-11 13:39:12 skim Exp $
+# $Id: Indent.pm,v 1.26 2008-07-08 21:49:45 skim Exp $
 
 # Pragmas.
 use strict;
@@ -109,12 +109,12 @@ as keyword value pairs. Recognized options are:
 
 =over 8
 
-=item * indent
+=item * B<indent>
 
  Default indent.
  Default value is ''.
 
-=item * next_indent
+=item * B<next_indent>
 
  Next indent. Adding to internal indent variable after every add method 
  calling.

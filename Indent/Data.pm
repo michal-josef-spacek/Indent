@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.33 2008-05-11 13:39:13 skim Exp $
+# $Id: Data.pm,v 1.34 2008-07-08 21:49:58 skim Exp $
 
 # Pragmas.
 use strict;
@@ -113,20 +113,20 @@ sub indent($$;$$) {
 
 =over 8
 
-=item * line_size
+=item * B<line_size>
 
  TODO
  Default value is 79.
 
-=item * next_indent
+=item * B<next_indent>
 
  TODO
- Default value is tabelator.
+ Default value is tabelator (\t).
 
-=item * output_separator
+=item * B<output_separator>
 
  TODO
- Default value is newline.
+ Default value is newline (\n).
 
 =back
 
@@ -152,8 +152,8 @@ sub indent($$;$$) {
 
  TODO
 
- Gets: 
- TODO
+ # Output:
+ # TODO
 
 =head1 REQUIREMENTS
 
