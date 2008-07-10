@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.45 2008-07-10 00:47:08 skim Exp $
+# $Id: Data.pm,v 1.46 2008-07-10 00:49:19 skim Exp $
 
 # Pragmas.
 use strict;
@@ -141,6 +141,7 @@ sub indent($$;$$) {
 
  Indent text data to line_size block size.
  $act_indent - Actual indent string. Will be in each output string.
+ Length of $act_indent variable must be less then ('line_size' - length of 'next_indent' - 1).
  $non_indent - Is flag for non indenting. Default is 0.
 
 =back
