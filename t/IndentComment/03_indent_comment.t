@@ -1,9 +1,9 @@
-# $Id: 03_indent_comment.t,v 1.7 2008-07-10 08:43:50 skim Exp $
+# $Id: 03_indent_comment.t,v 1.8 2008-07-10 08:44:20 skim Exp $
 
 print "Testing: Comment indent.\n" if $debug;
 my $obj = $class->new(
 	'begin' => '{',
-	'end' => '}'
+	'end' => '}',
 	'middle' => '  ',
 );
 my @data = ('one', 'two');
