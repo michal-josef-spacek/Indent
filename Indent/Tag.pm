@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Tag;
 #------------------------------------------------------------------------------
-# $Id: Tag.pm,v 1.36 2008-05-11 13:39:14 skim Exp $
+# $Id: Tag.pm,v 1.37 2008-07-10 14:37:28 skim Exp $
 
 # Pragmas.
 use strict;
@@ -246,7 +246,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
- Michal Spacek <F<skim@skim.cz>>.
+ Michal Špaček <F<tupinek@gmail.com>>.
 
 =head1 VERSION
 
