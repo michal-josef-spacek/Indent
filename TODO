@@ -1,10 +1,9 @@
-$Id: TODO,v 1.49 2008-07-10 00:50:09 skim Exp $
+$Id: TODO,v 1.50 2008-07-10 08:57:05 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 13. Dokumentace k Indent::Tag.
-14. Dokumentace k Indent::Comment.
 16. Dokumentace k Indent::Word.
 17. Dokumentace k Indent::Utils.
 18. Dokumentace k Indent::Form.
@@ -116,4 +115,7 @@ OK [20070219] skim
 OK [20080421] skim
 
 15. Dokumentace k Indent::Data.
+OK [20080710] skim
+
+14. Dokumentace k Indent::Comment.
 OK [20080710] skim
