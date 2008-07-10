@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Utils;
 #------------------------------------------------------------------------------
-# $Id: Utils.pm,v 1.22 2008-05-11 14:27:40 skim Exp $
+# $Id: Utils.pm,v 1.23 2008-07-10 14:26:12 skim Exp $
 
 # Pragmas.
 use strict;
@@ -121,10 +121,85 @@ sub string_len($) {
 
 =back
 
-=head1 EXAMPLE
+=head1 EXAMPLE1
 
- TODO
+ # Pragmas.
+ use strict;
+ use warnings;
+ 
+ # Modules.
+ use Indent::Utils qw(reduce_duplicit_ws);
+ 
+ my $input = 'a  b';
+ reduce_duplicit_ws(\$input);
+ print "$input|\n";
 
+ # Output:
+ # a b|
+
+=head1 EXAMPLE2
+
+ # Pragmas.
+ use strict;
+ use warnings;
+ 
+ # Modules.
+ use Indent::Utils qw(remove_first_ws);
+ 
+ my $input = '  a';
+ remove_first_ws(\$input);
+ print "$input|\n";
+
+ # Output:
+ # a|
+
+=head1 EXAMPLE3
+
+ # Pragmas.
+ use strict;
+ use warnings;
+ 
+ # Modules.
+ use Indent::Utils qw(remove_last_ws);
+ 
+ my $input = 'a   ';
+ remove_last_ws(\$input);
+ print "$input|\n";
+
+ # Output:
+ # a|
+
+=head1 EXAMPLE4
+
+ # Pragmas.
+ use strict;
+ use warnings;
+ 
+ # Modules.
+ use Indent::Utils qw(remove_ws);
+ 
+ my $input = '   a   ';
+ remove_ws(\$input);
+ print "$input|\n";
+
+ # Output:
+ # a|
+ 
+=head1 EXAMPLE5
+
+ # Pragmas.
+ use strict;
+ use warnings;
+ 
+ # Modules.
+ use Indent::Utils qw(string_len);
+ 
+ # Print string length.
+ print string_len("\tab\t")."\n";
+
+ # Output:
+ # 18
+ 
 =head1 REQUIREMENTS
 
 L<Error::Simple::Multiple(3pm)>,
