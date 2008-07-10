@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.37 2008-07-10 00:54:40 skim Exp $
+# $Id: Word.pm,v 1.38 2008-07-10 08:28:26 skim Exp $
 
 # Pragmas.
 use strict;
@@ -134,7 +134,7 @@ sub indent($$;$$) {
 
 =item * B<line_size>
 
- Sets next indent string.
+ Sets indent line size value.
  Default value is 79.
 
 =item * B<next_indent>
