@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.43 2008-07-10 00:40:05 skim Exp $
+# $Id: Data.pm,v 1.44 2008-07-10 00:45:49 skim Exp $
 
 # Pragmas.
 use strict;
@@ -139,7 +139,9 @@ sub indent($$;$$) {
 
 =item B<indent($data, [$indent, $non_indent])>
 
- TODO
+ Indent text data to line_size block size.
+ $indent - Actual indent string. Will be in each output string.
+ $non_indent - Is flag for non indenting. Default is 0.
 
 =back
 
