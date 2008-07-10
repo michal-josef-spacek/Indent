@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.31 2008-07-10 08:48:17 skim Exp $
+# $Id: Comment.pm,v 1.32 2008-07-10 08:55:55 skim Exp $
 
 # Pragmas.
 use strict;
@@ -167,7 +167,7 @@ sub _indent($$) {
 
 =over 8
 
-=item B<new($option =E<gt> $value)>
+=item B<new(%parameters)>
 
  Constructor.
 
