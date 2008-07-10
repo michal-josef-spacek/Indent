@@ -1,4 +1,4 @@
-# $Id: 03_indent_word.t,v 1.8 2005-07-19 10:30:05 skim Exp $
+# $Id: 03_indent_word.t,v 1.9 2008-07-10 14:16:19 skim Exp $
 
 print "Testing: No-indenting data.\n" if $debug;
 my $obj = $class->new(
@@ -29,3 +29,23 @@ $data = 'abcdefghijklmnopqrstuvwxyz' x 3;
 ok($#ret, 0);
 ok($ret[0], '---abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdef'.
 	'ghijklmnopqrstuvwxyz');
+
+print "Testing: Indenting data with actual indent.\n" if $debug;
+$data = 'text';
+$obj = $class->new(
+	'next_indent' => '',
+	'line_size' => '5',
+);
+@ret = $obj->indent($data, '<-->');
+ok($#ret, 0);
+ok($ret[0], '<-->text');
+
+$data = 'text text';
+$obj = $class->new(
+	'next_indent' => ' ',
+	'line_size' => '5',
+);
+@ret = $obj->indent($data, '<->');
+ok($#ret, 1);
+ok($ret[0], '<->text');
+ok($ret[1], '<-> text');
