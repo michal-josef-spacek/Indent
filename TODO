@@ -1,10 +1,9 @@
-$Id: TODO,v 1.50 2008-07-10 08:57:05 skim Exp $
+$Id: TODO,v 1.51 2008-07-10 14:17:55 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 13. Dokumentace k Indent::Tag.
-16. Dokumentace k Indent::Word.
 17. Dokumentace k Indent::Utils.
 18. Dokumentace k Indent::Form.
 19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
@@ -118,4 +117,7 @@ OK [20080421] skim
 OK [20080710] skim
 
 14. Dokumentace k Indent::Comment.
+OK [20080710] skim
+
+16. Dokumentace k Indent::Word.
 OK [20080710] skim
