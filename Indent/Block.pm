@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.20 2008-07-10 13:33:05 skim Exp $
+# $Id: Block.pm,v 1.21 2008-07-10 13:34:12 skim Exp $
 
 # Pragmas.
 use strict;
@@ -56,35 +56,35 @@ sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Reference to data array.
-# @param $indent String to actual indent.
+# @param $act_indent String to actual indent.
 # @param $non_indent Flag, that says no-indent.
 
-	my ($self, $data, $indent, $non_indent) = @_;
+	my ($self, $data, $act_indent, $non_indent) = @_;
 
 	# Undef indent.
-	if (! $indent) {
-		$indent = '';
+	if (! $act_indent) {
+		$act_indent = '';
 	}
 
 	# Input data.
 	my @input = @{$data};
 
 	# If non_indent data, than return.
-	return $indent.join('', @input) if $non_indent;
+	return $act_indent.join('', @input) if $non_indent;
 
 	# Indent.
 	my @data = ();
 	my ($first, $second);
 	$first = shift @input;
 	$first = $first;
-	my $tmp_indent = $indent;
+	my $tmp_indent = $act_indent;
 	while (@input) {
 		$second = shift @input;
 		if ($self->_compare($first, $second, $tmp_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
 			$second = '';
-			$tmp_indent = $indent.$self->{'next_indent'};
+			$tmp_indent = $act_indent.$self->{'next_indent'};
 		} else {
 			$first .= $second;
 		}
@@ -169,7 +169,7 @@ sub _compare($$$$) {
 
  use Indent::Block;
  my $i = Indent::Block->new(%parameters);
- print $i->indent($data, [$indent, $non_indent]);
+ print $i->indent($data, [$act_indent, $non_indent]);
 
 =head1 METHODS
 
@@ -204,11 +204,11 @@ sub _compare($$$$) {
 
 =back
 
-=item B<indent($data, [$indent, $non_indent])>
+=item B<indent($data, [$act_indent, $non_indent])>
 
  Indent method.
  - $data - Reference to array with strings to indent.
- - $indent - String to actual indent.
+ - $act_indent - String to actual indent.
  - $non_indent - Flag, that says 'no-indent' for current time.
 
 =back
