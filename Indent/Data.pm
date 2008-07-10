@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.41 2008-07-10 00:34:42 skim Exp $
+# $Id: Data.pm,v 1.42 2008-07-10 00:35:54 skim Exp $
 
 # Pragmas.
 use strict;
@@ -89,7 +89,8 @@ sub indent($$;$$) {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second && $second ne $self->{'next_indent'};
+	push @data, $second if $second && $second 
+		ne $indent.$self->{'next_indent'};
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
