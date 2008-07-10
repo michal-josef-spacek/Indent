@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.35 2008-07-10 00:52:00 skim Exp $
+# $Id: Word.pm,v 1.36 2008-07-10 00:52:33 skim Exp $
 
 # Pragmas.
 use strict;
@@ -149,7 +149,7 @@ sub indent($;$$) {
 
 =back
 
-=item B<indent($data, $indent, $non_indent)>
+=item B<indent($data, [$indent, $non_indent])>
 
  TODO
 
