@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.32 2008-07-10 08:55:55 skim Exp $
+# $Id: Comment.pm,v 1.33 2008-07-10 08:56:39 skim Exp $
 
 # Pragmas.
 use strict;
@@ -205,7 +205,7 @@ sub _indent($$) {
 
  Method, which indents data. Return array (in array context) 
  or string with 'output_separator' between datas.
- $data is reference to array with comment data.
+ $data is reference to array with comment data or text, which will be indented.
 
 =back
 
