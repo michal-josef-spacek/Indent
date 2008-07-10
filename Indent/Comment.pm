@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.30 2008-07-10 08:42:26 skim Exp $
+# $Id: Comment.pm,v 1.31 2008-07-10 08:48:17 skim Exp $
 
 # Pragmas.
 use strict;
@@ -248,26 +248,17 @@ sub _indent($$) {
 
  # Modules.
  use Indent::Comment;
- use Indent::Word;
 
  # Indent::Comment object.
  my $indent_comment = Indent::Comment->new(
         'begin' => '/*',
-        'middle' => ' * ',
         'end' => ' */',
+	'line_size' => 23,
+        'middle' => ' * ',
  );
-
- # Indent::Word object.
- my $indent_word = Indent::Word->new(
-        'line_size' => 20,
-	'next_indent' => '',
- );
-
- # Get indented text.
- my @text = $indent_word->indent(join(' ', ('text') x 7));
 
  # Print comment.
- my $output = $indent_comment->indent(\@text);
+ my $output = $indent_comment->indent(join(' ', ('text') x 7));
  print "$output\n";
 
  # Output:
