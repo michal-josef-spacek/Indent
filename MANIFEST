@@ -35,6 +35,7 @@ t/Indent/04_reset.t
 t/Indent/05_bad_indent.t
 t/IndentBlock/01_version.t
 t/IndentBlock/02_constructor.t
+t/IndentBlock/03_indent_block.t
 t/IndentComment/01_version.t
 t/IndentComment/02_constructor.t
 t/IndentComment/03_indent_comment.t
