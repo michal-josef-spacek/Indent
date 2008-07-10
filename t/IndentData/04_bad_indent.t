@@ -1,4 +1,4 @@
-# $Id: 04_bad_indent.t,v 1.6 2005-12-13 23:04:38 skim Exp $
+# $Id: 04_bad_indent.t,v 1.7 2008-07-10 00:43:33 skim Exp $
 
 print "Testing: Bad ident.\n" if $debug;
 print "-- Zero line_size.\n" if $debug;
@@ -29,3 +29,24 @@ eval {
 	);
 };
 ok($@, "Bad line_size = '1' or length of string '  '.\n");
+
+print "Testing: Bad actual ident.\n" if $debug;
+$obj = $class->new(
+	'next_indent' => '',
+	'line_size' => 5,
+);
+eval {
+	$obj->indent('text', '<--->');
+};
+ok($@, "Bad actual indent value. Length is greater then ('line_size' - ".
+	"'size of next_indent' - 1).\n");
+
+$obj = $class->new(
+	'next_indent' => ' ',
+	'line_size' => 5,
+);
+eval {
+	$obj->indent('text', '<-->');
+};
+ok($@, "Bad actual indent value. Length is greater then ('line_size' - ".
+	"'size of next_indent' - 1).\n");
