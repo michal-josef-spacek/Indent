@@ -1,13 +1,14 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.38 2008-07-10 00:05:54 skim Exp $
+# $Id: Data.pm,v 1.39 2008-07-10 00:32:53 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Indent::Utils qw(string_len);
 
 # Version.
 our $VERSION = 0.02;
@@ -67,6 +68,12 @@ sub indent($$;$$) {
 
 	# If non_indent data, than return.
 	return $indent.$data if $non_indent;
+
+	# Check to actual indent maximal length.
+	err "Bad actual indent value. Length is greater then ('line_size' - ".
+		"'size of next_indent' - 1)."
+		if string_len($indent) > ($self->{'line_size'} 
+		- string_len($self->{'next_indent'}) - 1);
 
 	# Splits data.
 	my $first = undef;
@@ -161,7 +168,8 @@ sub indent($$;$$) {
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3pm)>
+L<Error::Simple::Multiple(3pm)>,
+L<Indent::Utils(3pm)>.
 
 =head1 SEE ALSO
 
