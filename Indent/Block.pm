@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.23 2008-07-10 13:55:42 skim Exp $
+# $Id: Block.pm,v 1.24 2008-07-10 14:34:41 skim Exp $
 
 # Pragmas.
 use strict;
@@ -215,7 +215,26 @@ sub _compare($$$$) {
 
 =head1 EXAMPLE
 
- TODO
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Block;
+
+ # Object.
+ my $i = Indent::Block->new(
+         'line_size' => 2,
+	 'next_indent' => '',
+ );
+ 
+ # Print in scalar context.
+ print $i->indent(['text', 'text', 'text'])."\n";
+
+ # Output:
+ # text
+ # text
+ # text
 
 =head1 REQUIREMENTS
 
