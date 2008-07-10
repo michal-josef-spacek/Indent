@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.22 2008-07-10 13:48:56 skim Exp $
+# $Id: Block.pm,v 1.23 2008-07-10 13:55:42 skim Exp $
 
 # Pragmas.
 use strict;
@@ -119,10 +119,11 @@ sub _compare($$$$) {
 
 	# Whitout optimalization.
 	if ($self->{'strict'}) {
-		if (length $first > 0 &&
-			(string_len($act_indent.$first) >= $self->{'line_size'}
-			|| string_len($act_indent.$first.$second)) 
-			> $self->{'line_size'}) {
+		if (length $first > 0 
+			&& (string_len($act_indent.$first) 
+			>= $self->{'line_size'}
+			|| string_len($act_indent.$first.$second) 
+			> $self->{'line_size'})) {
 
 			$self->{'_current'} = $act_indent.$first;
 			return 1;
