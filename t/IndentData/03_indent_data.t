@@ -1,4 +1,4 @@
-# $Id: 03_indent_data.t,v 1.12 2008-07-10 00:30:02 skim Exp $
+# $Id: 03_indent_data.t,v 1.13 2008-07-10 00:32:10 skim Exp $
 
 print "Testing: No-indenting data.\n" if $debug;
 my $obj = $class->new(
@@ -54,7 +54,7 @@ $obj = $class->new(
 	'line_size' => '5',
 );
 @ret = $obj->indent($data, '<-->');
-ok($#ret, 4);
+ok($#ret, 3);
 ok($ret[0], '<-->t');
 ok($ret[1], '<-->e');
 ok($ret[2], '<-->x');
@@ -66,7 +66,7 @@ $obj = $class->new(
 	'line_size' => '5',
 );
 @ret = $obj->indent($data, '<->');
-ok($#ret, 3);
+ok($#ret, 2);
 ok($ret[0], '<->te');
 ok($ret[1], '<-> x');
 ok($ret[2], '<-> t');
