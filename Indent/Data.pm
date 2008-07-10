@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.36 2008-07-10 00:00:27 skim Exp $
+# $Id: Data.pm,v 1.37 2008-07-10 00:02:19 skim Exp $
 
 # Pragmas.
 use strict;
@@ -114,17 +114,17 @@ sub indent($$;$$) {
 
 =item * B<line_size>
 
- Size of line.
+ Sets indent line size value.
  Default value is 79.
 
 =item * B<next_indent>
 
- Indent string, when added to begin of next indented line.
+ Sets next indent string.
  Default value is tabelator (\t).
 
 =item * B<output_separator>
 
- Output separator between data in scalar context.
+ Sets output separator between indented datas for string context.
  Default value is newline (\n).
 
 =back
