@@ -1,10 +1,10 @@
-# $Id: 03_indent_comment.t,v 1.6 2008-07-10 08:43:29 skim Exp $
+# $Id: 03_indent_comment.t,v 1.7 2008-07-10 08:43:50 skim Exp $
 
 print "Testing: Comment indent.\n" if $debug;
 my $obj = $class->new(
 	'begin' => '{',
-	'middle' => '  ',
 	'end' => '}'
+	'middle' => '  ',
 );
 my @data = ('one', 'two');
 my $ret = $obj->indent(\@data);
@@ -18,8 +18,8 @@ ok($ret, "# one\n# two");
 
 $obj = $class->new(
 	'begin' => '/*',
-	'middle' => ' * ',
 	'end' => ' */',
+	'middle' => ' * ',
 );
 my @ret = $obj->indent(\@data);
 my @right_ret = (
