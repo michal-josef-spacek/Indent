@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.38 2008-07-10 08:28:26 skim Exp $
+# $Id: Word.pm,v 1.39 2008-07-10 14:17:30 skim Exp $
 
 # Pragmas.
 use strict;
@@ -151,7 +151,9 @@ sub indent($$;$$) {
 
 =item B<indent($data, [$indent, $non_indent])>
 
- TODO
+ Indent text by words to line_size block size.
+ $act_indent - Actual indent string. Will be in each output string.
+ $non_indent - Is flag for non indenting. Default is 0.
 
 =back
 
