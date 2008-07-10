@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.44 2008-07-10 00:45:49 skim Exp $
+# $Id: Data.pm,v 1.45 2008-07-10 00:47:08 skim Exp $
 
 # Pragmas.
 use strict;
@@ -56,32 +56,32 @@ sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Data string.
-# @param $indent String to actual indent.
+# @param $act_indent String to actual indent.
 # @param $non_indent Flag, than says no-indent.
 
-	my ($self, $data, $indent, $non_indent) = @_;
+	my ($self, $data, $act_indent, $non_indent) = @_;
 
 	# Undef indent.
-	if (! $indent) {
-		$indent = '';
+	if (! $act_indent) {
+		$act_indent = '';
 	}
 
 	# If non_indent data, than return.
-	return $indent.$data if $non_indent;
+	return $act_indent.$data if $non_indent;
 
 	# Check to actual indent maximal length.
 	err "Bad actual indent value. Length is greater then ('line_size' - ".
 		"'size of next_indent' - 1)."
-		if string_len($indent) > ($self->{'line_size'} 
+		if string_len($act_indent) > ($self->{'line_size'} 
 		- string_len($self->{'next_indent'}) - 1);
 
 	# Splits data.
 	my $first = undef;
-	my $second = $indent.$data;
+	my $second = $act_indent.$data;
 	my @data;
 	while (string_len($second) >= $self->{'line_size'}) {
 		$first = substr($second, 0, $self->{'line_size'});
-		$second = $indent.$self->{'next_indent'}.substr($second, 
+		$second = $act_indent.$self->{'next_indent'}.substr($second, 
 			$self->{'line_size'});
 
 		# Parsed part of data to @data array.
@@ -90,7 +90,7 @@ sub indent($$;$$) {
 
 	# Add other data to @data array.
 	push @data, $second if $second && $second 
-		ne $indent.$self->{'next_indent'};
+		ne $act_indent.$self->{'next_indent'};
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
@@ -137,10 +137,10 @@ sub indent($$;$$) {
 
 =back
 
-=item B<indent($data, [$indent, $non_indent])>
+=item B<indent($data, [$act_indent, $non_indent])>
 
  Indent text data to line_size block size.
- $indent - Actual indent string. Will be in each output string.
+ $act_indent - Actual indent string. Will be in each output string.
  $non_indent - Is flag for non indenting. Default is 0.
 
 =back
