@@ -1,16 +1,17 @@
 #------------------------------------------------------------------------------
 package Indent::Comment;
 #------------------------------------------------------------------------------
-# $Id: Comment.pm,v 1.29 2008-07-08 18:20:51 skim Exp $
+# $Id: Comment.pm,v 1.30 2008-07-10 08:42:26 skim Exp $
 
 # Pragmas.
 use strict;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Indent::Word;
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 #------------------------------------------------------------------------------
 sub new($@) {
@@ -24,6 +25,9 @@ sub new($@) {
 	$self->{'begin'} = '';
 	$self->{'middle'} = '';
 	$self->{'end'} = '';
+
+	# Line size.
+	$self->{'line_size'} = 79;
 
 	# Output.
 	$self->{'output_separator'} = "\n";
@@ -56,6 +60,62 @@ sub indent($) {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 # @param $data Data string.
+
+	my ($self, $data) = @_;
+
+	# Array of comment texts.
+	if (ref $data eq 'ARRAY') {
+		return $self->_indent($data);
+
+	# Only text, which will be indented.
+	} else {
+		# Control for data.
+		if (! $data || $data eq '') {
+			err "Cannot define data.";
+		}
+
+		# Indenter for text.
+		my $i_w = Indent::Word->new(
+			'line_size' => $self->{'line_size'} 
+				- $self->_get_max_len,
+			'next_indent' => '',
+		);
+
+		# Indent text.
+		my @data = $i_w->indent($data);
+
+		# Indent comment.
+		return $self->_indent(\@data);
+	}
+}
+
+#------------------------------------------------------------------------------
+# Internal methods.
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+sub _get_max_len($) {
+#------------------------------------------------------------------------------
+# Get maximal length of comment separators.
+
+	my $self = shift;
+	my $max = 0;
+	if (exists $self->{'begin'} && length $self->{'begin'} > $max) {
+		$max = length $self->{'begin'};
+	}
+	if (exists $self->{'middle'} && length $self->{'middle'} > $max) {
+		$max = length $self->{'middle'};
+	}
+	if (exists $self->{'end'} && length $self->{'end'} > $max) {
+		$max = length $self->{'end'};
+	}
+	return $max;
+}
+
+#------------------------------------------------------------------------------
+sub _indent($$) {
+#------------------------------------------------------------------------------
+# Indent comment data.
 
 	my ($self, $data) = @_;
 
@@ -109,27 +169,31 @@ sub indent($) {
 
 =item B<new($option =E<gt> $value)>
 
- This is a class method, the constructor for Indent. Options are passed
- as keyword value pairs. Recognized options are:
+ Constructor.
 
 =over 8
 
-=item * begin
+=item * B<begin>
 
  There is a first line comment.
  Default value of 'begin' is ''.
 
-=item * middle
-
- There is a middle line comment.
- Default value of 'middle' is ''.
-
-=item * end
+=item * B<end>
 
  There is a last line comment.
  Default value of 'end' is ''.
 
-=item * output_separator
+=item * B<line_size>
+
+ Sets indent line size value.
+ Default value is 79.
+
+=item * B<middle>
+
+ There is a middle line comment.
+ Default value of 'middle' is ''.
+
+=item * B<output_separator>
 
  'indent' method returns string in string content. There are items with
  'output_separator' separator merged to string.
@@ -214,7 +278,8 @@ sub indent($) {
 
 =head1 REQUIREMENTS
 
-L<Error::Simple::Multiple(3pm)>
+L<Error::Simple::Multiple(3pm)>,
+L<Indent::Word(3pm)>.
 
 =head1 SEE ALSO
 
@@ -233,7 +298,7 @@ L<Indent::Word(3pm)>.
 
 =head1 VERSION
 
- 0.02
+ 0.03
 
 =cut
 
