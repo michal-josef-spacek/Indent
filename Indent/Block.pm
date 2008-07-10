@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.19 2008-07-10 13:21:06 skim Exp $
+# $Id: Block.pm,v 1.20 2008-07-10 13:33:05 skim Exp $
 
 # Pragmas.
 use strict;
@@ -77,14 +77,14 @@ sub indent($$;$$) {
 	my ($first, $second);
 	$first = shift @input;
 	$first = $first;
-	my $act_indent = $indent;
+	my $tmp_indent = $indent;
 	while (@input) {
 		$second = shift @input;
-		if ($self->_compare($first, $second, $act_indent)) {
+		if ($self->_compare($first, $second, $tmp_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
 			$second = '';
-			$act_indent = $indent.$self->{'next_indent'};
+			$tmp_indent = $indent.$self->{'next_indent'};
 		} else {
 			$first .= $second;
 		}
@@ -99,7 +99,7 @@ sub indent($$;$$) {
 			$first =~ s/\s*$//;
 		}
 		if ($first ne '') {
-			push @data, $act_indent.$first;
+			push @data, $tmp_indent.$first;
 		}
 	}
 
