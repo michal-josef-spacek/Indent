@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.42 2008-07-10 00:35:54 skim Exp $
+# $Id: Data.pm,v 1.43 2008-07-10 00:40:05 skim Exp $
 
 # Pragmas.
 use strict;
@@ -143,7 +143,7 @@ sub indent($$;$$) {
 
 =back
 
-=head1 EXAMPLE
+=head1 EXAMPLE1
 
  # Pragmas.
  use strict;
@@ -153,19 +153,69 @@ sub indent($$;$$) {
  use Indent::Data;
 
  # Indent::Data object.
- my $indent_data = Indent::Data->new(
+ my $i = Indent::Data->new(
         'line_size' => '10',
         'next_indent' => '  ',
         'output_separator' => "|\n",
  );
 
- print $ind->indent('text text text text text text')."|\n";
+ # Print indented text.
+ print $i->indent('text text text text text text')."|\n";
 
  # Output:
  # text text |
  #   text tex|
  #   t text t|
  #   ext|
+
+=head1 EXAMPLE2
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Data;
+
+ # Indent::Data object.
+ my $i = Indent::Data->new(
+        'line_size' => '10',
+        'next_indent' => '  ',
+        'output_separator' => "|\n",
+ );
+
+ # Print indented text.
+ print $i->indent('text text text text text text', '<->')."|\n";
+
+ # Output:
+ # <->text te|
+ # <->  xt te|
+ # <->  xt te|
+ # <->  xt te|
+ # <->  xt te|
+ # <->  xt|
+ 
+=head1 EXAMPLE3
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Data;
+
+ # Indent::Data object.
+ my $i = Indent::Data->new(
+        'line_size' => '10',
+        'next_indent' => '  ',
+        'output_separator' => "|\n",
+ );
+
+ # Print indented text.
+ print $i->indent('text text text text text text', '<->', 1)."|\n";
+
+ # Output:
+ # <->text text text text text text|
 
 =head1 REQUIREMENTS
 
