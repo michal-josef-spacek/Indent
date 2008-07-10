@@ -1,4 +1,4 @@
-# $Id: 03_indent_comment.t,v 1.5 2008-07-10 08:42:51 skim Exp $
+# $Id: 03_indent_comment.t,v 1.6 2008-07-10 08:43:29 skim Exp $
 
 print "Testing: Comment indent.\n" if $debug;
 my $obj = $class->new(
@@ -28,6 +28,7 @@ my @right_ret = (
 	' * two',
 	' */',
 );
+ok($#ret, 3);
 ok($ret[0], $right_ret[0]);
 ok($ret[1], $right_ret[1]);
 ok($ret[2], $right_ret[2]);
