@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.40 2008-07-10 00:33:09 skim Exp $
+# $Id: Data.pm,v 1.41 2008-07-10 00:34:42 skim Exp $
 
 # Pragmas.
 use strict;
@@ -79,7 +79,7 @@ sub indent($$;$$) {
 	my $first = undef;
 	my $second = $indent.$data;
 	my @data;
-	while (length $second >= $self->{'line_size'}) {
+	while (string_len($second) >= $self->{'line_size'}) {
 		$first = substr($second, 0, $self->{'line_size'});
 		$second = $indent.$self->{'next_indent'}.substr($second, 
 			$self->{'line_size'});
