@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.37 2008-07-10 00:02:19 skim Exp $
+# $Id: Data.pm,v 1.38 2008-07-10 00:05:54 skim Exp $
 
 # Pragmas.
 use strict;
@@ -146,13 +146,18 @@ sub indent($$;$$) {
 
  # Indent::Data object.
  my $indent_data = Indent::Data->new(
-	TODO
+        'line_size' => '10',
+        'next_indent' => '  ',
+        'output_separator' => "|\n",
  );
 
- TODO
+ print $ind->indent('text text text text text text')."|\n";
 
  # Output:
- # TODO
+ # text text |
+ #   text tex|
+ #   t text t|
+ #   ext|
 
 =head1 REQUIREMENTS
 
@@ -171,7 +176,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
- Michal Spacek <F<tupinek@gmail.com>>
+ Michal Špaček <F<tupinek@gmail.com>>
 
 =head1 VERSION
 
