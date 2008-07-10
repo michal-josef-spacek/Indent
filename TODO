@@ -1,11 +1,10 @@
-$Id: TODO,v 1.48 2008-05-09 14:22:08 skim Exp $
+$Id: TODO,v 1.49 2008-07-10 00:50:09 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 13. Dokumentace k Indent::Tag.
 14. Dokumentace k Indent::Comment.
-15. Dokumentace k Indent::Data.
 16. Dokumentace k Indent::Word.
 17. Dokumentace k Indent::Utils.
 18. Dokumentace k Indent::Form.
@@ -115,3 +114,6 @@ OK [20070219] skim
 
 31. Chyba v Indent::Data (viz priklady Indent::Data - ex6.pl)
 OK [20080421] skim
+
+15. Dokumentace k Indent::Data.
+OK [20080710] skim
