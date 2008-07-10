@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Data;
 #------------------------------------------------------------------------------
-# $Id: Data.pm,v 1.39 2008-07-10 00:32:53 skim Exp $
+# $Id: Data.pm,v 1.40 2008-07-10 00:33:09 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,7 +11,7 @@ use Error::Simple::Multiple qw(err);
 use Indent::Utils qw(string_len);
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 #------------------------------------------------------------------------------
 sub new($%) {
@@ -188,7 +188,7 @@ L<Indent::Word(3pm)>.
 
 =head1 VERSION
 
- 0.02
+ 0.03
 
 =cut
 
