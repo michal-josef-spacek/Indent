@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.21 2008-07-10 13:34:12 skim Exp $
+# $Id: Block.pm,v 1.22 2008-07-10 13:48:56 skim Exp $
 
 # Pragmas.
 use strict;
@@ -76,7 +76,6 @@ sub indent($$;$$) {
 	my @data = ();
 	my ($first, $second);
 	$first = shift @input;
-	$first = $first;
 	my $tmp_indent = $act_indent;
 	while (@input) {
 		$second = shift @input;
