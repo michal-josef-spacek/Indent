@@ -1,4 +1,4 @@
-# $Id: 03_indent_comment.t,v 1.4 2005-07-19 10:30:01 skim Exp $
+# $Id: 03_indent_comment.t,v 1.5 2008-07-10 08:42:51 skim Exp $
 
 print "Testing: Comment indent.\n" if $debug;
 my $obj = $class->new(
@@ -38,3 +38,18 @@ $obj = $class->new(
 );
 $ret = $obj->indent(\@data);
 ok($ret, "-- one\n-- two");
+
+$obj = $class->new(
+	'begin' => '/*',
+	'end' => ' */',
+	'line_size' => 5,
+	'middle' => ' * ',
+);
+@ret = $obj->indent('ab abc abcd');
+ok($#ret, 4);
+ok($ret[0], '/*');
+ok($ret[1], ' * ab');
+ok($ret[2], ' * abc');
+ok($ret[3], ' * abcd');
+ok($ret[4], ' */');
+
