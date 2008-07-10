@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Word;
 #------------------------------------------------------------------------------
-# $Id: Word.pm,v 1.32 2008-07-08 21:50:06 skim Exp $
+# $Id: Word.pm,v 1.33 2008-07-10 00:00:27 skim Exp $
 
 # Pragmas.
 use strict;
@@ -134,7 +134,7 @@ sub indent {
 
 =item * B<line_size>
 
- TODO
+ Size of line.
  Default value is 79.
 
 =item * B<next_indent>
@@ -144,7 +144,7 @@ sub indent {
 
 =item * B<output_separator>
 
- TODO
+ Output separator between data in scalar context.
  Default value is "\n" (new line).
 
 =back
