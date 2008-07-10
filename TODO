@@ -1,12 +1,10 @@
-$Id: TODO,v 1.54 2008-07-10 14:35:10 skim Exp $
+$Id: TODO,v 1.55 2008-07-10 14:36:03 skim Exp $
 
 TODO
 ====
 2. Odzkouset, jestli to funguje na windows.
 13. Dokumentace k Indent::Tag.
 18. Dokumentace k Indent::Form.
-19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
-    to same.
 30. Udelat test k 29.
 34. Vice testu k Indent::Block.
 35. Odstranit TODO v dokumentaci k Indent::PerlStruct.
@@ -123,3 +121,8 @@ OK [20080710] skim
 
 32. Dokumentace k Indent::Block.
 OK [20080710] skim
+
+19. Nejak predelat skripty v t/ adresari tak, aby se neopakovalo v kazdem uplne
+    to same.
+Nebudu resit, casem to vykrystalizuje.
+NONE [20080710] skim
