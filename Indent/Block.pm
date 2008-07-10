@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Block;
 #------------------------------------------------------------------------------
-# $Id: Block.pm,v 1.18 2008-07-08 17:56:17 skim Exp $
+# $Id: Block.pm,v 1.19 2008-07-10 13:21:06 skim Exp $
 
 # Pragmas.
 use strict;
@@ -66,17 +66,20 @@ sub indent($$;$$) {
 		$indent = '';
 	}
 
+	# Input data.
+	my @input = @{$data};
+
 	# If non_indent data, than return.
-	return $indent.join('', @{$data}) if $non_indent;
+	return $indent.join('', @input) if $non_indent;
 
 	# Indent.
 	my @data = ();
 	my ($first, $second);
-	$first = shift @{$data};
+	$first = shift @input;
 	$first = $first;
 	my $act_indent = $indent;
-	while (@{$data}) {
-		$second = shift @{$data};
+	while (@input) {
+		$second = shift @input;
 		if ($self->_compare($first, $second, $act_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
