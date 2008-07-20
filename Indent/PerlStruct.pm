@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.11 2008-06-06 07:51:45 skim Exp $
+# $Id: PerlStruct.pm,v 1.12 2008-07-20 06:56:51 skim Exp $
 
 # Pragmas.
 use strict;
@@ -161,8 +161,8 @@ sub _get($) {
  
  # Object.
  my $indent = Indent::PerlStruct->new(
-   'next_indent' => '',
-   'output_separator' => '',
+         'next_indent' => '',
+         'output_separator' => '',
  );
  print $indent->indent([[1, 2], [3], 'dd'])."\n"; 
  
