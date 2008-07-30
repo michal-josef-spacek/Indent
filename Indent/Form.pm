@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::Form;
 #------------------------------------------------------------------------------
-# $Id: Form.pm,v 1.27 2008-05-11 13:39:13 skim Exp $
+# $Id: Form.pm,v 1.28 2008-07-30 16:06:32 skim Exp $
 
 # Pragmas.
 use strict;
@@ -14,7 +14,7 @@ use Indent::Word;
 our $VERSION = 0.01;
 
 #------------------------------------------------------------------------------
-sub new {
+sub new($%) {
 #------------------------------------------------------------------------------
 # Constructor.
 	
@@ -48,7 +48,7 @@ sub new {
 }
 
 #------------------------------------------------------------------------------
-sub indent {
+sub indent($$;$$) {
 #------------------------------------------------------------------------------
 # Indent form data.
 # @param $data Data array [['key' => 'value'], [..]];
@@ -123,6 +123,56 @@ sub indent {
 
 =head1 SYNOPSIS
 
+ use Indent::Form;
+ my $indent = Indent::Form->new(%params);
+ $indent->indent($data);
+ # TODO
+
+=head1 METHODS
+
+=over 8
+
+=item B<new(%params)>
+
+ Constructor.
+
+=over 8
+
+=item * B<form_separator>
+
+ TODO
+ Default value of 'form_separator' is ': '.
+
+=item * B<line_size>
+
+ TODO
+ Default value of 'line_size' is 79 chars.
+
+=item * B<next_indent>
+
+ TODO
+ Default value of 'next_indent' isn't define.
+
+=item * B<output_separator>
+
+ TODO
+ Default value of 'output_separator' is new line (\n).
+
+=item * B<right_align>
+
+ TODO
+ Default value of 'right_align' is 1.
+
+=back
+
+=item B<indent($data, [$indent, $non_indent])>
+
+ TODO
+
+=back
+
+=head1 EXAMPLE
+
  # Pragmas.
  use strict;
  use warnings;
@@ -139,58 +189,10 @@ sub indent {
         # Next indent.
         'next_indent' => "->"
  );
- TODO
+ $indent->indent();
 
- Gets: 
- TODO
-
-=head1 METHODS
-
-=over 8
-
-=item B<new(TODO)>
-
- This is a class method, the constructor for Indent. Options are passed
- as keyword value pairs. Recognized options are:
-
-=over 8
-
-=item * form_separator
-
- TODO
- Default value of 'form_separator' is ': '.
-
-=item * line_size
-
- TODO
- Default value of 'line_size' is 79 chars.
-
-=item * next_indent
-
- TODO
- Default value of 'next_indent' isn't define.
-
-=item * output_separator
-
- TODO
- Default value of 'output_separator' is new line (\n).
-
-=item * right_align
-
- TODO
- Default value of 'right_align' is 1.
-
-=back
-
-=item B<indent(TODO)>
-
- TODO
-
-=back
-
-=head1 EXAMPLE
-
- TODO
+ # Output:
+ # TODO
 
 =head1 REQUIREMENTS
 
@@ -210,7 +212,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHORS
 
- Michal Spacek <F<tupinek@gmail.com>>.
+ Michal Špaček <F<tupinek@gmail.com>>.
 
 =head1 VERSION
 
