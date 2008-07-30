@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.14 2008-07-30 14:53:08 skim Exp $
+# $Id: PerlStruct.pm,v 1.15 2008-07-30 15:38:18 skim Exp $
 
 # Pragmas.
 use strict;
@@ -45,50 +45,12 @@ sub new($@) {
 }
 
 #------------------------------------------------------------------------------
-sub indent($$;$$) {
+sub indent($$) {
 #------------------------------------------------------------------------------
 # Get indented structure.
 
-	my ($self, $data, $comma_flag, $indent_flag) = @_;
-	$comma_flag = 0 unless $comma_flag;
-	$indent_flag = 1 unless defined $indent_flag;
-	my $ret;
-	my $indent = $indent_flag ? $self->{'indent'}->get : '';
-	if (ref $data eq 'ARRAY') {
-		$ret .= $indent.'[';
-		if ($#{$data} > -1) {
-			$ret .= $self->{'output_separator'};
-			$self->{'indent'}->add;
-			foreach (@{$data}) {
-				$ret .= $self->indent($_, 1);
-			}
-			$self->{'indent'}->remove;
-			$ret .= $self->{'indent'}->get;
-		}
-		$ret .= '],'.$self->{'output_separator'};
-	} elsif (ref $data eq 'HASH') {
-		$ret .= $indent.'{';
-		if (scalar keys %{$data} > 0) {
-			$ret .= $self->{'output_separator'};
-			$self->{'indent'}->add;
-			foreach my $key (sort keys %{$data}) {
-				$ret .= $self->{'indent'}->get._get($key).
-					' => '.
-					$self->indent($data->{$key}, 1, 0);
-			}
-			$self->{'indent'}->remove;
-			$ret .= $self->{'indent'}->get;
-		}
-		$ret .= '},'.$self->{'output_separator'};
-	} elsif (ref $data eq '') {
-		my $comma = $comma_flag ? ',' : '';
-		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
-	} elsif (ref $data eq 'SCALAR') {
-		my $comma = $comma_flag ? ',' : '';
-		$ret .= $indent.'\\'._get(${$data}).$comma.
-			$self->{'output_separator'};
-	}
-	return $ret;
+	my ($self, $data) = @_;
+	$self->_indent($data);
 }
 
 #------------------------------------------------------------------------------
@@ -109,6 +71,53 @@ sub _get($) {
 	}
 }
 
+#------------------------------------------------------------------------------
+sub _indent($$;$$) {
+#------------------------------------------------------------------------------
+# Get indented structure.
+
+	my ($self, $data, $comma_flag, $indent_flag) = @_;
+	$comma_flag = 0 unless $comma_flag;
+	$indent_flag = 1 unless defined $indent_flag;
+	my $ret;
+	my $indent = $indent_flag ? $self->{'indent'}->get : '';
+	if (ref $data eq 'ARRAY') {
+		$ret .= $indent.'[';
+		if ($#{$data} > -1) {
+			$ret .= $self->{'output_separator'};
+			$self->{'indent'}->add;
+			foreach (@{$data}) {
+				$ret .= $self->_indent($_, 1);
+			}
+			$self->{'indent'}->remove;
+			$ret .= $self->{'indent'}->get;
+		}
+		$ret .= '],'.$self->{'output_separator'};
+	} elsif (ref $data eq 'HASH') {
+		$ret .= $indent.'{';
+		if (scalar keys %{$data} > 0) {
+			$ret .= $self->{'output_separator'};
+			$self->{'indent'}->add;
+			foreach my $key (sort keys %{$data}) {
+				$ret .= $self->{'indent'}->get._get($key).
+					' => '.
+					$self->_indent($data->{$key}, 1, 0);
+			}
+			$self->{'indent'}->remove;
+			$ret .= $self->{'indent'}->get;
+		}
+		$ret .= '},'.$self->{'output_separator'};
+	} elsif (ref $data eq '') {
+		my $comma = $comma_flag ? ',' : '';
+		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
+	} elsif (ref $data eq 'SCALAR') {
+		my $comma = $comma_flag ? ',' : '';
+		$ret .= $indent.'\\'._get(${$data}).$comma.
+			$self->{'output_separator'};
+	}
+	return $ret;
+}
+
 1;
 
 =pod
@@ -121,7 +130,7 @@ sub _get($) {
 
  use Indent::PerlStruct;
  my $i = Indent::PerlStruct->new(%parameters);
- print $i->indent($data, [$comma_flag, $indent_flag]);
+ print $i->indent($data);
 
 =head1 METHODS
 
@@ -133,24 +142,22 @@ sub _get($) {
 
 =over 8
 
-=item * next_indent
+=item * B<next_indent>
 
  Sets next indent string.
  Default value is 'next_indent' => "\t" (tabelator).
 
-=item * output_separator
+=item * B<output_separator>
 
  Sets output separator between indented datas for string context.
  Default value is 'output_separator' => "\n" (new line).
 
 =back
 
-=item B<indent($data, [$comma_flag, $indent_flag])>
+=item B<indent($data)>
 
  Gets indented structure.
  $data - Perl data structure.
- $comma_flag - TODO (Default 0.)
- $indent_flag - TODO (Default 1.)
 
 =back
 
