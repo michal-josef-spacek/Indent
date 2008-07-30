@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.13 2008-07-30 14:52:37 skim Exp $
+# $Id: PerlStruct.pm,v 1.14 2008-07-30 14:53:08 skim Exp $
 
 # Pragmas.
 use strict;
@@ -11,7 +11,7 @@ use Error::Simple::Multiple;
 use Indent;
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 #------------------------------------------------------------------------------
 sub new($@) {
@@ -220,6 +220,6 @@ L<Indent::Word(3pm)>.
 
 =head1 VERSION
 
- 0.01
+ 0.02
 
 =cut
