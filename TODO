@@ -1,4 +1,4 @@
-$Id: TODO,v 1.56 2008-07-10 14:36:43 skim Exp $
+$Id: TODO,v 1.57 2008-07-30 15:38:34 skim Exp $
 
 TODO
 ====
@@ -6,7 +6,6 @@ TODO
 18. Dokumentace k Indent::Form.
 30. Udelat test k 29.
 34. Vice testu k Indent::Block.
-35. Odstranit TODO v dokumentaci k Indent::PerlStruct.
 36.
 
 Applied
@@ -129,3 +128,6 @@ NONE [20080710] skim
 2. Odzkouset, jestli to funguje na windows.
 Nebudu resit, casem to vykrystalizuje.
 NONE [20080710] skim
+
+35. Odstranit TODO v dokumentaci k Indent::PerlStruct.
+OK [20080730] skim
