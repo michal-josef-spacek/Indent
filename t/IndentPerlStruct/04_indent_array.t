@@ -1,4 +1,4 @@
-# $Id: 04_indent_array.t,v 1.2 2008-06-06 07:48:34 skim Exp $
+# $Id: 04_indent_array.t,v 1.3 2008-07-30 14:52:38 skim Exp $
 
 print "Testing: Array dump.\n" if $debug;
 my $obj = $class->new;
@@ -14,3 +14,11 @@ $ret = <<'END';
 [],
 END
 ok($obj->indent([]), $ret);
+
+$ret = <<'END';
+[
+	undef,
+	undef,
+],
+END
+ok($obj->indent([undef, undef]), $ret);

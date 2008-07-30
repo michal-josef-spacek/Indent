@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.12 2008-07-20 06:56:51 skim Exp $
+# $Id: PerlStruct.pm,v 1.13 2008-07-30 14:52:37 skim Exp $
 
 # Pragmas.
 use strict;
@@ -101,8 +101,12 @@ sub _get($) {
 # Get variable as serialize.
 
 	my $value = shift;
-	$value =~ s/'/\\'/g;
-	return '\''.$value.'\'';
+	if (! defined $value) {
+		return 'undef';
+	} else {
+		$value =~ s/'/\\'/g;
+		return '\''.$value.'\'';
+	}
 }
 
 1;

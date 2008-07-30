@@ -1,4 +1,4 @@
-# $Id: 05_indent_hash.t,v 1.2 2008-06-06 07:51:56 skim Exp $
+# $Id: 05_indent_hash.t,v 1.3 2008-07-30 14:52:38 skim Exp $
 
 print "Testing: Hash dump.\n" if $debug;
 my $obj = $class->new;
@@ -14,3 +14,11 @@ $ret = <<'END';
 {},
 END
 ok($obj->indent({}), $ret);
+
+$ret = <<'END';
+{
+	'1' => undef,
+	'2' => undef,
+},
+END
+ok($obj->indent({1 => undef, 2 => undef}), $ret);
