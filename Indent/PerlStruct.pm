@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.15 2008-07-30 15:38:18 skim Exp $
+# $Id: PerlStruct.pm,v 1.16 2008-08-21 11:24:32 skim Exp $
 
 # Pragmas.
 use strict;
@@ -9,9 +9,10 @@ use strict;
 # Modules.
 use Error::Simple::Multiple;
 use Indent;
+use Scalar::Util qw(blessed);
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 #------------------------------------------------------------------------------
 sub new($@) {
@@ -93,7 +94,7 @@ sub _indent($$;$$) {
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '],'.$self->{'output_separator'};
-	} elsif (ref $data eq 'HASH') {
+	} elsif (ref $data eq 'HASH' || defined blessed $data) {
 		$ret .= $indent.'{';
 		if (scalar keys %{$data} > 0) {
 			$ret .= $self->{'output_separator'};
@@ -114,6 +115,8 @@ sub _indent($$;$$) {
 		my $comma = $comma_flag ? ',' : '';
 		$ret .= $indent.'\\'._get(${$data}).$comma.
 			$self->{'output_separator'};
+	} else {
+		err "Unsupported data.\n";
 	}
 	return $ret;
 }
@@ -227,6 +230,6 @@ L<Indent::Word(3pm)>.
 
 =head1 VERSION
 
- 0.02
+ 0.03
 
 =cut
