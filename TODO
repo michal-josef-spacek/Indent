@@ -1,4 +1,4 @@
-$Id: TODO,v 1.58 2008-08-21 11:23:40 skim Exp $
+$Id: TODO,v 1.59 2008-08-21 11:26:53 skim Exp $
 
 TODO
 ====
@@ -8,7 +8,8 @@ TODO
 34. Vice testu k Indent::Block.
 36. Co delat u Indent::PerlStruct v pripade, ze indentuji perl tridu?
 Pridal jsem ji k HASH.
-37.
+37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
+38.
 
 Applied
 =======
