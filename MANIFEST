@@ -51,13 +51,9 @@ t/IndentForm/03_indent_form.t
 t/IndentForm/04_bad_indent.t
 t/IndentPerlStruct/01_version.t
 t/IndentPerlStruct/02_constructor.t
-t/IndentPerlStruct/03_dump_scalar.t
 t/IndentPerlStruct/03_indent_scalar.t
-t/IndentPerlStruct/04_dump_array.t
 t/IndentPerlStruct/04_indent_array.t
-t/IndentPerlStruct/05_dump_hash.t
 t/IndentPerlStruct/05_indent_hash.t
-t/IndentPerlStruct/06_dump_all.t
 t/IndentPerlStruct/06_indent_all.t
 t/IndentPerlStruct/07_indent.t
 t/IndentPerlStruct/08_output_separator.t
