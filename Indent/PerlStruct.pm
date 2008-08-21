@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 package Indent::PerlStruct;
 #------------------------------------------------------------------------------
-# $Id: PerlStruct.pm,v 1.16 2008-08-21 11:24:32 skim Exp $
+# $Id: PerlStruct.pm,v 1.17 2008-08-21 11:25:17 skim Exp $
 
 # Pragmas.
 use strict;
@@ -163,6 +163,11 @@ sub _indent($$;$$) {
  $data - Perl data structure.
 
 =back
+
+=head1 ERRORS
+
+ Unknown parameter '%'.
+ Unsupported data.
 
 =head1 EXAMPLE1
 
