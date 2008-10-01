@@ -1,5 +1,3 @@
-# $Id: 04_bad_indent.t,v 1.4 2005-12-13 23:04:37 skim Exp $
-
 print "Testing: Bad indent. Not a ref to array.\n" if $debug;
 my $obj = $class->new(
 	'begin' => '{',

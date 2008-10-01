@@ -1,5 +1,3 @@
-# $Id: 03_indent_form.t,v 1.4 2005-08-13 20:41:56 skim Exp $
-
 print "Testing: indent() method.\n" if $debug;
 my $obj = $class->new(
 	'line_size' => 80,

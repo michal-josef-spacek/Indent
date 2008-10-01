@@ -1,5 +1,3 @@
-# $Id: 05_indent_hash.t,v 1.3 2008-07-30 14:52:38 skim Exp $
-
 print "Testing: Hash dump.\n" if $debug;
 my $obj = $class->new;
 my $ret = <<'END';

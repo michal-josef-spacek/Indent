@@ -1,5 +1,3 @@
-# $Id: 03_indent_tag.t,v 1.8 2005-09-26 18:01:59 skim Exp $
-
 print "Testing: No-indenting tag.\n" if $debug;
 my $obj = $class->new(
 	'next_indent' => '  ',

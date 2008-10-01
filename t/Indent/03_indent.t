@@ -1,5 +1,3 @@
-# $Id: 03_indent.t,v 1.4 2005-08-14 16:27:53 skim Exp $
-
 print "Testing: Indenting.\n" if $debug;
 my $obj = $class->new;
 ok($obj->get, '');

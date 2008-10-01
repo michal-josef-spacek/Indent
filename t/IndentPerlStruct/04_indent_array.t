@@ -1,5 +1,3 @@
-# $Id: 04_indent_array.t,v 1.3 2008-07-30 14:52:38 skim Exp $
-
 print "Testing: Array dump.\n" if $debug;
 my $obj = $class->new;
 my $ret = <<'END';

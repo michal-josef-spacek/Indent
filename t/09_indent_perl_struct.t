@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-# $Id: 09_indent_perl_struct.t,v 1.1 2008-05-09 13:39:09 skim Exp $
 
 # Pragmas.
 use strict;

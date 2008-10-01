@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-# $Id: word_with_comments1.pl,v 1.5 2005-08-09 08:55:22 skim Exp $
 
 # Pragmas.
 use strict;

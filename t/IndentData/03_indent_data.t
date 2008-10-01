@@ -1,5 +1,3 @@
-# $Id: 03_indent_data.t,v 1.13 2008-07-10 00:32:10 skim Exp $
-
 print "Testing: No-indenting data.\n" if $debug;
 my $obj = $class->new(
 	'next_indent' => '  ',

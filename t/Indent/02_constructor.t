@@ -1,5 +1,3 @@
-# $Id: 02_constructor.t,v 1.7 2005-12-13 23:04:36 skim Exp $
-
 print "Testing: new() plain constructor.\n" if $debug;
 my $obj = $class->new;
 ok(defined $obj, 1);

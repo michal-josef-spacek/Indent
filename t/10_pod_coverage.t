@@ -1,5 +1,3 @@
-# $Id: 10_pod_coverage.t,v 1.1 2008-05-11 13:18:30 skim Exp $
-
 # Modules.
 use Test::Pod::Coverage 'tests' => 9;
 

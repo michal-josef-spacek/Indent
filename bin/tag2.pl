@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-# $Id: tag2.pl,v 1.3 2005-08-09 08:55:22 skim Exp $
 
 # Pragmas.
 use strict;

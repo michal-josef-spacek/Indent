@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-# $Id: Indent_synopsis.pl,v 1.2 2005-08-10 15:44:51 skim Exp $
 
 # Pragmas.
 use strict;

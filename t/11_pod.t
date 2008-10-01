@@ -1,5 +1,3 @@
-# $Id: 11_pod.t,v 1.1 2008-05-11 13:40:28 skim Exp $
-
 # Modules.
 use Test::More;
 

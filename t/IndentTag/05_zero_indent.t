@@ -1,5 +1,3 @@
-# $Id: 05_zero_indent.t,v 1.5 2005-09-26 18:01:59 skim Exp $
-
 print "-- Zero line_size.\n" if $debug;
 my $next_indent = '  ';
 my $obj = $class->new(

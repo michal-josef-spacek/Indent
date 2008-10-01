@@ -1,5 +1,3 @@
-# $Id: 05_string_len.t,v 1.1 2005-07-04 13:48:07 skim Exp $
-
 print "Testing: string_len() function.\n" if $debug;
 my $string = '   example';
 my $ret = eval $class.'::string_len($string)';

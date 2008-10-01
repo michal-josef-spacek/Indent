@@ -1,5 +1,3 @@
-# $Id: 04_bad_indent.t,v 1.7 2008-07-10 00:43:33 skim Exp $
-
 print "Testing: Bad ident.\n" if $debug;
 print "-- Zero line_size.\n" if $debug;
 my $obj;
