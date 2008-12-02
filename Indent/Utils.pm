@@ -22,7 +22,7 @@ our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
 	string_len);
 
 #------------------------------------------------------------------------------
-sub reduce_duplicit_ws($) {
+sub reduce_duplicit_ws {
 #------------------------------------------------------------------------------
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
@@ -32,7 +32,7 @@ sub reduce_duplicit_ws($) {
 }
 
 #------------------------------------------------------------------------------
-sub remove_first_ws($) {
+sub remove_first_ws {
 #------------------------------------------------------------------------------
 # Remove blank characters in begin of string.
 # @param $string Reference to data string.
@@ -42,7 +42,7 @@ sub remove_first_ws($) {
 }
 
 #------------------------------------------------------------------------------
-sub remove_last_ws($) {
+sub remove_last_ws {
 #------------------------------------------------------------------------------
 # Remove blank characters in end of string.
 # @param $string Reference to data string.
@@ -52,7 +52,7 @@ sub remove_last_ws($) {
 }
 
 #------------------------------------------------------------------------------
-sub remove_ws($) {
+sub remove_ws {
 #------------------------------------------------------------------------------
 # Remove white characters in begin and end of string.
 # @param $string reference to data string. 
@@ -63,7 +63,7 @@ sub remove_ws($) {
 }
 
 #------------------------------------------------------------------------------
-sub string_len($) {
+sub string_len {
 #------------------------------------------------------------------------------
 # Gets length of string. 
 # @param $string Data string.
