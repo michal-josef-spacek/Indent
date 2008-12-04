@@ -4,6 +4,7 @@ package Indent;
 
 # Pragmas.
 use strict;
+use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
@@ -16,7 +17,7 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @tmp) = @_;
 	my $self = bless {}, $class;
 
 	# Default indent.
@@ -26,10 +27,12 @@ sub new {
 	$self->{'next_indent'} = "\t";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+	while (@tmp) {
+		my $key = shift @tmp;
+		my $val = shift @tmp;
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
@@ -44,11 +47,14 @@ sub add {
 
 	my $self = shift;
 	my $indent = shift || $self->{'next_indent'};
-	$self->{'indent'} .= $indent if $indent;
+	if ($indent) {
+		$self->{'indent'} .= $indent;
+	}
+	return 1;
 }
 
 #------------------------------------------------------------------------------
-sub remove7 {
+sub remove {
 #------------------------------------------------------------------------------
 # Remove an indent from global indent.
 
@@ -59,6 +65,7 @@ sub remove7 {
 		err "Cannot remove indent '$indent'.";
 	}
 	$self->{'indent'} = substr($self->{'indent'}, 0, -$indent_length);
+	return 1;
 }
 
 #------------------------------------------------------------------------------
@@ -78,11 +85,16 @@ sub reset {
 	my $self = shift;
 	my $reset_value = shift || '';
 	$self->{'indent'} = $reset_value;
+	return 1;
 }
 
 1;
 
+__END__
+
 =pod
+
+=encoding utf8
 
 =head1 NAME
 
@@ -181,7 +193,7 @@ as keyword value pairs. Recognized options are:
  ->->Ok
  ->Example2
 
-=head1 REQUIREMENTS
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>.
 
@@ -196,7 +208,11 @@ L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 AUTHORS
+=head1 LICENSE AND COPYRIGHT
+
+ BSD licence.
+
+=head1 AUTHOR
 
 Michal Špaček <F<tupinek@gmail.com>>
 
