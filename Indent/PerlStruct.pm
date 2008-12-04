@@ -123,6 +123,8 @@ sub _indent {
 
 1;
 
+__END__
+
 =pod
 
 =head1 NAME
@@ -174,17 +176,17 @@ sub _indent {
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::PerlStruct;
- 
+
  # Object.
  my $indent = Indent::PerlStruct->new(
          'next_indent' => '',
          'output_separator' => '',
  );
- print $indent->indent([[1, 2], [3], 'dd'])."\n"; 
- 
+ print $indent->indent([[1, 2], [3], 'dd'])."\n";
+
  # OUTPUT:
  # [['1','2',],['3',],'dd',],
 
@@ -193,14 +195,14 @@ sub _indent {
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::PerlStruct;
- 
+
  # Object.
  my $indent = Indent::PerlStruct->new;
- print $indent->indent([[1, 2], [3], 'dd'])."\n"; 
- 
+ print $indent->indent([[1, 2], [3], 'dd'])."\n";
+
  # OUTPUT:
  # [
  #       [
@@ -211,7 +213,7 @@ sub _indent {
  #               '3',
  #       ],
  #       'dd',
- # ], 
+ # ],
 
 =head1 REQUIREMENTS
 

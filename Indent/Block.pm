@@ -119,10 +119,10 @@ sub _compare {
 
 	# Whitout optimalization.
 	if ($self->{'strict'}) {
-		if (length $first > 0 
-			&& (string_len($act_indent.$first) 
+		if (length $first > 0
+			&& (string_len($act_indent.$first)
 			>= $self->{'line_size'}
-			|| string_len($act_indent.$first.$second) 
+			|| string_len($act_indent.$first.$second)
 			> $self->{'line_size'})) {
 
 			$self->{'_current'} = $act_indent.$first;
@@ -134,8 +134,8 @@ sub _compare {
 		my $tmp1 = $first;
 		$tmp1 =~ s/^\s*//;
 		$tmp1 =~ s/\s*$//;
-		if (length $tmp1 > 0 
-			&& string_len($act_indent.$tmp1) 
+		if (length $tmp1 > 0
+			&& string_len($act_indent.$tmp1)
 			>= $self->{'line_size'}) {
 
 			$self->{'_current'} = $act_indent.$tmp1;
@@ -144,8 +144,8 @@ sub _compare {
 			my $tmp2 = $first.$second;
 			$tmp2 =~ s/^\s*//;
 			$tmp2 =~ s/\s*$//;
-			if (length $tmp1 > 0 
-				&& string_len($act_indent.$tmp2) 
+			if (length $tmp1 > 0
+				&& string_len($act_indent.$tmp2)
 				> $self->{'line_size'}) {
 
 				$self->{'_current'} = $act_indent.$tmp1;
@@ -198,7 +198,7 @@ sub _compare {
 
 =item * B<strict>
 
- Sets or unsets strict mode. 
+ Sets or unsets strict mode.
  Unset strict mode means whitespace optimalization.
  Default value is 'strict' => 1.
 
@@ -227,7 +227,7 @@ sub _compare {
          'line_size' => 2,
 	 'next_indent' => '',
  );
- 
+
  # Print in scalar context.
  print $i->indent(['text', 'text', 'text'])."\n";
 

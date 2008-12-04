@@ -17,7 +17,7 @@ our $VERSION = 0.01;
 sub new {
 #------------------------------------------------------------------------------
 # Constructor.
-	
+
 	my $class = shift;
 	my $self = bless {}, $class;
 
@@ -79,14 +79,14 @@ sub indent {
 
 	# If non-indent.
 	# Return as array or one line with output separator between its.
-	return wantarray ? @data : join($self->{'output_separator'}, @data) 
+	return wantarray ? @data : join($self->{'output_separator'}, @data)
 		if $non_indent;
 
 	# Indent word.
-	my $next_indent = $self->{'next_indent'} ? $self->{'next_indent'} 
+	my $next_indent = $self->{'next_indent'} ? $self->{'next_indent'}
 		: ' ' x ($max + length $self->{'form_separator'});
 	my $word = Indent::Word->new(
-		'line_size' => $self->{'line_size'} - $max 
+		'line_size' => $self->{'line_size'} - $max
 			- length $self->{'form_separator'},
 		'next_indent' => $next_indent,
 	);
@@ -114,6 +114,8 @@ sub indent {
 }
 
 1;
+
+__END__
 
 =pod
 

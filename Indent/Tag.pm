@@ -18,10 +18,10 @@ our $VERSION = 0.01;
 sub new {
 #------------------------------------------------------------------------------
 # Constructor.
-	
+
 	my $class = shift;
 	my $self = bless {}, $class;
-	
+
 	# Options.
 	$self->{'line_size'} = 79;
 	$self->{'next_indent'} = "\t";
@@ -78,7 +78,7 @@ sub indent {
 	$tag_info->{'end2'} = 1;
 	my $one = 0;
 	while (exists $tag_info->{'name'}
-		|| $#params > -1 || exists $tag_info->{'end'} 
+		|| $#params > -1 || exists $tag_info->{'end'}
 		|| exists $tag_info->{'end2'}) {
 
 		# Tag name.
@@ -151,6 +151,8 @@ sub indent {
 
 1;
 
+__END__
+
 =pod
 
 =head1 NAME
@@ -179,12 +181,12 @@ sub indent {
 =item * line_size
 
  TODO
- Default value of 'line_size' is 79 chars. 
+ Default value of 'line_size' is 79 chars.
 
 =item * next_indent
 
  TODO
- Default value of 'next_indent' is tabelator (\t). 
+ Default value of 'next_indent' is tabelator (\t).
 
 =item * output_separator
 
