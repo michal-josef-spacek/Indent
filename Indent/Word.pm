@@ -74,14 +74,14 @@ sub indent {
 		$last_second_length = length $second;
 
 		# Parse to indent length.
-		($first, my $tmp) = $second
+		($first, my $tmp) = $second 
 			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/;
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
 		if (! $first || length $first < length $indent
 			|| $first =~ /^$indent\s*$/) {
-			($first, $tmp) = $second
+			($first, $tmp) = $second 
 				=~ /^($indent\s*[^\s]+?)\s(.*)$/;
 		}
 
@@ -91,7 +91,7 @@ sub indent {
 			# Non-parsed part of data.
 			$second = $tmp;
 
-			# Add next_indent to string.
+			# Add next_indent to string. 
 			$indent .= $self->{'next_indent'} if $one == 1;
 			$one = 0;
 			$second = $indent.$second;
