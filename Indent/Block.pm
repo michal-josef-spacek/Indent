@@ -238,7 +238,7 @@ __END__
  # text
  # text
 
-=head1 REQUIREMENTS
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
 L<Indent::Utils(3pm)>.

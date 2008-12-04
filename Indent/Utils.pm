@@ -34,7 +34,7 @@ sub remove_first_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/^\s*//;	
+	${$ref_to_string} =~ s/^\s*//;
 }
 
 #------------------------------------------------------------------------------
@@ -44,14 +44,14 @@ sub remove_last_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s*$//;	
+	${$ref_to_string} =~ s/\s*$//;
 }
 
 #------------------------------------------------------------------------------
 sub remove_ws {
 #------------------------------------------------------------------------------
 # Remove white characters in begin and end of string.
-# @param $string reference to data string. 
+# @param $string reference to data string.
 
 	my $ref_to_string = shift;
 	remove_last_ws($ref_to_string);
@@ -61,7 +61,7 @@ sub remove_ws {
 #------------------------------------------------------------------------------
 sub string_len {
 #------------------------------------------------------------------------------
-# Gets length of string. 
+# Gets length of string.
 # @param $string Data string.
 # @return $length_of_string Length of data string, when '\t' translate to
 # $tab_length x space.
@@ -71,7 +71,7 @@ sub string_len {
 	$string =~ s/\t/$tmp/g;	
 	my $length_of_string = length $string;
 	return $length_of_string;	
-} 
+}
 
 1;
 
@@ -114,7 +114,7 @@ __END__
 
 =item B<string_len($string)>
 
- Gets length of string. 
+ Gets length of string.
 
 =back
 
@@ -123,10 +123,10 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::Utils qw(reduce_duplicit_ws);
- 
+
  my $input = 'a  b';
  reduce_duplicit_ws(\$input);
  print "$input|\n";
@@ -139,10 +139,10 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::Utils qw(remove_first_ws);
- 
+
  my $input = '  a';
  remove_first_ws(\$input);
  print "$input|\n";
@@ -155,10 +155,10 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::Utils qw(remove_last_ws);
- 
+
  my $input = 'a   ';
  remove_last_ws(\$input);
  print "$input|\n";
@@ -171,33 +171,33 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::Utils qw(remove_ws);
- 
+
  my $input = '   a   ';
  remove_ws(\$input);
  print "$input|\n";
 
  # Output:
  # a|
- 
+
 =head1 EXAMPLE5
 
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::Utils qw(string_len);
- 
+
  # Print string length.
  print string_len("\tab\t")."\n";
 
  # Output:
  # 18
- 
-=head1 REQUIREMENTS
+
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
 L<Exporter(3pm)>,

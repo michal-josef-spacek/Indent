@@ -17,10 +17,10 @@ our $VERSION = 0.03;
 sub new {
 #------------------------------------------------------------------------------
 # Constructor.
-	
+
 	my $class = shift;
 	my $self = bless {}, $class;
-	
+
 	# Comment type.
 	$self->{'begin'} = '';
 	$self->{'middle'} = '';
@@ -76,7 +76,7 @@ sub indent {
 
 		# Indenter for text.
 		my $i_w = Indent::Word->new(
-			'line_size' => $self->{'line_size'} 
+			'line_size' => $self->{'line_size'}
 				- $self->_get_max_len,
 			'next_indent' => '',
 		);
@@ -205,7 +205,7 @@ __END__
 
 =item B<indent($data)>
 
- Method, which indents data. Return array (in array context) 
+ Method, which indents data. Return array (in array context)
  or string with 'output_separator' between datas.
  $data is reference to array with comment data or text, which will be indented.
 
@@ -236,7 +236,7 @@ __END__
  print "$output\n";
 
  # Output:
- # /* 
+ # /*
  #  * text
  #  * text
  #  * text
@@ -269,7 +269,7 @@ __END__
  #  * text text text
  #  */
 
-=head1 REQUIREMENTS
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
 L<Indent::Word(3pm)>.

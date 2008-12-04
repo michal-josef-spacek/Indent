@@ -176,17 +176,17 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::PerlStruct;
- 
+
  # Object.
  my $indent = Indent::PerlStruct->new(
          'next_indent' => '',
          'output_separator' => '',
  );
- print $indent->indent([[1, 2], [3], 'dd'])."\n"; 
- 
+ print $indent->indent([[1, 2], [3], 'dd'])."\n";
+
  # OUTPUT:
  # [['1','2',],['3',],'dd',],
 
@@ -195,14 +195,14 @@ __END__
  # Pragmas.
  use strict;
  use warnings;
- 
+
  # Modules.
  use Indent::PerlStruct;
- 
+
  # Object.
  my $indent = Indent::PerlStruct->new;
- print $indent->indent([[1, 2], [3], 'dd'])."\n"; 
- 
+ print $indent->indent([[1, 2], [3], 'dd'])."\n";
+
  # OUTPUT:
  # [
  #       [
@@ -213,9 +213,9 @@ __END__
  #               '3',
  #       ],
  #       'dd',
- # ], 
+ # ],
 
-=head1 REQUIREMENTS
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
 L<Indent(3pm)>.

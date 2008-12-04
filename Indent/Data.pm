@@ -72,7 +72,7 @@ sub indent {
 	# Check to actual indent maximal length.
 	err "Bad actual indent value. Length is greater then ('line_size' - ".
 		"'size of next_indent' - 1)."
-		if string_len($act_indent) > ($self->{'line_size'} 
+		if string_len($act_indent) > ($self->{'line_size'}
 		- string_len($self->{'next_indent'}) - 1);
 
 	# Splits data.
@@ -81,7 +81,7 @@ sub indent {
 	my @data;
 	while (string_len($second) >= $self->{'line_size'}) {
 		$first = substr($second, 0, $self->{'line_size'});
-		$second = $act_indent.$self->{'next_indent'}.substr($second, 
+		$second = $act_indent.$self->{'next_indent'}.substr($second,
 			$self->{'line_size'});
 
 		# Parsed part of data to @data array.
@@ -89,7 +89,7 @@ sub indent {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second && $second 
+	push @data, $second if $second && $second
 		ne $act_indent.$self->{'next_indent'};
 
 	# Return as array or one line with output separator between its.
@@ -199,7 +199,7 @@ __END__
  # <->  xt te|
  # <->  xt te|
  # <->  xt|
- 
+
 =head1 EXAMPLE3
 
  # Pragmas.
@@ -222,7 +222,7 @@ __END__
  # Output:
  # <->text text text text text text|
 
-=head1 REQUIREMENTS
+=head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
 L<Indent::Utils(3pm)>.
