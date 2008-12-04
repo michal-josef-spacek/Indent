@@ -8,6 +8,10 @@ use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY = {};
 
 # Version.
 our $VERSION = 0.02;
@@ -21,7 +25,7 @@ sub new {
 	my $self = bless {}, $class;
 
 	# Default indent.
-	$self->{'indent'} = '';
+	$self->{'indent'} = $EMPTY;
 
 	# Every next indent string.
 	$self->{'next_indent'} = "\t";
@@ -83,7 +87,7 @@ sub reset {
 # Reseting indent.
 
 	my $self = shift;
-	my $reset_value = shift || '';
+	my $reset_value = shift || $EMPTY;
 	$self->{'indent'} = $reset_value;
 	return 1;
 }

@@ -9,6 +9,10 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple qw(err);
 use Indent::Utils qw(string_len);
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY = {};
 
 # Version.
 our $VERSION = 0.01;
@@ -18,7 +22,7 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Options.
@@ -32,20 +36,20 @@ sub new {
 	$self->{'strict'} = 1;
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/) {
+	if ($self->{'line_size'} !~ /^\d*$/sm) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
 	# Save current piece.
-	$self->{'_current'} = '';
+	$self->{'_current'} = $EMPTY;
 
 	# Object.
 	return $self;
@@ -63,14 +67,14 @@ sub indent {
 
 	# Undef indent.
 	if (! $act_indent) {
-		$act_indent = '';
+		$act_indent = $EMPTY;
 	}
 
 	# Input data.
 	my @input = @{$data};
 
 	# If non_indent data, than return.
-	return $act_indent.join('', @input) if $non_indent;
+	return $act_indent.join($EMPTY, @input) if $non_indent;
 
 	# Indent.
 	my @data = ();
@@ -82,7 +86,7 @@ sub indent {
 		if ($self->_compare($first, $second, $tmp_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
-			$second = '';
+			$second = $EMPTY;
 			$tmp_indent = $act_indent.$self->{'next_indent'};
 		} else {
 			$first .= $second;
@@ -94,10 +98,10 @@ sub indent {
 
 		# White space optimalization.
 		if (! $self->{'strict'}) {
-			$first =~ s/^\s*//;
-			$first =~ s/\s*$//;
+			$first =~ s/^\s*//sm;
+			$first =~ s/\s*$//sm;
 		}
-		if ($first ne '') {
+		if ($first ne $EMPTY) {
 			push @data, $tmp_indent.$first;
 		}
 	}
@@ -132,8 +136,8 @@ sub _compare {
 		}
 	} else {
 		my $tmp1 = $first;
-		$tmp1 =~ s/^\s*//;
-		$tmp1 =~ s/\s*$//;
+		$tmp1 =~ s/^\s*//sm;
+		$tmp1 =~ s/\s*$//sm;
 		if (length $tmp1 > 0
 			&& string_len($act_indent.$tmp1)
 			>= $self->{'line_size'}) {
@@ -142,8 +146,8 @@ sub _compare {
 			return 1;
 		} else {
 			my $tmp2 = $first.$second;
-			$tmp2 =~ s/^\s*//;
-			$tmp2 =~ s/\s*$//;
+			$tmp2 =~ s/^\s*//sm;
+			$tmp2 =~ s/\s*$//sm;
 			if (length $tmp1 > 0
 				&& string_len($act_indent.$tmp2)
 				> $self->{'line_size'}) {
@@ -162,6 +166,8 @@ sub _compare {
 __END__
 
 =pod
+
+=encoding utf8
 
 =head1 NAME
 
