@@ -8,6 +8,7 @@ WriteMakefile(
 	'PREREQ_PM' => {
 		'Error::Simple::Multiple' => 0.04,
 		'Tag::Parse' => 0.03,
+		'Readonly' => 0,
 		'Scalar::Util' => 0,
 	},
 	'VERSION' => 0.04,
