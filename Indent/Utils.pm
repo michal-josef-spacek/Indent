@@ -4,6 +4,7 @@ package Indent::Utils;
 
 # Pragmas.
 use strict;
+use warnings;
 
 # Modules.
 use Exporter;

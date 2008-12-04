@@ -4,6 +4,7 @@ package Indent::Word;
 
 # Pragmas.
 use strict;
+use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);

@@ -4,6 +4,7 @@ package Indent::Form;
 
 # Pragmas.
 use strict;
+use warnings;
 
 # Modules.
 use Error::Simple::Multiple;

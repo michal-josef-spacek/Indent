@@ -4,6 +4,7 @@ package Indent::PerlStruct;
 
 # Pragmas.
 use strict;
+use warnings;
 
 # Modules.
 use Error::Simple::Multiple;
