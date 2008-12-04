@@ -3,20 +3,15 @@ package Indent::Utils;
 #------------------------------------------------------------------------------
 
 # Pragmas.
+use base qw(Exporter);
 use strict;
 use warnings;
-
-# Modules.
-use Exporter;
 
 # Version.
 our $VERSION = 0.01;
 
 # Length of tab.
 our $tab_length = 8;
-
-# Inheritance.
-our @ISA = qw(Exporter);
 
 # Export.
 our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
