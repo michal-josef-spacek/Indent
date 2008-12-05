@@ -34,9 +34,7 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
+		err "Unknown parameter '$key'." if ! exists $self->{$key}
 		$self->{$key} = $val;
 	}
 
