@@ -11,7 +11,7 @@ use Error::Simple::Multiple qw(err);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY = {};
+Readonly::Scalar my $EMPTY => {};
 
 # Version.
 our $VERSION = 0.02;

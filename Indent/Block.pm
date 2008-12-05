@@ -12,7 +12,7 @@ use Indent::Utils qw(string_len);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY = {};
+Readonly::Scalar my $EMPTY => {};
 
 # Version.
 our $VERSION = 0.01;
