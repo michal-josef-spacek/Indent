@@ -21,7 +21,7 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my ($class, @tmp) = @_;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Default indent.
@@ -31,9 +31,9 @@ sub new {
 	$self->{'next_indent'} = "\t";
 
 	# Process params.
-	while (@tmp) {
-		my $key = shift @tmp;
-		my $val = shift @tmp;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		if (! exists $self->{$key}) {
 			err "Unknown parameter '$key'.";
 		}
