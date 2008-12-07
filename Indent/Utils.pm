@@ -103,6 +103,16 @@ __END__
  remove_ws(\$string);
  my $length_of_string = string_len($string);
 
+=head1 GLOBAL VARIABLES
+
+=over 8
+
+=item B<TAB_LENGTH>
+
+ Default length of tabelator is 8 chars.
+
+=back
+
 =head1 SUBROUTINES
 
 =over 8
