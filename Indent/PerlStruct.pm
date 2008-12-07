@@ -9,7 +9,11 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple;
 use Indent;
+use Readonly;
 use Scalar::Util qw(blessed);
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
 
 # Version.
 our $VERSION = 0.03;
@@ -19,7 +23,7 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Every next indent string.
@@ -29,9 +33,9 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
@@ -52,6 +56,7 @@ sub indent {
 
 	my ($self, $data) = @_;
 	$self->_indent($data);
+	return;
 }
 
 #------------------------------------------------------------------------------
@@ -67,7 +72,7 @@ sub _get {
 	if (! defined $value) {
 		return 'undef';
 	} else {
-		$value =~ s/'/\\'/g;
+		$value =~ s/'/\\'/gsm;
 		return '\''.$value.'\'';
 	}
 }
@@ -81,10 +86,10 @@ sub _indent {
 	$comma_flag = 0 unless $comma_flag;
 	$indent_flag = 1 unless defined $indent_flag;
 	my $ret;
-	my $indent = $indent_flag ? $self->{'indent'}->get : '';
+	my $indent = $indent_flag ? $self->{'indent'}->get : $EMPTY;
 	if (ref $data eq 'ARRAY') {
 		$ret .= $indent.'[';
-		if ($#{$data} > -1) {
+		if (scalar @{$data}) {
 			$ret .= $self->{'output_separator'};
 			$self->{'indent'}->add;
 			foreach (@{$data}) {
@@ -108,11 +113,11 @@ sub _indent {
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '},'.$self->{'output_separator'};
-	} elsif (ref $data eq '') {
-		my $comma = $comma_flag ? ',' : '';
+	} elsif (ref $data eq $EMPTY) {
+		my $comma = $comma_flag ? ',' : $EMPTY;
 		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
 	} elsif (ref $data eq 'SCALAR') {
-		my $comma = $comma_flag ? ',' : '';
+		my $comma = $comma_flag ? ',' : $EMPTY;
 		$ret .= $indent.'\\'._get(${$data}).$comma.
 			$self->{'output_separator'};
 	} else {
@@ -234,6 +239,10 @@ L<Indent::Word(3pm)>.
 =head1 AUTHOR
 
  Michal Špaček F<tupinek@gmail.com>
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 

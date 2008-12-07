@@ -9,6 +9,11 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple qw(err);
 use Indent::Utils qw(string_len);
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
 our $VERSION = 0.03;
@@ -18,26 +23,26 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Options.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'next_indent'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/ || $self->{'line_size'} <= 0) {
+	if ($self->{'line_size'} !~ /^\d*$/sm || $self->{'line_size'} <= 0) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -55,23 +60,20 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $data Data string.
-# @param $act_indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
 
 	my ($self, $data, $act_indent, $non_indent) = @_;
 
 	# Undef indent.
 	if (! $act_indent) {
-		$act_indent = '';
+		$act_indent = $EMPTY;
 	}
 
 	# If non_indent data, than return.
 	return $act_indent.$data if $non_indent;
 
 	# Check to actual indent maximal length.
-	err "Bad actual indent value. Length is greater then ('line_size' - ".
-		"'size of next_indent' - 1)."
+	err 'Bad actual indent value. Length is greater then ('line_size' - '.
+		'\'size of next_indent\' - 1).'
 		if string_len($act_indent) > ($self->{'line_size'}
 		- string_len($self->{'next_indent'}) - 1);
 
@@ -238,9 +240,13 @@ L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
  Michal Špaček <F<tupinek@gmail.com>>
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 

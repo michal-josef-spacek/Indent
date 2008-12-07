@@ -9,6 +9,12 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple;
 use Indent::Word;
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
+Readonly::Scalar my $SPACE => q{ };
 
 # Version.
 our $VERSION = 0.01;
@@ -18,11 +24,11 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Options.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'right_align'} = 1;
 	$self->{'form_separator'} = ': ';
 	$self->{'next_indent'} = undef;
@@ -31,15 +37,15 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/) {
+	if ($self->{'line_size'} !~ /^\d*$/sm) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -51,15 +57,12 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Indent form data.
-# @param $data Data array [['key' => 'value'], [..]];
-# @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
 
 	my ($self, $data, $indent, $non_indent) = @_;
 
 	# Undef indent.
 	if (! $indent) {
-		$indent = '';
+		$indent = $EMPTY;
 	}
 
 	# Max size of key.
@@ -84,7 +87,7 @@ sub indent {
 
 	# Indent word.
 	my $next_indent = $self->{'next_indent'} ? $self->{'next_indent'}
-		: ' ' x ($max + length $self->{'form_separator'});
+		: $SPACE x ($max + length $self->{'form_separator'});
 	my $word = Indent::Word->new(
 		'line_size' => $self->{'line_size'} - $max
 			- length $self->{'form_separator'},
@@ -94,11 +97,11 @@ sub indent {
 	foreach my $dat (@{$data}) {
 		my $output = $indent;
 		if ($self->{'right_align'}) {
-			$output .= ' ' x ($max - length $dat->[0]);
+			$output .= $SPACE x ($max - length $dat->[0]);
 			$output .= $dat->[0];
 		} else {
 			$output .= $dat->[0];
-			$output .= ' ' x ($max - length $dat->[0]);
+			$output .= $SPACE x ($max - length $dat->[0]);
 		}
 		$output .= $self->{'form_separator'};
 		my @tmp = $word->indent($dat->[1]);
@@ -169,7 +172,9 @@ __END__
 
 =item B<indent($data, [$indent, $non_indent])>
 
- TODO
+ $data - Data array [['key' => 'value'], [..]];
+ $indent - String to actual indent.
+ $non_indent - Flag, than says no-indent.
 
 =back
 
@@ -212,9 +217,13 @@ L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
  Michal Špaček <F<tupinek@gmail.com>>.
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 

@@ -9,7 +9,13 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple qw(err);
 use Indent::Utils qw(string_len);
+use Readonly;
 use Tag::Parse qw(parse_normal);
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
+Readonly::Scalar my $SPACE => q{ };
 
 # Version.
 our $VERSION = 0.01;
@@ -19,26 +25,26 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Options.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'next_indent'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/) {
+	if ($self->{'line_size'} !~ /^\d*$/sm) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -58,7 +64,7 @@ sub indent {
 
 	# Undef indent.
 	if (! $indent) {
-		$indent = '';
+		$indent = $EMPTY;
 	}
 
 	# If non_indent data, than return.
@@ -68,7 +74,7 @@ sub indent {
 	my $tag_info = parse_normal($tag);
 
 	my @data;
-	my ($tmp, $tmp2) = ('', '');
+	my ($tmp, $tmp2) = ($EMPTY, $EMPTY);
 
 	# Sorted pairs of attributes.
 	my @params;
@@ -78,20 +84,20 @@ sub indent {
 	$tag_info->{'end2'} = 1;
 	my $one = 0;
 	while (exists $tag_info->{'name'}
-		|| $#params > -1 || exists $tag_info->{'end'}
+		|| scalar @params || exists $tag_info->{'end'}
 		|| exists $tag_info->{'end2'}) {
 
 		# Tag name.
 		if (exists $tag_info->{'name'}) {
-			$tmp2 .= "<".$tag_info->{'name'};
+			$tmp2 .= '<'.$tag_info->{'name'};
 			delete $tag_info->{'name'};
 
 		# Params.
-		} elsif ($#params > -1) {
+		} elsif (scalar @params) {
 
 			# Param name.
 			if (($#params + 1) % 2 == 0) {
-				$tmp2 .= ' ';
+				$tmp2 .= $SPACE;
 				$tmp2 .= shift @params;
 
 			# '='.
@@ -137,10 +143,10 @@ sub indent {
 					$indent .= $self->{'next_indent'};
 				}
 			}
-			$tmp2 =~ s/^\s*//;
+			$tmp2 =~ s/^\s*//sm;
 			$tmp = $tmp2;
 		}
-		$tmp2 = '';
+		$tmp2 = $EMPTY;
 	}
 
 	push @data, $indent.$tmp;
@@ -246,9 +252,13 @@ L<Indent::PerlStruct(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
  Michal Špaček <F<tupinek@gmail.com>>.
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 

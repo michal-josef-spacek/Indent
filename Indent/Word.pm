@@ -8,6 +8,11 @@ use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
 our $VERSION = 0.01;
@@ -17,26 +22,26 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Options.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'next_indent'} = "\t";
 
 	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/) {
+	if ($self->{'line_size'} !~ /^\d*$/sm) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -47,16 +52,13 @@ sub new {
 #------------------------------------------------------------------------------
 sub indent {
 #------------------------------------------------------------------------------
-# Parses tag to indented data.
-# @param $data Data string.
-# @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
+# Indent text by words to line_size block size.
 
 	my ($self, $data, $indent, $non_indent) = @_;
 
 	# Undef indent.
 	if (! $indent) {
-		$indent = '';
+		$indent = $EMPTY;
 	}
 
 	# If non_indent data, than return.
@@ -67,7 +69,7 @@ sub indent {
 	my @data;
 	my $one = 1;
 	while (length $second >= $self->{'line_size'}
-		&& $second =~ /^\s*\S+\s+/
+		&& $second =~ /^\s*\S+\s+/sm
 		&& $last_second_length != length $second) {
 
 		# Last length of non-parsed part of data.
@@ -75,14 +77,14 @@ sub indent {
 
 		# Parse to indent length.
 		($first, my $tmp) = $second
-			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/;
+			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/smx;
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
 		if (! $first || length $first < length $indent
-			|| $first =~ /^$indent\s*$/) {
+			|| $first =~ /^$indent\s*$/sm) {
 			($first, $tmp) = $second
-				=~ /^($indent\s*[^\s]+?)\s(.*)$/;
+				=~ /^($indent\s*[^\s]+?)\s(.*)$/smx;
 		}
 
 		# If parsing is right.
@@ -102,7 +104,7 @@ sub indent {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second || $second !~ /^\s*$/;
+	push @data, $second if $second || $second !~ /^\s*$/sm;
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
@@ -198,6 +200,10 @@ L<Indent::Utils(3pm)>.
 =head1 AUTHOR
 
  Michal Špaček L<tupinek@gmail.com>
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 
