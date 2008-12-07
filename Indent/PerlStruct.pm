@@ -56,8 +56,7 @@ sub indent {
 # Get indented structure.
 
 	my ($self, $data) = @_;
-	$self->_indent($data);
-	return;
+	return $self->_indent($data);
 }
 
 #------------------------------------------------------------------------------
