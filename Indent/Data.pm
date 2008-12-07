@@ -72,7 +72,7 @@ sub indent {
 	return $act_indent.$data if $non_indent;
 
 	# Check to actual indent maximal length.
-	err 'Bad actual indent value. Length is greater then ('line_size' - '.
+	err 'Bad actual indent value. Length is greater then (\'line_size\' - '.
 		'\'size of next_indent\' - 1).'
 		if string_len($act_indent) > ($self->{'line_size'}
 		- string_len($self->{'next_indent'}) - 1);
