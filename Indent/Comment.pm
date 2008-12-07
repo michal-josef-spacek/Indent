@@ -9,6 +9,11 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple qw(err);
 use Indent::Word;
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
 our $VERSION = 0.03;
@@ -18,31 +23,31 @@ sub new {
 #------------------------------------------------------------------------------
 # Constructor.
 
-	my $class = shift;
+	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
 	# Comment type.
-	$self->{'begin'} = '';
-	$self->{'middle'} = '';
-	$self->{'end'} = '';
+	$self->{'begin'} = $EMPTY;
+	$self->{'middle'} = $EMPTY;
+	$self->{'end'} = $EMPTY;
 
 	# Line size.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 
 	# Output.
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@_) {
-		my $key = shift;
-		my $val = shift;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
 		err "Unknown parameter '$key'." unless exists $self->{$key};
 		$self->{$key} = $val;
 	}
 
 	# Control.
 	unless ($self->{'begin'} || $self->{'end'} || $self->{'middle'}) {
-		err "Cannot define comments.";
+		err 'Cannot define comments.';
 	}
 
 	# Comment tag is one.
@@ -70,15 +75,15 @@ sub indent {
 	# Only text, which will be indented.
 	} else {
 		# Control for data.
-		if (! $data || $data eq '') {
-			err "Cannot define data.";
+		if (! $data || $data eq $EMPTY) {
+			err 'Cannot define data.';
 		}
 
 		# Indenter for text.
 		my $i_w = Indent::Word->new(
 			'line_size' => $self->{'line_size'}
 				- $self->_get_max_len,
-			'next_indent' => '',
+			'next_indent' => $EMPTY,
 		);
 
 		# Indent text.
@@ -120,8 +125,8 @@ sub _indent {
 	my ($self, $data) = @_;
 
 	# Control for data.
-	if (ref $data ne 'ARRAY' || $#{$data} == -1) {
-		err "Cannot define data.";
+	if (ref $data ne 'ARRAY' || ! scalar @{$data}) {
+		err 'Cannot define data.';
 	}
 
 	# Adding comments.
@@ -285,9 +290,13 @@ L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 AUTHORS
+=head1 AUTHOR
 
  Michal Špaček <F<tupinek@gmail.com>>.
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD License.
 
 =head1 VERSION
 

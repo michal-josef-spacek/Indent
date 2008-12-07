@@ -7,11 +7,18 @@ use base qw(Exporter);
 use strict;
 use warnings;
 
+# Modules.
+use Readonly;
+
+# Constants.
+Readonly::Scalar my $DEFAULT_TAB_LENGTH => 8;
+Readonly::Scalar my $SPACE => ' ';
+
 # Version.
 our $VERSION = 0.01;
 
 # Length of tab.
-our $tab_length = 8;
+our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
 
 # Export.
 our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
@@ -24,7 +31,8 @@ sub reduce_duplicit_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s+/\ /g;
+	${$ref_to_string} =~ s/\s+/\ /gsm;
+	return;
 }
 
 #------------------------------------------------------------------------------
@@ -34,7 +42,8 @@ sub remove_first_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/^\s*//;
+	${$ref_to_string} =~ s/^\s*//sm;
+	return;
 }
 
 #------------------------------------------------------------------------------
@@ -44,7 +53,8 @@ sub remove_last_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s*$//;
+	${$ref_to_string} =~ s/\s*$//sm;
+	return;
 }
 
 #------------------------------------------------------------------------------
@@ -56,6 +66,7 @@ sub remove_ws {
 	my $ref_to_string = shift;
 	remove_last_ws($ref_to_string);
 	remove_first_ws($ref_to_string);
+	return;
 }
 
 #------------------------------------------------------------------------------
@@ -64,13 +75,13 @@ sub string_len {
 # Gets length of string.
 # @param $string Data string.
 # @return $length_of_string Length of data string, when '\t' translate to
-# $tab_length x space.
+# $TAB_LENGTH x space.
 
 	my $string = shift;
-	my $tmp = ' ' x $tab_length;
-	$string =~ s/\t/$tmp/g;	
+	my $tmp = $SPACE x $TAB_LENGTH;
+	$string =~ s/\t/$tmp/gsm;
 	my $length_of_string = length $string;
-	return $length_of_string;	
+	return $length_of_string;
 }
 
 1;
@@ -216,6 +227,10 @@ L<Indent::Word(3pm)>.
 =head1 AUTHOR
 
  Michal Špaček F<tupinek@gmail.com>
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD license.
 
 =head1 VERSION
 
