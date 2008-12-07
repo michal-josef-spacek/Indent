@@ -13,6 +13,7 @@ use Readonly;
 
 # Constants.
 Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
 our $VERSION = 0.01;
@@ -26,7 +27,7 @@ sub new {
 	my $self = bless {}, $class;
 
 	# Options.
-	$self->{'line_size'} = 79;
+	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'next_indent'} = "\t";
 
 	# Output.
@@ -263,6 +264,10 @@ L<Indent::Word(3pm)>.
 =head1 AUTHOR
 
  Michal Špaček F<tupinek@gmail.com>
+
+=head1 LICENSE AND COPYRIGHT
+
+ BSD License.
 
 =head1 VERSION
 
