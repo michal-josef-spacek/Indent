@@ -104,6 +104,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
  Indent::Data - A perl module for data indenting.

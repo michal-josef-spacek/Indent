@@ -151,6 +151,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
  Indent::Comment - A perl module for comment indenting.

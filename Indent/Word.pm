@@ -116,6 +116,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
  Indent::Word - Indent class for normal texts.

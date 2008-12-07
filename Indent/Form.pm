@@ -122,6 +122,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
  Indent::Form - A perl module for form indenting.

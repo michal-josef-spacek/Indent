@@ -132,6 +132,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
  Indent::PerlStruct - Class for perl structure indent.
