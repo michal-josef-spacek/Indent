@@ -122,7 +122,7 @@ sub _compare {
 
 	my ($self, $first, $second, $act_indent) = @_;
 
-	# Whitout optimalization.
+	# Without optimalization.
 	if ($self->{'strict'}) {
 		if (length $first > 0
 			&& (string_len($act_indent.$first)
@@ -135,6 +135,9 @@ sub _compare {
 		} else {
 			return 0;
 		}
+
+	# With optimalizaton.
+	# TODO Rewrite.
 	} else {
 		my $tmp1 = $first;
 		$tmp1 =~ s/^\s*//sm;
