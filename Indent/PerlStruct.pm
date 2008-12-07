@@ -14,6 +14,7 @@ use Scalar::Util qw(blessed);
 
 # Constants.
 Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $COMMA => q{,};
 
 # Version.
 our $VERSION = 0.03;
@@ -114,10 +115,10 @@ sub _indent {
 		}
 		$ret .= '},'.$self->{'output_separator'};
 	} elsif (ref $data eq $EMPTY) {
-		my $comma = $comma_flag ? ',' : $EMPTY;
+		my $comma = $comma_flag ? $COMMA : $EMPTY;
 		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
 	} elsif (ref $data eq 'SCALAR') {
-		my $comma = $comma_flag ? ',' : $EMPTY;
+		my $comma = $comma_flag ? $COMMA : $EMPTY;
 		$ret .= $indent.'\\'._get(${$data}).$comma.
 			$self->{'output_separator'};
 	} else {
