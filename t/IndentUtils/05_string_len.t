@@ -13,7 +13,7 @@ $string = "\t\texample";
 $ret = eval $class.'::string_len($string)';
 ok($ret, 23);
 ok($string, "\t\texample");
-${$class.'::tab_length'} = 2;
+${$class.'::TAB_LENGTH'} = 2;
 $ret = eval $class.'::string_len($string)';
 ok($ret, 11);
 ok($string, "\t\texample");
