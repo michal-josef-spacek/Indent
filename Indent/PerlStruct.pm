@@ -7,7 +7,7 @@ use strict;
 use warnings;
 
 # Modules.
-use Error::Simple::Multiple;
+use Error::Simple::Multiple qw(err);
 use Indent;
 use Readonly;
 use Scalar::Util qw(blessed);
