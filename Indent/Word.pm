@@ -56,8 +56,8 @@ sub indent {
 
 	my ($self, $data, $indent, $non_indent) = @_;
 
-	# Undef indent.
-	if (! $indent) {
+	# 'indent' initialization.
+	if (! defined $indent) {
 		$indent = $EMPTY;
 	}
 
