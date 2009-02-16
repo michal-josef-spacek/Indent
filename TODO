@@ -8,7 +8,8 @@ TODO
 Pridal jsem ji k HASH.
 37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
 38. Odstranit firts, second, tmp1, tmp2 promenne.
-39.
+39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
+40.
 
 Applied
 =======
