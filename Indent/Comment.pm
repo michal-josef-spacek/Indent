@@ -12,7 +12,7 @@ use Indent::Word;
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
@@ -27,9 +27,9 @@ sub new {
 	my $self = bless {}, $class;
 
 	# Comment type.
-	$self->{'begin'} = $EMPTY;
-	$self->{'middle'} = $EMPTY;
-	$self->{'end'} = $EMPTY;
+	$self->{'begin'} = $EMPTY_STR;
+	$self->{'middle'} = $EMPTY_STR;
+	$self->{'end'} = $EMPTY_STR;
 
 	# Line size.
 	$self->{'line_size'} = $LINE_SIZE;
@@ -75,7 +75,7 @@ sub indent {
 	# Only text, which will be indented.
 	} else {
 		# Control for data.
-		if (! $data || $data eq $EMPTY) {
+		if (! $data || $data eq $EMPTY_STR) {
 			err 'Cannot define data.';
 		}
 
@@ -83,7 +83,7 @@ sub indent {
 		my $i_w = Indent::Word->new(
 			'line_size' => $self->{'line_size'}
 				- $self->_get_max_len,
-			'next_indent' => $EMPTY,
+			'next_indent' => $EMPTY_STR,
 		);
 
 		# Indent text.

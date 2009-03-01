@@ -12,7 +12,7 @@ use Indent::Utils qw(string_len);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
@@ -52,7 +52,7 @@ sub new {
 	}
 
 	# Save current piece.
-	$self->{'_current'} = $EMPTY;
+	$self->{'_current'} = $EMPTY_STR;
 
 	# Object.
 	return $self;
@@ -67,7 +67,7 @@ sub indent {
 
 	# Undef indent.
 	if (! $act_indent) {
-		$act_indent = $EMPTY;
+		$act_indent = $EMPTY_STR;
 	}
 
 	# Input data.
@@ -75,7 +75,7 @@ sub indent {
 
 	# If non_indent data, than return.
 	if ($non_indent) {
-		return $act_indent.join($EMPTY, @input);
+		return $act_indent.join($EMPTY_STR, @input);
 	}
 
 	# Indent.
@@ -88,7 +88,7 @@ sub indent {
 		if ($self->_compare($first, $second, $tmp_indent)) {
 			push @data, $self->{'_current'};
 			$first = $second;
-			$second = $EMPTY;
+			$second = $EMPTY_STR;
 			$tmp_indent = $act_indent.$self->{'next_indent'};
 		} else {
 			$first .= $second;
@@ -103,7 +103,7 @@ sub indent {
 			$first =~ s/^\s*//sm;
 			$first =~ s/\s*$//sm;
 		}
-		if ($first ne $EMPTY) {
+		if ($first ne $EMPTY_STR) {
 			push @data, $tmp_indent.$first;
 		}
 	}
