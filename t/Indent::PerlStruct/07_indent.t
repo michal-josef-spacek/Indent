@@ -1,6 +1,6 @@
 # Modules.
 use Indent::PerlStruct;
-use Test::More 'tests' => 1;
+use Test::More 'tests' => 2;
 
 print "Testing: Indent test.\n";
 my $obj = Indent::PerlStruct->new(
@@ -16,3 +16,9 @@ my $ret = <<'END';
 },
 END
 is($obj->indent({1 => 2, 3 => ['a', \'b']}), $ret);
+
+print "Testing: Indent bad data.\n";
+eval {
+	$obj->indent({1 => \*STDOUT});
+};
+is($@, "Unsupported data.\n");
