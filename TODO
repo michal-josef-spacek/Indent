@@ -10,7 +10,9 @@ Pridal jsem ji k HASH.
 38. Odstranit first, second, tmp1, tmp2 promenne.
 39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
 40. Pridat testy s utf8 textem.
-41.
+41. U Indent::PerlStruct by bylo dobre \t a \n vykreslovat jako tyhle zkratky.
+42. U Indent::PerlStruct by bylo dobre u tridy psat, ze je to trida.
+43.
 
 Applied
 =======
