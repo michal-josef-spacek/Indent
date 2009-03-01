@@ -36,12 +36,14 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/sm) {
+	if ($self->{'line_size'} !~ /^\d*$/ms) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -62,14 +64,16 @@ sub indent {
 	}
 
 	# If non_indent data, than return.
-	return $indent.$data if $non_indent;
+	if ($non_indent) {
+		return $indent.$data;
+	}
 
 	my ($first, $second) = (undef, $indent.$data);
 	my $last_second_length = 0;
 	my @data;
 	my $one = 1;
 	while (length $second >= $self->{'line_size'}
-		&& $second =~ /^\s*\S+\s+/sm
+		&& $second =~ /^\s*\S+\s+/ms
 		&& $last_second_length != length $second) {
 
 		# Last length of non-parsed part of data.
@@ -77,14 +81,15 @@ sub indent {
 
 		# Parse to indent length.
 		($first, my $tmp) = $second
-			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/smx;
+			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
 		if (! $first || length $first < length $indent
-			|| $first =~ /^$indent\s*$/sm) {
+			|| $first =~ /^$indent\s*$/ms) {
+
 			($first, $tmp) = $second
-				=~ /^($indent\s*[^\s]+?)\s(.*)$/smx;
+				=~ /^($indent\s*[^\s]+?)\s(.*)$/msx;
 		}
 
 		# If parsing is right.
@@ -94,7 +99,9 @@ sub indent {
 			$second = $tmp;
 
 			# Add next_indent to string.
-			$indent .= $self->{'next_indent'} if $one == 1;
+			if ($one == 1) {
+				$indent .= $self->{'next_indent'};
+			}
 			$one = 0;
 			$second = $indent.$second;
 
@@ -104,7 +111,9 @@ sub indent {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second || $second !~ /^\s*$/sm;
+	if ($second || $second !~ /^\s*$/ms) {
+		push @data, $second;
+	}
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
