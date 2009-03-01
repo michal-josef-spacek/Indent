@@ -13,7 +13,7 @@ use Readonly;
 use Scalar::Util qw(blessed);
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $COMMA => q{,};
 
 # Version.
@@ -37,7 +37,9 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
@@ -72,7 +74,7 @@ sub _get {
 	if (! defined $value) {
 		return 'undef';
 	} else {
-		$value =~ s/'/\\'/gsm;
+		$value =~ s/'/\\'/gms;
 		return '\''.$value.'\'';
 	}
 }
@@ -82,43 +84,47 @@ sub _indent {
 #------------------------------------------------------------------------------
 # Get indented structure.
 
-	my ($self, $data, $comma_flag, $indent_flag) = @_;
-	$comma_flag = 0 unless $comma_flag;
-	$indent_flag = 1 unless defined $indent_flag;
+	my ($self, $data_r, $comma_flag, $indent_flag) = @_;
+	if (! $comma_flag) {
+		$comma_flag = 0;
+	}
+	if (! defined $indent_flag) {
+		$indent_flag = 1;
+	}
 	my $ret;
-	my $indent = $indent_flag ? $self->{'indent'}->get : $EMPTY;
-	if (ref $data eq 'ARRAY') {
+	my $indent = $indent_flag ? $self->{'indent'}->get : $EMPTY_STR;
+	if (ref $data_r eq 'ARRAY') {
 		$ret .= $indent.'[';
-		if (scalar @{$data}) {
+		if (scalar @{$data_r}) {
 			$ret .= $self->{'output_separator'};
 			$self->{'indent'}->add;
-			foreach (@{$data}) {
-				$ret .= $self->_indent($_, 1);
+			foreach my $sub_data_r (@{$data_r}) {
+				$ret .= $self->_indent($sub_data_r, 1);
 			}
 			$self->{'indent'}->remove;
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '],'.$self->{'output_separator'};
-	} elsif (ref $data eq 'HASH' || defined blessed $data) {
+	} elsif (ref $data_r eq 'HASH' || defined blessed $data_r) {
 		$ret .= $indent.'{';
-		if (scalar keys %{$data} > 0) {
+		if (scalar keys %{$data_r} > 0) {
 			$ret .= $self->{'output_separator'};
 			$self->{'indent'}->add;
-			foreach my $key (sort keys %{$data}) {
+			foreach my $key (sort keys %{$data_r}) {
 				$ret .= $self->{'indent'}->get._get($key).
 					' => '.
-					$self->_indent($data->{$key}, 1, 0);
+					$self->_indent($data_r->{$key}, 1, 0);
 			}
 			$self->{'indent'}->remove;
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '},'.$self->{'output_separator'};
-	} elsif (ref $data eq $EMPTY) {
-		my $comma = $comma_flag ? $COMMA : $EMPTY;
-		$ret .= $indent._get($data).$comma.$self->{'output_separator'};
-	} elsif (ref $data eq 'SCALAR') {
-		my $comma = $comma_flag ? $COMMA : $EMPTY;
-		$ret .= $indent.'\\'._get(${$data}).$comma.
+	} elsif (ref $data_r eq $EMPTY_STR) {
+		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
+		$ret .= $indent._get($data_r).$comma.$self->{'output_separator'};
+	} elsif (ref $data_r eq 'SCALAR') {
+		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
+		$ret .= $indent.'\\'._get(${$data_r}).$comma.
 			$self->{'output_separator'};
 	} else {
 		err "Unsupported data.\n";
