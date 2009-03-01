@@ -39,12 +39,14 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/sm) {
+	if ($self->{'line_size'} !~ /^\d*$/ms) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -56,9 +58,6 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $tag Tag string.
-# @param $indent String to actual indent.
-# @param $non_indent Flag, than says no-indent.
 
 	my ($self, $tag, $indent, $non_indent) = @_;
 
@@ -68,7 +67,9 @@ sub indent {
 	}
 
 	# If non_indent data, than return.
-	return $indent.$tag if $non_indent;
+	if ($non_indent) {
+		return $indent.$tag;
+	}
 
 	# Parse tag.
 	my $tag_info = parse_normal($tag);
@@ -101,14 +102,14 @@ sub indent {
 				$tmp2 .= shift @params;
 
 			# '='.
-			} elsif (substr($tmp, string_len($tmp) - 1) ne '=') {
-				$tmp2 .= '=';
+			} elsif (substr($tmp, string_len($tmp) - 1) ne q{=}) {
+				$tmp2 .= q{=};
 
 			# Param value.
 			} else {
-				$tmp2 .= '"';
+				$tmp2 .= q{"};
 				$tmp2 .= shift @params;
-				$tmp2 .= '"';
+				$tmp2 .= q{"};
 			}
 
 		# End of tag.
@@ -143,7 +144,7 @@ sub indent {
 					$indent .= $self->{'next_indent'};
 				}
 			}
-			$tmp2 =~ s/^\s*//sm;
+			$tmp2 =~ s/^\s*//ms;
 			$tmp = $tmp2;
 		}
 		$tmp2 = $EMPTY_STR;
@@ -152,7 +153,7 @@ sub indent {
 	push @data, $indent.$tmp;
 
 	# Return as array or one line with output separator between its.
-	return wantarray ? @data : join($self->{'output_separator'}, @data);
+	return wantarray ? @data : join $self->{'output_separator'}, @data;
 }
 
 1;
@@ -206,6 +207,10 @@ __END__
 =item B<indent($tag, [$indent, $non_indent])>
 
  TODO
+ Arguments:
+ $tag - Tag string.
+ $indent - String to actual indent.
+ $non_indent - Flag, than says no-indent.
 
 =back
 
