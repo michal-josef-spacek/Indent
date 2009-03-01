@@ -11,7 +11,7 @@ use Error::Simple::Multiple qw(err);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
@@ -60,7 +60,7 @@ sub indent {
 
 	# 'indent' initialization.
 	if (! defined $indent) {
-		$indent = $EMPTY;
+		$indent = $EMPTY_STR;
 	}
 
 	# If non_indent data, than return.

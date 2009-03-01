@@ -13,7 +13,7 @@ use Readonly;
 use Tag::Parse qw(parse_normal);
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 Readonly::Scalar my $SPACE => q{ };
 
@@ -64,7 +64,7 @@ sub indent {
 
 	# Undef indent.
 	if (! $indent) {
-		$indent = $EMPTY;
+		$indent = $EMPTY_STR;
 	}
 
 	# If non_indent data, than return.
@@ -74,7 +74,7 @@ sub indent {
 	my $tag_info = parse_normal($tag);
 
 	my @data;
-	my ($tmp, $tmp2) = ($EMPTY, $EMPTY);
+	my ($tmp, $tmp2) = ($EMPTY_STR, $EMPTY_STR);
 
 	# Sorted pairs of attributes.
 	my @params;
@@ -146,7 +146,7 @@ sub indent {
 			$tmp2 =~ s/^\s*//sm;
 			$tmp = $tmp2;
 		}
-		$tmp2 = $EMPTY;
+		$tmp2 = $EMPTY_STR;
 	}
 
 	push @data, $indent.$tmp;

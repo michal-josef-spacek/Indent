@@ -12,7 +12,7 @@ use Indent::Utils qw(string_len);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
@@ -65,7 +65,7 @@ sub indent {
 
 	# Undef indent.
 	if (! $act_indent) {
-		$act_indent = $EMPTY;
+		$act_indent = $EMPTY_STR;
 	}
 
 	# If non_indent data, than return.

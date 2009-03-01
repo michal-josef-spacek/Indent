@@ -12,7 +12,7 @@ use Indent::Word;
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 Readonly::Scalar my $SPACE => q{ };
 
@@ -62,7 +62,7 @@ sub indent {
 
 	# Undef indent.
 	if (! $indent) {
-		$indent = $EMPTY;
+		$indent = $EMPTY_STR;
 	}
 
 	# Max size of key.
