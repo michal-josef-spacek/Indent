@@ -40,12 +40,14 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/sm) {
+	if ($self->{'line_size'} !~ /^\d*$/ms) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -60,9 +62,6 @@ sub new {
 sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
-# @param $data Reference to data array.
-# @param $act_indent String to actual indent.
-# @param $non_indent Flag, that says no-indent.
 
 	my ($self, $data, $act_indent, $non_indent) = @_;
 
@@ -75,7 +74,9 @@ sub indent {
 	my @input = @{$data};
 
 	# If non_indent data, than return.
-	return $act_indent.join($EMPTY, @input) if $non_indent;
+	if ($non_indent) {
+		return $act_indent.join($EMPTY, @input);
+	}
 
 	# Indent.
 	my @data = ();
@@ -140,8 +141,8 @@ sub _compare {
 	# TODO Rewrite.
 	} else {
 		my $tmp1 = $first;
-		$tmp1 =~ s/^\s*//sm;
-		$tmp1 =~ s/\s*$//sm;
+		$tmp1 =~ s/^\s*//ms;
+		$tmp1 =~ s/\s*$//ms;
 		if (length $tmp1 > 0
 			&& string_len($act_indent.$tmp1)
 			>= $self->{'line_size'}) {
@@ -150,8 +151,8 @@ sub _compare {
 			return 1;
 		} else {
 			my $tmp2 = $first.$second;
-			$tmp2 =~ s/^\s*//sm;
-			$tmp2 =~ s/\s*$//sm;
+			$tmp2 =~ s/^\s*//ms;
+			$tmp2 =~ s/\s*$//ms;
 			if (length $tmp1 > 0
 				&& string_len($act_indent.$tmp2)
 				> $self->{'line_size'}) {
