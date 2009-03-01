@@ -11,7 +11,7 @@ use Error::Simple::Multiple qw(err);
 use Readonly;
 
 # Constants.
-Readonly::Scalar my $EMPTY => q{};
+Readonly::Scalar my $EMPTY_STR => q{};
 
 # Version.
 our $VERSION = 0.02;
@@ -25,7 +25,7 @@ sub new {
 	my $self = bless {}, $class;
 
 	# Default indent.
-	$self->{'indent'} = $EMPTY;
+	$self->{'indent'} = $EMPTY_STR;
 
 	# Every next indent string.
 	$self->{'next_indent'} = "\t";
@@ -34,8 +34,26 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." if ! exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
+	}
+
+	# Check to 'next_indent' parameter.
+	if (! defined $self->{'next_indent'}) {
+		err "'next_indent' parameter must be defined.";
+	}
+	if (ref $self->{'next_indent'}) {
+		err "'next_indent' parameter must be a string.";
+	}
+
+	# Check to 'indent' parameter.
+	if (! defined $self->{'indent'}) {
+		err "'indent' parameter must be defined.";
+	}
+	if (ref $self->{'indent'}) {
+		err "'indent' parameter must be a string.";
 	}
 
 	# Object.
@@ -47,11 +65,11 @@ sub add {
 #------------------------------------------------------------------------------
 # Add an indent to global indent.
 
-	my $self = shift;
-	my $indent = shift || $self->{'next_indent'};
-	if ($indent) {
-		$self->{'indent'} .= $indent;
+	my ($self, $indent) = @_;
+	if (! defined $indent) {
+		$indent = $self->{'next_indent'};
 	}
+	$self->{'indent'} .= $indent;
 	return 1;
 }
 
@@ -60,13 +78,15 @@ sub remove {
 #------------------------------------------------------------------------------
 # Remove an indent from global indent.
 
-	my $self = shift;
-	my $indent = shift || $self->{'next_indent'};
+	my ($self, $indent) = @_;
+	if (! defined $indent) {
+		$indent = $self->{'next_indent'};
+	}
 	my $indent_length = length $indent;
 	if (substr($self->{'indent'}, -$indent_length) ne $indent) {
 		err "Cannot remove indent '$indent'.";
 	}
-	$self->{'indent'} = substr($self->{'indent'}, 0, -$indent_length);
+	$self->{'indent'} = substr $self->{'indent'}, 0, -$indent_length;
 	return 1;
 }
 
@@ -84,8 +104,10 @@ sub reset {
 #------------------------------------------------------------------------------
 # Reseting indent.
 
-	my $self = shift;
-	my $reset_value = shift || $EMPTY;
+	my ($self, $reset_value) = @_;
+	if (! defined $reset_value) {
+		$reset_value = $EMPTY_STR;
+	}
 	$self->{'indent'} = $reset_value;
 	return 1;
 }
@@ -154,6 +176,10 @@ as keyword value pairs. Recognized options are:
 
 =back
 
+=head1 ERRORS
+
+ TODO
+
 =head1 EXAMPLE
 
  # Pragmas.
@@ -210,13 +236,13 @@ L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
-=head1 LICENSE AND COPYRIGHT
-
- BSD licence.
-
 =head1 AUTHOR
 
 Michal Špaček <F<tupinek@gmail.com>>
+
+=head1 LICENSE AND COPYRIGHT
+
+BSD licence.
 
 =head1 VERSION
 
