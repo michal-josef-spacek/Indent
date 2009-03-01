@@ -100,8 +100,8 @@ sub indent {
 
 		# White space optimalization.
 		if (! $self->{'strict'}) {
-			$first =~ s/^\s*//sm;
-			$first =~ s/\s*$//sm;
+			$first =~ s/^\s*//ms;
+			$first =~ s/\s*$//ms;
 		}
 		if ($first ne $EMPTY_STR) {
 			push @data, $tmp_indent.$first;

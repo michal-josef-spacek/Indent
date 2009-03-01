@@ -37,12 +37,14 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/sm || $self->{'line_size'} <= 0) {
+	if ($self->{'line_size'} !~ /^\d*$/ms || $self->{'line_size'} <= 0) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -69,13 +71,17 @@ sub indent {
 	}
 
 	# If non_indent data, than return.
-	return $act_indent.$data if $non_indent;
+	if ($non_indent) {
+		return $act_indent.$data;
+	}
 
 	# Check to actual indent maximal length.
-	err 'Bad actual indent value. Length is greater then (\'line_size\' - '.
-		'\'size of next_indent\' - 1).'
-		if string_len($act_indent) > ($self->{'line_size'}
-		- string_len($self->{'next_indent'}) - 1);
+	if (string_len($act_indent) > ($self->{'line_size'}
+		- string_len($self->{'next_indent'}) - 1)) {
+
+		err 'Bad actual indent value. Length is greater then '.
+			'(\'line_size\' - \'size of next_indent\' - 1).';
+	}
 
 	# Splits data.
 	my $first = undef;
@@ -91,8 +97,9 @@ sub indent {
 	}
 
 	# Add other data to @data array.
-	push @data, $second if $second && $second
-		ne $act_indent.$self->{'next_indent'};
+	if ($second && $second ne $act_indent.$self->{'next_indent'}) {
+		push @data, $second;
+	}
 
 	# Return as array or one line with output separator between its.
 	return wantarray ? @data : join($self->{'output_separator'}, @data);

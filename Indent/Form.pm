@@ -40,12 +40,14 @@ sub new {
 	while (@params) {
 		my $key = shift @params;
 		my $val = shift @params;
-		err "Unknown parameter '$key'." unless exists $self->{$key};
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
 		$self->{$key} = $val;
 	}
 
 	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/sm) {
+	if ($self->{'line_size'} !~ /^\d*$/ms) {
 		err "Bad line_size = '$self->{'line_size'}'.";
 	}
 
@@ -82,8 +84,10 @@ sub indent {
 
 	# If non-indent.
 	# Return as array or one line with output separator between its.
-	return wantarray ? @data : join($self->{'output_separator'}, @data)
-		if $non_indent;
+	if ($non_indent) {
+		return wantarray ? @data
+			: join $self->{'output_separator'}, @data;
+	}
 
 	# Indent word.
 	my $next_indent = $self->{'next_indent'} ? $self->{'next_indent'}
@@ -113,7 +117,7 @@ sub indent {
 	}
 
 	# Return as array or one line with output separator between its.
-	return wantarray ? @data : join($self->{'output_separator'}, @data);
+	return wantarray ? @data : join $self->{'output_separator'}, @data;
 }
 
 1;

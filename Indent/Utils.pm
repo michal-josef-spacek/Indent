@@ -12,7 +12,7 @@ use Readonly;
 
 # Constants.
 Readonly::Scalar my $DEFAULT_TAB_LENGTH => 8;
-Readonly::Scalar my $SPACE => ' ';
+Readonly::Scalar my $SPACE => q{ };
 
 # Version.
 our $VERSION = 0.01;
@@ -31,7 +31,7 @@ sub reduce_duplicit_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s+/\ /gsm;
+	${$ref_to_string} =~ s/\s+/\ /gms;
 	return;
 }
 
@@ -42,7 +42,7 @@ sub remove_first_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/^\s*//sm;
+	${$ref_to_string} =~ s/^\s*//ms;
 	return;
 }
 
@@ -53,7 +53,7 @@ sub remove_last_ws {
 # @param $string Reference to data string.
 
 	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s*$//sm;
+	${$ref_to_string} =~ s/\s*$//ms;
 	return;
 }
 
@@ -79,7 +79,7 @@ sub string_len {
 
 	my $string = shift;
 	my $tmp = $SPACE x $TAB_LENGTH;
-	$string =~ s/\t/$tmp/gsm;
+	$string =~ s/\t/$tmp/gms;
 	my $length_of_string = length $string;
 	return $length_of_string;
 }
