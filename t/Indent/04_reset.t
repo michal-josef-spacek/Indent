@@ -1,15 +1,19 @@
-print "Testing: Reseting of indent.\n" if $debug;
-my $obj = $class->new;
-ok($obj->get, '');
+# Modules.
+use Indent;
+use Test::More 'tests' => 7;
+
+print "Testing: Reseting of indent.\n";
+my $obj = Indent->new;
+is($obj->get, '');
 $obj->add('---');
-ok($obj->get, '---');
+is($obj->get, '---');
 $obj->add('hoho');
-ok($obj->get, '---hoho');
+is($obj->get, '---hoho');
 $obj->reset('|||');
-ok($obj->get, "|||");
+is($obj->get, "|||");
 $obj->add('---');
-ok($obj->get, "|||---");
+is($obj->get, "|||---");
 $obj->remove('---');
-ok($obj->get, "|||");
+is($obj->get, "|||");
 $obj->reset;
-ok($obj->get, '');
+is($obj->get, '');

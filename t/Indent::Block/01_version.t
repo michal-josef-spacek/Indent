@@ -1,6 +1,6 @@
 # Modules.
-use Indent;
+use Indent::Block;
 use Test::More 'tests' => 1;
 
 print "Testing: Version.\n";
-is($Indent::VERSION, '0.02');
+is($Indent::Block::VERSION, '0.01');
