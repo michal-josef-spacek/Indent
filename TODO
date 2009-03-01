@@ -9,7 +9,8 @@ Pridal jsem ji k HASH.
 37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
 38. Odstranit first, second, tmp1, tmp2 promenne.
 39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
-40.
+40. Pridat testy s utf8 textem.
+41.
 
 Applied
 =======
