@@ -1,7 +1,7 @@
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Block;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 5;
 
 print "Testing: new() plain constructor.\n";
 my $obj = Indent::Block->new;
@@ -22,4 +22,10 @@ eval {
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
-# TODO Spatne cislo delky radku.
+print "Testing: new('line_size' => 'bad') bad constructor.\n";
+eval {
+	Indent::Block->new(
+		'line_size' => 'bad',
+	);
+};
+is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
