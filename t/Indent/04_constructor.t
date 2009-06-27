@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent;
 use Test::More 'tests' => 10;
 
@@ -11,47 +12,60 @@ print "Testing: new('') bad constructor.\n";
 eval {
 	$obj = Indent->new('');
 };
-is($@, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	$obj = Indent->new('something' => 'value');
+	$obj = Indent->new(
+		'something' => 'value',
+	);
 };
-is($@, "Unknown parameter 'something'.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
 print "Testing: new('next_indent' => undef) bad constructor.\n";
 eval {
-	$obj = Indent->new('next_indent' => undef);
+	$obj = Indent->new(
+		'next_indent' => undef,
+	);
 };
-is($@, "'next_indent' parameter must be defined.\n");
+is($EVAL_ERROR, "'next_indent' parameter must be defined.\n");
 
 print "Testing: new('next_indent' => {}) bad constructor.\n";
 eval {
-	$obj = Indent->new('next_indent' => {});
+	$obj = Indent->new(
+		'next_indent' => {},
+	);
 };
-is($@, "'next_indent' parameter must be a string.\n");
+is($EVAL_ERROR, "'next_indent' parameter must be a string.\n");
 
 print "Testing: new('next_indent' => \\'') bad constructor.\n";
 eval {
-	$obj = Indent->new('next_indent' => \'');
+	$obj = Indent->new(
+		'next_indent' => \'',
+	);
 };
-is($@, "'next_indent' parameter must be a string.\n");
+is($EVAL_ERROR, "'next_indent' parameter must be a string.\n");
 
 print "Testing: new('indent' => undef) bad constructor.\n";
 eval {
-	$obj = Indent->new('indent' => undef);
+	$obj = Indent->new(
+		'indent' => undef,
+	);
 };
-is($@, "'indent' parameter must be defined.\n");
+is($EVAL_ERROR, "'indent' parameter must be defined.\n");
 
 print "Testing: new('indent' => {}) bad constructor.\n";
 eval {
-	$obj = Indent->new('indent' => {});
+	$obj = Indent->new(
+		'indent' => {},
+	);
 };
-is($@, "'indent' parameter must be a string.\n");
+is($EVAL_ERROR, "'indent' parameter must be a string.\n");
 
 print "Testing: new('indent' => \\'') bad constructor.\n";
 eval {
-	$obj = Indent->new('indent' => \'');
+	$obj = Indent->new(
+		'indent' => \'',
+	);
 };
-is($@, "'indent' parameter must be a string.\n");
-
+is($EVAL_ERROR, "'indent' parameter must be a string.\n");
