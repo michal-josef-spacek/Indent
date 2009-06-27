@@ -16,6 +16,8 @@ is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	Indent::PerlStruct->new('something' => 'value');
+	Indent::PerlStruct->new(
+		'something' => 'value',
+	);
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");

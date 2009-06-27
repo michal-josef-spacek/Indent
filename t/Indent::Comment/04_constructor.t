@@ -12,7 +12,9 @@ is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	Indent::Comment->new('something' => 'value');
+	Indent::Comment->new(
+		'something' => 'value',
+	);
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
