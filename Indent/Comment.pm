@@ -42,7 +42,7 @@ sub new {
 	set_params($self, @params);
 
 	# Control.
-	unless ($self->{'begin'} || $self->{'end'} || $self->{'middle'}) {
+	if (! $self->{'begin'} && ! $self->{'end'} && ! $self->{'middle'}) {
 		err 'Cannot define comments.';
 	}
 
