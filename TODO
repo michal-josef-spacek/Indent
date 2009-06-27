@@ -4,7 +4,6 @@ TODO
 Pridal jsem ji k HASH.
 37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
 38. Odstranit first, second, tmp1, tmp2 promenne.
-39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
 40. Pridat testy s utf8 textem.
 41. U Indent::PerlStruct by bylo dobre \t a \n vykreslovat jako tyhle zkratky.
 42. U Indent::PerlStruct by bylo dobre u tridy psat, ze je to trida.
@@ -135,13 +134,20 @@ NONE [20080710] skim
 OK [20080730] skim
 
 13. Dokumentace k Indent::Tag.
+Doplnena zakladni dokumentace, ted zbyva jenom resit TODO.
 OK [20090627] skim
 
 18. Dokumentace k Indent::Form.
+Doplnena zakladni dokumentace, ted zbyva jenom resit TODO.
 OK [20090627] skim
 
 30. Udelat test k 29.
 NONE [20090627] skim
 
 34. Vice testu k Indent::Block.
+Provadim cover testing, takze to bude v ramci toho.
 OK [20090627] skim
+
+39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
+Tohle zatim vynecham.
+NONE [20090627] skim
