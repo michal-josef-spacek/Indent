@@ -82,6 +82,7 @@ t/Indent::Utils/05_string_len.t
 t/Indent::Utils/06_reduce_duplicit_ws.t
 t/Indent::Utils/07_pod_coverage.t
 t/Indent::Utils/08_pod.t
+t/Indent::Utils/09_set_params.t
 t/Indent::Word/00_use.t
 t/Indent::Word/01_version.t
 t/Indent::Word/02_constructor.t

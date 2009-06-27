@@ -8,6 +8,7 @@ use strict;
 use warnings;
 
 # Modules.
+use Error::Simple::Multiple qw(err);
 use Readonly;
 
 # Constants.
@@ -22,7 +23,7 @@ our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
 
 # Export.
 our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
-	string_len);
+	set_params string_len);
 
 #------------------------------------------------------------------------------
 sub reduce_duplicit_ws {
@@ -66,6 +67,23 @@ sub remove_ws {
 	my $ref_to_string = shift;
 	remove_last_ws($ref_to_string);
 	remove_first_ws($ref_to_string);
+	return;
+}
+
+#------------------------------------------------------------------------------
+sub set_params {
+#------------------------------------------------------------------------------
+# Set parameters to user values.
+
+	my ($self, @params) = @_;
+	while (@params) {
+		my $key = shift @params;
+		my $val = shift @params;
+		if (! exists $self->{$key}) {
+			err "Unknown parameter '$key'.";
+		}
+		$self->{$key} = $val;
+	}
 	return;
 }
 
@@ -135,11 +153,23 @@ __END__
 
  Remove white characters in begin and end of string.
 
+=item B<set_params($self, @params)>
+
+ Sets object parameters to user values.
+ If setted key doesn't exist in $self object, turn fatal error.
+ $self - Object or hash reference.
+ @params - Key, value pairs.
+
 =item B<string_len($string)>
 
  Gets length of string.
 
 =back
+
+=head1 ERRORS
+
+ set_params():
+   Unknown parameter '%s'.
 
 =head1 EXAMPLE1
 
