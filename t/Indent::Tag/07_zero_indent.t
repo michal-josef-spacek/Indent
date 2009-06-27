@@ -6,7 +6,7 @@ print "-- Zero line_size.\n";
 my $next_indent = '  ';
 my $obj = Indent::Tag->new(
 	'next_indent' => $next_indent,
-	'line_size' => 0
+	'line_size' => 0,
 );
 my $tag = '<tag param="value" param2="value2" param3="val3">';
 my $ret = $obj->indent($tag);

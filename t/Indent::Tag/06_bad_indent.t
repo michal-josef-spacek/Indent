@@ -8,7 +8,7 @@ print "-- Bad value in line_size.\n";
 eval {
 	Indent::Tag->new(
 		'next_indent' => '  ',
-		'line_size' => 'ko'
+		'line_size' => 'ko',
 	);
 };
-is($EVAL_ERROR, "Bad line_size = 'ko'.\n");
+is($EVAL_ERROR, "'line_size' parameter must be a number.\n");

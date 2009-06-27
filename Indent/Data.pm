@@ -36,9 +36,10 @@ sub new {
 	# Process params.
 	set_params($self, @params);
 
-	# Line_size check.
+	# 'line_size' check.
 	if ($self->{'line_size'} !~ /^\d*$/ms || $self->{'line_size'} <= 0) {
-		err "Bad line_size = '$self->{'line_size'}'.";
+		err '\'line_size\' parameter must be a number.', 
+			'line_size', $self->{'line_size'};
 	}
 
 	# Error with 'next_indent' length greater than 'line_size'.

@@ -8,25 +8,25 @@ print "-- Zero line_size.\n";
 eval {
 	Indent::Data->new(
 		'next_indent' => '  ',
-		'line_size' => 0
+		'line_size' => 0,
 	);
 };
-is($EVAL_ERROR, "Bad line_size = '0'.\n");
+is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
 
 print "-- Bad value in line_size.\n";
 eval {
 	Indent::Data->new(
 		'next_indent' => '  ',
-		'line_size' => 'ko'
+		'line_size' => 'ko',
 	);
 };
-is($EVAL_ERROR, "Bad line_size = 'ko'.\n");
+is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
 
 print "-- Length of 'next_indent' is greater than or equal 'line_size'.\n";
 eval {
 	Indent::Data->new(
 		'next_indent' => '  ',
-		'line_size' => '1'
+		'line_size' => '1',
 	);
 };
 is($EVAL_ERROR, "Bad line_size = '1' or length of string '  '.\n");

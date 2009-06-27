@@ -36,9 +36,10 @@ sub new {
 	# Process params.
 	set_params($self, @params);
 
-	# Line_size check.
-	if ($self->{'line_size'} !~ /^\d*$/ms) {
-		err '\'line_size\' parameter must be a number.';
+	# 'line_size' check.
+	if ($self->{'line_size'} !~ /^\d*$/ms || $self->{'line_size'} < 0) {
+		err '\'line_size\' parameter must be a number.', 
+			'line_size', $self->{'line_size'};
 	}
 
 	# Object.
