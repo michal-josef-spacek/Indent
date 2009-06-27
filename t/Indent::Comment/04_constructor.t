@@ -24,6 +24,7 @@ eval {
 };
 is($EVAL_ERROR, "Cannot define comments.\n");
 
+print "Testing: new('middle' => ' * ') right constructor.\n";
 my $obj = Indent::Comment->new(
 	'middle' => ' * ',
 );
