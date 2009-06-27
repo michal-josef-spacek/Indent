@@ -56,7 +56,7 @@ sub indent {
 #------------------------------------------------------------------------------
 # Parses tag to indented data.
 
-	my ($self, $data, $act_indent, $non_indent) = @_;
+	my ($self, $data_ar, $act_indent, $non_indent) = @_;
 
 	# Undef indent.
 	if (! $act_indent) {
@@ -64,7 +64,7 @@ sub indent {
 	}
 
 	# Input data.
-	my @input = @{$data};
+	my @input = @{$data_ar};
 
 	# If non_indent data, than return.
 	if ($non_indent) {
@@ -210,10 +210,10 @@ __END__
 
 =back
 
-=item B<indent($data, [$act_indent, $non_indent])>
+=item B<indent($data_ar, [$act_indent, $non_indent])>
 
  Indent method.
- - $data - Reference to array with strings to indent.
+ - $data_ar - Reference to array with strings to indent.
  - $act_indent - String to actual indent.
  - $non_indent - Flag, that says 'no-indent' for current time.
 
