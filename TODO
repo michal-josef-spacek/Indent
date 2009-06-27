@@ -1,9 +1,5 @@
 TODO
 ====
-13. Dokumentace k Indent::Tag.
-18. Dokumentace k Indent::Form.
-30. Udelat test k 29.
-34. Vice testu k Indent::Block.
 36. Co delat u Indent::PerlStruct v pripade, ze indentuji perl tridu?
 Pridal jsem ji k HASH.
 37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
@@ -137,3 +133,15 @@ NONE [20080710] skim
 
 35. Odstranit TODO v dokumentaci k Indent::PerlStruct.
 OK [20080730] skim
+
+13. Dokumentace k Indent::Tag.
+OK [20090627] skim
+
+18. Dokumentace k Indent::Form.
+OK [20090627] skim
+
+30. Udelat test k 29.
+NONE [20090627] skim
+
+34. Vice testu k Indent::Block.
+OK [20090627] skim
