@@ -254,6 +254,7 @@ __END__
 
 L<Error::Simple::Multiple(3pm)>,
 L<Exporter(3pm)>,
+L<Readonly(3pm)>.
 
 =head1 SEE ALSO
 
