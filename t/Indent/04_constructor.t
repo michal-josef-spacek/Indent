@@ -3,11 +3,6 @@ use English qw(-no_match_vars);
 use Indent;
 use Test::More 'tests' => 10;
 
-print "Testing: new() plain constructor.\n";
-my $obj = Indent->new;
-ok(defined $obj);
-ok($obj->isa('Indent'));
-
 print "Testing: new('') bad constructor.\n";
 eval {
 	Indent->new('');
@@ -69,3 +64,8 @@ eval {
 	);
 };
 is($EVAL_ERROR, "'indent' parameter must be a string.\n");
+
+print "Testing: new() right constructor.\n";
+my $obj = Indent->new;
+ok(defined $obj);
+ok($obj->isa('Indent'));

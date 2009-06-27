@@ -4,7 +4,6 @@ use Indent::Comment;
 use Test::More 'tests' => 5;
 
 print "Testing: new('') bad constructor.\n";
-my $obj;
 eval {
 	Indent::Comment->new('');
 };

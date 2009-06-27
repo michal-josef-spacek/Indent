@@ -3,11 +3,6 @@ use English qw(-no_match_vars);
 use Indent::Block;
 use Test::More 'tests' => 5;
 
-print "Testing: new() plain constructor.\n";
-my $obj = Indent::Block->new;
-ok(defined $obj);
-ok($obj->isa('Indent::Block'));
-
 print "Testing: new('') bad constructor.\n";
 eval {
 	Indent::Block->new('');
@@ -29,3 +24,8 @@ eval {
 	);
 };
 is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
+
+print "Testing: new() right constructor.\n";
+my $obj = Indent::Block->new;
+ok(defined $obj);
+ok($obj->isa('Indent::Block'));
