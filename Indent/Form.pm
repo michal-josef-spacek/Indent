@@ -54,23 +54,23 @@ sub indent {
 #------------------------------------------------------------------------------
 # Indent form data.
 
-	my ($self, $data, $indent, $non_indent) = @_;
+	my ($self, $data_ar, $actual_indent, $non_indent_flag) = @_;
 
 	# Undef indent.
-	if (! $indent) {
-		$indent = $EMPTY_STR;
+	if (! $actual_indent) {
+		$actual_indent = $EMPTY_STR;
 	}
 
 	# Max size of key.
 	my $max = 0;
 	my @data;
-	foreach my $dat (@{$data}) {
+	foreach my $dat (@{$data_ar}) {
 		if (length $dat->[0] > $max) {
 			$max = length $dat->[0];
 		}
 
 		# Non-indent.
-		if ($non_indent) {
+		if ($non_indent_flag) {
 			push @data, $dat->[0].$self->{'form_separator'}.
 				$dat->[1];
 		}
@@ -78,7 +78,7 @@ sub indent {
 
 	# If non-indent.
 	# Return as array or one line with output separator between its.
-	if ($non_indent) {
+	if ($non_indent_flag) {
 		return wantarray ? @data
 			: join $self->{'output_separator'}, @data;
 	}
@@ -92,8 +92,8 @@ sub indent {
 		'next_indent' => $next_indent,
 	);
 
-	foreach my $dat (@{$data}) {
-		my $output = $indent;
+	foreach my $dat (@{$data_ar}) {
+		my $output = $actual_indent;
 		if ($self->{'right_align'}) {
 			$output .= $SPACE x ($max - length $dat->[0]);
 			$output .= $dat->[0];
@@ -106,7 +106,7 @@ sub indent {
 		$output .= shift @tmp;
 		push @data, $output;
 		while (@tmp) {
-			push @data, $indent.shift @tmp;
+			push @data, $actual_indent.shift @tmp;
 		}
 	}
 
@@ -129,9 +129,8 @@ __END__
 =head1 SYNOPSIS
 
  use Indent::Form;
- my $indent = Indent::Form->new(%params);
- $indent->indent($data);
- # TODO
+ my $indent = Indent::Form->new(%parametes);
+ $indent->indent($data_ar, $actual_indent, $non_indent_flag);
 
 =head1 METHODS
 
@@ -170,11 +169,11 @@ __END__
 
 =back
 
-=item B<indent($data, [$indent, $non_indent])>
+=item B<indent($data, [$actial_indent, $non_indent_flag])>
 
  $data - Data array [['key' => 'value'], [..]];
- $indent - String to actual indent.
- $non_indent - Flag, than says no-indent.
+ $actual_indent - String to actual indent.
+ $non_indent_flag - Flag, than says no-indent.
 
 =back
 
