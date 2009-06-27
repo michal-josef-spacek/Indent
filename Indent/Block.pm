@@ -8,7 +8,7 @@ use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
-use Indent::Utils qw(string_len);
+use Indent::Utils qw(set_params string_len);
 use Readonly;
 
 # Constants.
@@ -37,14 +37,7 @@ sub new {
 	$self->{'strict'} = 1;
 
 	# Process params.
-	while (@params) {
-		my $key = shift @params;
-		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
-		$self->{$key} = $val;
-	}
+	set_params($self, @params);
 
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/ms) {
@@ -226,6 +219,14 @@ __END__
 
 =back
 
+=head1 ERRORS
+
+ Mine:
+   TODO
+
+ From CSS::Structure::Utils:
+   Unknown parameter '%s'.
+
 =head1 EXAMPLE
 
  # Pragmas.
@@ -252,7 +253,8 @@ __END__
 =head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
-L<Indent::Utils(3pm)>.
+L<Indent::Utils(3pm)>,
+L<Readonly(3pm)>.
 
 =head1 SEE ALSO
 

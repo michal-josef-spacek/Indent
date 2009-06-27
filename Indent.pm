@@ -8,6 +8,7 @@ use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Indent::Utils qw(set_params);
 use Readonly;
 
 # Constants.
@@ -31,14 +32,7 @@ sub new {
 	$self->{'next_indent'} = "\t";
 
 	# Process params.
-	while (@params) {
-		my $key = shift @params;
-		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
-		$self->{$key} = $val;
-	}
+	set_params($self, @params);
 
 	# Check to 'next_indent' parameter.
 	if (! defined $self->{'next_indent'}) {
@@ -178,7 +172,11 @@ as keyword value pairs. Recognized options are:
 
 =head1 ERRORS
 
- TODO
+ Mine:
+   TODO
+
+ From CSS::Structure::Utils:
+   Unknown parameter '%s'.
 
 =head1 EXAMPLE
 
@@ -223,7 +221,9 @@ as keyword value pairs. Recognized options are:
 
 =head1 DEPENDENCIES
 
-L<Error::Simple::Multiple(3pm)>.
+L<Error::Simple::Multiple(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Readonly(3pm)>.
 
 =head1 SEE ALSO
 

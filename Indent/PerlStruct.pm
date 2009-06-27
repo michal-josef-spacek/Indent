@@ -9,6 +9,7 @@ use warnings;
 # Modules.
 use Error::Simple::Multiple qw(err);
 use Indent;
+use Indent::Utils qw(set_params);
 use Readonly;
 use Scalar::Util qw(blessed);
 
@@ -34,14 +35,7 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@params) {
-		my $key = shift @params;
-		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
-		$self->{$key} = $val;
-	}
+	set_params($self, @params);
 
 	# Indent object.
 	$self->{'indent'} = Indent->new(
@@ -181,8 +175,11 @@ __END__
 
 =head1 ERRORS
 
- Unknown parameter '%'.
- Unsupported data.
+ Mine:
+   Unsupported data.
+
+ From CSS::Structure::Utils:
+   Unknown parameter '%s'.
 
 =head1 EXAMPLE1
 
@@ -231,7 +228,10 @@ __END__
 =head1 DEPENDENCIES
 
 L<Error::Simple::Multiple(3pm)>,
-L<Indent(3pm)>.
+L<Indent(3pm)>,
+L<Indent::Utils(3pm)>,
+L<Readonly(3pm)>,
+L<Scalar::Util(3pm)>.
 
 =head1 SEE ALSO
 

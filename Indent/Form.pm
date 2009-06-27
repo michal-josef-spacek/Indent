@@ -8,6 +8,7 @@ use warnings;
 
 # Modules.
 use Error::Simple::Multiple qw(err);
+use Indent::Utils qw(set_params);
 use Indent::Word;
 use Readonly;
 
@@ -37,14 +38,7 @@ sub new {
 	$self->{'output_separator'} = "\n";
 
 	# Process params.
-	while (@params) {
-		my $key = shift @params;
-		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
-		$self->{$key} = $val;
-	}
+	set_params($self, @params);
 
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/ms) {
@@ -184,6 +178,14 @@ __END__
 
 =back
 
+=head1 ERRORS
+
+ Mine:
+   TODO
+
+ From CSS::Structure::Utils:
+   Unknown parameter '%s'.
+
 =head1 EXAMPLE
 
  # Pragmas.
@@ -209,8 +211,10 @@ __END__
 
 =head1 DEPENDENCIES
 
+L<Error::Simple::Multiple(3pm)>,
+L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>,
-L<Error::Simple::Multiple(3pm)>
+L<Readonly(3pm)>.
 
 =head1 SEE ALSO
 
