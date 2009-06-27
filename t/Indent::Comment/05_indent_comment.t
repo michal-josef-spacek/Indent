@@ -10,7 +10,14 @@ my $obj = Indent::Comment->new(
 );
 my @data = ('one', 'two');
 my $ret = $obj->indent(\@data);
-is($ret, "{\n  one\n  two\n}");
+my $right_ret = <<'END';
+{
+  one
+  two
+}
+END
+chomp $right_ret;
+is($ret, $right_ret);
 
 $obj = Indent::Comment->new(
 	'middle' => '# ',

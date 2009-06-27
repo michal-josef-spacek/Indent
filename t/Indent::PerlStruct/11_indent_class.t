@@ -4,7 +4,11 @@ use Test::More 'tests' => 1;
 
 print "Testing: Class dump.\n";
 my $obj = Indent::PerlStruct->new;
-my $ret = <<"END";
+my $class = Indent::PerlStruct->new;
+my $ret = $obj->indent({
+	1 => $class,
+});
+my $right_ret = <<"END";
 {
 	'1' => {
 		'indent' => {
@@ -16,5 +20,4 @@ my $ret = <<"END";
 	},
 },
 END
-my $class = Indent::PerlStruct->new;
-is($obj->indent({1 => $class}), $ret);
+is($ret, $right_ret);
