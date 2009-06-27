@@ -7,20 +7,26 @@ my $obj = Indent::Block->new;
 my $data_ar = ['text', 'text'];
 my @ret = $obj->indent($data_ar);
 is_deeply(
-	@ret, 
-	'texttext',
+	\@ret, 
+	[
+		'texttext',
+	],
 );
 
 @ret = $obj->indent($data_ar, '<--->');
 is_deeply(
-	@ret,
-	'<--->texttext',
+	\@ret,
+	[
+		'<--->texttext',
+	],
 );
 
 @ret = $obj->indent($data_ar, '<--->', 1);
 is_deeply(
-	@ret,
-	'<--->texttext',
+	\@ret,
+	[
+		'<--->texttext',
+	],
 );
 
 $obj = Indent::Block->new(
