@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent::PerlStruct;
 use Test::More 'tests' => 2;
 
@@ -21,4 +22,4 @@ print "Testing: Indent bad data.\n";
 eval {
 	$obj->indent({1 => \*STDOUT});
 };
-is($@, "Unsupported data.\n");
+is($EVAL_ERROR, "Unsupported data.\n");
