@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent::Comment;
 use Test::More 'tests' => 2;
 
@@ -11,7 +12,7 @@ my @data = ();
 eval {
 	$obj->indent(@data);
 };
-is($@, "Cannot define data.\n");
+is($EVAL_ERROR, "Cannot define data.\n");
 
 print "Testing: Bad indent. Array is empty.\n";
 $obj = Indent::Comment->new(
@@ -21,4 +22,4 @@ $obj = Indent::Comment->new(
 eval {
 	$obj->indent(\@data);
 };
-is($@, "Cannot define data.\n");
+is($EVAL_ERROR, "Cannot define data.\n");

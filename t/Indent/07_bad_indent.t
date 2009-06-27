@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent;
 use Test::More 'tests' => 3;
 
@@ -10,4 +11,4 @@ is($obj->get, '---');
 eval {
 	$obj->remove('aa');
 };
-is($@, "Cannot remove indent 'aa'.\n");
+is($EVAL_ERROR, "Cannot remove indent 'aa'.\n");
