@@ -9,12 +9,12 @@ ok($obj->isa('Indent::Data'));
 
 print "Testing: new('') bad constructor.\n";
 eval {
-	$obj = Indent::Data->new('');
+	Indent::Data->new('');
 };
 is($@, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	$obj = Indent::Data->new('something' => 'value');
+	Indent::Data->new('something' => 'value');
 };
 is($@, "Unknown parameter 'something'.\n");

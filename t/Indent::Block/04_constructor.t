@@ -10,13 +10,13 @@ ok($obj->isa('Indent::Block'));
 
 print "Testing: new('') bad constructor.\n";
 eval {
-	$obj = Indent::Block->new('');
+	Indent::Block->new('');
 };
 is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	$obj = Indent::Block->new(
+	Indent::Block->new(
 		'something' => 'value',
 	);
 };

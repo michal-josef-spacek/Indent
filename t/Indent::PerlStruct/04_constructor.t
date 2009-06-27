@@ -9,12 +9,12 @@ ok($obj->isa('Indent::PerlStruct'));
 
 print "Testing: new('') bad constructor.\n";
 eval {
-	$obj = Indent::PerlStruct->new('');
+	Indent::PerlStruct->new('');
 };
 is($@, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
-	$obj = Indent::PerlStruct->new('something' => 'value');
+	Indent::PerlStruct->new('something' => 'value');
 };
 is($@, "Unknown parameter 'something'.\n");
