@@ -42,7 +42,7 @@ sub new {
 
 	# Line_size check.
 	if ($self->{'line_size'} !~ /^\d*$/ms) {
-		err "Bad line_size = '$self->{'line_size'}'.";
+		err '\'line_size\' parameter must be a number.';
 	}
 
 	# Object.
@@ -181,7 +181,7 @@ __END__
 =head1 ERRORS
 
  Mine:
-   TODO
+   'line_size' parameter must be a number.
 
  From CSS::Structure::Utils:
    Unknown parameter '%s'.
