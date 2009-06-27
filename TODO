@@ -1,8 +1,5 @@
 TODO
 ====
-36. Co delat u Indent::PerlStruct v pripade, ze indentuji perl tridu?
-Pridal jsem ji k HASH.
-37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
 38. Odstranit first, second, tmp1, tmp2 promenne.
 40. Pridat testy s utf8 textem.
 41. U Indent::PerlStruct by bylo dobre \t a \n vykreslovat jako tyhle zkratky.
@@ -151,3 +148,10 @@ OK [20090627] skim
 39. Do 10 testu pridat detekci Test::Pod::Coverage. Bez toho to selze.
 Tohle zatim vynecham.
 NONE [20090627] skim
+
+37. Pridat testy pro Indent::PerlStruct, ktere budou vykreslovat tridu.
+OK [20090627] skim
+
+36. Co delat u Indent::PerlStruct v pripade, ze indentuji perl tridu?
+Pridal jsem ji k HASH.
+OK [20090627] skim
