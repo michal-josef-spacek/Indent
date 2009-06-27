@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent::Comment;
 use Test::More 'tests' => 3;
 
@@ -7,16 +8,16 @@ my $obj;
 eval {
 	Indent::Comment->new('');
 };
-is($@, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
 	Indent::Comment->new('something' => 'value');
 };
-is($@, "Unknown parameter 'something'.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
 print "Testing: new() bad constructor.\n";
 eval {
 	Indent::Comment->new;
 };
-is($@, "Cannot define comments.\n");
+is($EVAL_ERROR, "Cannot define comments.\n");

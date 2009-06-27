@@ -1,4 +1,5 @@
 # Modules.
+use English qw(-no_match_vars);
 use Indent::Tag;
 use Test::More 'tests' => 4;
 
@@ -11,10 +12,10 @@ print "Testing: new('') bad constructor.\n";
 eval {
 	Indent::Tag->new('');
 };
-is($@, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n");
 
 print "Testing: new('something' => 'value') bad constructor.\n";
 eval {
 	Indent::Tag->new('something' => 'value');
 };
-is($@, "Unknown parameter 'something'.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n");
