@@ -14,8 +14,8 @@ TODO
             "dalsi".
             "dalsi";
     Nedela tohle uz nejaky indent?
-44. Vytvorit Indent::SexPression.
-45.
+45. Doresit Indent::Sexpression.
+46.
 
 Applied
 =======
@@ -166,3 +166,6 @@ OK [20090627] skim
 36. Co delat u Indent::PerlStruct v pripade, ze indentuji perl tridu?
 Pridal jsem ji k HASH.
 OK [20090627] skim
+
+44. Vytvorit Indent::Sexpression.
+OK [20090717] skim
