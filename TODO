@@ -15,7 +15,6 @@ TODO
             "dalsi";
     Nedela tohle uz nejaky indent?
 45. Doresit Indent::Sexpression.
-46. V Indent::PerlStruct by bylo dobre mit i kod.
 47.
 
 Applied
@@ -170,3 +169,8 @@ OK [20090627] skim
 
 44. Vytvorit Indent::Sexpression.
 OK [20090717] skim
+
+46. V Indent::PerlStruct by bylo dobre mit i kod.
+Je tam 'CODE()' retezec.
+Je to dobre tady mit, protoze jinak to vyhodi unsupported.
+OK [20090801] skim
