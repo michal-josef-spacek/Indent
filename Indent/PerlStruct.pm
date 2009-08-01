@@ -15,6 +15,7 @@ use Scalar::Util qw(blessed);
 
 # Constants.
 Readonly::Scalar my $EMPTY_STR => q{};
+Readonly::Scalar my $CODE => 'CODE()';
 Readonly::Scalar my $COMMA => q{,};
 
 # Version.
@@ -120,6 +121,9 @@ sub _indent {
 		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
 		$ret .= $indent.'\\'._get(${$data_r}).$comma.
 			$self->{'output_separator'};
+	} elsif (ref $data_r eq 'CODE') {
+		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
+		$ret .= $indent.$CODE.$comma.$self->{'output_separator'};
 	} else {
 		err "Unsupported data.\n";
 	}
