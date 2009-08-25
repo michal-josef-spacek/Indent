@@ -9,7 +9,7 @@ my $obj = Indent::PerlStruct->new(
 );
 my $ret = <<'END';
 {
-  '1' => '2',
+  '1' => 2,
   '3' => [
     'a',
     \'b',

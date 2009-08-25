@@ -6,8 +6,8 @@ print "Testing: Hash dump.\n";
 my $obj = Indent::PerlStruct->new;
 my $ret = <<'END';
 {
-	'1' => '2',
-	'3' => '4',
+	'1' => 2,
+	'3' => 4,
 },
 END
 is($obj->indent({1 => 2, 3 => 4}), $ret);

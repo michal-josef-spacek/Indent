@@ -6,8 +6,8 @@ print "Testing: Array dump.\n";
 my $obj = Indent::PerlStruct->new;
 my $ret = <<'END';
 [
-	'1',
-	'2',
+	1,
+	2,
 ],
 END
 is($obj->indent([1, 2]), $ret);
