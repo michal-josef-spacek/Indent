@@ -65,12 +65,16 @@ sub _get {
 #------------------------------------------------------------------------------
 # Get variable as serialize.
 
-	my $value = shift;
+	my ($value, $key_flag) = @_;
 	if (! defined $value) {
 		return 'undef';
 	} else {
-		$value =~ s/'/\\'/gms;
-		return '\''.$value.'\'';
+		if (int $value eq $value && ! $key_flag) {
+			return $value;
+		} else {
+			$value =~ s/'/\\'/gms;
+			return '\''.$value.'\'';
+		}
 	}
 }
 
@@ -106,7 +110,7 @@ sub _indent {
 			$ret .= $self->{'output_separator'};
 			$self->{'indent'}->add;
 			foreach my $key (sort keys %{$data_r}) {
-				$ret .= $self->{'indent'}->get._get($key).
+				$ret .= $self->{'indent'}->get._get($key, 1).
 					' => '.
 					$self->_indent($data_r->{$key}, 1, 0);
 			}
