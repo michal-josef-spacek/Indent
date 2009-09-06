@@ -26,8 +26,10 @@ sub new {
 	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
-	# Options.
+	# Line size.
 	$self->{'line_size'} = $LINE_SIZE;
+
+	# Next indent.
 	$self->{'next_indent'} = "\t";
 
 	# Output.
