@@ -17,7 +17,9 @@ TODO
 45. Doresit Indent::Sexpression.
 47. Test Indent::Block s 'char', undef, 'char'?
     Jak by se to melo chovat?
-48.
+48. Pridat do t/Indent::PerlStruct/13_numbers.t test pro zaporne cisla.
+    A opravit Indent::PerlStruct.
+49.
 
 Applied
 =======
