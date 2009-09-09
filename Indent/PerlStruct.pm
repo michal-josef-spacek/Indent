@@ -141,18 +141,15 @@ sub _is_number {
 
 	my $str = shift;
 	if ($str =~ m/^\d+$/) {
-		if ($str =~ m/^0/) {
+		if ($str eq '0') {
+			return 1;
+		} elsif ($str =~ m/^0/) {
 			return 0;
 		} else {
 			return 1;
 		}
 	} elsif ($str =~ m/^(\d+)\.\d+$/) {
-		my $num = $1;
-		if ($num eq '0') {
-			return 1;
-		} else {
-			return _is_number($num);
-		}
+		return _is_number($1);
 	} else {
 		return 0;
 	}
