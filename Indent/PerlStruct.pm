@@ -69,7 +69,9 @@ sub _get {
 	if (! defined $value) {
 		return 'undef';
 	} else {
-		if ($value =~ m/^\d+$/ms && ! $key_flag) {
+		if ($value =~ m/^\d+$/ms && $value eq (int $value)
+			&& ! $key_flag) {
+
 			return $value;
 		} else {
 			$value =~ s/'/\\'/gms;
