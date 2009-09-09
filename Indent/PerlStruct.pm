@@ -69,9 +69,7 @@ sub _get {
 	if (! defined $value) {
 		return 'undef';
 	} else {
-		if ($value =~ m/^\d+$/ms && $value eq (int $value)
-			&& ! $key_flag) {
-
+		if (! $key_flag && _is_number($value)) {
 			return $value;
 		} else {
 			$value =~ s/'/\\'/gms;
@@ -134,6 +132,30 @@ sub _indent {
 		err "Unsupported data.\n";
 	}
 	return $ret;
+}
+
+#------------------------------------------------------------------------------
+sub _is_number {
+#------------------------------------------------------------------------------
+# Check to number.
+
+	my $str = shift;
+	if ($str =~ m/^\d+$/) {
+		if ($str =~ m/^0/) {
+			return 0;
+		} else {
+			return 1;
+		}
+	} elsif ($str =~ m/^(\d+)\.\d+$/) {
+		my $num = $1;
+		if ($num eq '0') {
+			return 1;
+		} else {
+			return _is_number($num);
+		}
+	} else {
+		return 0;
+	}
 }
 
 1;
