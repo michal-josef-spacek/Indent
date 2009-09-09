@@ -11,6 +11,7 @@ Indent/Comment.pm
 Indent/Data.pm
 Indent/Form.pm
 Indent/PerlStruct.pm
+Indent/Sexpression.pm
 Indent/Tag.pm
 Indent/Utils.pm
 Indent/Word.pm
@@ -66,6 +67,11 @@ t/Indent::PerlStruct/09_indent.t
 t/Indent::PerlStruct/10_output_separator.t
 t/Indent::PerlStruct/11_indent_class.t
 t/Indent::PerlStruct/12_special_characters.t
+t/Indent::PerlStruct/13_numbers.t
+t/Indent::Sexpression/00_use.t
+t/Indent::Sexpression/01_version.t
+t/Indent::Sexpression/02_pod_coverage.t
+t/Indent::Sexpression/03_pod.t
 t/Indent::Tag/00_use.t
 t/Indent::Tag/01_version.t
 t/Indent::Tag/02_pod_coverage.t
