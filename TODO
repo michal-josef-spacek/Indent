@@ -19,7 +19,10 @@ TODO
     Jak by se to melo chovat?
 48. Pridat do t/Indent::PerlStruct/13_numbers.t test pro zaporne cisla.
     A opravit Indent::PerlStruct.
-49.
+49. Bylo by dobre resit situaci, kdy reknu, ze na prvnim radku je implicitni
+    retezec. Uz by se neopakoval v dalsich radcich. Vhodne pro Indent::Word v
+    pripadne, ze mam 'use Module qw(' pak promenlivou delku a na konci ');'
+50.
 
 Applied
 =======
