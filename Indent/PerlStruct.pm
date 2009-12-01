@@ -104,7 +104,8 @@ sub _indent {
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '],'.$self->{'output_separator'};
-	} elsif (ref $data_r eq 'HASH' || defined blessed $data_r) {
+	} elsif (ref $data_r eq 'HASH' || (defined blessed $data_r
+		&& ref $data_r ne 'Regexp')) {
 		$ret .= $indent.'{';
 		if (scalar keys %{$data_r} > 0) {
 			$ret .= $self->{'output_separator'};
@@ -118,7 +119,7 @@ sub _indent {
 			$ret .= $self->{'indent'}->get;
 		}
 		$ret .= '},'.$self->{'output_separator'};
-	} elsif (ref $data_r eq $EMPTY_STR) {
+	} elsif (ref $data_r eq $EMPTY_STR || ref $data_r eq 'Regexp') {
 		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
 		$ret .= $indent._get($data_r).$comma.$self->{'output_separator'};
 	} elsif (ref $data_r eq 'SCALAR') {
