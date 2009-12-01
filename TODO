@@ -22,7 +22,8 @@ TODO
 49. Bylo by dobre resit situaci, kdy reknu, ze na prvnim radku je implicitni
     retezec. Uz by se neopakoval v dalsich radcich. Vhodne pro Indent::Word v
     pripadne, ze mam 'use Module qw(' pak promenlivou delku a na konci ');'
-50.
+50. Test pro regexp jako hodnota.
+51.
 
 Applied
 =======
