@@ -170,7 +170,7 @@ __END__
 
 =back
 
-=item B<indent($data_ar, [$actual_indent, $non_indent_flag])>
+=item B<indent($data_ar[, $actual_indent, $non_indent_flag])>
 
  Indent data. Returns string.
 
