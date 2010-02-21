@@ -170,9 +170,12 @@ __END__
 
 =back
 
-=item B<indent($data, [$actial_indent, $non_indent_flag])>
+=item B<indent($data_ar, [$actual_indent, $non_indent_flag])>
 
- $data - Data array [['key' => 'value'], [..]];
+ Indent data. Returns string.
+
+ Arguments:
+ $data_ar - Reference to data array ([['key' => 'value'], [..]]);
  $actual_indent - String to actual indent.
  $non_indent_flag - Flag, than says no-indent.
 
@@ -196,18 +199,24 @@ __END__
  use Indent::Form;
 
  # Indent object.
- my $indent = Indent::Form->new(
+ my $indent = Indent::Form->new;
 
-        # Begin indent.
-        'indent' => '->',
+ # Input data.
+ my $input_ar = [
+         ['Filename', 'foo.bar'],
+         ['Size', '1456kB'],
+         ['Description', 'File'],
+         ['Author', 'skim.cz'],
+ ];
 
-        # Next indent.
-        'next_indent' => "->"
- );
- $indent->indent();
+ # Indent.
+ print $indent->indent($input_ar)."\n";
 
  # Output:
- # TODO
+ #    Filename: foo.bar
+ #        Size: 1456kB
+ # Description: File
+ #      Author: skim.cz
 
 =head1 DEPENDENCIES
 
