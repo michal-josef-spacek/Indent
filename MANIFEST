@@ -12,6 +12,7 @@ Indent/Data.pm
 Indent/Form.pm
 Indent/PerlStruct.pm
 Indent/Sexpression.pm
+Indent/String.pm
 Indent/Tag.pm
 Indent/Utils.pm
 Indent/Word.pm
@@ -72,6 +73,10 @@ t/Indent::Sexpression/00_use.t
 t/Indent::Sexpression/01_version.t
 t/Indent::Sexpression/02_pod_coverage.t
 t/Indent::Sexpression/03_pod.t
+t/Indent::String/00-use.t
+t/Indent::String/01-version.t
+t/Indent::String/02-pod_coverage.t
+t/Indent::String/03-pod.t
 t/Indent::Tag/00_use.t
 t/Indent::Tag/01_version.t
 t/Indent::Tag/02_pod_coverage.t
