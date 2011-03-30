@@ -1,6 +1,4 @@
-#------------------------------------------------------------------------------
 package Indent::Utils;
-#------------------------------------------------------------------------------
 
 # Pragmas.
 use base qw(Exporter);
@@ -25,56 +23,41 @@ our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
 our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
 	set_params string_len);
 
-#------------------------------------------------------------------------------
-sub reduce_duplicit_ws {
-#------------------------------------------------------------------------------
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
-
+sub reduce_duplicit_ws {
 	my $ref_to_string = shift;
 	${$ref_to_string} =~ s/\s+/\ /gms;
 	return;
 }
 
-#------------------------------------------------------------------------------
-sub remove_first_ws {
-#------------------------------------------------------------------------------
 # Remove blank characters in begin of string.
 # @param $string Reference to data string.
-
+sub remove_first_ws {
 	my $ref_to_string = shift;
 	${$ref_to_string} =~ s/^\s*//ms;
 	return;
 }
 
-#------------------------------------------------------------------------------
-sub remove_last_ws {
-#------------------------------------------------------------------------------
 # Remove blank characters in end of string.
 # @param $string Reference to data string.
-
+sub remove_last_ws {
 	my $ref_to_string = shift;
 	${$ref_to_string} =~ s/\s*$//ms;
 	return;
 }
 
-#------------------------------------------------------------------------------
-sub remove_ws {
-#------------------------------------------------------------------------------
 # Remove white characters in begin and end of string.
 # @param $string reference to data string.
-
+sub remove_ws {
 	my $ref_to_string = shift;
 	remove_last_ws($ref_to_string);
 	remove_first_ws($ref_to_string);
 	return;
 }
 
-#------------------------------------------------------------------------------
-sub set_params {
-#------------------------------------------------------------------------------
 # Set parameters to user values.
-
+sub set_params {
 	my ($self, @params) = @_;
 	while (@params) {
 		my $key = shift @params;
@@ -87,14 +70,11 @@ sub set_params {
 	return;
 }
 
-#------------------------------------------------------------------------------
-sub string_len {
-#------------------------------------------------------------------------------
 # Gets length of string.
 # @param $string Data string.
 # @return $length_of_string Length of data string, when '\t' translate to
 # $TAB_LENGTH x space.
-
+sub string_len {
 	my $string = shift;
 	my $tmp = $SPACE x $TAB_LENGTH;
 	$string =~ s/\t/$tmp/gms;
