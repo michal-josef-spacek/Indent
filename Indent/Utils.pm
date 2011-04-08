@@ -21,7 +21,7 @@ our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
 
 # Export.
 our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
-	set_params string_len);
+	string_len);
 
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
@@ -53,20 +53,6 @@ sub remove_ws {
 	my $ref_to_string = shift;
 	remove_last_ws($ref_to_string);
 	remove_first_ws($ref_to_string);
-	return;
-}
-
-# Set parameters to user values.
-sub set_params {
-	my ($self, @params) = @_;
-	while (@params) {
-		my $key = shift @params;
-		my $val = shift @params;
-		if (! exists $self->{$key}) {
-			err "Unknown parameter '$key'.";
-		}
-		$self->{$key} = $val;
-	}
 	return;
 }
 
@@ -133,13 +119,6 @@ __END__
 
  Remove white characters in begin and end of string.
 
-=item B<set_params($self, @params)>
-
- Sets object parameters to user values.
- If setted key doesn't exist in $self object, turn fatal error.
- $self - Object or hash reference.
- @params - Key, value pairs.
-
 =item B<string_len($string)>
 
  Gets length of string.
@@ -148,8 +127,7 @@ __END__
 
 =head1 ERRORS
 
- set_params():
-   Unknown parameter '%s'.
+ None.
 
 =head1 EXAMPLE1
 

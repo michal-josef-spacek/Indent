@@ -6,6 +6,7 @@ WriteMakefile(
 	'AUTHOR' => 'Michal Spacek',
 	'NAME' => 'Indent',
 	'PREREQ_PM' => {
+		'Class::Utils' => 0.01,
 		'Error::Simple::Multiple' => 0.04,
 		'File::Object' => 0,
 		'Readonly' => 0,

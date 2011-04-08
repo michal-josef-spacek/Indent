@@ -94,7 +94,6 @@ t/Indent::Utils/05-remove_last_ws.t
 t/Indent::Utils/06-remove_ws.t
 t/Indent::Utils/07-string_len.t
 t/Indent::Utils/08-reduce_duplicit_ws.t
-t/Indent::Utils/09-set_params.t
 t/Indent::Word/00-use.t
 t/Indent::Word/01-version.t
 t/Indent::Word/02-pod_coverage.t
