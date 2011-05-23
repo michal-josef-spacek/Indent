@@ -259,7 +259,7 @@ L<Indent::Word(3pm)>.
 
 =head1 AUTHOR
 
-Michal Špaček F<tupinek@gmail.com>
+Michal Špaček F<skim@cpan.org>
 
 =head1 LICENSE AND COPYRIGHT
 
