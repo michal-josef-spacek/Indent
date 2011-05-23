@@ -6,7 +6,6 @@ use strict;
 use warnings;
 
 # Modules.
-use Error::Simple::Multiple qw(err);
 use Readonly;
 
 # Constants.
@@ -210,7 +209,6 @@ __END__
 
 =head1 DEPENDENCIES
 
-L<Error::Simple::Multiple(3pm)>,
 L<Exporter(3pm)>,
 L<Readonly(3pm)>.
 
