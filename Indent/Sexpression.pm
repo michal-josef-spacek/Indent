@@ -6,7 +6,7 @@ use warnings;
 
 # Modules.
 use Class::Utils qw(set_params);
-use Error::Simple::Multiple qw(err);
+use Error::Pure qw(err);
 use Indent;
 use Readonly;
 
@@ -168,7 +168,7 @@ __END__
 =head1 DEPENDENCIES
 
 L<Class::Utils(3pm)>,
-L<Error::Simple::Multiple(3pm)>,
+L<Error::Pure(3pm)>,
 L<Indent(3pm)>,
 L<Readonly(3pm)>.
 

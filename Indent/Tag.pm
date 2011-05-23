@@ -6,7 +6,7 @@ use warnings;
 
 # Modules.
 use Class::Utils qw(set_params);
-use Error::Simple::Multiple qw(err);
+use Error::Pure qw(err);
 use Indent::Utils qw(string_len);
 use Readonly;
 use Tag::Parse qw(parse_normal);
@@ -240,7 +240,7 @@ __END__
 =head1 DEPENDENCIES
 
 L<Class::Utils(3pm)>,
-L<Error::Simple::Multiple(3pm)>,
+L<Error::Pure(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Readonly(3pm)>,
 L<Tag::Parse(3pm)>.
