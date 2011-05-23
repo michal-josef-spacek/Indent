@@ -7,7 +7,7 @@ use ExtUtils::MakeMaker;
 
 # Definition.
 WriteMakefile(
-	'AUTHOR' => 'Michal Spacek',
+	'AUTHOR' => 'Michal Špaček <skim@cpan.org>',
 	'NAME' => 'Indent',
 	'PREREQ_PM' => {
 		'Class::Utils' => 0.01,
