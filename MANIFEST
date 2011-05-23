@@ -19,7 +19,6 @@ Indent/Utils.pm
 Indent/Word.pm
 Makefile.PL
 MANIFEST
-META.yml
 t/Indent/00-use.t
 t/Indent/01-version.t
 t/Indent/02-pod_coverage.t
