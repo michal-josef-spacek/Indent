@@ -6,16 +6,19 @@ use warnings;
 use Indent::Utils qw(string_len);
 use Test::More 'tests' => 10;
 
+# Test.
 my $string = '   example';
 my $ret = string_len($string);
 is($ret, length $string);
 is($string, '   example');
 
+# Test.
 $string = "\texample";
 $ret = string_len($string);
 is($ret, 15);
 is($string, "\texample");
 
+# Test.
 $string = "\t\texample";
 $ret = string_len($string);
 is($ret, 23);
@@ -25,6 +28,7 @@ $ret = string_len($string);
 is($ret, 11);
 is($string, "\t\texample");
 
+# Test.
 $string = "\t example";
 $ret = string_len($string);
 is($ret, 10);
