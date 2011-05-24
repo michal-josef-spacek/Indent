@@ -7,11 +7,13 @@ use English qw(-no_match_vars);
 use Indent;
 use Test::More 'tests' => 9;
 
+# Test.
 eval {
 	Indent->new('');
 };
 is($EVAL_ERROR, "Unknown parameter ''.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'something' => 'value',
@@ -19,6 +21,7 @@ eval {
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'next_indent' => undef,
@@ -26,6 +29,7 @@ eval {
 };
 is($EVAL_ERROR, "'next_indent' parameter must be defined.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'next_indent' => {},
@@ -33,6 +37,7 @@ eval {
 };
 is($EVAL_ERROR, "'next_indent' parameter must be a string.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'next_indent' => \'',
@@ -40,6 +45,7 @@ eval {
 };
 is($EVAL_ERROR, "'next_indent' parameter must be a string.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'indent' => undef,
@@ -47,6 +53,7 @@ eval {
 };
 is($EVAL_ERROR, "'indent' parameter must be defined.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'indent' => {},
@@ -54,6 +61,7 @@ eval {
 };
 is($EVAL_ERROR, "'indent' parameter must be a string.\n");
 
+# Test.
 eval {
 	Indent->new(
 		'indent' => \'',
@@ -61,5 +69,6 @@ eval {
 };
 is($EVAL_ERROR, "'indent' parameter must be a string.\n");
 
+# Test.
 my $obj = Indent->new;
 isa_ok($obj, 'Indent');

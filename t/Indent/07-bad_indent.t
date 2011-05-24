@@ -7,6 +7,7 @@ use English qw(-no_match_vars);
 use Indent;
 use Test::More 'tests' => 3;
 
+# Test.
 my $obj = Indent->new;
 is($obj->get, '');
 $obj->add('---');

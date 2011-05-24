@@ -6,6 +6,7 @@ use warnings;
 use Indent;
 use Test::More 'tests' => 7;
 
+# Test.
 my $obj = Indent->new;
 is($obj->get, '');
 $obj->add('---');
