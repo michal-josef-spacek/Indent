@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Block;
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 4;
 
 eval {
 	Indent::Block->new('');
@@ -27,5 +27,4 @@ eval {
 is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
 
 my $obj = Indent::Block->new;
-ok(defined $obj);
-ok($obj->isa('Indent::Block'));
+isa_ok($obj, 'Indent::Block');
