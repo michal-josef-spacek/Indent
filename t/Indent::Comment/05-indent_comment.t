@@ -6,7 +6,6 @@ use warnings;
 use Indent::Comment;
 use Test::More 'tests' => 5;
 
-print "Testing: Comment indent.\n";
 my $obj = Indent::Comment->new(
 	'begin' => '{',
 	'end' => '}',
