@@ -23,5 +23,4 @@ is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
 # Test.
 my $obj = Indent::Form->new;
-ok(defined $obj);
-ok($obj->isa('Indent::Form'));
+isa_ok($obj, 'Indent::Form');
