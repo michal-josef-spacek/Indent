@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Word;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 3;
 
 eval {
 	Indent::Word->new('');
@@ -20,5 +20,4 @@ eval {
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
 my $obj = Indent::Word->new;
-ok(defined $obj);
-ok($obj->isa('Indent::Word'));
+isa_ok($obj, 'Indent::Word');
