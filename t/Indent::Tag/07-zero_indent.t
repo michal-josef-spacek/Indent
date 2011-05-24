@@ -6,6 +6,7 @@ use warnings;
 use Indent::Tag;
 use Test::More 'tests' => 1;
 
+# Test.
 my $next_indent = '  ';
 my $obj = Indent::Tag->new(
 	'next_indent' => $next_indent,

@@ -7,6 +7,7 @@ use English qw(-no_match_vars);
 use Indent::Tag;
 use Test::More 'tests' => 1;
 
+# Test.
 eval {
 	Indent::Tag->new(
 		'next_indent' => '  ',
