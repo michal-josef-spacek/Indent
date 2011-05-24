@@ -6,6 +6,7 @@ use warnings;
 use Indent::Data;
 use Test::More 'tests' => 1;
 
+# Test.
 my $obj = Indent::Data->new(
 	'next_indent' => '',
 	'line_size' => '1',

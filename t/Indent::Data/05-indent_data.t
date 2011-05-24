@@ -6,6 +6,7 @@ use warnings;
 use Indent::Data;
 use Test::More 'tests' => 9;
 
+# Test.
 my $obj = Indent::Data->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
@@ -16,6 +17,7 @@ my $data = 'a b c d e f g h i j k l m n o p q r s t u v w x y z' x 2;
 my $ret = $obj->indent($data, $act_indent, $set_no_indent);
 is(length $ret, length($data) + 3);
 
+# Test.
 $set_no_indent = 0;
 my @ret = $obj->indent($data, $act_indent, $set_no_indent);
 my $log = 0;
@@ -27,6 +29,7 @@ foreach my $line (@ret) {
 is($#ret, 6);
 is($log, 0);
 
+# Test.
 @ret = $obj->indent($data);
 $log = 0;
 foreach my $line (@ret) {
@@ -37,9 +40,11 @@ foreach my $line (@ret) {
 is($log, 0);
 is($#ret, 5);
 
+# Test.
 $ret = $obj->indent($data);
 is(length $ret, 117);
 
+# Test.
 $data = 'text text text texttexttex';
 $obj = Indent::Data->new(
 	'next_indent' => '  ',
@@ -53,6 +58,7 @@ my @right_ret = (
 @ret = $obj->indent($data);
 is_deeply(\@ret, \@right_ret);
 
+# Test.
 $data = 'text';
 $obj = Indent::Data->new(
 	'next_indent' => '',
@@ -67,6 +73,7 @@ $obj = Indent::Data->new(
 @ret = $obj->indent($data, '<-->');
 is_deeply(\@ret, \@right_ret);
 
+# Test.
 $data = 'text';
 $obj = Indent::Data->new(
 	'next_indent' => ' ',
