@@ -7,4 +7,4 @@ use Indent::Word;
 use Test::More 'tests' => 1;
 
 # Test.
-is($Indent::Word::VERSION, '0.01', 'Version.');
+is($Indent::Word::VERSION, 0.01, 'Version.');
