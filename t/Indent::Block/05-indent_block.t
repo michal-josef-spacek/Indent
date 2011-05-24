@@ -6,7 +6,6 @@ use warnings;
 use Indent::Block;
 use Test::More 'tests' => 5;
 
-print "Testing: Indenting data.\n";
 my $obj = Indent::Block->new;
 my $data_ar = ['text', 'text'];
 my @ret = $obj->indent($data_ar);
