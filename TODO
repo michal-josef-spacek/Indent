@@ -23,7 +23,8 @@ TODO
     retezec. Uz by se neopakoval v dalsich radcich. Vhodne pro Indent::Word v
     pripadne, ze mam 'use Module qw(' pak promenlivou delku a na konci ');'
 50. Test pro regexp jako hodnota.
-51.
+51. Sjednotit testy do souboru podle metod.
+52.
 
 Applied
 =======
