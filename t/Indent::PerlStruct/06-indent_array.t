@@ -6,7 +6,6 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 3;
 
-print "Testing: Array dump.\n";
 my $obj = Indent::PerlStruct->new;
 my $ret = <<'END';
 [

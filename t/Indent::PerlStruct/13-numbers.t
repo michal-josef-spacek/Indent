@@ -6,7 +6,6 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 1;
 
-print "Testing: Numbers.\n";
 my $obj = Indent::PerlStruct->new;
 my $struct = {
 	'1' => '5',

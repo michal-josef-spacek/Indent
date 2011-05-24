@@ -6,7 +6,6 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 1;
 
-print "Testing: Special characters.\n";
 my $obj = Indent::PerlStruct->new;
 my $struct = {
 	'newline' => "\n",
