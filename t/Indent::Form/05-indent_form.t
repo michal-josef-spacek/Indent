@@ -6,7 +6,6 @@ use warnings;
 use Indent::Form;
 use Test::More 'tests' => 2;
 
-print "Testing: indent() method.\n";
 my $obj = Indent::Form->new(
 	'line_size' => 80,
 	'output_separator' => "\n",
