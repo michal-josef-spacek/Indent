@@ -6,6 +6,7 @@ use warnings;
 use Indent::Comment;
 use Test::More 'tests' => 5;
 
+# Test.
 my $obj = Indent::Comment->new(
 	'begin' => '{',
 	'end' => '}',
@@ -22,12 +23,14 @@ END
 chomp $right_ret;
 is($ret, $right_ret);
 
+# Test.
 $obj = Indent::Comment->new(
 	'middle' => '# ',
 );
 $ret = $obj->indent(\@data);
 is($ret, "# one\n# two");
 
+# Test.
 $obj = Indent::Comment->new(
 	'begin' => '/*',
 	'end' => ' */',
@@ -42,12 +45,14 @@ my @right_ret = (
 my @ret = $obj->indent(\@data);
 is_deeply(\@ret, \@right_ret);
 
+# Test.
 $obj = Indent::Comment->new(
 	'middle' => '-- ',
 );
 $ret = $obj->indent(\@data);
 is($ret, "-- one\n-- two");
 
+# Test.
 $obj = Indent::Comment->new(
 	'begin' => '/*',
 	'end' => ' */',
