@@ -6,6 +6,7 @@ use warnings;
 use Indent::Word;
 use Test::More 'tests' => 6;
 
+# Test.
 my $obj = Indent::Word->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
@@ -16,6 +17,7 @@ my $data = 'a b c d e f g h i j k l m n o p q r s t u v w x y z' x 2;
 my $ret = $obj->indent($data, $act_indent, $set_no_indent);
 is(length $ret, length($data) + 3);
 
+# Test.
 $set_no_indent = 0;
 my @ret = $obj->indent($data, $act_indent, $set_no_indent);
 my $log = 0;
@@ -27,11 +29,13 @@ foreach my $line (@ret) {
 is($#ret, 6);
 is($log, 0);
 
+# Test.
 $data = 'abcdefghijklmnopqrstuvwxyz' x 3;
 $ret = $obj->indent($data, $act_indent, $set_no_indent);
 is($ret, '---abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdef'.
 	'ghijklmnopqrstuvwxyz');
 
+# Test.
 $data = 'text';
 $obj = Indent::Word->new(
 	'next_indent' => '',
@@ -40,6 +44,7 @@ $obj = Indent::Word->new(
 $ret = $obj->indent($data, '<-->');
 is($ret, '<-->text');
 
+# Test.
 $data = 'text text';
 $obj = Indent::Word->new(
 	'next_indent' => ' ',
