@@ -1,3 +1,7 @@
+# Pragmas.
+use strict;
+use warnings;
+
 # Modules.
 use Indent::Utils qw(reduce_duplicit_ws);
 use Test::More 'tests' => 3;

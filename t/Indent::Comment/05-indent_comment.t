@@ -1,3 +1,7 @@
+# Pragmas.
+use strict;
+use warnings;
+
 # Modules.
 use Indent::Comment;
 use Test::More 'tests' => 5;

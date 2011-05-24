@@ -1,3 +1,7 @@
+# Pragmas.
+use strict;
+use warnings;
+
 # Modules.
 use Indent::Utils qw(remove_last_ws);;
 use Test::More 'tests' => 3;
