@@ -6,7 +6,6 @@ use warnings;
 use Indent::Data;
 use Test::More 'tests' => 9;
 
-print "Testing: No-indenting data.\n";
 my $obj = Indent::Data->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
@@ -17,7 +16,6 @@ my $data = 'a b c d e f g h i j k l m n o p q r s t u v w x y z' x 2;
 my $ret = $obj->indent($data, $act_indent, $set_no_indent);
 is(length $ret, length($data) + 3);
 
-print "Testing: Indenting data.\n";
 $set_no_indent = 0;
 my @ret = $obj->indent($data, $act_indent, $set_no_indent);
 my $log = 0;
@@ -55,7 +53,6 @@ my @right_ret = (
 @ret = $obj->indent($data);
 is_deeply(\@ret, \@right_ret);
 
-print "Testing: Indenting data with actual indent.\n";
 $data = 'text';
 $obj = Indent::Data->new(
 	'next_indent' => '',

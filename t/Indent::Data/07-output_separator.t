@@ -6,7 +6,6 @@ use warnings;
 use Indent::Data;
 use Test::More 'tests' => 1;
 
-print "Testing: No-indenting data.\n";
 my $obj = Indent::Data->new(
 	'next_indent' => '',
 	'line_size' => '1',
