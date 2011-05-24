@@ -20,5 +20,4 @@ eval {
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
 
 my $obj = Indent::PerlStruct->new;
-ok(defined $obj);
-ok($obj->isa('Indent::PerlStruct'));
+isa_ok($obj, 'Indent::PerlStruct');
