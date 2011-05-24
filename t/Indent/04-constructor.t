@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 9;
 
 eval {
 	Indent->new('');
@@ -62,5 +62,4 @@ eval {
 is($EVAL_ERROR, "'indent' parameter must be a string.\n");
 
 my $obj = Indent->new;
-ok(defined $obj);
-ok($obj->isa('Indent'));
+isa_ok($obj, 'Indent');
