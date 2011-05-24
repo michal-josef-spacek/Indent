@@ -6,6 +6,7 @@ use warnings;
 use Indent::Block;
 use Test::More 'tests' => 5;
 
+# Test.
 my $obj = Indent::Block->new;
 my $data_ar = ['text', 'text'];
 my @ret = $obj->indent($data_ar);
@@ -16,6 +17,7 @@ is_deeply(
 	],
 );
 
+# Test.
 @ret = $obj->indent($data_ar, '<--->');
 is_deeply(
 	\@ret,
@@ -24,6 +26,7 @@ is_deeply(
 	],
 );
 
+# Test.
 @ret = $obj->indent($data_ar, '<--->', 1);
 is_deeply(
 	\@ret,
@@ -32,6 +35,7 @@ is_deeply(
 	],
 );
 
+# Test.
 $obj = Indent::Block->new(
 	'line_size' => 4,
 	'next_indent' => '',
@@ -45,6 +49,7 @@ is_deeply(
 	],
 );
 
+# Test.
 @ret = $obj->indent($data_ar, undef, 1);
 is_deeply(
 	\@ret,
