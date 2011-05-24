@@ -6,6 +6,7 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 1;
 
+# Test.
 my $obj = Indent::PerlStruct->new(
 	'next_indent' => '',
 	'output_separator' => '',

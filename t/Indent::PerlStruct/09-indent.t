@@ -7,6 +7,7 @@ use English qw(-no_match_vars);
 use Indent::PerlStruct;
 use Test::More 'tests' => 2;
 
+# Test.
 my $obj = Indent::PerlStruct->new(
 	'next_indent' => '  ',
 );
@@ -21,6 +22,7 @@ my $ret = <<'END';
 END
 is($obj->indent({1 => 2, 3 => ['a', \'b']}), $ret);
 
+# Test.
 eval {
 	$obj->indent({1 => \*STDOUT});
 };

@@ -6,6 +6,7 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 3;
 
+# Test.
 my $obj = Indent::PerlStruct->new;
 my $ret = <<'END';
 {
@@ -15,11 +16,13 @@ my $ret = <<'END';
 END
 is($obj->indent({1 => 2, 3 => 4}), $ret);
 
+# Test.
 $ret = <<'END';
 {},
 END
 is($obj->indent({}), $ret);
 
+# Test.
 $ret = <<'END';
 {
 	'1' => undef,

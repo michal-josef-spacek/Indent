@@ -6,6 +6,7 @@ use warnings;
 use Indent::PerlStruct;
 use Test::More 'tests' => 3;
 
+# Test.
 my $obj = Indent::PerlStruct->new;
 is($obj->indent('xxx'), "'xxx'\n");
 is($obj->indent(\'xxx'), "\\'xxx'\n");
