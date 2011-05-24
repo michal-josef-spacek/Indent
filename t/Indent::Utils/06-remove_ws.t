@@ -6,7 +6,6 @@ use warnings;
 use Indent::Utils qw(remove_ws);
 use Test::More 'tests' => 6;
 
-print "Testing: remove_ws() function.\n";
 my $string = 'string   ';
 remove_ws(\$string);
 is($string, 'string');

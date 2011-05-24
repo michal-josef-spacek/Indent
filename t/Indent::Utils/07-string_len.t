@@ -6,7 +6,6 @@ use warnings;
 use Indent::Utils qw(string_len);
 use Test::More 'tests' => 10;
 
-print "Testing: string_len() function.\n";
 my $string = '   example';
 my $ret = string_len($string);
 is($ret, length $string);
