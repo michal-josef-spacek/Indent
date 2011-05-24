@@ -6,7 +6,6 @@ use warnings;
 use Indent::Word;
 use Test::More 'tests' => 1;
 
-print "-- Zero line_size.\n";
 my $next_indent = '  ';
 my $obj = Indent::Word->new(
 	'next_indent' => $next_indent,
