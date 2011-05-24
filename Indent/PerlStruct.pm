@@ -112,7 +112,7 @@ sub _indent {
 		my $comma = $comma_flag ? $COMMA : $EMPTY_STR;
 		$ret .= $indent.$CODE.$comma.$self->{'output_separator'};
 	} else {
-		err "Unsupported data.\n";
+		err "Unsupported data.";
 	}
 	return $ret;
 }
