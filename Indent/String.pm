@@ -162,10 +162,10 @@ __END__
 =head1 ERRORS
 
  Mine:
-   TODO
+         TODO
 
  From Class::Utils::set_params():
-   Unknown parameter '%s'.
+         Unknown parameter '%s'.
 
 =head1 EXAMPLE
 
@@ -198,11 +198,7 @@ L<Readonly(3pm)>.
 
 L<Indent(3pm)>,
 L<Indent::Block(3pm)>,
-L<Indent::Comment(3pm)>,
 L<Indent::Data(3pm)>,
-L<Indent::Form(3pm)>,
-L<Indent::PerlStruct(3pm)>,
-L<Indent::Tag(3pm)>,
 L<Indent::Utils(3pm)>.
 
 =head1 AUTHOR
