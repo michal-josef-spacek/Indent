@@ -16,7 +16,7 @@ WriteMakefile(
 		'Readonly' => 0,
 		'Scalar::Util' => 0,
 	},
-	'VERSION' => 0.04,
+	'VERSION' => 0.01,
 	'test' => {
 		'TESTS' => 't/Indent/*t '.
 			't/Indent::Block/*.t '.
