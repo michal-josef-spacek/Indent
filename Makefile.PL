@@ -24,7 +24,6 @@ WriteMakefile(
 			't/Indent::Comment/*.t '.
 			't/Indent::Data/*.t '.
 			't/Indent::Form/*.t '.
-			't/Indent::Sexpression/*.t '.
 			't/Indent::String/*.t '.
 			't/Indent::Tag/*.t '.
 			't/Indent::Utils/*.t '.

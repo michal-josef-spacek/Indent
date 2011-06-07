@@ -11,7 +11,6 @@ Indent/Block.pm
 Indent/Comment.pm
 Indent/Data.pm
 Indent/Form.pm
-Indent/Sexpression.pm
 Indent/String.pm
 Indent/Tag.pm
 Indent/Utils.pm
@@ -54,10 +53,6 @@ t/Indent::Form/03-pod.t
 t/Indent::Form/04-new.t
 t/Indent::Form/05-indent_form.t
 t/Indent::Form/06-bad_indent.t
-t/Indent::Sexpression/00-use.t
-t/Indent::Sexpression/01-version.t
-t/Indent::Sexpression/02-pod_coverage.t
-t/Indent::Sexpression/03-pod.t
 t/Indent::String/00-use.t
 t/Indent::String/01-version.t
 t/Indent::String/02-pod_coverage.t
