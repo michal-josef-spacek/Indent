@@ -10,7 +10,6 @@ Indent.pm
 Indent/Block.pm
 Indent/Comment.pm
 Indent/Data.pm
-Indent/Form.pm
 Indent/String.pm
 Indent/Utils.pm
 Indent/Word.pm
@@ -45,13 +44,6 @@ t/Indent::Data/04-new.t
 t/Indent::Data/05-indent_data.t
 t/Indent::Data/06-bad_indent.t
 t/Indent::Data/07-output_separator.t
-t/Indent::Form/00-use.t
-t/Indent::Form/01-version.t
-t/Indent::Form/02-pod_coverage.t
-t/Indent::Form/03-pod.t
-t/Indent::Form/04-new.t
-t/Indent::Form/05-indent_form.t
-t/Indent::Form/06-bad_indent.t
 t/Indent::String/00-use.t
 t/Indent::String/01-version.t
 t/Indent::String/02-pod_coverage.t

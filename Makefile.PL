@@ -22,7 +22,6 @@ WriteMakefile(
 			't/Indent::Block/*.t '.
 			't/Indent::Comment/*.t '.
 			't/Indent::Data/*.t '.
-			't/Indent::Form/*.t '.
 			't/Indent::String/*.t '.
 			't/Indent::Utils/*.t '.
 			't/Indent::Word/*.t',
