@@ -149,7 +149,10 @@ __END__
 =head1 ERRORS
 
  Mine:
-         TODO
+         'line_size' parameter must be a number.
+                 line_size => %s
+         Bad 'line_size' = '%s' or length of string '%s'.
+         Bad actual indent value. Length is greater then ('line_size' - 'size of next_indent' - 1).
 
  From Class::Utils::set_params():
          Unknown parameter '%s'.
