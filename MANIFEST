@@ -2,7 +2,6 @@ bin/data.pl
 bin/word_with_comments1.pl
 bin/word_with_comments2.pl
 CHANGES
-examples/Indent_synopsis.pl
 Indent.pm
 Indent/Block.pm
 Indent/Data.pm
