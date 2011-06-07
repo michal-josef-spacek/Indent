@@ -162,7 +162,7 @@ as keyword value pairs. Recognized options are:
          'indent' parameter must be a string.
          Cannot remove indent '$indent'.
 
- From Class::Utils:
+ From Class::Utils::set_params():
          Unknown parameter '%s'.
 
 =head1 EXAMPLE
@@ -216,6 +216,7 @@ L<Readonly(3pm)>.
 
 L<Indent::Block(3pm)>,
 L<Indent::Data(3pm)>,
+L<Indent::String(3pm)>,
 L<Indent::Utils(3pm)>,
 L<Indent::Word(3pm)>.
 
