@@ -201,10 +201,10 @@ as keyword value pairs. Recognized options are:
  # Reset.
  $indent->reset;
 
- Gets: 
- ->Example
- ->->Ok
- ->Example2
+ # Output: 
+ # ->Example
+ # ->->Ok
+ # ->Example2
 
 =head1 DEPENDENCIES
 
