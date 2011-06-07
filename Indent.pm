@@ -156,10 +156,10 @@ as keyword value pairs. Recognized options are:
 =head1 ERRORS
 
  Mine:
-   TODO
+         TODO
 
  From Class::Utils:
-   Unknown parameter '%s'.
+         Unknown parameter '%s'.
 
 =head1 EXAMPLE
 
