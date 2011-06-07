@@ -156,7 +156,11 @@ as keyword value pairs. Recognized options are:
 =head1 ERRORS
 
  Mine:
-         TODO
+         'next_indent' parameter must be defined.
+         'next_indent' parameter must be a string.
+         'indent' parameter must be defined.
+         'indent' parameter must be a string.
+         Cannot remove indent '$indent'.
 
  From Class::Utils:
          Unknown parameter '%s'.
