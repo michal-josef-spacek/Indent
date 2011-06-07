@@ -2,8 +2,6 @@ TODO
 ====
 38. Odstranit first, second, tmp1, tmp2 promenne.
 40. Pridat testy s utf8 textem.
-41. U Indent::PerlStruct by bylo dobre \t a \n vykreslovat jako tyhle zkratky.
-42. U Indent::PerlStruct by bylo dobre u tridy psat, ze je to trida.
 43. Udelat Indent::String:
     indent($string, $type, [10, 20]); # 10 pismen, 20 pismen na radek.
     $type: strict (reze po znaku), word (reze po slovech), ??
@@ -17,8 +15,6 @@ TODO
 45. Doresit Indent::Sexpression.
 47. Test Indent::Block s 'char', undef, 'char'?
     Jak by se to melo chovat?
-48. Pridat do t/Indent::PerlStruct/13_numbers.t test pro zaporne cisla.
-    A opravit Indent::PerlStruct.
 49. Bylo by dobre resit situaci, kdy reknu, ze na prvnim radku je implicitni
     retezec. Uz by se neopakoval v dalsich radcich. Vhodne pro Indent::Word v
     pripadne, ze mam 'use Module qw(' pak promenlivou delku a na konci ');'
@@ -183,3 +179,16 @@ OK [20090717] skim
 Je tam 'CODE()' retezec.
 Je to dobre tady mit, protoze jinak to vyhodi unsupported.
 OK [20090801] skim
+
+41. U Indent::PerlStruct by bylo dobre \t a \n vykreslovat jako tyhle zkratky.
+Přesunuto do Indent::PerlStruct modulu.
+NONE [20110607] skim
+
+42. U Indent::PerlStruct by bylo dobre u tridy psat, ze je to trida.
+Přesunuto do Indent::PerlStruct modulu.
+NONE [20110607] skim
+
+48. Pridat do t/Indent::PerlStruct/13_numbers.t test pro zaporne cisla.
+    A opravit Indent::PerlStruct.
+Přesunuto do Indent::PerlStruct modulu.
+NONE [20110607] skim
