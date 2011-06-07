@@ -162,7 +162,8 @@ __END__
 =head1 ERRORS
 
  Mine:
-         TODO
+         'line_size' parameter must be a number.
+                line_size => %s
 
  From Class::Utils::set_params():
          Unknown parameter '%s'.
