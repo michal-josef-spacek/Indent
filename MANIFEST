@@ -12,7 +12,6 @@ Indent/Comment.pm
 Indent/Data.pm
 Indent/Form.pm
 Indent/String.pm
-Indent/Tag.pm
 Indent/Utils.pm
 Indent/Word.pm
 Makefile.PL
@@ -57,14 +56,6 @@ t/Indent::String/00-use.t
 t/Indent::String/01-version.t
 t/Indent::String/02-pod_coverage.t
 t/Indent::String/03-pod.t
-t/Indent::Tag/00-use.t
-t/Indent::Tag/01-version.t
-t/Indent::Tag/02-pod_coverage.t
-t/Indent::Tag/03-pod.t
-t/Indent::Tag/04-new.t
-t/Indent::Tag/05-indent_tag.t
-t/Indent::Tag/06-bad_indent.t
-t/Indent::Tag/07-zero_indent.t
 t/Indent::Utils/00-use.t
 t/Indent::Utils/01-version.t
 t/Indent::Utils/02-pod_coverage.t

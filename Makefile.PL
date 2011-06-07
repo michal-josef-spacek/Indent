@@ -15,7 +15,6 @@ WriteMakefile(
 		'File::Object' => 0,
 		'Readonly' => 0,
 		'Scalar::Util' => 0,
-		'Tag::Parse' => 0.03,
 	},
 	'VERSION' => 0.04,
 	'test' => {
@@ -25,7 +24,6 @@ WriteMakefile(
 			't/Indent::Data/*.t '.
 			't/Indent::Form/*.t '.
 			't/Indent::String/*.t '.
-			't/Indent::Tag/*.t '.
 			't/Indent::Utils/*.t '.
 			't/Indent::Word/*.t',
 	},
