@@ -1,21 +1,5 @@
 Info
 ====
-Comment types
--------------
-{ 
-  comment
-}
-
-# comment
-# comment
-
-/*
- * comment
- */
-
--- comment
--- comment
-
 Idea
 ----
 Kdyz davam indent($data, $indent), tak $indent je indent plus celkova delka,
