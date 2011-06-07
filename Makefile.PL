@@ -20,7 +20,6 @@ WriteMakefile(
 	'test' => {
 		'TESTS' => 't/Indent/*t '.
 			't/Indent::Block/*.t '.
-			't/Indent::Comment/*.t '.
 			't/Indent::Data/*.t '.
 			't/Indent::String/*.t '.
 			't/Indent::Utils/*.t '.
