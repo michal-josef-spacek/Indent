@@ -1,6 +1,3 @@
-bin/data.pl
-bin/word_with_comments1.pl
-bin/word_with_comments2.pl
 CHANGES
 Indent.pm
 Indent/Block.pm
