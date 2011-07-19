@@ -7,7 +7,7 @@ use warnings;
 # Modules.
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
-use Indent::Utils qw(string_len);
+use Indent::Utils qw(line_size_check string_len);
 use Readonly;
 
 # Constants.
@@ -33,10 +33,7 @@ sub new {
 	set_params($self, @params);
 
 	# 'line_size' check.
-	if ($self->{'line_size'} !~ /^\d*$/ms || $self->{'line_size'} <= 0) {
-		err '\'line_size\' parameter must be a number.', 
-			'line_size', $self->{'line_size'};
-	}
+	line_size_check($self);
 
 	# Error with 'next_indent' length greater than 'line_size'.
 	if ($self->{'line_size'} <= length $self->{'next_indent'}) {
@@ -149,13 +146,15 @@ __END__
 =head1 ERRORS
 
  Mine:
-         'line_size' parameter must be a number.
-                 line_size => %s
          Bad 'line_size' = '%s' or length of string '%s'.
          Bad actual indent value. Length is greater then ('line_size' - 'size of next_indent' - 1).
 
  From Class::Utils::set_params():
          Unknown parameter '%s'.
+
+ From Indent::Utils::line_size_check():
+         'line_size' parameter must be a positive number.
+                 line_size => %s
 
 =head1 EXAMPLE1
 

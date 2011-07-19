@@ -6,7 +6,7 @@ use warnings;
 
 # Modules.
 use Class::Utils qw(set_params);
-use Error::Pure qw(err);
+use Indent::Utils qw(line_size_check);
 use Readonly;
 
 # Constants.
@@ -32,10 +32,7 @@ sub new {
 	set_params($self, @params);
 
 	# 'line_size' check.
-	if ($self->{'line_size'} !~ /^\d*$/ms || $self->{'line_size'} < 0) {
-		err '\'line_size\' parameter must be a number.', 
-			'line_size', $self->{'line_size'};
-	}
+	line_size_check($self);
 
 	# Object.
 	return $self;
@@ -161,12 +158,12 @@ __END__
 
 =head1 ERRORS
 
- Mine:
-         'line_size' parameter must be a number.
-                line_size => %s
-
  From Class::Utils::set_params():
          Unknown parameter '%s'.
+
+ From Indent::Utils::line_size_check():
+         'line_size' parameter must be a positive number.
+                 line_size => %s
 
 =head1 EXAMPLE
 
@@ -192,7 +189,7 @@ __END__
 =head1 DEPENDENCIES
 
 L<Class::Utils>,
-L<Error::Pure>,
+L<Indent::Utils>,
 L<Readonly>.
 
 =head1 SEE ALSO
