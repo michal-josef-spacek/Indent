@@ -1,6 +1,6 @@
-Info
+INFO
 ====
-Idea
+IDEA
 ----
 Kdyz davam indent($data, $indent), tak $indent je indent plus celkova delka,
 kterou definuji v parametru line_size.
