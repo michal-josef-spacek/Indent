@@ -201,6 +201,10 @@ L<Indent::Block>,
 L<Indent::Data>,
 L<Indent::Utils>.
 
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/Indent>
+
 =head1 AUTHOR
 
 Michal Špaček L<mailto:skim@cpan.org>

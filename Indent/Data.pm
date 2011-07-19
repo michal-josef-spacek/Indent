@@ -246,6 +246,10 @@ L<Indent::Comment>,
 L<Indent::Utils>,
 L<Indent::Word>.
 
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/Indent>
+
 =head1 AUTHOR
 
 Michal Špaček L<mailto:skim@cpan.org>
