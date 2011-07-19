@@ -6,6 +6,7 @@ use strict;
 use warnings;
 
 # Modules.
+use Error::Pure qw(err);
 use Readonly;
 
 # Constants.
@@ -19,8 +20,20 @@ our $VERSION = 0.01;
 our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
 
 # Export.
-our @EXPORT_OK = qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws
-	string_len);
+our @EXPORT_OK = qw(line_size_check reduce_duplicit_ws remove_first_ws
+	remove_last_ws remove_ws string_len);
+
+# Line size check.
+sub line_size_check {
+	my $self = shift;
+	if (! defined $self->{'line_size'}
+		|| $self->{'line_size'} !~ m/^\d+$/ms) {
+
+		err '\'line_size\' parameter must be a positive number.', 
+			'line_size', $self->{'line_size'};
+	}
+	return;
+}
 
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
@@ -81,7 +94,9 @@ __END__
 
 =head1 SYNOPSIS
 
- use Indent::Utils qw(reduce_duplicit_ws remove_first_ws remove_last_ws remove_ws string_len);
+ use Indent::Utils qw(line_size_check reduce_duplicit_ws remove_first_ws 
+         remove_last_ws remove_ws string_len);
+ line_size_check($object_with_line_size_parameter);
  reduce_duplicit_ws(\$string);
  remove_first_ws(\$string);
  remove_last_ws(\$string);
@@ -101,6 +116,10 @@ __END__
 =head1 SUBROUTINES
 
 =over 8
+
+=item B<line_size_check($object_with_line_size_parameter)>
+
+ Line size 'line_size' parameter check. 
 
 =item B<reduce_duplicit_ws($ref_to_string)>
 
@@ -126,7 +145,9 @@ __END__
 
 =head1 ERRORS
 
- None.
+ line_size_check():
+         'line_size' parameter must be a positive number.
+                 'line_size', %s
 
 =head1 EXAMPLE1
 
@@ -209,6 +230,7 @@ __END__
 
 =head1 DEPENDENCIES
 
+L<Error::Pure>,
 L<Exporter>,
 L<Readonly>.
 
