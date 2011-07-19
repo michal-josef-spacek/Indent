@@ -48,5 +48,4 @@ t/Indent-Word/02-pod_coverage.t
 t/Indent-Word/03-pod.t
 t/Indent-Word/04-new.t
 t/Indent-Word/05-indent_word.t
-t/Indent-Word/06-bad_indent.t
-t/Indent-Word/07-zero_indent.t
+t/Indent-Word/06-zero_indent.t
