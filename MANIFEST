@@ -14,7 +14,7 @@ Indent/String.pm
 Indent/Utils.pm
 Indent/Word.pm
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 META.yml
 t/Indent-Block/00-use.t
 t/Indent-Block/01-version.t
@@ -27,9 +27,7 @@ t/Indent-Data/01-version.t
 t/Indent-Data/02-pod_coverage.t
 t/Indent-Data/03-pod.t
 t/Indent-Data/04-new.t
-t/Indent-Data/05-indent_data.t
-t/Indent-Data/06-bad_indent.t
-t/Indent-Data/07-output_separator.t
+t/Indent-Data/05-indent.t
 t/Indent-String/00-use.t
 t/Indent-String/01-version.t
 t/Indent-String/02-pod_coverage.t
