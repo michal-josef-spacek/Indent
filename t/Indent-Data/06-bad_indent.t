@@ -5,25 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Data;
-use Test::More 'tests' => 5;
-
-# Test.
-eval {
-	Indent::Data->new(
-		'next_indent' => '  ',
-		'line_size' => 0,
-	);
-};
-is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
-
-# Test.
-eval {
-	Indent::Data->new(
-		'next_indent' => '  ',
-		'line_size' => 'ko',
-	);
-};
-is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
+use Test::More 'tests' => 3;
 
 # Test.
 eval {

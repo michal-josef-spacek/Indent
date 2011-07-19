@@ -5,13 +5,13 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Word;
-use Test::More 'tests' => 4;
+use Test::More 'tests' => 3;
 
 # Test.
 eval {
 	Indent::Word->new('');
 };
-is($EVAL_ERROR, "Unknown parameter ''.\n");
+is($EVAL_ERROR, "Unknown parameter ''.\n", 'Bad parameter \'\'.');
 
 # Test.
 eval {
@@ -19,16 +19,8 @@ eval {
 		'something' => 'value',
 	);
 };
-is($EVAL_ERROR, "Unknown parameter 'something'.\n");
-
-# Test.
-eval {
-	Indent::Word->new(
-		'next_indent' => '  ',
-		'line_size' => 'ko',
-	);
-};
-is($EVAL_ERROR, "'line_size' parameter must be a number.\n");
+is($EVAL_ERROR, "Unknown parameter 'something'.\n",
+	'Bad parameter \'something\'.');
 
 # Test.
 my $obj = Indent::Word->new;
