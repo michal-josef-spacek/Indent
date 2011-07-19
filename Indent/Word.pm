@@ -203,7 +203,9 @@ L<Indent::Utils>.
 
 =head1 AUTHOR
 
-Michal Špaček L<skim@cpan.org>
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
 
 =head1 LICENSE AND COPYRIGHT
 
