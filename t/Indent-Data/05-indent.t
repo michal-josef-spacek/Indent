@@ -3,8 +3,9 @@ use strict;
 use warnings;
 
 # Modules.
+use English qw(-no_match_vars);
 use Indent::Data;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 12;
 
 # Test.
 my $obj = Indent::Data->new(
@@ -86,3 +87,34 @@ $obj = Indent::Data->new(
 );
 @ret = $obj->indent($data, '<->');
 is_deeply(\@ret, \@right_ret);
+
+# Test.
+$obj = Indent::Data->new(
+	'next_indent' => '',
+	'line_size' => 5,
+);
+eval {
+	$obj->indent('text', '<--->');
+};
+is($EVAL_ERROR, "Bad actual indent value. Length is greater then ".
+	"('line_size' - 'size of next_indent' - 1).\n");
+
+# Test.
+$obj = Indent::Data->new(
+	'next_indent' => ' ',
+	'line_size' => 5,
+);
+eval {
+	$obj->indent('text', '<-->');
+};
+is($EVAL_ERROR, "Bad actual indent value. Length is greater then ".
+	"('line_size' - 'size of next_indent' - 1).\n");
+
+# Test.
+$obj = Indent::Data->new(
+	'next_indent' => '',
+	'line_size' => '1',
+	'output_separator' => '-'
+);
+$ret = $obj->indent('abcd');
+is($ret, 'a-b-c-d');
