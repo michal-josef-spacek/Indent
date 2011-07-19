@@ -4,7 +4,7 @@ use warnings;
 
 # Modules.
 use Indent::Word;
-use Test::More 'tests' => 6;
+use Test::More 'tests' => 7;
 
 # Test.
 my $obj = Indent::Word->new(
@@ -56,3 +56,12 @@ my @right_ret = (
 );
 @ret = $obj->indent($data, '<->');
 is_deeply(\@ret, \@right_ret);
+
+# Test.
+my $next_indent = '  ';
+$obj = Indent::Word->new(
+	'next_indent' => $next_indent,
+	'line_size' => 0,
+);
+$ret = $obj->indent('word1 word2 word3');
+is($ret, "word1\n".$next_indent."word2\n".$next_indent."word3");
