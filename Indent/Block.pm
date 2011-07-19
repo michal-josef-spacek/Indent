@@ -166,28 +166,28 @@ __END__
 
 =over 8
 
-=item B<new(%parameters)>
+=item C<new(%parameters)>
 
  Constructor.
 
 =over 8
 
-=item * B<line_size>
+=item * C<line_size>
 
  Sets indent line size value.
  Default value is 'line_size' => 79.
 
-=item * B<next_indent>
+=item * C<next_indent>
 
  Sets next indent string.
  Default value is 'next_indent' => "\t" (tabelator).
 
-=item * B<output_separator>
+=item * C<output_separator>
 
  Sets output separator between indented datas for string context.
  Default value is 'output_separator' => "\n" (new line).
 
-=item * B<strict>
+=item * C<strict>
 
  Sets or unsets strict mode.
  Unset strict mode means whitespace optimalization.
@@ -195,7 +195,7 @@ __END__
 
 =back
 
-=item B<indent($data_ar, [$act_indent, $non_indent])>
+=item C<indent($data_ar, [$act_indent, $non_indent])>
 
  Indent method.
  - $data_ar - Reference to array with strings to indent.

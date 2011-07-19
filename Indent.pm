@@ -114,19 +114,19 @@ Indent - Class for indent handling.
 
 =over 8
 
-=item B<new($option =E<gt> $value)>
+=item C<new($option =E<gt> $value)>
 
 This is a class method, the constructor for Indent. Options are passed
 as keyword value pairs. Recognized options are:
 
 =over 8
 
-=item * B<indent>
+=item * C<indent>
 
  Default indent.
  Default value is ''.
 
-=item * B<next_indent>
+=item * C<next_indent>
 
  Next indent. Adding to internal indent variable after every add method 
  calling.
@@ -134,20 +134,20 @@ as keyword value pairs. Recognized options are:
 
 =back
 
-=item B<add([$cur_indent])>
+=item C<add([$cur_indent])>
 
  Method for adding $cur_indent, if defined, or 'next_indent'.
 
-=item B<remove([$cur_indent])>
+=item C<remove([$cur_indent])>
 
  Method for removing $cur_indent, if defined, or 'next_indent'. Only if 
  is removable.
 
-=item B<get()>
+=item C<get()>
 
  Get actual indent string.
 
-=item B<reset([$reset_value])>
+=item C<reset([$reset_value])>
 
  Resets internal indent string to $reset_value or ''.
 

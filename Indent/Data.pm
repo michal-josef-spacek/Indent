@@ -111,30 +111,30 @@ __END__
 
 =over 8
 
-=item B<new(%parameters)>
+=item C<new(%parameters)>
 
  Constructor.
 
 =over 8
 
-=item * B<line_size>
+=item * C<line_size>
 
  Sets indent line size value.
  Default value is 79.
 
-=item * B<next_indent>
+=item * C<next_indent>
 
  Sets next indent string.
  Default value is tabelator (\t).
 
-=item * B<output_separator>
+=item * C<output_separator>
 
  Sets output separator between indented datas for string context.
  Default value is newline (\n).
 
 =back
 
-=item B<indent($data, [$act_indent, $non_indent])>
+=item C<indent($data, [$act_indent, $non_indent])>
 
  Indent text data to line_size block size.
  $act_indent - Actual indent string. Will be in each output string.

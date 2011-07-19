@@ -107,7 +107,7 @@ __END__
 
 =over 8
 
-=item B<TAB_LENGTH>
+=item C<TAB_LENGTH>
 
  Default length of tabelator is 8 chars.
 
@@ -117,27 +117,27 @@ __END__
 
 =over 8
 
-=item B<line_size_check($object_with_line_size_parameter)>
+=item C<line_size_check($object_with_line_size_parameter)>
 
  Line size 'line_size' parameter check. 
 
-=item B<reduce_duplicit_ws($ref_to_string)>
+=item C<reduce_duplicit_ws($ref_to_string)>
 
  Reduce duplicit blank space in string to one space.
 
-=item B<remove_first_ws($ref_to_string)>
+=item C<remove_first_ws($ref_to_string)>
 
  Remove blank characters in begin of string.
 
-=item B<remove_last_ws($ref_to_string)>
+=item C<remove_last_ws($ref_to_string)>
 
  Remove blank characters in end of string.
 
-=item B<remove_ws($ref_to_string)>
+=item C<remove_ws($ref_to_string)>
 
  Remove white characters in begin and end of string.
 
-=item B<string_len($string)>
+=item C<string_len($string)>
 
  Gets length of string.
 
