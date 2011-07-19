@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Data;
-use Test::More 'tests' => 3;
+use Test::More 'tests' => 4;
 
 # Test.
 eval {
@@ -20,6 +20,15 @@ eval {
 	);
 };
 is($EVAL_ERROR, "Unknown parameter 'something'.\n");
+
+# Test.
+eval {
+	Indent::Data->new(
+		'next_indent' => '  ',
+		'line_size' => '1',
+	);
+};
+is($EVAL_ERROR, "Bad line_size = '1' or length of string '  '.\n");
 
 # Test.
 my $obj = Indent::Data->new;
