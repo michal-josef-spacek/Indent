@@ -99,7 +99,7 @@ __END__
 
 =head1 NAME
 
-Indent - A perl module for indent handling.
+Indent - Class for indent handling.
 
 =head1 SYNOPSIS
 
