@@ -209,15 +209,15 @@ __END__
 
 =head1 DEPENDENCIES
 
-L<Exporter(3pm)>,
-L<Readonly(3pm)>.
+L<Exporter>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Indent(3pm)>,
-L<Indent::Block(3pm)>,
-L<Indent::Data(3pm)>,
-L<Indent::Word(3pm)>.
+L<Indent>,
+L<Indent::Block>,
+L<Indent::Data>,
+L<Indent::Word>.
 
 =head1 AUTHOR
 

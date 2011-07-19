@@ -208,17 +208,17 @@ as keyword value pairs. Recognized options are:
 
 =head1 DEPENDENCIES
 
-L<Class::Utils(3pm)>,
-L<Error::Pure(3pm)>,
-L<Readonly(3pm)>.
+L<Class::Utils>,
+L<Error::Pure>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Indent::Block(3pm)>,
-L<Indent::Data(3pm)>,
-L<Indent::String(3pm)>,
-L<Indent::Utils(3pm)>,
-L<Indent::Word(3pm)>.
+L<Indent::Block>,
+L<Indent::Data>,
+L<Indent::String>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHOR
 

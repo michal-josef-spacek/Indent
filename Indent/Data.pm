@@ -233,18 +233,18 @@ __END__
 
 =head1 DEPENDENCIES
 
-L<Class::Utils(3pm)>,
-L<Error::Pure(3pm)>,
-L<Indent::Utils(3pm)>,
-L<Readonly(3pm)>.
+L<Class::Utils>,
+L<Error::Pure>,
+L<Indent::Utils>,
+L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Indent(3pm)>,
-L<Indent::Block(3pm)>,
-L<Indent::Comment(3pm)>,
-L<Indent::Utils(3pm)>,
-L<Indent::Word(3pm)>.
+L<Indent>,
+L<Indent::Block>,
+L<Indent::Comment>,
+L<Indent::Utils>,
+L<Indent::Word>.
 
 =head1 AUTHOR
 
