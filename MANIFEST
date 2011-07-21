@@ -55,4 +55,4 @@ t/Indent/03-pod.t
 t/Indent/04-new.t
 t/Indent/05-indent.t
 t/Indent/06-reset.t
-t/Indent/07-bad_indent.t
+t/Indent/07-remove.t
