@@ -40,19 +40,19 @@ sub new {
 
 # Indent text by words to line_size block size.
 sub indent {
-	my ($self, $data, $indent, $non_indent) = @_;
+	my ($self, $data, $act_indent, $non_indent) = @_;
 
 	# 'indent' initialization.
-	if (! defined $indent) {
-		$indent = $EMPTY_STR;
+	if (! defined $act_indent) {
+		$act_indent = $EMPTY_STR;
 	}
 
 	# If non_indent data, than return.
 	if ($non_indent) {
-		return $indent.$data;
+		return $act_indent.$data;
 	}
 
-	my ($first, $second) = (undef, $indent.$data);
+	my ($first, $second) = (undef, $act_indent.$data);
 	my $last_second_length = 0;
 	my @data;
 	my $one = 1;
@@ -69,11 +69,11 @@ sub indent {
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
-		if (! $first || length $first < length $indent
-			|| $first =~ /^$indent\s*$/ms) {
+		if (! $first || length $first < length $act_indent
+			|| $first =~ /^$act_indent\s*$/ms) {
 
 			($first, $tmp) = $second
-				=~ /^($indent\s*[^\s]+?)\s(.*)$/msx;
+				=~ /^($act_indent\s*[^\s]+?)\s(.*)$/msx;
 		}
 
 		# If parsing is right.
@@ -84,10 +84,10 @@ sub indent {
 
 			# Add next_indent to string.
 			if ($one == 1) {
-				$indent .= $self->{'next_indent'};
+				$act_indent .= $self->{'next_indent'};
 			}
 			$one = 0;
-			$second = $indent.$second;
+			$second = $act_indent.$second;
 
 			# Parsed part of data to @data array.
 			push @data, $first;
