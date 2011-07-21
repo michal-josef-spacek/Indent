@@ -4,34 +4,14 @@ use warnings;
 
 # Modules.
 use Indent;
-use Test::More 'tests' => 12;
+use Test::More 'tests' => 4;
 
 # Test.
 my $obj = Indent->new;
-is($obj->get, '');
+is($obj->get, '', 'No indent.');
 $obj->add('---');
-is($obj->get, '---');
+is($obj->get, '---', 'Add first indent.');
 $obj->add('hoho');
-is($obj->get, '---hoho');
+is($obj->get, '---hoho', 'Add second indent.');
 $obj->add;
-is($obj->get, "---hoho\t");
-$obj->remove;
-is($obj->get, '---hoho');
-$obj->remove('hoho');
-is($obj->get, '---');
-$obj->remove('---');
-is($obj->get, '');
-
-# Test.
-$obj = Indent->new(
-	'next_indent' => '--',
-);
-is($obj->get, '');
-$obj->add;
-is($obj->get, '--');
-$obj->add;
-is($obj->get, '----');
-$obj->remove;
-is($obj->get, '--');
-$obj->remove;
-is($obj->get, '');
+is($obj->get, "---hoho\t", 'Add third (default) indent.');
