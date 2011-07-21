@@ -53,6 +53,6 @@ t/Indent/01-version.t
 t/Indent/02-pod_coverage.t
 t/Indent/03-pod.t
 t/Indent/04-new.t
-t/Indent/05-indent.t
+t/Indent/05-add.t
 t/Indent/06-reset.t
 t/Indent/07-remove.t
