@@ -8,8 +8,8 @@ use Test::More 'tests' => 5;
 
 # Test.
 my $obj = Indent::Block->new;
-my $data_ar = ['text', 'text'];
-my @ret = $obj->indent($data_ar);
+my @data = ('text', 'text');
+my @ret = $obj->indent(\@data);
 is_deeply(
 	\@ret, 
 	[
@@ -18,7 +18,7 @@ is_deeply(
 );
 
 # Test.
-@ret = $obj->indent($data_ar, '<--->');
+@ret = $obj->indent(\@data, '<--->');
 is_deeply(
 	\@ret,
 	[
@@ -27,7 +27,7 @@ is_deeply(
 );
 
 # Test.
-@ret = $obj->indent($data_ar, '<--->', 1);
+@ret = $obj->indent(\@data, '<--->', 1);
 is_deeply(
 	\@ret,
 	[
@@ -40,7 +40,7 @@ $obj = Indent::Block->new(
 	'line_size' => 4,
 	'next_indent' => '',
 );
-@ret = $obj->indent($data_ar);
+@ret = $obj->indent(\@data);
 is_deeply(
 	\@ret,
 	[
@@ -50,7 +50,7 @@ is_deeply(
 );
 
 # Test.
-@ret = $obj->indent($data_ar, undef, 1);
+@ret = $obj->indent(\@data, undef, 1);
 is_deeply(
 	\@ret,
 	['texttext'],
