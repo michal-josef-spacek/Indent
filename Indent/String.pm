@@ -113,12 +113,12 @@ __END__
 
 =head1 NAME
 
- Indent::Word - Class for text indenting.
+ Indent::String - Class for text indenting.
 
 =head1 SYNOPSIS
 
- use Indent::Word;
- my $indent = Indent::Word->new(%parameters);
+ use Indent::String;
+ my $indent = Indent::String->new(%parameters);
  $indent->indent('text text text');
 
 =head1 METHODS
@@ -172,10 +172,10 @@ __END__
  use warnings;
 
  # Modules.
- use Indent::Word;
+ use Indent::String;
 
  # Object.
- my $i = Indent::Word->new(
+ my $i = Indent::String->new(
          'line_size' => 20,
  );
 
