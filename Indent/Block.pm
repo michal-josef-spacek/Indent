@@ -154,7 +154,7 @@ __END__
 
 =head1 NAME
 
- Indent::Block - Class for block indent.
+ Indent::Block - Class for block indenting.
 
 =head1 SYNOPSIS
 

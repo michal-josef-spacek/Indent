@@ -99,7 +99,7 @@ __END__
 
 =head1 NAME
 
- Indent::Data - A perl module for data indenting.
+ Indent::Data - Class for data indenting.
 
 =head1 SYNOPSIS
 

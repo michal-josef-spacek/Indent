@@ -113,7 +113,7 @@ __END__
 
 =head1 NAME
 
- Indent::Word - Indent class for normal texts.
+ Indent::Word - Class for word indenting.
 
 =head1 SYNOPSIS
 
