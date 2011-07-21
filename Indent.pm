@@ -59,6 +59,12 @@ sub add {
 	return 1;
 }
 
+# Get a indent value.
+sub get {
+	my $self = shift;
+	return $self->{'indent'};
+}
+
 # Remove an indent from global indent.
 sub remove {
 	my ($self, $indent) = @_;
@@ -71,12 +77,6 @@ sub remove {
 	}
 	$self->{'indent'} = substr $self->{'indent'}, 0, -$indent_length;
 	return 1;
-}
-
-# Get a indent value.
-sub get {
-	my $self = shift;
-	return $self->{'indent'};
 }
 
 # Reseting indent.
@@ -138,14 +138,14 @@ as keyword value pairs. Recognized options are:
 
  Method for adding $cur_indent, if defined, or 'next_indent'.
 
+=item C<get()>
+
+ Get actual indent string.
+
 =item C<remove([$cur_indent])>
 
  Method for removing $cur_indent, if defined, or 'next_indent'. Only if 
  is removable.
-
-=item C<get()>
-
- Get actual indent string.
 
 =item C<reset([$reset_value])>
 
