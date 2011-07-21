@@ -4,20 +4,18 @@ use warnings;
 
 # Modules.
 use Indent;
-use Test::More 'tests' => 7;
+use Test::More 'tests' => 5;
 
 # Test.
 my $obj = Indent->new;
-is($obj->get, '');
+is($obj->get, '', 'No indent.');
 $obj->add('---');
-is($obj->get, '---');
-$obj->add('hoho');
-is($obj->get, '---hoho');
-$obj->reset('|||');
-is($obj->get, "|||");
-$obj->add('---');
-is($obj->get, "|||---");
-$obj->remove('---');
-is($obj->get, "|||");
+is($obj->get, '---', 'Add indent.');
 $obj->reset;
-is($obj->get, '');
+is($obj->get, '', 'Indent after reset.');
+
+# Test.
+$obj = Indent->new;
+is($obj->get, '', 'No indent.');
+$obj->reset('|||');
+is($obj->get, '|||', 'Reset to concrete indent.');
