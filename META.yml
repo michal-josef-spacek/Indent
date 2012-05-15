@@ -21,6 +21,7 @@ meta-spec:
 name: Indent
 no_index:
   directory:
+    - examples
     - inc
     - t
 requires:
