@@ -30,9 +30,8 @@ requires:
   Exporter: 0
   Readonly: 0
 resources:
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Indent
+  homepage: https://github.com/tupinek/Indent
   license: http://opensource.org/licenses/bsd-license.php
-  repository:
-    type: git
-    url: git://github.com/tupinek/Indent
-    web: https://github.com/tupinek/Indent
+  repository: git://github.com/tupinek/Indent
 version: 0.01
