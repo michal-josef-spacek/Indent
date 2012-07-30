@@ -38,33 +38,33 @@ sub line_size_check {
 # Reduce duplicit blank space in string to one space.
 # @param $string Reference to data string.
 sub reduce_duplicit_ws {
-	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s+/\ /gms;
+	my $string_sr = shift;
+	${$string_sr} =~ s/\s+/\ /gms;
 	return;
 }
 
 # Remove blank characters in begin of string.
 # @param $string Reference to data string.
 sub remove_first_ws {
-	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/^\s*//ms;
+	my $string_sr = shift;
+	${$string_sr} =~ s/^\s*//ms;
 	return;
 }
 
 # Remove blank characters in end of string.
 # @param $string Reference to data string.
 sub remove_last_ws {
-	my $ref_to_string = shift;
-	${$ref_to_string} =~ s/\s*$//ms;
+	my $string_sr = shift;
+	${$string_sr} =~ s/\s*$//ms;
 	return;
 }
 
 # Remove white characters in begin and end of string.
 # @param $string reference to data string.
 sub remove_ws {
-	my $ref_to_string = shift;
-	remove_last_ws($ref_to_string);
-	remove_first_ws($ref_to_string);
+	my $string_sr = shift;
+	remove_last_ws($string_sr);
+	remove_first_ws($string_sr);
 	return;
 }
 
@@ -121,19 +121,19 @@ __END__
 
  Line size 'line_size' parameter check. 
 
-=item C<reduce_duplicit_ws($ref_to_string)>
+=item C<reduce_duplicit_ws($string_sr)>
 
  Reduce duplicit blank space in string to one space.
 
-=item C<remove_first_ws($ref_to_string)>
+=item C<remove_first_ws($string_sr)>
 
  Remove blank characters in begin of string.
 
-=item C<remove_last_ws($ref_to_string)>
+=item C<remove_last_ws($string_sr)>
 
  Remove blank characters in end of string.
 
-=item C<remove_ws($ref_to_string)>
+=item C<remove_ws($string_sr)>
 
  Remove white characters in begin and end of string.
 
