@@ -14,7 +14,7 @@ Readonly::Scalar my $DEFAULT_TAB_LENGTH => 8;
 Readonly::Scalar my $SPACE => q{ };
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 # Length of tab.
 our $TAB_LENGTH = $DEFAULT_TAB_LENGTH;
@@ -257,6 +257,6 @@ BSD license.
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut

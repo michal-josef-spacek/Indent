@@ -7,4 +7,4 @@ use Indent::Block;
 use Test::More 'tests' => 1;
 
 # Test.
-is($Indent::Block::VERSION, 0.01, 'Version.');
+is($Indent::Block::VERSION, 0.02, 'Version.');
