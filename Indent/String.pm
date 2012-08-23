@@ -158,12 +158,12 @@ __END__
 
 =head1 ERRORS
 
- From Class::Utils::set_params():
-         Unknown parameter '%s'.
-
- From Indent::Utils::line_size_check():
-         'line_size' parameter must be a positive number.
-                 line_size => %s
+ new():
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
+         From Indent::Utils::line_size_check():
+                 'line_size' parameter must be a positive number.
+                         line_size => %s
 
 =head1 EXAMPLE
 

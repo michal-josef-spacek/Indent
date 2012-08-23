@@ -155,15 +155,16 @@ as keyword value pairs. Recognized options are:
 
 =head1 ERRORS
 
- Mine:
+ new():
          'next_indent' parameter must be defined.
          'next_indent' parameter must be a string.
          'indent' parameter must be defined.
          'indent' parameter must be a string.
-         Cannot remove indent '$indent'.
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
 
- From Class::Utils::set_params():
-         Unknown parameter '%s'.
+ remove():
+         Cannot remove indent '$indent'.
 
 =head1 EXAMPLE
 

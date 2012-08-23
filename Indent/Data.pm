@@ -145,16 +145,16 @@ __END__
 
 =head1 ERRORS
 
- Mine:
+ new():
          Bad 'line_size' = '%s' or length of string '%s'.
          Bad actual indent value. Length is greater then ('line_size' - 'size of next_indent' - 1).
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
 
- From Class::Utils::set_params():
-         Unknown parameter '%s'.
-
- From Indent::Utils::line_size_check():
-         'line_size' parameter must be a positive number.
-                 line_size => %s
+ indent():
+         From Indent::Utils::line_size_check():
+                 'line_size' parameter must be a positive number.
+                         line_size => %s
 
 =head1 EXAMPLE1
 
