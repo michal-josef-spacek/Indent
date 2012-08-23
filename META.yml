@@ -5,7 +5,7 @@ author:
 build_requires:
   English: 0
   ExtUtils::MakeMaker: 6.36
-  File::Object: 0.01
+  File::Object: 0.05
   Test::More: 0
   Test::Pod: 0
   Test::Pod::Coverage: 0
@@ -25,8 +25,8 @@ no_index:
     - inc
     - t
 requires:
-  Class::Utils: 0.01
-  Error::Pure: 0.07
+  Class::Utils: 0.03
+  Error::Pure: 0.08
   Exporter: 0
   Readonly: 0
 resources:
