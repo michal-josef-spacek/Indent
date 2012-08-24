@@ -2,3 +2,23 @@ CONCEPT
 =======
 stay() method for detecting non-breakable string?
 white space in tag?
+
+Indent::Block
+-------------
+Input is array.
+
+Indent::Data
+------------
+Input is string.
+Split on 'line_size' characters.
+
+Indent::String
+--------------
+Input is string.
+
+Indent::Word
+------------
+Input is string.
+Indent with words.
+- Don't remove any white space
+TODO: Why remove one space character?
