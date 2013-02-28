@@ -4,7 +4,8 @@ use warnings;
 
 # Modules.
 use Indent::Word;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
+use Test::NoWarnings;
 
 # Test.
 my $obj = Indent::Word->new(

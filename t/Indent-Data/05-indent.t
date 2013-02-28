@@ -5,7 +5,8 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Data;
-use Test::More 'tests' => 12;
+use Test::More 'tests' => 13;
+use Test::NoWarnings;
 
 # Test.
 my $obj = Indent::Data->new(

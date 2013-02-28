@@ -5,7 +5,8 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
+use Test::NoWarnings;
 
 # Test.
 eval {

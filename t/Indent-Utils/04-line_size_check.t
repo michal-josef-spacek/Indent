@@ -5,7 +5,8 @@ use warnings;
 # Modules.
 use English qw(-no_match_vars);
 use Indent::Utils qw(line_size_check);
-use Test::More 'tests' => 5;
+use Test::More 'tests' => 6;
+use Test::NoWarnings;
 
 # Test.
 eval {

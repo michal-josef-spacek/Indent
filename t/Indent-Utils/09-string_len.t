@@ -4,7 +4,8 @@ use warnings;
 
 # Modules.
 use Indent::Utils qw(string_len);
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
+use Test::NoWarnings;
 
 # Test.
 my $string = '   example';
