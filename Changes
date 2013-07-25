@@ -1,6 +1,7 @@
 0.02
 - Add Test::NoWarnings to tests.
 - Fix tests.
+- Rename CHANGES to Changes.
 
 0.01 (August 23, 2012)
 - First version.
