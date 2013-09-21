@@ -95,6 +95,7 @@ sub indent {
 	}
 
 	# Add other data to @data array.
+	$second =~ s/\s+$//ms;
 	if ($second) {
 		push @data, $second;
 	}

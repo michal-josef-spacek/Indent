@@ -2,6 +2,7 @@
  - Add LICENSE file.
  - Add Test::NoWarnings to tests.
  - Fix tests.
+ - Indent::Word: Remove trailing whitespace on end of string.
  - Rename CHANGES to Changes.
  - Rewrite Changes file to CPAN::Changes::SPEC format.
 
