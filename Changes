@@ -1,4 +1,5 @@
 0.03
+ - Add dependency for perl (based on Error::Pure).
  - Update examples/ directory.
 
 0.02 2013-09-21
