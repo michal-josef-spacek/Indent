@@ -5,18 +5,16 @@ use strict;
 use warnings;
 
 # Modules.
-use Indent::Block;
+use Indent::String;
 
 # Object.
-my $i = Indent::Block->new(
-        'line_size' => 2,
- 'next_indent' => '',
+my $i = Indent::String->new(
+        'line_size' => 20,
 );
 
-# Print in scalar context.
-print $i->indent(['text', 'text', 'text'])."\n";
+# Indent.
+print $i->indent(join(' ', ('text') x 7))."\n";
 
 # Output:
-# text
-# text
-# text
+# text text text text
+# <--tab->text text text

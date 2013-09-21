@@ -5,16 +5,20 @@ use strict;
 use warnings;
 
 # Modules.
-use Indent::String;
+use Indent::Data;
 
-# Object.
-my $i = Indent::String->new(
-        'line_size' => 20,
+# Indent::Data object.
+my $i = Indent::Data->new(
+       'line_size' => '10',
+       'next_indent' => '  ',
+       'output_separator' => "|\n",
 );
 
-# Indent.
-print $i->indent(join(' ', ('text') x 7))."\n";
+# Print indented text.
+print $i->indent('text text text text text text')."|\n";
 
 # Output:
-# text text text text
-# <--tab->text text text
+# text text |
+#   text tex|
+#   t text t|
+#   ext|

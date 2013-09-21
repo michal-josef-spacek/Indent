@@ -5,10 +5,10 @@ use strict;
 use warnings;
 
 # Modules.
-use Indent::Utils qw(remove_ws);
+use Indent::Utils qw(remove_first_ws);
 
-my $input = '   a   ';
-remove_ws(\$input);
+my $input = '  a';
+remove_first_ws(\$input);
 print "$input|\n";
 
 # Output:
