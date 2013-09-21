@@ -8,4 +8,4 @@ use Test::More 'tests' => 2;
 use Test::NoWarnings;
 
 # Test.
-is($Indent::Data::VERSION, 0.02, 'Version.');
+is($Indent::Data::VERSION, 0.03, 'Version.');

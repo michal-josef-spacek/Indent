@@ -14,7 +14,7 @@ Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
 # Version.
-our $VERSION = 0.02;
+our $VERSION = 0.03;
 
 # Constructor.
 sub new {
@@ -215,6 +215,6 @@ BSD license.
 
 =head1 VERSION
 
-0.02
+0.03
 
 =cut
