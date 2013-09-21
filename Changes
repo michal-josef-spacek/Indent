@@ -1,5 +1,6 @@
 0.02 2013-09-21
  - Add LICENSE file.
+ - Add SIGNATURE file.
  - Add Test::NoWarnings to tests.
  - Fix tests.
  - Indent::Word: Remove trailing whitespace on end of string.
