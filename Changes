@@ -1,7 +1,8 @@
 0.02
-- Add Test::NoWarnings to tests.
-- Fix tests.
-- Rename CHANGES to Changes.
+ - Add Test::NoWarnings to tests.
+ - Fix tests.
+ - Rename CHANGES to Changes.
+ - Rewrite Changes file to CPAN::Changes::SPEC format.
 
-0.01 (August 23, 2012)
-- First version.
+0.01 2012-08-23
+ - First version.
