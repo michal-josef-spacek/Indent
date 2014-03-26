@@ -106,7 +106,7 @@ Indent - Class for indent handling.
  use Indent;
  my $indent = Indent->new(%parameters);
  $indent->add([$cur_indent]);
- $indent->get;
+ my $string = $indent->get;
  $indent->remove([$cur_indent]);
  $indent->reset([$reset_value]);
 
