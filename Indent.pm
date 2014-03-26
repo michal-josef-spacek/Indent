@@ -141,6 +141,7 @@ as keyword value pairs. Recognized options are:
 =item C<get()>
 
  Get actual indent string.
+ Returns string.
 
 =item C<remove([$cur_indent])>
 
