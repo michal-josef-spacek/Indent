@@ -6,6 +6,8 @@ use warnings;
 
 # Modules.
 use Class::Utils qw(set_params);
+use English qw(-no_match_vars);
+use Error::Pure qw(err);
 use Indent::Utils qw(line_size_check);
 use Readonly;
 
@@ -21,6 +23,9 @@ sub new {
 	my ($class, @params) = @_;
 	my $self = bless {}, $class;
 
+	# Use with ANSI sequences.
+	$self->{'ansi'} = 0;
+
 	# Options.
 	$self->{'line_size'} = $LINE_SIZE;
 	$self->{'next_indent'} = "\t";
@@ -33,6 +38,16 @@ sub new {
 
 	# 'line_size' check.
 	line_size_check($self);
+
+	# Check rutine for removing ANSI sequences.
+	if ($self->{'ansi'}) {
+		eval {
+			require Text::ANSI::Util;
+		};
+		if ($EVAL_ERROR) {
+			err "Cannot load 'Text::ANSI::Util' module.";
+		}
+	}
 
 	# Object.
 	return $self;
@@ -56,12 +71,12 @@ sub indent {
 	my $last_second_length = 0;
 	my @data;
 	my $one = 1;
-	while (length $second >= $self->{'line_size'}
+	while ($self->_length($second) >= $self->{'line_size'}
 		&& $second =~ /^\s*\S+\s+/ms
-		&& $last_second_length != length $second) {
+		&& $last_second_length != $self->_length($second)) {
 
 		# Last length of non-parsed part of data.
-		$last_second_length = length $second;
+		$last_second_length = $self->_length($second);
 
 		# Parse to indent length.
 		($first, my $tmp) = $second
@@ -69,7 +84,8 @@ sub indent {
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
-		if (! $first || length $first < length $indent
+		if (! $first
+			|| $self->_length($first) < $self->_length($indent)
 			|| $first =~ /^$indent\s*$/ms) {
 
 			($first, $tmp) = $second
@@ -104,6 +120,16 @@ sub indent {
 	return wantarray ? @data : join($self->{'output_separator'}, @data);
 }
 
+# Get length.
+sub _length {
+	my ($self, $string) = @_;
+	if ($self->{'ansi'}) {
+		return length Text::ANSI::Util::ta_strip($string);
+	} else {
+		return length $string;
+	}
+}
+
 1;
 
 __END__
@@ -131,6 +157,11 @@ __END__
  Constructor.
 
 =over 8
+
+=item * C<ansi>
+
+ Use with ANSI sequences.
+ Default value is 0.
 
 =item * C<line_size>
 
@@ -160,6 +191,7 @@ __END__
 =head1 ERRORS
 
  new():
+         Cannot load 'Text::ANSI::Util' module.
          From Class::Utils::set_params():
                  Unknown parameter '%s'.
          From Indent::Utils::line_size_check():
@@ -190,6 +222,8 @@ __END__
 =head1 DEPENDENCIES
 
 L<Class::Utils>,
+L<English>,
+L<Error::Pure>,
 L<Indent::Utils>,
 L<Readonly>.
 
@@ -199,6 +233,8 @@ L<Indent>,
 L<Indent::Block>,
 L<Indent::Data>,
 L<Indent::Utils>.
+
+L<Text::ANSI::Util> for situation with 'ansi' => 1.
 
 =head1 REPOSITORY
 

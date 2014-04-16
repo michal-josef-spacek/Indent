@@ -6,6 +6,9 @@
  - Add return value of get() in doc.
  - Improve SYNOPSIS section in doc.
 
+ [Indent::Word]
+ - Add support for strings with ANSI sequences.
+
 0.03 2013-11-07
  - Add dependency for perl (based on Error::Pure).
  - Update examples/ directory.
