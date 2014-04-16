@@ -79,6 +79,7 @@ sub indent {
 		$last_second_length = $self->_length($second);
 
 		# Parse to indent length.
+		# TODO fix algorithm with ANSI sequences.
 		($first, my $tmp) = $second
 			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
 

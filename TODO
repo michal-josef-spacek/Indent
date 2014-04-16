@@ -19,7 +19,8 @@ TODO
     pripadne, ze mam 'use Module qw(' pak promenlivou delku a na konci ');'
 50. Test pro regexp jako hodnota.
 51. Sjednotit testy do souboru podle metod.
-52.
+52. Opravit Indent::Word regexp pro ANSI sequence.
+53.
 
 Applied
 =======
