@@ -1,7 +1,10 @@
 0.04
+ [Common]
+ - Update Module::Install to 1.08 version.
+
+ [Indent]
  - Add return value of get() in doc.
  - Improve SYNOPSIS section in doc.
- - Update Module::Install to 1.08 version.
 
 0.03 2013-11-07
  - Add dependency for perl (based on Error::Pure).
