@@ -7,6 +7,7 @@
  - Improve SYNOPSIS section in doc.
 
  [Indent::Word]
+ - Add example to doc.
  - Add support for strings with ANSI sequences.
 
 0.03 2013-11-07

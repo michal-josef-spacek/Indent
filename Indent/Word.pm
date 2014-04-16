@@ -199,7 +199,7 @@ __END__
                  'line_size' parameter must be a positive number.
                          line_size => %s
 
-=head1 EXAMPLE
+=head1 EXAMPLE1
 
  # Pragmas.
  use strict;
@@ -215,6 +215,30 @@ __END__
 
  # Indent.
  print $i->indent(join(' ', ('text') x 7))."\n";
+
+ # Output:
+ # text text text text
+ # <--tab->text text text
+
+=head1 EXAMPLE2
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use Indent::Word;
+ use Term::ANSIColor;
+
+ # Object.
+ my $i = Indent::Word->new(
+         'ansi' => 1,
+         'line_size' => 20,
+ );
+
+ # Indent.
+ print $i->indent('text text '.color('cyan').'text'.color('reset').
+         ' text '.color('red').'text'.color('reset').' text text')."\n";
 
  # Output:
  # text text text text
