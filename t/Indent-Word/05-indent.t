@@ -4,7 +4,7 @@ use warnings;
 
 # Modules.
 use Indent::Word;
-use Test::More 'tests' => 11;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 
 # Test.
@@ -12,51 +12,60 @@ my $obj = Indent::Word->new(
 	'next_indent' => '  ',
 	'line_size' => '20',
 );
-my $set_no_indent = 1;
-my $act_indent = '---';
 my $data = 'a b c d e f g h i j k l m n o p q r s t u v w x y z' x 2;
-my $ret = $obj->indent($data, $act_indent, $set_no_indent);
-is(length $ret, length($data) + 3);
+my $ret = $obj->indent($data, '---', 1);
+my $right_ret = '---a b c d e f g h i j k l m n o p q r s t u v w x y z'.
+	'a b c d e f g h i j k l m n o p q r s t u v w x y z';
+is($ret, $right_ret, 'Test for no indent flag.');
 
 # Test.
-$set_no_indent = 0;
-my @ret = $obj->indent($data, $act_indent, $set_no_indent);
-my $log = 0;
-foreach my $line (@ret) {
-	if (length $line > 20) {
-		$log = 1;
-	}
-}
-is($#ret, 6);
-is($log, 0);
+my @ret = $obj->indent($data, '---', 0);
+is_deeply(
+	\@ret,
+	[
+		"---a b c d e f g h i",
+		"---  j k l m n o p q",
+		"---  r s t u v w x y",
+		"---  za b c d e f g",
+		"---  h i j k l m n o",
+		"---  p q r s t u v w",
+		"---  x y z"
+	],
+	'Test for indenting per 20 char on line.',
+);
 
 # Test.
 $data = 'abcdefghijklmnopqrstuvwxyz' x 3;
-$ret = $obj->indent($data, $act_indent, $set_no_indent);
+$ret = $obj->indent($data, '---', 0);
 is($ret, '---abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdef'.
-	'ghijklmnopqrstuvwxyz');
+	'ghijklmnopqrstuvwxyz', 'Test for one word.');
 
 # Test.
-$data = 'text';
 $obj = Indent::Word->new(
 	'next_indent' => '',
 	'line_size' => '5',
 );
-$ret = $obj->indent($data, '<-->');
-is($ret, '<-->text');
+$ret = $obj->indent('text', '<-->');
+is(
+	$ret,
+	'<-->text',
+	'Test for short string #1.',
+);
 
 # Test.
-$data = 'text text';
 $obj = Indent::Word->new(
 	'next_indent' => ' ',
 	'line_size' => '5',
 );
-my @right_ret = (
-	'<->text',
-	'<-> text',
+@ret = $obj->indent('text text', '<->');
+is_deeply(
+	\@ret,
+	[
+		'<->text',
+		'<-> text',
+	],
+	'Test for short string #2.',
 );
-@ret = $obj->indent($data, '<->');
-is_deeply(\@ret, \@right_ret);
 
 # Test.
 my $next_indent = '  ';
@@ -65,7 +74,11 @@ $obj = Indent::Word->new(
 	'line_size' => 0,
 );
 $ret = $obj->indent('word1 word2 word3');
-is($ret, "word1\n".$next_indent."word2\n".$next_indent."word3");
+is(
+	$ret,
+	"word1\n".$next_indent."word2\n".$next_indent."word3",
+	'Test indenting in scalar context.',
+);
 
 # Test.
 $obj = Indent::Word->new(
