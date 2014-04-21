@@ -4,8 +4,10 @@ use warnings;
 
 # Modules.
 use Indent::Word;
+use Term::ANSIColor;
 use Test::More 'tests' => 10;
 use Test::NoWarnings;
+use Text::ANSI::Util qw(ta_strip);
 
 # Test.
 my $obj = Indent::Word->new(
@@ -114,4 +116,36 @@ is_deeply(
 	\@ret,
 	[],
 	'No string to indent.',
+);
+
+# Test.
+$obj = Indent::Word->new(
+	'ansi' => 1,
+	'line_size' => '20',
+	'next_indent' => '  ',
+);
+$data = '';
+my $num = 0;
+foreach my $char ('a' .. 'z') {
+	if ($data) {
+		$data .= ' ';
+	}
+	$num++;
+	if ($num % 2 == 0) {
+		$data .= color('red').$char.color('reset');
+	} else {
+		$data .= color('cyan').$char.color('reset');
+	}
+}
+@ret = $obj->indent($data, '---', 0);
+@ret = map { ta_strip($_); } @ret;
+is_deeply(
+	\@ret,
+	[
+		'---a b c d e f g h i',
+		'---  j k l m n o p q',
+		'---  r s t u v w x y',
+		'---  z',
+	],
+	'Test for indenting per 20 char on line.',
 );
