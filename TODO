@@ -20,7 +20,9 @@ TODO
 50. Test pro regexp jako hodnota.
 51. Sjednotit testy do souboru podle metod.
 52. Opravit Indent::Word regexp pro ANSI sequence.
-53.
+53. Do Indent::Word prikladu pridat benchmark oproti Text::Wrap::wrap();
+    Je v perl/MODULES/Text-Wrap/ex4.pl
+54.
 
 Applied
 =======
