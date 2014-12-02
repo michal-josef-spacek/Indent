@@ -7,7 +7,7 @@ use inc::Module::Install;
 
 # Definition.
 abstract 'Classes for indent handling.';
-author 'Michal Špaček <skim@cpan.org>';
+author 'Michal Spacek <skim@cpan.org>';
 license 'bsd';
 name 'Indent';
 requires 'Class::Utils' => 0.03;
