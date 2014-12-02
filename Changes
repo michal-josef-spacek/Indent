@@ -1,7 +1,7 @@
 0.04
  [Common]
  - Fix LICENSE file.
- - Update Module::Install to 1.10 version.
+ - Update Module::Install to 1.14 version.
 
  [Indent]
  - Add return value of get() in doc.
