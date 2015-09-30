@@ -27,8 +27,10 @@ resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 resources 'homepage' => 'https://github.com/tupinek/Indent';
 resources 'repository' => 'git://github.com/tupinek/Indent';
 test_requires 'English' => 0;
+test_requires 'Term::ANSIColor' => 0;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
+test_requires 'Text::ANSI::Util' => 0;
 tests_recursive;
 version '0.04';
 
