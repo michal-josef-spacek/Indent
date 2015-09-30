@@ -22,7 +22,8 @@ TODO
 52. Opravit Indent::Word regexp pro ANSI sequence.
 53. Do Indent::Word prikladu pridat benchmark oproti Text::Wrap::wrap();
     Je v perl/MODULES/Text-Wrap/ex4.pl
-54.
+54. V Indent::Word je Text::ANSI::Util, ktere je obsolete. Nahradit.
+55.
 
 Applied
 =======
