@@ -2,6 +2,7 @@
  [Common]
  - Fix LICENSE file.
  - Update Module::Install to 1.16 version.
+ - Update copyright years.
 
  [Indent]
  - Add return value of get() in doc.
