@@ -1,6 +1,7 @@
 0.04
  [Common]
  - Fix LICENSE file.
+ - Improve LICENSE AND COPYRIGHT section in doc.
  - Update Module::Install to 1.16 version.
  - Update copyright years.
 
