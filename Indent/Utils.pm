@@ -236,10 +236,29 @@ L<Readonly>.
 
 =head1 SEE ALSO
 
-L<Indent>,
-L<Indent::Block>,
-L<Indent::Data>,
-L<Indent::Word>.
+=over
+
+=item L<Indent>
+
+Class for indent handling.
+
+=item L<Indent::Block>
+
+Class for block indenting.
+
+=item L<Indent::Data>
+
+Class for data indenting.
+
+=item L<Indent::String>
+
+Class for text indenting.
+
+=item L<Indent::Word>
+
+Class for word indenting.
+
+=back
 
 =head1 REPOSITORY
 

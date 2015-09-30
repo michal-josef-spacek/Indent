@@ -252,14 +252,37 @@ L<Error::Pure>,
 L<Indent::Utils>,
 L<Readonly>.
 
+L<Text::ANSI::Util> for situation with 'ansi' => 1.
+
 =head1 SEE ALSO
 
-L<Indent>,
-L<Indent::Block>,
-L<Indent::Data>,
-L<Indent::Utils>.
+=over
 
-L<Text::ANSI::Util> for situation with 'ansi' => 1.
+=item L<Indent>
+
+Class for indent handling.
+
+=item L<Indent::Block>
+
+Class for block indenting.
+
+=item L<Indent::Data>
+
+Class for data indenting.
+
+=item L<Indent::String>
+
+Class for text indenting.
+
+=item L<Indent::Utils>
+
+Utilities for Indent classes.
+
+=item L<Text::Wrap>
+
+line wrapping to form simple paragraphs
+
+=back
 
 =head1 REPOSITORY
 
