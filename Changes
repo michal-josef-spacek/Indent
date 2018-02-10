@@ -1,6 +1,7 @@
 0.04
  [Common]
  - Fix LICENSE file.
+ - Fix Makefile.PL for new version of Perl and no default »use lib '.'«.
  - Improve LICENSE AND COPYRIGHT section in doc.
  - Improve README file.
  - Improve SEE ALSO section in doc.
