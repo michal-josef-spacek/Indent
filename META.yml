@@ -30,10 +30,11 @@ requires:
   Error::Pure: 0.08
   Exporter: 0
   Readonly: 0
+  Text::ANSI::Util: 0
   perl: 5.6.2
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Indent
   homepage: https://github.com/tupinek/Indent
   license: http://opensource.org/licenses/bsd-license.php
   repository: git://github.com/tupinek/Indent
-version: 0.05
+version: '0.05'

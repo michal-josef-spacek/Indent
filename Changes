@@ -1,5 +1,6 @@
 0.05
  [Common]
+ - Add missing dependency for Indent::Word.
  - Remove trailing whitespace.
 
 0.04 2018-02-10T14:48:37+01:00
