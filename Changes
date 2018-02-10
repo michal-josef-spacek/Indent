@@ -5,7 +5,7 @@
  - Improve README file.
  - Improve SEE ALSO section in doc.
  - Move author tests to xt/ directory.
- - Update Module::Install to 1.16 version.
+ - Update Module::Install to 1.19 version.
  - Update copyright years.
 
  [Indent]
