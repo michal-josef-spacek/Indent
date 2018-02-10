@@ -14,18 +14,18 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-SHA1 5361af19db0596d7afac725601f67b7858c31042 Changes
-SHA1 4450b5559c815f5ba6886de003dfa74aead9604c Indent.pm
-SHA1 5885fb1746cead4c39e4887739f675ac1853d6ab Indent/Block.pm
-SHA1 33413f7ef8f3f06cec1cc864dbc0c7f1452f19fb Indent/Data.pm
-SHA1 5ede6b5af8afa67b988c6d93b32a9281a0489a1d Indent/String.pm
-SHA1 929fb0df1a90d084a6ba2e66d86da87d8d5391e9 Indent/Utils.pm
-SHA1 d1df1bd4089f1edecbb3bcbd37e8c7897e9ee10d Indent/Word.pm
+SHA1 44fbead7757993d2cda3cd02bc06bf15de5e82b8 Changes
+SHA1 792472366e144a344591f9c145e598ecbda294bc Indent.pm
+SHA1 0d6516dc61322e64a0a8b713c3ae40cbc0ef238d Indent/Block.pm
+SHA1 538a42fdc38e24d8ca029972e0658a6079482d62 Indent/Data.pm
+SHA1 c992c08dd25753b414b7901b2e1ab32998cadc14 Indent/String.pm
+SHA1 3f25724c9631594b94be96e2da0300cff576c85b Indent/Utils.pm
+SHA1 9f049f2483dff3f974492d0c9f246e3e79874ede Indent/Word.pm
 SHA1 23bda6570ae3cd712f6942ffa31eb991ea1944e0 LICENSE
 SHA1 5855ab22b7ee51ecc6f05a1dc8fbdbe18eec38a4 MANIFEST
-SHA1 90acfaaa3f6d2bba9536639d24867d81a9de51e9 META.yml
-SHA1 d4d3054bc60df57ef882c166ca2e3449b6d47d03 Makefile.PL
-SHA1 bf70e355a100bbb0e9afb1cb72365cd0c955ade9 README
+SHA1 faaeac659db4fccb90b974aa873df779b13fc411 META.yml
+SHA1 c5531d290e4b4a1152688564c76bfb0de92f5584 Makefile.PL
+SHA1 968e2b96553511c441838847437ec60c3e9c8666 README
 SHA1 1efce33a8f437c7ba36c1d1a66c03ec3d80a03c1 examples/ex1.pl
 SHA1 5a00ec7078520a87816a2e1c721c1fb83517f6c6 examples/ex10.pl
 SHA1 fcacedb2406bdcf821f21290c7aed3abd64560ef examples/ex11.pl
@@ -50,17 +50,17 @@ SHA1 0d9fd69718198fcd1560214c4f23fcaa44f8395e inc/Module/Install/Metadata.pm
 SHA1 99b8179fbd9e05422b161cf91abe198744188064 inc/Module/Install/Win32.pm
 SHA1 6a91e14bbecc64e9c8e2261dfa4b360641d152e4 inc/Module/Install/WriteAll.pm
 SHA1 ae24c330754614465089f7321e13dadfc7f827cb t/Indent-Block/01-use.t
-SHA1 73f9b41b3746754f06a62e7cb105a11f69ed14f8 t/Indent-Block/02-version.t
+SHA1 a60b42d3caa00d8493414ec2660c4c22a3f1a48f t/Indent-Block/02-version.t
 SHA1 9166f20e126e49c64414481020bdd4e49c3d80bc t/Indent-Block/03-new.t
 SHA1 c97a38b0de421f45c693ec8fb9e93e4f36fd4f27 t/Indent-Block/04-indent.t
 SHA1 2aea4f93f16d109d87bc1882db2fc4233afdfdd4 t/Indent-Data/01-use.t
-SHA1 a1564d0e6c39cc5f428ad93440d1471d056984a6 t/Indent-Data/02-version.t
+SHA1 7bc0fc70cf176493b42c0bf766e75f5930c48cc4 t/Indent-Data/02-version.t
 SHA1 8d55309a696bb9c199283f5cace57a82c96ea946 t/Indent-Data/03-new.t
 SHA1 137d3e448015eb1c4830ca8f2ea99d73ecb78a98 t/Indent-Data/04-indent.t
 SHA1 c9191c0442689a2d656e190f4db7f761029fe3bf t/Indent-String/01-use.t
-SHA1 5ed9590687f53ad6c1bf46a37791b8102d3fc508 t/Indent-String/02-version.t
+SHA1 750e99d6aca045cbdfd3f7dcd127a59a2d2cd79d t/Indent-String/02-version.t
 SHA1 51b7b0613bedbe01f0a9b9e6f003f93bf0d855de t/Indent-Utils/01-use.t
-SHA1 3a150928e7c1c007fa54ce0ca35905f3d4948535 t/Indent-Utils/02-version.t
+SHA1 96f0791f5b590d81f56cf17a2af11a36d115a5c0 t/Indent-Utils/02-version.t
 SHA1 c72d23b7ecd3a1bab0b8d72b94d755e2e51dc105 t/Indent-Utils/03-line_size_check.t
 SHA1 014644b4abebeaa99573ad20303201112573dfbc t/Indent-Utils/04-reduce_duplicit_ws.t
 SHA1 5d635874c5b43e17d689adb0b614fe8f746e6502 t/Indent-Utils/05-remove_first_ws.t
@@ -68,11 +68,11 @@ SHA1 6f33e2450200bfb1e6476c8455c1016a275326da t/Indent-Utils/06-remove_last_ws.t
 SHA1 4a9d891b5f49a72ed800d7589facc65ec37b62ae t/Indent-Utils/07-remove_ws.t
 SHA1 42a849a8c0de0483ca1eb0ef53e40195dc810696 t/Indent-Utils/08-string_len.t
 SHA1 def2f40638b1e394451588dcd8e70f010ef1709b t/Indent-Word/01-use.t
-SHA1 910f12ccdb48222601e8a08ca16612e8896cda68 t/Indent-Word/02-version.t
+SHA1 51b1d4ff4019277eb9b1acb93e803944b09aad08 t/Indent-Word/02-version.t
 SHA1 c0a54fc5f442664db78dc2455b854fec1c5a3f5d t/Indent-Word/03-new.t
 SHA1 3133d28296d261fc905f139aea237d6206ff0e7e t/Indent-Word/04-indent.t
 SHA1 c8a36988833cde29224c6c98812f59814edc9bef t/Indent/01-use.t
-SHA1 71a6f72b85b7ab715fe2db70e2db58fd8d5bc373 t/Indent/02-version.t
+SHA1 02384234b5d61381d72d6b5d25144aba3672cc0b t/Indent/02-version.t
 SHA1 fa51f7e58818877e26cb3b73aa2b0e3203feed53 t/Indent/03-new.t
 SHA1 a02779a1175010e7cf361878ed674c1e306a64d3 t/Indent/04-add.t
 SHA1 fbe9bbcc6acceaf15fd28d65d26ce7582b4b191b t/Indent/05-get.t
@@ -92,12 +92,12 @@ SHA1 fc615dc47d3292d707016a98571f2bf728858aa8 xt/Indent/01-pod_coverage.t
 SHA1 e0040d1c2fa590d7e9386f933f85f1a730265efd xt/Indent/02-pod.t
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCgAdFiEEAxWqUSy7qDLVZJQKKyiOZjWerHYFAlp++DgACgkQKyiOZjWe
-rHZN/wgAkzVJU7s7VQ5FBB1fxF9P8K0FPWp5NLhDY+lwSXLzySA7w43h6g6L4bnc
-RB4sw25lcqzhewSvid+CV2q9W5Ou675GK2YP+IHT5vqEWtT5MZMTm6OFpin/KXUY
-l2CpPb2k9nOGzdmmerBhnsqWVGjX81braZvWbsfcVf77XAouUDXGE3LlLSb2Q43+
-aFs4tVMw6h4dddF098ZZdxRWYqA7IIBGBpBsPwmLr9wu6aSu6zt0aCplylO3QyaQ
-x9XnlDe/HEAA0poQ7MEEqL9r1eJ/h6LalPucx/kFT2+oRlF5TlKIGUTx9dEH/1p7
-Mi1aiy6VR0JFTN2+giHmppPOEzzw+A==
-=YiA7
+iQEzBAEBCgAdFiEEAxWqUSy7qDLVZJQKKyiOZjWerHYFAlp++hwACgkQKyiOZjWe
+rHYM0gf+K8KCjKMEExby1m1xaXD+3NLL8wVAGPMJIqAMnSe0JwfTWdxgMzM86nAL
+LpLYvZTWlVzVTF8pTT7HzbOyY/GjnS7r2905IORA6NC3pds1VIe0wzZyZiZ1R8w7
+z039EyvzLZGR097abl/hZqr9QOnPmLOYFfzy+muqt3u8RFWvb9oB34K/51LVHQP1
+pidbfmIIxToc8WtjrU8+GhtM/EUxS0oxkziZKK6Uk/9jmFWfgHdx+3s9A64i4+Nx
+dfBJR5KfjZTNdVQ6Q7zSUQL8FJ78+voIN7D+OZE5aPnr+ji5B5ngphf3FLyOUeIR
+F7mx1ymfHvj8NiKUboXN+UAjyWQ0ew==
+=q/eo
 -----END PGP SIGNATURE-----
