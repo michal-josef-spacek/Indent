@@ -3,7 +3,7 @@ use warnings;
 
 use Indent::Word;
 use Term::ANSIColor;
-use Test::More 'tests' => 10;
+use Test::More 'tests' => 11;
 use Test::NoWarnings;
 use Text::ANSI::Util qw(ta_strip);
 
