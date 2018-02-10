@@ -76,9 +76,7 @@ sub indent {
 		$last_second_length = $self->_length($second);
 
 		# Parse to indent length.
-		# TODO fix algorithm with ANSI sequences.
-		($first, my $tmp) = $second
-			=~ /^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
+		($first, my $tmp) = $self->_parse_to_indent_length($second);
 
 		# If string is non-breakable in indent length, than parse to
 		# blank char.
@@ -126,6 +124,33 @@ sub _length {
 	} else {
 		return length $string;
 	}
+}
+
+# Parse to indent length.
+sub _parse_to_indent_length {
+	my ($self, $string) = @_;
+	my @ret;
+	if ($self->{'ansi'}) {
+		my $string_wo_ansi = Text::ANSI::Util::ta_strip($string);
+
+		# First part.
+		my ($first_wo_ansi) = $string_wo_ansi
+			=~ m/^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
+		push @ret, Text::ANSI::Util::ta_trunc($string, length $first_wo_ansi);
+
+		# Second part. (Remove first part + whitespace from string.)
+		my $other_string_wo_ansi = Text::ANSI::Util::ta_strip(
+			Text::ANSI::Util::ta_substr($string, length $first_wo_ansi,
+				Text::ANSI::Util::ta_length($string))
+		);
+		$other_string_wo_ansi =~ m/^(\s*)/ms;
+		my $count_of_spaces = length $1;
+		push @ret, Text::ANSI::Util::ta_substr($string, 0, (length $first_wo_ansi)
+			+ $count_of_spaces, '');
+	} else {
+		@ret = $string =~ m/^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
+	}
+	return @ret;
 }
 
 1;
