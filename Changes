@@ -7,6 +7,7 @@
  - Move author tests to xt/ directory.
  - Update Module::Install to 1.19 version.
  - Update copyright years.
+ - Update examples.
 
  [Indent]
  - Add return value of get() in doc.

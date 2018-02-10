@@ -3,19 +3,18 @@
 use strict;
 use warnings;
 
-use Indent::Word;
-use Term::ANSIColor;
+use Indent::Block;
 
 # Object.
-my $i = Indent::Word->new(
-        'ansi' => 1,
-        'line_size' => 20,
+my $i = Indent::Block->new(
+        'line_size' => 2,
+ 'next_indent' => '',
 );
 
-# Indent.
-print $i->indent('text text '.color('cyan').'text'.color('reset').
-        ' text '.color('red').'text'.color('reset').' text text')."\n";
+# Print in scalar context.
+print $i->indent(['text', 'text', 'text'])."\n";
 
 # Output:
-# text text text text
-# <--tab->text text text
+# text
+# text
+# text
