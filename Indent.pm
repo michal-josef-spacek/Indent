@@ -125,7 +125,7 @@ as keyword value pairs. Recognized options are:
 
 =item * C<next_indent>
 
- Next indent. Adding to internal indent variable after every add method 
+ Next indent. Adding to internal indent variable after every add method
  calling.
  Default value is "\t" (tabelator).
 
@@ -142,7 +142,7 @@ as keyword value pairs. Recognized options are:
 
 =item C<remove([$cur_indent])>
 
- Method for removing $cur_indent, if defined, or 'next_indent'. Only if 
+ Method for removing $cur_indent, if defined, or 'next_indent'. Only if
  is removable.
 
 =item C<reset([$reset_value])>
@@ -198,7 +198,7 @@ as keyword value pairs. Recognized options are:
  # Reset.
  $indent->reset;
 
- # Output: 
+ # Output:
  # ->Example
  # ->->Ok
  # ->Example2

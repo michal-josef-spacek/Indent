@@ -26,7 +26,7 @@ sub line_size_check {
 	if (! defined $self->{'line_size'}
 		|| $self->{'line_size'} !~ m/^\d+$/ms) {
 
-		err '\'line_size\' parameter must be a positive number.', 
+		err '\'line_size\' parameter must be a positive number.',
 			'line_size', $self->{'line_size'};
 	}
 	return;
@@ -91,7 +91,7 @@ __END__
 
 =head1 SYNOPSIS
 
- use Indent::Utils qw(line_size_check reduce_duplicit_ws remove_first_ws 
+ use Indent::Utils qw(line_size_check reduce_duplicit_ws remove_first_ws
          remove_last_ws remove_ws string_len);
  line_size_check($object_with_line_size_parameter);
  reduce_duplicit_ws(\$string);
@@ -116,7 +116,7 @@ __END__
 
 =item C<line_size_check($object_with_line_size_parameter)>
 
- Line size 'line_size' parameter check. 
+ Line size 'line_size' parameter check.
 
 =item C<reduce_duplicit_ws($string_sr)>
 
