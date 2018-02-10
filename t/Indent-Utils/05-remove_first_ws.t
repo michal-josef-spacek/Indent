@@ -1,8 +1,6 @@
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Indent::Utils qw(remove_first_ws);
 use Test::More 'tests' => 4;
 use Test::NoWarnings;

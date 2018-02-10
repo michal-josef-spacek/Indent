@@ -1,10 +1,8 @@
 package Indent;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
 use Readonly;
@@ -12,7 +10,6 @@ use Readonly;
 # Constants.
 Readonly::Scalar my $EMPTY_STR => q{};
 
-# Version.
 our $VERSION = 0.04;
 
 # Constructor.
@@ -169,11 +166,9 @@ as keyword value pairs. Recognized options are:
 
 =head1 EXAMPLE
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent;
 
  # Indent object.

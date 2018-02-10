@@ -1,10 +1,8 @@
 package Indent::Block;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use Indent::Utils qw(line_size_check string_len);
 use Readonly;
@@ -13,7 +11,6 @@ use Readonly;
 Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
-# Version.
 our $VERSION = 0.04;
 
 # Constructor.
@@ -215,11 +212,9 @@ __END__
 
 =head1 EXAMPLE
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Block;
 
  # Object.

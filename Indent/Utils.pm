@@ -1,11 +1,9 @@
 package Indent::Utils;
 
-# Pragmas.
 use base qw(Exporter);
 use strict;
 use warnings;
 
-# Modules.
 use Error::Pure qw(err);
 use Readonly;
 
@@ -13,7 +11,6 @@ use Readonly;
 Readonly::Scalar my $DEFAULT_TAB_LENGTH => 8;
 Readonly::Scalar my $SPACE => q{ };
 
-# Version.
 our $VERSION = 0.04;
 
 # Length of tab.
@@ -151,11 +148,9 @@ __END__
 
 =head1 EXAMPLE1
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Utils qw(reduce_duplicit_ws);
 
  my $input = 'a  b';
@@ -167,11 +162,9 @@ __END__
 
 =head1 EXAMPLE2
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Utils qw(remove_first_ws);
 
  my $input = '  a';
@@ -183,11 +176,9 @@ __END__
 
 =head1 EXAMPLE3
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Utils qw(remove_last_ws);
 
  my $input = 'a   ';
@@ -199,11 +190,9 @@ __END__
 
 =head1 EXAMPLE4
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Utils qw(remove_ws);
 
  my $input = '   a   ';
@@ -215,11 +204,9 @@ __END__
 
 =head1 EXAMPLE5
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Utils qw(string_len);
 
  # Print string length.

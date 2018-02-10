@@ -1,8 +1,6 @@
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use English qw(-no_match_vars);
 use Indent::Utils qw(line_size_check);
 use Test::More 'tests' => 6;

@@ -1,10 +1,8 @@
 package Indent::Data;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use Error::Pure qw(err);
 use Indent::Utils qw(line_size_check string_len);
@@ -14,7 +12,6 @@ use Readonly;
 Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
-# Version.
 our $VERSION = 0.04;
 
 # Constructor.
@@ -158,11 +155,9 @@ __END__
 
 =head1 EXAMPLE1
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Data;
 
  # Indent::Data object.
@@ -183,11 +178,9 @@ __END__
 
 =head1 EXAMPLE2
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Data;
 
  # Indent::Data object.
@@ -210,11 +203,9 @@ __END__
 
 =head1 EXAMPLE3
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use Indent::Data;
 
  # Indent::Data object.
