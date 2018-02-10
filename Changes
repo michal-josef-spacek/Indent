@@ -7,6 +7,7 @@
  - Improve SEE ALSO section in doc.
  - Move author tests to xt/ directory.
  - Update Module::Install to 1.19 version.
+ - Update author name.
  - Update copyright years.
  - Update examples.
 
