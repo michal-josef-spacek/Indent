@@ -256,7 +256,7 @@ Class for word indenting.
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/Indent>
+L<https://github.com/michal-josef-spacek/Indent>
 
 =head1 AUTHOR
 

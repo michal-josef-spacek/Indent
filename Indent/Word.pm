@@ -304,7 +304,7 @@ line wrapping to form simple paragraphs
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/Indent>
+L<https://github.com/michal-josef-spacek/Indent>
 
 =head1 AUTHOR
 
