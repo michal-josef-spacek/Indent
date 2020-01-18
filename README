@@ -6,8 +6,8 @@ CLASSES
     Indent::Block - Class for block indenting.
     Indent::Data - Class for data indenting.
     Indent::String - Class for text indenting.
-    Indent::Word - Class for word indenting.
     Indent::Utils - Utilities for Indent classes.
+    Indent::Word - Class for word indenting.
 
 EXAMPLES
     See man pages of each class or module.
