@@ -116,16 +116,19 @@ __END__
 
  use Indent::String;
 
- my $indent = Indent::String->new(%parameters);
- $indent->indent('text text text');
+ my $obj = Indent::String->new(%parameters);
+ my $string = $obj->indent('text text text');
+ my @data = $obj->indent('text text text');
 
 =head1 METHODS
 
-=over 8
+=head2 C<new>
 
-=item C<new(%parameters)>
+ my $obj = Indent::String->new(%parameters);
 
- Constructor.
+Constructor.
+
+Returns instance of object.
 
 =over 8
 
@@ -146,13 +149,20 @@ __END__
 
 =back
 
-=item C<indent($data, [$indent, $non_indent])>
+=head2 C<indent>
 
- Indent text by words to line_size block size.
- $act_indent - Actual indent string. Will be in each output string.
- $non_indent - Is flag for non indenting. Default is 0.
+ my $string = $obj->indent('text text text');
 
-=back
+or
+
+ my @data = $obj->indent('text text text');
+
+Indent text by words to line_size block size.
+
+ C<$act_indent> - Actual indent string. Will be in each output string.
+ C<$non_indent> - Is flag for non indenting. Default is 0.
+
+Returns string or array of data to print.
 
 =head1 ERRORS
 

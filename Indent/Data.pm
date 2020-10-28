@@ -102,16 +102,19 @@ __END__
 
  use Indent::Data;
 
- my $indent_data = Indent::Data->new(%parameters);
- my @data = $indent_data->indent($data, [$indent, $non_indent]);
+ my $obj = Indent::Data->new(%parameters);
+ my $string = $obj->indent($data, [$indent, $non_indent]);
+ my @data = $obj->indent($data, [$indent, $non_indent]);
 
 =head1 METHODS
 
-=over 8
+=head2 C<new>
 
-=item C<new(%parameters)>
+ my $obj = Indent::Data->new(%parameters);
 
- Constructor.
+Constructor.
+
+Returns instance of object.
 
 =over 8
 
@@ -132,14 +135,20 @@ __END__
 
 =back
 
-=item C<indent($data, [$act_indent, $non_indent])>
+=head2 C<indent>
 
- Indent text data to line_size block size.
- $act_indent - Actual indent string. Will be in each output string.
- Length of $act_indent variable must be less then ('line_size' - length of 'next_indent' - 1).
- $non_indent - Is flag for non indenting. Default is 0.
+ my $string = $obj->indent($data, [$indent, $non_indent]);
 
-=back
+or
+
+ my @data = $obj->indent($data, [$indent, $non_indent]);
+
+Indent text data to line_size block size.
+C<$act_indent> - Actual indent string. Will be in each output string.
+Length of C<$act_indent> variable must be less then ('line_size' - length of 'next_indent' - 1).
+C<$non_indent> - Is flag for non indenting. Default is 0.
+
+Returns string or array of data to print.
 
 =head1 ERRORS
 

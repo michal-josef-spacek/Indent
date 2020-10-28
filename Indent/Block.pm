@@ -157,16 +157,19 @@ __END__
 
  use Indent::Block;
 
- my $i = Indent::Block->new(%parameters);
- print $i->indent($data, [$act_indent, $non_indent]);
+ my $obj = Indent::Block->new(%parameters);
+ my $string = $obj->indent($data, [$act_indent, $non_indent]);
+ my @data = $obj->indent($data, [$act_indent, $non_indent]);
 
 =head1 METHODS
 
-=over 8
+=head2 C<new>
 
-=item C<new(%parameters)>
+ my $obj = Indent::Block->new(%parameters);
 
- Constructor.
+Constructor.
+
+Returns instance of object.
 
 =over 8
 
@@ -193,14 +196,21 @@ __END__
 
 =back
 
-=item C<indent($data_ar, [$act_indent, $non_indent])>
+=head2 C<indent>
 
- Indent method.
- - $data_ar - Reference to array with strings to indent.
- - $act_indent - String to actual indent.
- - $non_indent - Flag, that says 'no-indent' for current time.
+ my $string = $obj->indent($data, [$act_indent, $non_indent]);
 
-=back
+or
+
+ my @data = $obj->indent($data, [$act_indent, $non_indent]);
+
+Indent method.
+
+ - C<$data_ar> - Reference to array with strings to indent.
+ - C<$act_indent> - String to actual indent.
+ - C<$non_indent> - Flag, that says 'no-indent' for current time.
+
+Returns string to print or array of data to print.
 
 =head1 ERRORS
 

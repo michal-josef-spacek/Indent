@@ -2,6 +2,7 @@
  [Common]
  - Improve LICENSE AND COPYRIGHT sections in doc.
  - Improve SYNOPSIS sections in doc.
+ - Rewrite to METHODs and SUBROUTINEs in doc to use =head2.
  - Update .travis.yml to reality.
  - Update author github username to reality.
  - Update copyright years.

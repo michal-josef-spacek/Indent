@@ -110,12 +110,13 @@ Indent - Class for indent handling.
 
 =head1 METHODS
 
-=over 8
+=head2 C<new>
 
-=item C<new($option =E<gt> $value)>
+ my $indent = Indent->new(%parameters);
 
-This is a class method, the constructor for Indent. Options are passed
-as keyword value pairs. Recognized options are:
+Constructor.
+
+Returns instance of object.
 
 =over 8
 
@@ -132,25 +133,38 @@ as keyword value pairs. Recognized options are:
 
 =back
 
-=item C<add([$cur_indent])>
+=head2 C<add>
 
- Method for adding $cur_indent, if defined, or 'next_indent'.
+ $indent->add([$cur_indent]);
 
-=item C<get()>
+Method for adding C<$cur_indent>, if defined, or 'next_indent'.
 
- Get actual indent string.
- Returns string.
+Returns undef.
 
-=item C<remove([$cur_indent])>
+=head2 C<get>
 
- Method for removing $cur_indent, if defined, or 'next_indent'. Only if
- is removable.
+ my $string = $indent->get;
 
-=item C<reset([$reset_value])>
+Get actual indent string.
 
- Resets internal indent string to $reset_value or ''.
+Returns string.
 
-=back
+=head2 C<remove>
+
+ $indent->remove([$cur_indent]);
+
+Method for removing C<$cur_indent>, if defined, or 'next_indent'. Only if
+is removable.
+
+Returns undef.
+
+=head2 C<reset>
+
+ $indent->reset([$reset_value]);
+
+Resets internal indent string to C<$reset_value> or ''.
+
+Returns undef.
 
 =head1 ERRORS
 
