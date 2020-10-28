@@ -101,6 +101,7 @@ Indent - Class for indent handling.
 =head1 SYNOPSIS
 
  use Indent;
+
  my $indent = Indent->new(%parameters);
  $indent->add([$cur_indent]);
  my $string = $indent->get;

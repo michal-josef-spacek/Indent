@@ -168,6 +168,7 @@ __END__
 =head1 SYNOPSIS
 
  use Indent::Word;
+
  my $indent = Indent::Word->new(%parameters);
  $indent->indent('text text text');
 

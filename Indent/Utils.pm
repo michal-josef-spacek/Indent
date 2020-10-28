@@ -93,6 +93,7 @@ __END__
 
  use Indent::Utils qw(line_size_check reduce_duplicit_ws remove_first_ws
          remove_last_ws remove_ws string_len);
+
  line_size_check($object_with_line_size_parameter);
  reduce_duplicit_ws(\$string);
  remove_first_ws(\$string);

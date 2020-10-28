@@ -101,6 +101,7 @@ __END__
 =head1 SYNOPSIS
 
  use Indent::Data;
+
  my $indent_data = Indent::Data->new(%parameters);
  my @data = $indent_data->indent($data, [$indent, $non_indent]);
 

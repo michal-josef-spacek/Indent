@@ -1,5 +1,6 @@
 0.06
  [Common]
+ - Improve SYNOPSIS sections in doc.
  - Update .travis.yml to reality.
  - Update author github username to reality.
  - Update copyright years.

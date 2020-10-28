@@ -115,6 +115,7 @@ __END__
 =head1 SYNOPSIS
 
  use Indent::String;
+
  my $indent = Indent::String->new(%parameters);
  $indent->indent('text text text');
 

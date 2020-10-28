@@ -156,6 +156,7 @@ __END__
 =head1 SYNOPSIS
 
  use Indent::Block;
+
  my $i = Indent::Block->new(%parameters);
  print $i->indent($data, [$act_indent, $non_indent]);
 
