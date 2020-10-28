@@ -1,5 +1,6 @@
 0.06
  [Common]
+ - Change bugtracker to github.
  - Improve LICENSE AND COPYRIGHT sections in doc.
  - Improve SYNOPSIS sections in doc.
  - Rewrite to METHODs and SUBROUTINEs in doc to use =head2.
