@@ -13,7 +13,7 @@ use Readonly;
 Readonly::Scalar my $EMPTY_STR => q{};
 Readonly::Scalar my $LINE_SIZE => 79;
 
-our $VERSION = 0.07;
+our $VERSION = 0.08;
 
 # Constructor.
 sub new {
@@ -331,6 +331,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.07
+0.08
 
 =cut
