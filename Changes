@@ -1,4 +1,6 @@
 0.08
+ [Indent::Word]
+ - Add support for NO_COLOR and COLOR env variables.
 
 0.07 2020-10-30T14:09:06+01:00
  [Common]
