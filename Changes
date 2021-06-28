@@ -1,4 +1,7 @@
 0.08
+ [Common]
+ - Update copyright years.
+
  [Indent::Word]
  - Add support for NO_COLOR and COLOR env variables.
 
