@@ -3,9 +3,10 @@ use warnings;
 
 use Indent::Word;
 use Term::ANSIColor;
-use Test::More 'tests' => 12;
+use Test::More 'tests' => 14;
 use Test::NoWarnings;
 use Text::ANSI::Util qw(ta_strip);
+use Unicode::UTF8 qw(decode_utf8);
 
 # Test.
 my $obj = Indent::Word->new(
@@ -68,6 +69,23 @@ is_deeply(
 		'<-> text',
 	],
 	'Test for short string #2.',
+);
+
+# Test.
+$obj = Indent::Word->new(
+	'ansi' => 1,
+	'line_size' => '5',
+	'next_indent' => ' ',
+);
+my $input_text = decode_utf8('švec švec');
+@ret = $obj->indent($input_text, '<->');
+is_deeply(
+	\@ret,
+	[
+		decode_utf8('<->švec'),
+		decode_utf8('<-> švec'),
+	],
+	'Test for short string #3.',
 );
 
 # Test.
@@ -168,4 +186,21 @@ is_deeply(
 		'<-> text',
 	],
 	'Test for short string #2 (ansi).',
+);
+
+# Test.
+$obj = Indent::Word->new(
+	'ansi' => 1,
+	'line_size' => '5',
+	'next_indent' => ' ',
+);
+$input_text = decode_utf8('švec švec');
+@ret = $obj->indent($input_text, '<->');
+is_deeply(
+	\@ret,
+	[
+		decode_utf8('<->švec'),
+		decode_utf8('<-> švec'),
+	],
+	'Test for short string #3 (ansi).',
 );

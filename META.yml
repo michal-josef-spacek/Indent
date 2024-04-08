@@ -9,6 +9,7 @@ build_requires:
   Test::More: 0
   Test::NoWarnings: 0
   Text::ANSI::Util: 0
+  Unicode::UTF8: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.36
 distribution_type: module

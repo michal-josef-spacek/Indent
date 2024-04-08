@@ -5,6 +5,7 @@
 
  [Indent::Word]
  - Add explicit 'ansi' parameter to tests. To reproducible tests.
+ - Add tests with UTF8 input.
  - Fix warning in 'ansi' mode in situation when the length of the
    non-breaking string is greater than indent length. Add test.
 
