@@ -3,7 +3,7 @@ use warnings;
 
 use Indent::Word;
 use Term::ANSIColor;
-use Test::More 'tests' => 11;
+use Test::More 'tests' => 12;
 use Test::NoWarnings;
 use Text::ANSI::Util qw(ta_strip);
 
@@ -152,4 +152,20 @@ is_deeply(
 		'---  z',
 	],
 	'Test for indenting per 20 char on line.',
+);
+
+# Test.
+$obj = Indent::Word->new(
+	'ansi' => 1,
+	'line_size' => '5',
+	'next_indent' => ' ',
+);
+@ret = $obj->indent('text text', '<->');
+is_deeply(
+	\@ret,
+	[
+		'<->text',
+		'<-> text',
+	],
+	'Test for short string #2 (ansi).',
 );

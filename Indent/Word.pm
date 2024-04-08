@@ -146,17 +146,19 @@ sub _parse_to_indent_length {
 		# First part.
 		my ($first_wo_ansi) = $string_wo_ansi
 			=~ m/^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
-		push @ret, Text::ANSI::Util::ta_trunc($string, length $first_wo_ansi);
+		if (defined $first_wo_ansi) {
+			push @ret, Text::ANSI::Util::ta_trunc($string, length $first_wo_ansi);
 
-		# Second part. (Remove first part + whitespace from string.)
-		my $other_string_wo_ansi = Text::ANSI::Util::ta_strip(
-			Text::ANSI::Util::ta_substr($string, length $first_wo_ansi,
-				Text::ANSI::Util::ta_length($string))
-		);
-		$other_string_wo_ansi =~ m/^(\s*)/ms;
-		my $count_of_spaces = length $1;
-		push @ret, Text::ANSI::Util::ta_substr($string, 0, (length $first_wo_ansi)
-			+ $count_of_spaces, '');
+			# Second part. (Remove first part + whitespace from string.)
+			my $other_string_wo_ansi = Text::ANSI::Util::ta_strip(
+				Text::ANSI::Util::ta_substr($string, length $first_wo_ansi,
+					Text::ANSI::Util::ta_length($string))
+			);
+			$other_string_wo_ansi =~ m/^(\s*)/ms;
+			my $count_of_spaces = length $1;
+			push @ret, Text::ANSI::Util::ta_substr($string, 0, (length $first_wo_ansi)
+				+ $count_of_spaces, '');
+		}
 	} else {
 		@ret = $string =~ m/^(.{0,$self->{'line_size'}})\s+(.*)$/msx;
 	}
