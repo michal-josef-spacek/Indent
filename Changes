@@ -1,4 +1,6 @@
 0.09
+ [Indent::Word]
+ - Add explicit 'ansi' parameter to tests. To reproducible tests.
 
 0.08 2021-06-28T14:44:11+02:00
  [Common]

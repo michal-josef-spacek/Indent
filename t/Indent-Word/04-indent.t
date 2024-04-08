@@ -9,6 +9,7 @@ use Text::ANSI::Util qw(ta_strip);
 
 # Test.
 my $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => '  ',
 	'line_size' => '20',
 );
@@ -42,6 +43,7 @@ is($ret, '---abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdef'.
 
 # Test.
 $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => '',
 	'line_size' => '5',
 );
@@ -54,6 +56,7 @@ is(
 
 # Test.
 $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => ' ',
 	'line_size' => '5',
 );
@@ -70,6 +73,7 @@ is_deeply(
 # Test.
 my $next_indent = '  ';
 $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => $next_indent,
 	'line_size' => 0,
 );
@@ -82,6 +86,7 @@ is(
 
 # Test.
 $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => '',
 	'line_size' => 2,
 );
@@ -96,6 +101,7 @@ is_deeply(
 
 # Test
 $obj = Indent::Word->new(
+	'ansi' => 0,
 	'next_indent' => '',
 	'line_size' => 1,
 );
