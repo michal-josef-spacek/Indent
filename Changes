@@ -1,6 +1,7 @@
 0.09
  [Common]
  - Update Module::Install to 1.21 version.
+ - Update copyright years.
 
  [Indent::Word]
  - Add explicit 'ansi' parameter to tests. To reproducible tests.
