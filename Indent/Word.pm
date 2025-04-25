@@ -254,6 +254,8 @@ See L<https://no-color.org/>.
 
 =head1 EXAMPLE1
 
+=for comment filename=indent_word.pl
+
  use strict;
  use warnings;
 
@@ -272,6 +274,8 @@ See L<https://no-color.org/>.
  # <--tab->text text text
 
 =head1 EXAMPLE2
+
+=for comment filename=indent_word_ansi.pl
 
  use strict;
  use warnings;

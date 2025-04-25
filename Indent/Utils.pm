@@ -157,6 +157,8 @@ Gets length of string.
 
 =head1 EXAMPLE1
 
+=for comment filename=reduce_duplicit_ws.pl
+
  use strict;
  use warnings;
 
@@ -170,6 +172,8 @@ Gets length of string.
  # a b|
 
 =head1 EXAMPLE2
+
+=for comment filename=remove_first_ws.pl
 
  use strict;
  use warnings;
@@ -185,6 +189,8 @@ Gets length of string.
 
 =head1 EXAMPLE3
 
+=for comment filename=remove_last_ws.pl
+
  use strict;
  use warnings;
 
@@ -199,6 +205,8 @@ Gets length of string.
 
 =head1 EXAMPLE4
 
+=for comment filename=remove_ws.pl
+
  use strict;
  use warnings;
 
@@ -212,6 +220,8 @@ Gets length of string.
  # a|
 
 =head1 EXAMPLE5
+
+=for comment filename=string_len.pl
 
  use strict;
  use warnings;

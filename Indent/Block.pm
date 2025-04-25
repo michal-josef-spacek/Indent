@@ -223,6 +223,8 @@ Returns string to print or array of data to print.
 
 =head1 EXAMPLE
 
+=for comment filename=indent_block.pl
+
  use strict;
  use warnings;
 
