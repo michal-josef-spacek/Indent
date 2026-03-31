@@ -1,4 +1,7 @@
 0.10
+ [Indent::Word]
+ - Add whitespace normalization.
+
  [Common]
  - Rename example files to better names.
  - Update copyright years.

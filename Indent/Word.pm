@@ -74,6 +74,13 @@ sub indent {
 		return $indent.$data;
 	}
 
+	# Normalize whitespace: collapse all whitespace (including newlines) to single spaces.
+	$data =~ s/\s+/ /g;
+
+	# Remove leading and trailing whitespace.
+	$data =~ s/^\s+//;
+	$data =~ s/\s+$//;
+
 	my ($first, $second) = (undef, $indent.$data);
 	my $last_second_length = 0;
 	my @data;

@@ -20,5 +20,4 @@ Indent::Word
 ------------
 Input is string.
 Indent with words.
-- Don't remove any white space
-TODO: Why remove one space character?
+Remove all trailing white characters.
