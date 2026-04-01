@@ -6,4 +6,4 @@ use Test::More 'tests' => 2;
 use Test::NoWarnings;
 
 # Test.
-is($Indent::String::VERSION, 0.11, 'Version.');
+is($Indent::String::VERSION, 0.12, 'Version.');
