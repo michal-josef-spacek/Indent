@@ -24,7 +24,8 @@ TODO
     Je v perl/MODULES/Text-Wrap/ex4.pl
 54. V Indent::Word je Text::ANSI::Util, ktere je obsolete. Nahradit.
 Text::ANSI::WideUtil?
-55.
+55. Tests for Indent::String.
+56.
 
 Applied
 =======
